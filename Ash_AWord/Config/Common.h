@@ -63,7 +63,7 @@
 #define kQQAppId @"1104070329"
 #define kQQAppSecret @"Lkk4P8GrTkcliKZo"
 
-#define kUmengAppkey @"54abd4a4fd98c51d33000807"
+#define kUmengAppkey @"551958aafd98c5cc010006d8"
 
 
 #endif

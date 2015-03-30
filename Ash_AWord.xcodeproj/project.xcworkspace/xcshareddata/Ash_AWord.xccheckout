@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DDA4EC0F-D8F1-4B46-A5D2-699EFFA359B4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Ash_AWord</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</key>
+		<string>https://github.com/wu736139669/Ash_AWord.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Ash_AWord.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/wu736139669/Ash_AWord.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Ash_AWord</string>
+		</dict>
+	</array>
+</dict>
+</plist>

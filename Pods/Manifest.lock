@@ -1,0 +1,75 @@
+PODS:
+  - AFNetworking (2.5.2):
+    - AFNetworking/NSURLConnection (= 2.5.2)
+    - AFNetworking/NSURLSession (= 2.5.2)
+    - AFNetworking/Reachability (= 2.5.2)
+    - AFNetworking/Security (= 2.5.2)
+    - AFNetworking/Serialization (= 2.5.2)
+    - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking/NSURLConnection (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.2)
+  - AFNetworking/Security (2.5.2)
+  - AFNetworking/Serialization (2.5.2)
+  - AFNetworking/UIKit (2.5.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - DTCoreText (1.6.15):
+    - DTFoundation/Core (~> 1.7.5)
+    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
+    - DTFoundation/DTHTMLParser (~> 1.7.5)
+    - DTFoundation/UIKit (~> 1.7.5)
+  - DTFoundation/Core (1.7.5)
+  - DTFoundation/DTAnimatedGIF (1.7.5)
+  - DTFoundation/DTHTMLParser (1.7.5):
+    - DTFoundation/Core
+  - DTFoundation/UIKit (1.7.5):
+    - DTFoundation/Core
+  - EGOCache (2.1.2)
+  - Godzippa (1.1.0)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
+  - MBProgressHUD (0.9.1)
+  - Reachability (3.2)
+  - SBJson (4.0.1)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+  - SecureUDID (1.1)
+  - STableViewController (0.0.1)
+
+DEPENDENCIES:
+  - AFNetworking
+  - DTCoreText
+  - EGOCache
+  - Godzippa
+  - Mantle
+  - MBProgressHUD
+  - Reachability
+  - SBJson
+  - SDWebImage
+  - SecureUDID
+  - STableViewController
+
+SPEC CHECKSUMS:
+  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  DTCoreText: 13ce06e63204a3b47c9db974e3d9be982bb0b1ed
+  DTFoundation: 1d28080c20c3da041706545363f8238ab53a6204
+  EGOCache: e7bdb2bf15a2ad23bf6c67c664c9fc3694652482
+  Godzippa: 21621e8ddc2f1521db473a72b48148c3f0e79d76
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SBJson: 68f16f446bd6047dc3dd1ec4919a468c2cd7fedd
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SecureUDID: 82a9df1f3baa7a0964600ac93a81273121775b17
+  STableViewController: f6900013fc3455973c51992fe248f62c45b20a9a
+
+COCOAPODS: 0.36.1

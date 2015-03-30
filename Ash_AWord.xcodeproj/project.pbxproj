@@ -40,6 +40,7 @@
 		A97C55171AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A97C550D1AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle */; };
 		A97C55181AC934750038818A /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C55101AC934750038818A /* libSocialWechat.a */; };
 		A97C55191AC934750038818A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C55111AC934750038818A /* libWeChatSDK.a */; };
+		A9B4E39F1AC9908E00A1DBDF /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */; };
 		A9FAD4221AC922A5007ADC10 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAD4201AC922A5007ADC10 /* MainViewController.m */; };
 		A9FAD4231AC922A5007ADC10 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FAD4211AC922A5007ADC10 /* MainViewController.xib */; };
 		A9FAD4271AC922BE007ADC10 /* NoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAD4251AC922BE007ADC10 /* NoteViewController.m */; };
@@ -128,6 +129,9 @@
 		A97C55121AC934750038818A /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		A97C55131AC934750038818A /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		A97C55141AC934750038818A /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		A9B4E39D1AC9908E00A1DBDF /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		A9B4E39E1AC9908E00A1DBDF /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		A9FAD41F1AC922A5007ADC10 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A9FAD4201AC922A5007ADC10 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A9FAD4211AC922A5007ADC10 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				A97C55191AC934750038818A /* libWeChatSDK.a in Frameworks */,
 				A97C55161AC934750038818A /* TencentOpenAPI.framework in Frameworks */,
 				018BA697D81ADF73A75A2345 /* libPods.a in Frameworks */,
+				A9B4E39F1AC9908E00A1DBDF /* libMobClickLibrary.a in Frameworks */,
 				A97C54FF1AC933AD0038818A /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +317,7 @@
 		A97C54D91AC9014D0038818A /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A9B4E39B1AC9908E00A1DBDF /* UMAnalytics_Sdk_3.4.6 */,
 				A97C55091AC934750038818A /* UMSocial_Sdk_Extra_Frameworks */,
 				A97C54E31AC933AD0038818A /* UMSocial_Sdk_4.2.1 */,
 				A97C54DA1AC901970038818A /* MBProgressHUD */,
@@ -419,6 +425,16 @@
 				A97C55141AC934750038818A /* WXApiObject.h */,
 			);
 			path = Wechat;
+			sourceTree = "<group>";
+		};
+		A9B4E39B1AC9908E00A1DBDF /* UMAnalytics_Sdk_3.4.6 */ = {
+			isa = PBXGroup;
+			children = (
+				A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */,
+				A9B4E39D1AC9908E00A1DBDF /* MobClick.h */,
+				A9B4E39E1AC9908E00A1DBDF /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.4.6;
 			sourceTree = "<group>";
 		};
 		A9FAD41E1AC92293007ADC10 /* Main */ = {
@@ -769,6 +785,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_4.2.1",
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/Ash_AWord/Vender/UMAnalytics_Sdk_3.4.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -792,6 +809,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_4.2.1",
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_Extra_Frameworks/Wechat",
+					"$(PROJECT_DIR)/Ash_AWord/Vender/UMAnalytics_Sdk_3.4.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
