@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "UMSocial.h"
 @interface AppDelegate ()
 
 @end
@@ -42,4 +42,25 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark methods
+-(void)setUmeng
+{
+//    [WXApi registerApp:kWXAppId];
+    [UMSocialData setAppKey:kUmengAppkey];
+    [UMSocialWechatHandler setWXAppId:kWXAppId appSecret:kWXAppSecret url:@"http://www.xiaoyu.com"];
+    [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppSecret url:@"http://www.xiaoyu.com"];
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    [UMFeedback setAppkey:kUmengAppkey];
+    [UMOpus setAudioEnable:YES];
+    
+    [MobClick startWithAppkey:kUmengAppkey reportPolicy:REALTIME channelId:@"App Store"];
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+#ifdef DEBUG
+    //    [MobClick setLogEnabled:YES];
+    [UMSocialData openLog:YES];
+#endif
+
+}
 @end

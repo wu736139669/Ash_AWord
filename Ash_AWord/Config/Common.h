@@ -49,6 +49,21 @@
  *    接口地址
  */
 
-#define Ash_AWord_API_URL @"mobi.yingyinglicai.com:8443/front"
+#define Ash_AWord_API_URL @"http://121.43.150.13/QuestionServer"
+
+/**
+ * 微信开放平台信息
+ */
+#define kWXAppId @"wx8fbd37e4da758bbd"
+#define kWXAppSecret @"de1415014dd1437d187042326bd5888e"
+
+/**
+ * QQ开放平台信息
+ */
+#define kQQAppId @"1104070329"
+#define kQQAppSecret @"Lkk4P8GrTkcliKZo"
+
+#define kUmengAppkey @"54abd4a4fd98c51d33000807"
+
 
 #endif

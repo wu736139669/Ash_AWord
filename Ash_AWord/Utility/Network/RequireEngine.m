@@ -50,20 +50,6 @@
                                         parameters:[proper url] ? [proper encodePro] : [proper pro]
                                            success:^(AFHTTPRequestOperation * __unused task, id json) {
                                                DLog(@"%@", json);
-                                               
-                                               //______________________________________
-                                                #warning just 4 testing .... delete when release
-                                               NSURL *_localResourceFileURL = [[NSBundle mainBundle] URLForResource:proper.localJsonFileName ? proper.localJsonFileName : @"a" withExtension:@"json"];
-                                               NSData *data = [NSData dataWithContentsOfURL:_localResourceFileURL];
-                                               
-                                               if (data) {
-                                                   json = [NSJSONSerialization JSONObjectWithData:data
-                                                                                             options:kNilOptions
-                                                                                               error:NULL];
-                                               }
-                                               
-                                               DLog(@"%@", json);
-                                               //______________________________________
 
                                                if(json)
                                                {
