@@ -37,6 +37,7 @@ PODS:
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
   - MBProgressHUD (0.9.1)
+  - MJRefresh (1.4.1)
   - Reachability (3.2)
   - SBJson (4.0.1)
   - SDWebImage (3.7.2):
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - Godzippa
   - Mantle
   - MBProgressHUD
+  - MJRefresh
   - Reachability
   - SBJson
   - SDWebImage
@@ -66,6 +68,7 @@ SPEC CHECKSUMS:
   Godzippa: 21621e8ddc2f1521db473a72b48148c3f0e79d76
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  MJRefresh: 6a0fd4c81a957803bd99bbbf55a956d1d6f41263
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: 68f16f446bd6047dc3dd1ec4919a468c2cd7fedd
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
