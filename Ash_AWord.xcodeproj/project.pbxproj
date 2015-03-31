@@ -14,7 +14,6 @@
 		A955109B1AC39E6A0006D16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95510991AC39E6A0006D16F /* Main.storyboard */; };
 		A955109D1AC39E6A0006D16F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A955109C1AC39E6A0006D16F /* Images.xcassets */; };
 		A95510A01AC39E6A0006D16F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A955109E1AC39E6A0006D16F /* LaunchScreen.xib */; };
-		A95510AC1AC39E6A0006D16F /* Ash_AWordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A95510AB1AC39E6A0006D16F /* Ash_AWordTests.m */; };
 		A97C54CD1AC8F10F0038818A /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54BD1AC8F10F0038818A /* BaseViewModel.m */; };
 		A97C54CF1AC8F10F0038818A /* NSString+HXAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C11AC8F10F0038818A /* NSString+HXAddtions.m */; };
 		A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C31AC8F10F0038818A /* PropertyEntity.m */; };
@@ -35,11 +34,6 @@
 		A97C55061AC933AD0038818A /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97C54FA1AC933AD0038818A /* UMSnsAccountViewController.xib */; };
 		A97C55071AC933AD0038818A /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97C54FB1AC933AD0038818A /* UMSShareListController.xib */; };
 		A97C55081AC933AD0038818A /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A97C54FC1AC933AD0038818A /* UMSocialSDKResourcesNew.bundle */; };
-		A97C55151AC934750038818A /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C550B1AC934750038818A /* libSocialQQ.a */; };
-		A97C55161AC934750038818A /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C550C1AC934750038818A /* TencentOpenAPI.framework */; };
-		A97C55171AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A97C550D1AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle */; };
-		A97C55181AC934750038818A /* libSocialWechat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C55101AC934750038818A /* libSocialWechat.a */; };
-		A97C55191AC934750038818A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97C55111AC934750038818A /* libWeChatSDK.a */; };
 		A9B4E39F1AC9908E00A1DBDF /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */; };
 		A9FAD4221AC922A5007ADC10 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAD4201AC922A5007ADC10 /* MainViewController.m */; };
 		A9FAD4231AC922A5007ADC10 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FAD4211AC922A5007ADC10 /* MainViewController.xib */; };
@@ -51,16 +45,6 @@
 		A9FAD4321AC923FC007ADC10 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FAD4301AC923FC007ADC10 /* MyViewController.xib */; };
 		A9FAD4351AC925AC007ADC10 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAD4341AC925AC007ADC10 /* LoginViewModel.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A95510A61AC39E6A0006D16F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A95510841AC39E6A0006D16F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A955108B1AC39E6A0006D16F;
-			remoteInfo = Ash_AWord;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		93C9ED3E7E1041224C33AED5 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,7 +58,6 @@
 		A955109A1AC39E6A0006D16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A955109C1AC39E6A0006D16F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A955109F1AC39E6A0006D16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		A95510A51AC39E6A0006D16F /* Ash_AWordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Ash_AWordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95510AA1AC39E6A0006D16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A95510AB1AC39E6A0006D16F /* Ash_AWordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ash_AWordTests.m; sourceTree = "<group>"; };
 		A97C54BC1AC8F10F0038818A /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
@@ -120,15 +103,6 @@
 		A97C54FB1AC933AD0038818A /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
 		A97C54FC1AC933AD0038818A /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		A97C54FD1AC933AD0038818A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
-		A97C550B1AC934750038818A /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
-		A97C550C1AC934750038818A /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
-		A97C550D1AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TencentOpenApi_IOS_Bundle.bundle; sourceTree = "<group>"; };
-		A97C550E1AC934750038818A /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
-		A97C55101AC934750038818A /* libSocialWechat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWechat.a; sourceTree = "<group>"; };
-		A97C55111AC934750038818A /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		A97C55121AC934750038818A /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
-		A97C55131AC934750038818A /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		A97C55141AC934750038818A /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		A9B4E39D1AC9908E00A1DBDF /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		A9B4E39E1AC9908E00A1DBDF /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -155,20 +129,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A97C55151AC934750038818A /* libSocialQQ.a in Frameworks */,
-				A97C55181AC934750038818A /* libSocialWechat.a in Frameworks */,
-				A97C55191AC934750038818A /* libWeChatSDK.a in Frameworks */,
-				A97C55161AC934750038818A /* TencentOpenAPI.framework in Frameworks */,
 				018BA697D81ADF73A75A2345 /* libPods.a in Frameworks */,
 				A9B4E39F1AC9908E00A1DBDF /* libMobClickLibrary.a in Frameworks */,
 				A97C54FF1AC933AD0038818A /* libUMSocial_Sdk_4.2.1.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A95510A21AC39E6A0006D16F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				A955108C1AC39E6A0006D16F /* Ash_AWord.app */,
-				A95510A51AC39E6A0006D16F /* Ash_AWordTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				A9B4E39B1AC9908E00A1DBDF /* UMAnalytics_Sdk_3.4.6 */,
-				A97C55091AC934750038818A /* UMSocial_Sdk_Extra_Frameworks */,
 				A97C54E31AC933AD0038818A /* UMSocial_Sdk_4.2.1 */,
 				A97C54DA1AC901970038818A /* MBProgressHUD */,
 			);
@@ -395,38 +356,6 @@
 			path = SocialSDKXib;
 			sourceTree = "<group>";
 		};
-		A97C55091AC934750038818A /* UMSocial_Sdk_Extra_Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A97C550A1AC934750038818A /* TencentOpenAPI */,
-				A97C550F1AC934750038818A /* Wechat */,
-			);
-			path = UMSocial_Sdk_Extra_Frameworks;
-			sourceTree = "<group>";
-		};
-		A97C550A1AC934750038818A /* TencentOpenAPI */ = {
-			isa = PBXGroup;
-			children = (
-				A97C550B1AC934750038818A /* libSocialQQ.a */,
-				A97C550C1AC934750038818A /* TencentOpenAPI.framework */,
-				A97C550D1AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle */,
-				A97C550E1AC934750038818A /* UMSocialQQHandler.h */,
-			);
-			path = TencentOpenAPI;
-			sourceTree = "<group>";
-		};
-		A97C550F1AC934750038818A /* Wechat */ = {
-			isa = PBXGroup;
-			children = (
-				A97C55101AC934750038818A /* libSocialWechat.a */,
-				A97C55111AC934750038818A /* libWeChatSDK.a */,
-				A97C55121AC934750038818A /* UMSocialWechatHandler.h */,
-				A97C55131AC934750038818A /* WXApi.h */,
-				A97C55141AC934750038818A /* WXApiObject.h */,
-			);
-			path = Wechat;
-			sourceTree = "<group>";
-		};
 		A9B4E39B1AC9908E00A1DBDF /* UMAnalytics_Sdk_3.4.6 */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,24 +424,6 @@
 			productReference = A955108C1AC39E6A0006D16F /* Ash_AWord.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A95510A41AC39E6A0006D16F /* Ash_AWordTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A95510B21AC39E6A0006D16F /* Build configuration list for PBXNativeTarget "Ash_AWordTests" */;
-			buildPhases = (
-				A95510A11AC39E6A0006D16F /* Sources */,
-				A95510A21AC39E6A0006D16F /* Frameworks */,
-				A95510A31AC39E6A0006D16F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A95510A71AC39E6A0006D16F /* PBXTargetDependency */,
-			);
-			name = Ash_AWordTests;
-			productName = Ash_AWordTests;
-			productReference = A95510A51AC39E6A0006D16F /* Ash_AWordTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -524,10 +435,6 @@
 				TargetAttributes = {
 					A955108B1AC39E6A0006D16F = {
 						CreatedOnToolsVersion = 6.2;
-					};
-					A95510A41AC39E6A0006D16F = {
-						CreatedOnToolsVersion = 6.2;
-						TestTargetID = A955108B1AC39E6A0006D16F;
 					};
 				};
 			};
@@ -546,7 +453,6 @@
 			projectRoot = "";
 			targets = (
 				A955108B1AC39E6A0006D16F /* Ash_AWord */,
-				A95510A41AC39E6A0006D16F /* Ash_AWordTests */,
 			);
 		};
 /* End PBXProject section */
@@ -562,7 +468,6 @@
 				A97C55071AC933AD0038818A /* UMSShareListController.xib in Resources */,
 				A97C54FE1AC933AD0038818A /* UMSocialLocalizable.strings in Resources */,
 				A97C55041AC933AD0038818A /* UMShareEditViewControlleriPad.xib in Resources */,
-				A97C55171AC934750038818A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A95510A01AC39E6A0006D16F /* LaunchScreen.xib in Resources */,
 				A9FAD42D1AC923E2007ADC10 /* MessageViewController.xib in Resources */,
 				A955109D1AC39E6A0006D16F /* Images.xcassets in Resources */,
@@ -574,13 +479,6 @@
 				A97C55051AC933AD0038818A /* UMSLoginViewController.xib in Resources */,
 				A97C55081AC933AD0038818A /* UMSocialSDKResourcesNew.bundle in Resources */,
 				A97C55021AC933AD0038818A /* UMSCommentInputControlleriPad.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A95510A31AC39E6A0006D16F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,23 +542,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A95510A11AC39E6A0006D16F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A95510AC1AC39E6A0006D16F /* Ash_AWordTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A95510A71AC39E6A0006D16F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A955108B1AC39E6A0006D16F /* Ash_AWord */;
-			targetProxy = A95510A61AC39E6A0006D16F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A95510991AC39E6A0006D16F /* Main.storyboard */ = {
@@ -788,6 +670,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMAnalytics_Sdk_3.4.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
 		};
@@ -812,40 +695,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMAnalytics_Sdk_3.4.6",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		A95510B31AC39E6A0006D16F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Ash_AWordTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ash_AWord.app/Ash_AWord";
-			};
-			name = Debug;
-		};
-		A95510B41AC39E6A0006D16F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Ash_AWordTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Ash_AWord.app/Ash_AWord";
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Release;
 		};
@@ -866,15 +716,6 @@
 			buildConfigurations = (
 				A95510B01AC39E6A0006D16F /* Debug */,
 				A95510B11AC39E6A0006D16F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A95510B21AC39E6A0006D16F /* Build configuration list for PBXNativeTarget "Ash_AWordTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A95510B31AC39E6A0006D16F /* Debug */,
-				A95510B41AC39E6A0006D16F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
