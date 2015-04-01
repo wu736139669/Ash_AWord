@@ -10,4 +10,7 @@
 
 @interface LoginViewModel : BaseViewModel
 
+@property (nonatomic, strong) NSString* uId; //用户id。
+
++ (PropertyEntity *)requireLoginWithOpenId:(NSString*)openId withName:(NSString*)name withGender:(NSString*)gender withFigureUrl:(NSString*)figureUrl;
 @end

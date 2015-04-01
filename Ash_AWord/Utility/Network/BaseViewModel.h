@@ -11,7 +11,7 @@
 
 @interface BaseViewModel : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, readonly) NSNumber *errCode;
+@property (nonatomic, readonly) NSInteger errCode;
 @property (nonatomic, readonly) NSString *errMessage;
 
 - (BOOL)success;

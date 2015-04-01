@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
-@interface MyViewController : ViewController
+@interface MyViewController : ViewController<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

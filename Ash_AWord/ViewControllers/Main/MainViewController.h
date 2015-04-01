@@ -8,6 +8,6 @@
 
 #import "ViewController.h"
 
-@interface MainViewController : ViewController
+@interface MainViewController : UITabBarController
 
 @end

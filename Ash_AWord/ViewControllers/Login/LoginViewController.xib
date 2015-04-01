@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first-login-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-Mw-Lxc">
+                    <rect key="frame" x="128" y="100" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="8nE-KS-VCv"/>
+                        <constraint firstAttribute="height" constant="64" id="MeF-Ak-JwW"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5n-Fh-iLu">
+                    <rect key="frame" x="0.0" y="196" width="320" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="7tz-Ad-9eX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title=" QQ账号登录" image="first-login-qq.png">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itZ-sn-jaF">
+                    <rect key="frame" x="30" y="246" width="260" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="gvB-h3-6cR"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-jq-1FA">
+                    <rect key="frame" x="0.0" y="250" width="320" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="Gq2-tu-f83"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title=" 微信账号登录" image="first-login-sina.png">
+                        <color key="titleColor" red="0.85882352939999995" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07x-dP-nLy">
+                    <rect key="frame" x="15" y="8" width="31" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="r5N-8m-E5T"/>
+                        <constraint firstAttribute="width" constant="31" id="uMo-fo-8wf"/>
+                    </constraints>
+                    <state key="normal" image="camera-close-select.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="UkD-jq-1FA" secondAttribute="trailing" id="06F-tj-CVG"/>
+                <constraint firstAttribute="trailing" secondItem="itZ-sn-jaF" secondAttribute="trailing" constant="30" id="4Nc-Cv-K8q"/>
+                <constraint firstItem="MRU-Mw-Lxc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="GGZ-I3-i0J"/>
+                <constraint firstItem="07x-dP-nLy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Lfs-7l-4av"/>
+                <constraint firstItem="d5n-Fh-iLu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MSR-l1-iMs"/>
+                <constraint firstItem="d5n-Fh-iLu" firstAttribute="top" secondItem="MRU-Mw-Lxc" secondAttribute="bottom" constant="32" id="NSR-lT-IgV"/>
+                <constraint firstAttribute="centerX" secondItem="MRU-Mw-Lxc" secondAttribute="centerX" id="RbP-3H-0mQ"/>
+                <constraint firstItem="UkD-jq-1FA" firstAttribute="top" secondItem="itZ-sn-jaF" secondAttribute="bottom" constant="3" id="WTN-PU-MmF"/>
+                <constraint firstItem="itZ-sn-jaF" firstAttribute="top" secondItem="d5n-Fh-iLu" secondAttribute="bottom" constant="2" id="ZG8-bE-RNp"/>
+                <constraint firstItem="itZ-sn-jaF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="a6i-G7-yf6"/>
+                <constraint firstItem="UkD-jq-1FA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="l54-ha-fXW"/>
+                <constraint firstItem="07x-dP-nLy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="rlE-tw-9ZZ"/>
+                <constraint firstAttribute="trailing" secondItem="d5n-Fh-iLu" secondAttribute="trailing" id="yTx-cp-DRM"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="214" y="198"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera-close-select.png" width="31" height="31"/>
+        <image name="first-login-icon.png" width="152" height="152"/>
+        <image name="first-login-qq.png" width="24" height="24"/>
+        <image name="first-login-sina.png" width="22" height="22"/>
+    </resources>
+</document>

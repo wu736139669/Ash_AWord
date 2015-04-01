@@ -7,6 +7,9 @@
 //
 
 #import "MainViewController.h"
+#import "NoteViewController.h"
+#import "MessageViewController.h"
+#import "MyViewController.h"
 
 @interface MainViewController ()
 
@@ -19,6 +22,18 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        UINavigationController* _noteNav = [[UINavigationController alloc] initWithRootViewController:[[NoteViewController alloc] init]];
+        UINavigationController* _messageNav = [[UINavigationController alloc] initWithRootViewController:[[MessageViewController alloc] init]];
+        UINavigationController* _myNav = [[UINavigationController alloc] initWithRootViewController:[[MyViewController alloc] init]];
+        if (iOS7AndLater) {
+            [_noteNav setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"文字" image:[UIImage imageNamed:@"tabbarQuotation-dark"] selectedImage:[UIImage imageNamed:@"tabbarQuotationClick"]]];
+            
+            [_messageNav setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"声音" image:[UIImage imageNamed:@"tabbarVoice-dark"] selectedImage:[UIImage imageNamed:@"tabbarVoiceClick"]]];
+            
+            [_myNav setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tabbarSetup-dark"] selectedImage:[UIImage imageNamed:@"tabbarSetupClick"]]];
+        }
+        
+        self.viewControllers = @[_noteNav, _messageNav, _myNav];
     }
     return self;
 }
@@ -27,6 +42,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor clearColor]];
+    [[UITabBar appearance] setTintColor:[UIColor blackColor]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,7 +11,7 @@
 @implementation BaseViewModel
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"errCode": @"errCode",
+             @"errCode": @"ret",
              @"errMessage": @"errMessage",
              };
 }
@@ -27,12 +27,12 @@
 
 - (BOOL)success
 {
-    return ([self.errCode integerValue] == 0);
+    return (self.errCode == 0);
 }
 
 - (BOOL)needLogin
 {
-    return ([self.errCode integerValue] == 1001);
+    return (self.errCode == 1001);
 }
 
 @end

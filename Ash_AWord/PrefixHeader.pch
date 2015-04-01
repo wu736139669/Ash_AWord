@@ -25,6 +25,9 @@
     #import "Common.h"
     #import "MBProgressHUD+Util.h"
     #import "CommonUtil.h"
+    #import "Ash_UIUtil.h"
+    #import "PropertyEntity.h"
+    #import "RequireEngine.h"
 #endif
 
 #endif
