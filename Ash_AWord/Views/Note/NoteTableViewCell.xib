@@ -110,6 +110,12 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
+                        <rect key="frame" x="8" y="69" width="304" height="112"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="DAR-mT-RbS" secondAttribute="bottom" constant="-3" id="4TG-zs-Q0N"/>
@@ -119,6 +125,7 @@
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Dxu-6O-Q88"/>
                     <constraint firstAttribute="bottomMargin" secondItem="A54-Sv-7Vo" secondAttribute="bottom" constant="-3" id="GQb-si-pt6"/>
                     <constraint firstItem="Zq3-YP-dwB" firstAttribute="leading" secondItem="j8x-8X-1uX" secondAttribute="trailing" constant="8" id="Jr5-MH-iSW"/>
+                    <constraint firstItem="kWq-q0-MPl" firstAttribute="centerY" secondItem="p9l-PS-2tC" secondAttribute="centerY" id="Jwe-wJ-Fh7"/>
                     <constraint firstItem="A54-Sv-7Vo" firstAttribute="leading" secondItem="xeW-Yw-x4V" secondAttribute="trailing" constant="8" id="PDA-wH-xbu"/>
                     <constraint firstItem="j8x-8X-1uX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="PiZ-qa-B5O"/>
                     <constraint firstItem="2Rh-LI-LRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UIC-fn-AiY"/>
@@ -126,9 +133,12 @@
                     <constraint firstItem="DAR-mT-RbS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="XpE-yY-Jq9"/>
                     <constraint firstItem="Zq3-YP-dwB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Yz4-qJ-JUc"/>
                     <constraint firstItem="xeW-Yw-x4V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="YzT-Tf-o6a"/>
+                    <constraint firstItem="kWq-q0-MPl" firstAttribute="height" secondItem="p9l-PS-2tC" secondAttribute="height" id="Zgr-1g-SIR"/>
+                    <constraint firstItem="kWq-q0-MPl" firstAttribute="centerX" secondItem="p9l-PS-2tC" secondAttribute="centerX" id="b9R-Qn-j79"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="4" id="ble-e8-Va3"/>
                     <constraint firstItem="p9l-PS-2tC" firstAttribute="top" secondItem="2Rh-LI-LRT" secondAttribute="bottom" constant="8" id="dUD-nk-z5D"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fRB-tZ-fsb"/>
+                    <constraint firstItem="kWq-q0-MPl" firstAttribute="width" secondItem="p9l-PS-2tC" secondAttribute="width" id="g4i-cb-kjD"/>
                     <constraint firstItem="p9l-PS-2tC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hsb-xb-XRe"/>
                     <constraint firstAttribute="bottomMargin" secondItem="p9l-PS-2tC" secondAttribute="bottom" constant="30" id="hwb-4s-rTG"/>
                     <constraint firstItem="j8x-8X-1uX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="kHO-Ea-fBs"/>
@@ -147,6 +157,7 @@
                 <outlet property="contentImgView" destination="p9l-PS-2tC" id="gjB-iJ-KAX"/>
                 <outlet property="contentTextView" destination="2Rh-LI-LRT" id="w5j-ni-kam"/>
                 <outlet property="goodBtn" destination="xeW-Yw-x4V" id="0LE-Gu-6C1"/>
+                <outlet property="imageBtnClick" destination="kWq-q0-MPl" id="Gga-2K-Ksh"/>
                 <outlet property="shareBtn" destination="DAR-mT-RbS" id="fGW-sh-aV3"/>
                 <outlet property="timeLabel" destination="kO5-Uc-AhU" id="jky-Wu-oYB"/>
                 <outlet property="userName" destination="Zq3-YP-dwB" id="Ggo-yh-zdb"/>
