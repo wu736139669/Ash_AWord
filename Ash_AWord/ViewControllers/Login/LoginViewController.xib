@@ -93,7 +93,7 @@
     </objects>
     <resources>
         <image name="camera-close-select.png" width="31" height="31"/>
-        <image name="first-login-icon.png" width="152" height="152"/>
+        <image name="first-login-icon.png" width="114" height="114"/>
         <image name="first-login-qq.png" width="24" height="24"/>
         <image name="first-login-sina.png" width="22" height="22"/>
     </resources>

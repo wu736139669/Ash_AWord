@@ -58,7 +58,7 @@
     [button setBackgroundColor:[UIColor redColor]];
     button.layer.cornerRadius = 5.0;
     button.layer.masksToBounds = YES;
-    button.frame = CGRectMake(20, 25, kScreenWidth-40, 50);
+    button.frame = CGRectMake(20, 25, kScreenWidth-40, 40);
     [view addSubview:button];
     return view;
 }
@@ -67,7 +67,7 @@
     static NSString* cellIdentifier = @"cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     switch (indexPath.row) {
         case 0:

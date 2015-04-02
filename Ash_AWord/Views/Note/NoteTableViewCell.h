@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 
-@property (weak, nonatomic) IBOutlet UIButton *imageBtnClick;
+- (IBAction)imageBtnClick:(id)sender;
 
 
 - (IBAction)goodBtnClick:(id)sender;

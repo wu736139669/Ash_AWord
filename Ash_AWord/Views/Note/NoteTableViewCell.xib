@@ -89,7 +89,7 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-PS-2tC">
-                        <rect key="frame" x="8" y="69" width="304" height="112"/>
+                        <rect key="frame" x="8" y="61" width="304" height="120"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="       " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kO5-Uc-AhU">
                         <rect key="frame" x="112" y="12" width="200" height="21"/>
@@ -111,10 +111,13 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
-                        <rect key="frame" x="8" y="69" width="304" height="112"/>
+                        <rect key="frame" x="8" y="61" width="304" height="120"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="imageBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fbt-xq-94q"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -136,7 +139,7 @@
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="height" secondItem="p9l-PS-2tC" secondAttribute="height" id="Zgr-1g-SIR"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="centerX" secondItem="p9l-PS-2tC" secondAttribute="centerX" id="b9R-Qn-j79"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="4" id="ble-e8-Va3"/>
-                    <constraint firstItem="p9l-PS-2tC" firstAttribute="top" secondItem="2Rh-LI-LRT" secondAttribute="bottom" constant="8" id="dUD-nk-z5D"/>
+                    <constraint firstItem="p9l-PS-2tC" firstAttribute="top" secondItem="2Rh-LI-LRT" secondAttribute="bottom" id="dUD-nk-z5D"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fRB-tZ-fsb"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="width" secondItem="p9l-PS-2tC" secondAttribute="width" id="g4i-cb-kjD"/>
                     <constraint firstItem="p9l-PS-2tC" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hsb-xb-XRe"/>
@@ -157,7 +160,6 @@
                 <outlet property="contentImgView" destination="p9l-PS-2tC" id="gjB-iJ-KAX"/>
                 <outlet property="contentTextView" destination="2Rh-LI-LRT" id="w5j-ni-kam"/>
                 <outlet property="goodBtn" destination="xeW-Yw-x4V" id="0LE-Gu-6C1"/>
-                <outlet property="imageBtnClick" destination="kWq-q0-MPl" id="Gga-2K-Ksh"/>
                 <outlet property="shareBtn" destination="DAR-mT-RbS" id="fGW-sh-aV3"/>
                 <outlet property="timeLabel" destination="kO5-Uc-AhU" id="jky-Wu-oYB"/>
                 <outlet property="userName" destination="Zq3-YP-dwB" id="Ggo-yh-zdb"/>
