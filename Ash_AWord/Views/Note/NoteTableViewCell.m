@@ -64,11 +64,13 @@
     UIFont *font = [UIFont appFontOfSize:14.0];
     CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     
+    
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     
     CGSize imageSize = [Ash_UIUtil downloadImageSizeWithURL:text_image.imageUrl];
     CGFloat imageHeight = imageSize.height;
-    if (imageHeight!=0 &&imageSize.width!=0) {
+    if (imageHeight!=0 &&imageSize.width!=0)
+    {
         imageHeight = imageHeight/(imageSize.width/(304*[Ash_UIUtil currentScreenSizeRate]));
     }
     return imageHeight+labelRect.size.height+95;

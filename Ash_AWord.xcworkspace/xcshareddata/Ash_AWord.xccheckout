@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F6799904-4EEF-4ABA-BAB3-793E4F614E1A</string>
+	<string>5235EF6E-2233-4B7D-8BC1-630FCDBAF55A</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Ash_AWord</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</key>
-		<string>https://github.com/wu736139669/Ash_AWord.git</string>
+		<key>C2124BD0C46D10FF81834A1B3449A80D6B860D76</key>
+		<string>https://github.com/wu736139669/Ash_First.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Ash_AWord.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</key>
+		<key>C2124BD0C46D10FF81834A1B3449A80D6B860D76</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/wu736139669/Ash_AWord.git</string>
+	<string>https://github.com/wu736139669/Ash_First.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</string>
+	<string>C2124BD0C46D10FF81834A1B3449A80D6B860D76</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B459B20E6BFCBAF9E5514A0B814271AD85A6C13B</string>
+			<string>C2124BD0C46D10FF81834A1B3449A80D6B860D76</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Ash_AWord</string>
 		</dict>
