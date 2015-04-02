@@ -27,6 +27,11 @@
 
 
 /**
+ * app store上的Apple ID
+ */
+#define kAppleID 957252253
+
+/**
  *  系统版本
  */
 #define iOSVersion ([[[UIDevice currentDevice] systemVersion] floatValue]) //系统版本
@@ -68,10 +73,10 @@
 /**
  * QQ开放平台信息
  */
-#define kQQAppId @"1104070329"
-#define kQQAppSecret @"Lkk4P8GrTkcliKZo"
+#define kQQAppId @"1104478314"
+#define kQQAppSecret @"RspMp0GiZqjabMvw"
 
-#define kUmengAppkey @"551958aafd98c5cc010006d8"
+#define kUmengAppkey @"551cf898fd98c586460011d1"
 
 /**
  *  调整图片的宽度

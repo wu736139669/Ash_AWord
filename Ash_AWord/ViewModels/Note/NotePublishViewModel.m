@@ -21,7 +21,7 @@
     pro.pFile = file;
     pro.reqURL = @"rs/text_image/add";
     pro.responesOBJ = self.class;
-    content = [content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    content = [content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     pro.pro = @{@"content": content,
                 };
     return pro;

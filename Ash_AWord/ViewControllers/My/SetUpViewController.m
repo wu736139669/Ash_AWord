@@ -7,7 +7,8 @@
 //
 
 #import "SetUpViewController.h"
-
+#import "EGOCache.h"
+#import "UMSocial.h"
 @interface SetUpViewController ()
 
 @end
@@ -109,6 +110,62 @@
     }
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.row) {
+        case 0:
+            [self cleanCache];
+            break;
+    case 1:
+        {
+             [SetUpViewController shareAppWithViewController:self andTitle:@"听说" andContent:@"最真的表白，是我欲言又止的沉默" andImage:[UIImage imageNamed:@"Icon@2x"] andUrl:@"http://www.baidu.com"];
+        }
+            break;
+        case 4:
+            [self goToAppraisal];
+            break;
+            
+        default:
+            break;
+    }
+}
+#pragma mark 跳到App Store评价
+- (void)goToAppraisal
+{
+    NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
+#pragma mark 关于
+-(void)showAbout
+{
+    
+}
+#pragma mark 清除缓存
+- (void)cleanCache{
+    [MBProgressHUD hudWithView:nil label:@"清除缓存中"];
+    
+    //清除cookies
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookies])
+    {
+        [storage deleteCookie:cookie];
+    }
+    
+    //清除UIWebView的缓存
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
+    [[EGOCache globalCache] clearCache];
+    
+    //image缓存
+    SDImageCache *cache = [SDImageCache sharedImageCache];
+    [cache clearDiskOnCompletion:^{
+        [self.tableView reloadData];
+        [MBProgressHUD hideAllHUDsForView:nil animated:YES];
+        [MBProgressHUD checkHudWithView:nil label:@"缓存清除成功" hidesAfter:1];
+    }];
+
+}
 -(void)lgout:(id)sender
 {
     [AWordUser sharedInstance].isLogin = NO;
@@ -116,10 +173,46 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
++ (void)shareAppWithViewController:(UIViewController *)controller andTitle:(NSString *)title andContent:(NSString *)content andImage:(UIImage *)image andUrl:(NSString *)url
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(title.length <= 0)
+    {
+        title = @"听说";
+    }
+    if(content.length <= 0)
+    {
+        content = @"http://www.baidu.com";
+    }
+    
+    NSString *shareText = [NSString stringWithFormat:@"%@%@",content,url];
+    if(!image)
+    {
+        image = [UIImage imageNamed:@"Icon@2x"];
+    }
+    
+    //设置title
+    [UMSocialData defaultData].extConfig.title = [NSString stringWithFormat:@"%@",title];
+    //设置url链接
+    [UMSocialData defaultData].extConfig.qqData.url = url;
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = url;
+    
+    //调用快速分享接口
+    [UMSocialSnsService presentSnsIconSheetView:controller
+                                         appKey:kUmengAppkey
+                                      shareText:shareText
+                                     shareImage:image
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,
+                                                 UMShareToQQ,
+                                                 UMShareToWechatSession,
+                                                 UMShareToWechatTimeline,
+                                                 UMShareToEmail,
+                                                 UMShareToSms,
+                                                 nil]
+                                       delegate:nil];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
