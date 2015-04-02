@@ -76,6 +76,7 @@
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     
     CGSize imageSize = [Ash_UIUtil downloadImageSizeWithURL:text_image.imageUrl];
+//    CGSize imageSize = CGSizeMake(320, 600);
     CGFloat imageHeight = imageSize.height;
     if (imageHeight!=0 &&imageSize.width!=0)
     {

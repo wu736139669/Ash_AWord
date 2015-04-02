@@ -45,6 +45,7 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - SecureUDID (1.1)
   - STableViewController (0.0.1)
+  - SVWebViewController (1.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -59,6 +60,7 @@ DEPENDENCIES:
   - SDWebImage
   - SecureUDID
   - STableViewController
+  - SVWebViewController
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
@@ -74,5 +76,6 @@ SPEC CHECKSUMS:
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SecureUDID: 82a9df1f3baa7a0964600ac93a81273121775b17
   STableViewController: f6900013fc3455973c51992fe248f62c45b20a9a
+  SVWebViewController: c36dda7326e81fcae0abf5d02bf7bbf7e41be901
 
 COCOAPODS: 0.36.1

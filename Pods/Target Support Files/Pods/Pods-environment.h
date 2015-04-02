@@ -144,6 +144,12 @@
 #define COCOAPODS_VERSION_MINOR_STableViewController 0
 #define COCOAPODS_VERSION_PATCH_STableViewController 1
 
+// SVWebViewController
+#define COCOAPODS_POD_AVAILABLE_SVWebViewController
+#define COCOAPODS_VERSION_MAJOR_SVWebViewController 1
+#define COCOAPODS_VERSION_MINOR_SVWebViewController 0
+#define COCOAPODS_VERSION_PATCH_SVWebViewController 0
+
 // SecureUDID
 #define COCOAPODS_POD_AVAILABLE_SecureUDID
 #define COCOAPODS_VERSION_MAJOR_SecureUDID 1

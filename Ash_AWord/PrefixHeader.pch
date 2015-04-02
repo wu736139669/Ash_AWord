@@ -35,7 +35,7 @@
 #import "SDImageCache.h"
 #import "Ash_UIUtil.h"
 #import "Mantle.h"
-
+#import "SVWebViewController.h"
 #endif
 
 #endif

@@ -45,7 +45,6 @@
 #pragma mark MJRefreshDelegate
 -(void)headerRereshing
 {
-    [_text_imageArr removeAllObjects];
     _page=1;
     [self loadData];
 }
@@ -60,16 +59,20 @@
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
         NoteViewModel* noteViewModel = (NoteViewModel*)viewModel;
-        if (noteViewModel.text_imagesArr.count<20) {
-            [self.tableView removeFooter];
-        }else{
-            [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+
+        if (_page <= 1) {
+            [_text_imageArr removeAllObjects];
         }
         if (noteViewModel.text_imagesArr) {
             [_text_imageArr addObjectsFromArray:noteViewModel.text_imagesArr];
         }
         [self footerEndRefreshing];
         [self headerEndRefreshing];
+        if (noteViewModel.text_imagesArr.count<20) {
+            [self.tableView removeFooter];
+        }else{
+            [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+        }
         [self.tableView reloadData];
         
     } failedBlock:^(NSError *error) {
