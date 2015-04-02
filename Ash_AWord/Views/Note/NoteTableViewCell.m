@@ -13,6 +13,11 @@
 - (void)awakeFromNib {
     // Initialization code
     _contentLabel.font = [UIFont appFontOfSize:14.0];
+    _timeLabel.font = [UIFont appFontOfSize:14.0];
+    
+    _avatar.layer.cornerRadius = _avatar.frame.size.width/2;
+    _avatar.layer.masksToBounds = YES;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -43,6 +48,7 @@
 
     
     
+    _timeLabel.text = text_image.createTime;
     UIFont *font = [UIFont appFontOfSize:14.0];
     CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     

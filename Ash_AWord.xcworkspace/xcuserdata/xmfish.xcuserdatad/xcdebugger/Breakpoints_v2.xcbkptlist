@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/Views/Note/NoteTableViewCell.m"
-            timestampString = "449596299.705646"
+            timestampString = "449634594.612603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "+heightWith:"
             landmarkType = "5">
          </BreakpointContent>
