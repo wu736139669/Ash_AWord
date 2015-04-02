@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.2):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - DACircularProgress (2.2.0)
   - DTCoreText (1.6.15):
     - DTFoundation/Core (~> 1.7.5)
     - DTFoundation/DTAnimatedGIF (~> 1.7.5)
@@ -37,7 +38,13 @@ PODS:
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
   - MBProgressHUD (0.9.1)
-  - MJRefresh (1.4.1)
+  - MJRefresh (1.4.3)
+  - MWPhotoBrowser (1.4.1):
+    - DACircularProgress
+    - MBProgressHUD (~> 0.8)
+    - PSTCollectionView (~> 1.2)
+    - SDWebImage (~> 3.7)
+  - PSTCollectionView (1.2.3)
   - Reachability (3.2)
   - SBJson (4.0.1)
   - SDWebImage (3.7.2):
@@ -54,6 +61,7 @@ DEPENDENCIES:
   - Mantle
   - MBProgressHUD
   - MJRefresh
+  - MWPhotoBrowser
   - Reachability
   - SBJson
   - SDWebImage
@@ -62,13 +70,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  DACircularProgress: 0f92b77239d5f3c612fc66185e2998391ac8e054
   DTCoreText: 13ce06e63204a3b47c9db974e3d9be982bb0b1ed
   DTFoundation: 1d28080c20c3da041706545363f8238ab53a6204
   EGOCache: e7bdb2bf15a2ad23bf6c67c664c9fc3694652482
   Godzippa: 21621e8ddc2f1521db473a72b48148c3f0e79d76
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
-  MJRefresh: 6a0fd4c81a957803bd99bbbf55a956d1d6f41263
+  MJRefresh: 6eb09aefa9622f0908fdf42d63c2070478c04c42
+  MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
+  PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SBJson: 68f16f446bd6047dc3dd1ec4919a468c2cd7fedd
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29

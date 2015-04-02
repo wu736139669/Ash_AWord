@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1C099AB0A914FF873E22025E"
+               BlueprintIdentifier = "9094841566C2C953FA59B13F"
                BuildableName = "libPods-SecureUDID.a"
                BlueprintName = "Pods-SecureUDID"
                ReferencedContainer = "container:Pods.xcodeproj">
