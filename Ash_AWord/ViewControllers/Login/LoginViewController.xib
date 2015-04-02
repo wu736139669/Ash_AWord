@@ -16,14 +16,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first-login-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="MRU-Mw-Lxc">
-                    <rect key="frame" x="128" y="100" width="64" height="64"/>
+                    <rect key="frame" x="128" y="130" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="64" id="8nE-KS-VCv"/>
                         <constraint firstAttribute="height" constant="64" id="MeF-Ak-JwW"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d5n-Fh-iLu">
-                    <rect key="frame" x="0.0" y="196" width="320" height="48"/>
+                    <rect key="frame" x="0.0" y="226" width="320" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="7tz-Ad-9eX"/>
                     </constraints>
@@ -32,16 +32,19 @@
                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="qqLoginBtnClick:" destination="-1" eventType="touchUpInside" id="5Oe-Qj-50Z"/>
+                    </connections>
                 </button>
                 <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itZ-sn-jaF">
-                    <rect key="frame" x="30" y="246" width="260" height="1"/>
+                    <rect key="frame" x="30" y="276" width="260" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="gvB-h3-6cR"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-jq-1FA">
-                    <rect key="frame" x="0.0" y="250" width="320" height="48"/>
+                    <rect key="frame" x="0.0" y="280" width="320" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="Gq2-tu-f83"/>
                     </constraints>
@@ -50,9 +53,12 @@
                         <color key="titleColor" red="0.85882352939999995" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="weixinLoginBtnClick:" destination="-1" eventType="touchUpInside" id="NNj-L8-Jpp"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07x-dP-nLy">
-                    <rect key="frame" x="15" y="8" width="31" height="31"/>
+                    <rect key="frame" x="15" y="20" width="31" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="r5N-8m-E5T"/>
                         <constraint firstAttribute="width" constant="31" id="uMo-fo-8wf"/>
@@ -60,14 +66,17 @@
                     <state key="normal" image="camera-close-select.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="closeBtnClick:" destination="-1" eventType="touchUpInside" id="okw-vO-6Aa"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="UkD-jq-1FA" secondAttribute="trailing" id="06F-tj-CVG"/>
                 <constraint firstAttribute="trailing" secondItem="itZ-sn-jaF" secondAttribute="trailing" constant="30" id="4Nc-Cv-K8q"/>
-                <constraint firstItem="MRU-Mw-Lxc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="GGZ-I3-i0J"/>
-                <constraint firstItem="07x-dP-nLy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="Lfs-7l-4av"/>
+                <constraint firstItem="MRU-Mw-Lxc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="130" id="GGZ-I3-i0J"/>
+                <constraint firstItem="07x-dP-nLy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Lfs-7l-4av"/>
                 <constraint firstItem="d5n-Fh-iLu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MSR-l1-iMs"/>
                 <constraint firstItem="d5n-Fh-iLu" firstAttribute="top" secondItem="MRU-Mw-Lxc" secondAttribute="bottom" constant="32" id="NSR-lT-IgV"/>
                 <constraint firstAttribute="centerX" secondItem="MRU-Mw-Lxc" secondAttribute="centerX" id="RbP-3H-0mQ"/>

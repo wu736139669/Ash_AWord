@@ -47,7 +47,7 @@
     
     if (proper.requireType == HTTPRequestTypeWithGET) {
         return [[XiaoYuAPIClient sharedClient] GET:[proper reqURL]
-                                        parameters:[proper url] ? [proper encodePro] : [proper pro]
+                                        parameters: [proper encodePro]
                                            success:^(AFHTTPRequestOperation * __unused task, id json) {
                                                DLog(@"%@", json);
 
@@ -87,7 +87,7 @@
                                            }];
     } else if(proper.requireType == HTTPRequestTypeWithPOST){
         return [[XiaoYuAPIClient sharedClient] POST:[proper reqURL]
-                                        parameters:[proper url] ? [proper encodePro] : [proper pro]
+                                        parameters:[proper encodePro]
                                            success:^(AFHTTPRequestOperation * __unused task, id JSON) {
                                                
                                                DLog(@"%@", JSON);
@@ -112,7 +112,7 @@
                                            }];
     } else if(proper.requireType == HTTPRequestTypeWithPOSTDATA){
         return [[XiaoYuAPIClient sharedClient] POST:[proper reqURL]
-                                         parameters:[proper url] ? [proper encodePro] : [proper pro]
+                                         parameters:[proper encodePro]
                           constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
                                               for (int i = 0; i < proper.pFile.img.count; i++) {
                                                   UIImage *uploadImage = proper.pFile.img[i];

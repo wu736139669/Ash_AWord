@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-
+#import "LoginViewModel.h"
+#import "UMSocial.h"
 @interface LoginViewController ()
 
 @end
@@ -18,7 +19,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -34,4 +39,91 @@
 }
 */
 
+- (IBAction)qqLoginBtnClick:(id)sender
+{
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
+    
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        
+        //          获取微博用户名、uid、token等
+        
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
+            [MBProgressHUD hudWithView:self.view label:kLoginTips];
+            DLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToQQ  completion:^(UMSocialResponseEntity *response){
+                DLog(@"SnsInformation is %@",response.data);
+                if (response.data) {
+                    [self loginWithOpenId:[response.data objectForKey:@"openid"] withName:[response.data objectForKey:@"screen_name"] withGender:[response.data objectForKey:@"gender"] withFigureUrl:[response.data objectForKey:@"profile_image_url"]];
+                }else{
+                    [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+                }
+            }];
+            
+        }});
+
+}
+
+- (IBAction)weixinLoginBtnClick:(id)sender
+{
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+    
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            [MBProgressHUD hudWithView:self.view label:kLoginTips];
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+            
+            DLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToWechatSession  completion:^(UMSocialResponseEntity *response){
+                DLog(@"SnsInformation is %@",response.data);
+                if (response.data) {
+                    NSString* gender = @"男";
+                    if ([[response.data objectForKey:@"gender"] integerValue]==0) {
+                        gender = @"女";
+                    }
+                    [self loginWithOpenId:[response.data objectForKey:@"openid"] withName:[response.data objectForKey:@"screen_name"] withGender:gender withFigureUrl:[response.data objectForKey:@"profile_image_url"]];
+                }else{
+                    [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+                }
+            }];
+        }
+        
+    });
+}
+
+- (IBAction)closeBtnClick:(id)sender
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)loginWithOpenId:(NSString*)openId withName:(NSString*)name withGender:(NSString*)gender withFigureUrl:(NSString*)figureUrl;
+{
+    if ([gender isEqualToString:@"1"] ) {
+        gender = @"男";
+    }
+    if ([gender isEqualToString:@"0"]) {
+        gender = @"女";
+    }
+    PropertyEntity* loginViewModel = [LoginViewModel requireLoginWithOpenId:openId withName:name withGender:gender withFigureUrl:figureUrl];
+    [RequireEngine requireWithProperty:loginViewModel completionBlock:^(id viewModel) {
+        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if ([loginViewModel success]) {
+            
+            [AWordUser sharedInstance].isLogin = YES;
+            [AWordUser sharedInstance].uid = loginViewModel.uId;
+            [AWordUser sharedInstance].userName = name;
+            [AWordUser sharedInstance].userAvatar = figureUrl;
+            [AWordUser sharedInstance].userGender = gender;
+            [self closeBtnClick:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+        }
+    } failedBlock:^(NSError *error) {
+        
+    }];
+}
 @end

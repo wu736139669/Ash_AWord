@@ -30,7 +30,17 @@
 //    [key stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 //    NSDictionary *dic = @{@"mkey":key};
 
-    return _pro;
+    NSMutableDictionary* dic;
+    if (_pro) {
+        dic = [NSMutableDictionary dictionaryWithDictionary:_pro];
+    }else{
+        dic = [NSMutableDictionary dictionary];
+    }
+    if ([AWordUser sharedInstance].isLogin && [AWordUser sharedInstance].uid) {
+        [dic setObject:[AWordUser sharedInstance].uid forKey:@"uid"];
+
+    }
+    return dic;
 }
 
 @end

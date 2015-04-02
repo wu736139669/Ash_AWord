@@ -34,6 +34,30 @@
 		A955109B1AC39E6A0006D16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95510991AC39E6A0006D16F /* Main.storyboard */; };
 		A955109D1AC39E6A0006D16F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A955109C1AC39E6A0006D16F /* Images.xcassets */; };
 		A95510A01AC39E6A0006D16F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A955109E1AC39E6A0006D16F /* LaunchScreen.xib */; };
+		A9617A4F1ACC0D0F0024AE4A /* NoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9617A4E1ACC0D0F0024AE4A /* NoteViewModel.m */; };
+		A9617A541ACC27860024AE4A /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9617A521ACC27860024AE4A /* SetUpViewController.m */; };
+		A9617A551ACC27860024AE4A /* SetUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9617A531ACC27860024AE4A /* SetUpViewController.xib */; };
+		A9617A581ACC2EBC0024AE4A /* mine-setting-icon-click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9617A561ACC2EBC0024AE4A /* mine-setting-icon-click@2x.png */; };
+		A9617A591ACC2EBC0024AE4A /* mine-setting-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9617A571ACC2EBC0024AE4A /* mine-setting-icon@2x.png */; };
+		A97559A01ACB88FE004ADA42 /* AWordDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A975599F1ACB88FE004ADA42 /* AWordDefault.m */; };
+		A97559A31ACB8CE0004ADA42 /* AWordUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A97559A21ACB8CE0004ADA42 /* AWordUser.m */; };
+		A97559A51ACB9748004ADA42 /* setup-head-default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559A41ACB9748004ADA42 /* setup-head-default@2x.png */; };
+		A97559A81ACB9DE4004ADA42 /* navigationButtonPublish@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559A61ACB9DE4004ADA42 /* navigationButtonPublish@2x.png */; };
+		A97559A91ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559A71ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png */; };
+		A97559AC1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559AA1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png */; };
+		A97559AD1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559AB1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png */; };
+		A97559B21ACBC683004ADA42 /* NotePublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97559B01ACBC683004ADA42 /* NotePublishViewController.m */; };
+		A97559B31ACBC683004ADA42 /* NotePublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97559B11ACBC683004ADA42 /* NotePublishViewController.xib */; };
+		A97559B71ACBD99E004ADA42 /* UIPlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A97559B61ACBD99E004ADA42 /* UIPlaceHolderTextView.m */; };
+		A97559BF1ACBE6C6004ADA42 /* NotePublishViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97559BE1ACBE6C6004ADA42 /* NotePublishViewModel.m */; };
+		A97559C41ACBEE99004ADA42 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A97559C21ACBEE99004ADA42 /* NoteTableViewCell.m */; };
+		A97559C51ACBEE99004ADA42 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97559C31ACBEE99004ADA42 /* NoteTableViewCell.xib */; };
+		A97559CC1ACBF0BC004ADA42 /* btn_bad_clicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559C61ACBF0BC004ADA42 /* btn_bad_clicked@2x.png */; };
+		A97559CD1ACBF0BC004ADA42 /* btn_bad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559C71ACBF0BC004ADA42 /* btn_bad@2x.png */; };
+		A97559CE1ACBF0BC004ADA42 /* btn_good_clicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559C81ACBF0BC004ADA42 /* btn_good_clicked@2x.png */; };
+		A97559CF1ACBF0BC004ADA42 /* btn_good@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559C91ACBF0BC004ADA42 /* btn_good@2x.png */; };
+		A97559D01ACBF0BC004ADA42 /* btn_share_clicked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559CA1ACBF0BC004ADA42 /* btn_share_clicked@2x.png */; };
+		A97559D11ACBF0BC004ADA42 /* btn_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97559CB1ACBF0BC004ADA42 /* btn_share@2x.png */; };
 		A97C54CD1AC8F10F0038818A /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54BD1AC8F10F0038818A /* BaseViewModel.m */; };
 		A97C54CF1AC8F10F0038818A /* NSString+HXAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C11AC8F10F0038818A /* NSString+HXAddtions.m */; };
 		A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C31AC8F10F0038818A /* PropertyEntity.m */; };
@@ -130,6 +154,38 @@
 		A955109F1AC39E6A0006D16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A95510AA1AC39E6A0006D16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A95510AB1AC39E6A0006D16F /* Ash_AWordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ash_AWordTests.m; sourceTree = "<group>"; };
+		A9617A4D1ACC0D0F0024AE4A /* NoteViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewModel.h; sourceTree = "<group>"; };
+		A9617A4E1ACC0D0F0024AE4A /* NoteViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewModel.m; sourceTree = "<group>"; };
+		A9617A511ACC27860024AE4A /* SetUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUpViewController.h; sourceTree = "<group>"; };
+		A9617A521ACC27860024AE4A /* SetUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUpViewController.m; sourceTree = "<group>"; };
+		A9617A531ACC27860024AE4A /* SetUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetUpViewController.xib; sourceTree = "<group>"; };
+		A9617A561ACC2EBC0024AE4A /* mine-setting-icon-click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine-setting-icon-click@2x.png"; sourceTree = "<group>"; };
+		A9617A571ACC2EBC0024AE4A /* mine-setting-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine-setting-icon@2x.png"; sourceTree = "<group>"; };
+		A975599E1ACB88FE004ADA42 /* AWordDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWordDefault.h; sourceTree = "<group>"; };
+		A975599F1ACB88FE004ADA42 /* AWordDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWordDefault.m; sourceTree = "<group>"; };
+		A97559A11ACB8CE0004ADA42 /* AWordUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWordUser.h; sourceTree = "<group>"; };
+		A97559A21ACB8CE0004ADA42 /* AWordUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWordUser.m; sourceTree = "<group>"; };
+		A97559A41ACB9748004ADA42 /* setup-head-default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setup-head-default@2x.png"; sourceTree = "<group>"; };
+		A97559A61ACB9DE4004ADA42 /* navigationButtonPublish@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationButtonPublish@2x.png"; sourceTree = "<group>"; };
+		A97559A71ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationButtonPublishClick@2x.png"; sourceTree = "<group>"; };
+		A97559AA1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationButtonRefresh@2x.png"; sourceTree = "<group>"; };
+		A97559AB1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationButtonRefreshClick@2x.png"; sourceTree = "<group>"; };
+		A97559AF1ACBC683004ADA42 /* NotePublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotePublishViewController.h; sourceTree = "<group>"; };
+		A97559B01ACBC683004ADA42 /* NotePublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotePublishViewController.m; sourceTree = "<group>"; };
+		A97559B11ACBC683004ADA42 /* NotePublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotePublishViewController.xib; sourceTree = "<group>"; };
+		A97559B51ACBD99E004ADA42 /* UIPlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIPlaceHolderTextView.h; sourceTree = "<group>"; };
+		A97559B61ACBD99E004ADA42 /* UIPlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIPlaceHolderTextView.m; sourceTree = "<group>"; };
+		A97559BD1ACBE6C6004ADA42 /* NotePublishViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotePublishViewModel.h; sourceTree = "<group>"; };
+		A97559BE1ACBE6C6004ADA42 /* NotePublishViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotePublishViewModel.m; sourceTree = "<group>"; };
+		A97559C11ACBEE99004ADA42 /* NoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteTableViewCell.h; sourceTree = "<group>"; };
+		A97559C21ACBEE99004ADA42 /* NoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteTableViewCell.m; sourceTree = "<group>"; };
+		A97559C31ACBEE99004ADA42 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
+		A97559C61ACBF0BC004ADA42 /* btn_bad_clicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bad_clicked@2x.png"; sourceTree = "<group>"; };
+		A97559C71ACBF0BC004ADA42 /* btn_bad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bad@2x.png"; sourceTree = "<group>"; };
+		A97559C81ACBF0BC004ADA42 /* btn_good_clicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_good_clicked@2x.png"; sourceTree = "<group>"; };
+		A97559C91ACBF0BC004ADA42 /* btn_good@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_good@2x.png"; sourceTree = "<group>"; };
+		A97559CA1ACBF0BC004ADA42 /* btn_share_clicked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share_clicked@2x.png"; sourceTree = "<group>"; };
+		A97559CB1ACBF0BC004ADA42 /* btn_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_share@2x.png"; sourceTree = "<group>"; };
 		A97C54BC1AC8F10F0038818A /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		A97C54BD1AC8F10F0038818A /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		A97C54C01AC8F10F0038818A /* NSString+HXAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HXAddtions.h"; sourceTree = "<group>"; };
@@ -323,9 +379,61 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A9617A501ACC274C0024AE4A /* My */ = {
+			isa = PBXGroup;
+			children = (
+				A9617A511ACC27860024AE4A /* SetUpViewController.h */,
+				A9617A521ACC27860024AE4A /* SetUpViewController.m */,
+				A9617A531ACC27860024AE4A /* SetUpViewController.xib */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		A97559AE1ACBC615004ADA42 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				A97559AF1ACBC683004ADA42 /* NotePublishViewController.h */,
+				A97559B01ACBC683004ADA42 /* NotePublishViewController.m */,
+				A97559B11ACBC683004ADA42 /* NotePublishViewController.xib */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		A97559B41ACBD99E004ADA42 /* UIPlaceHolderTextView */ = {
+			isa = PBXGroup;
+			children = (
+				A97559B51ACBD99E004ADA42 /* UIPlaceHolderTextView.h */,
+				A97559B61ACBD99E004ADA42 /* UIPlaceHolderTextView.m */,
+			);
+			path = UIPlaceHolderTextView;
+			sourceTree = "<group>";
+		};
+		A97559BC1ACBE6B7004ADA42 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				A97559BD1ACBE6C6004ADA42 /* NotePublishViewModel.h */,
+				A97559BE1ACBE6C6004ADA42 /* NotePublishViewModel.m */,
+				A9617A4D1ACC0D0F0024AE4A /* NoteViewModel.h */,
+				A9617A4E1ACC0D0F0024AE4A /* NoteViewModel.m */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		A97559C01ACBEE71004ADA42 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				A97559C11ACBEE99004ADA42 /* NoteTableViewCell.h */,
+				A97559C21ACBEE99004ADA42 /* NoteTableViewCell.m */,
+				A97559C31ACBEE99004ADA42 /* NoteTableViewCell.xib */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
 		A97C54B71AC8F0370038818A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9617A501ACC274C0024AE4A /* My */,
+				A97559AE1ACBC615004ADA42 /* Note */,
 				A97DBE2F1ACAE0F100705682 /* Login */,
 				A98F98671ACA2F27007C4594 /* Common */,
 				A9FAD41E1AC92293007ADC10 /* Main */,
@@ -336,6 +444,7 @@
 		A97C54B81AC8F0370038818A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A97559BC1ACBE6B7004ADA42 /* Note */,
 				A9FAD4331AC925AC007ADC10 /* LoginViewModel.h */,
 				A9FAD4341AC925AC007ADC10 /* LoginViewModel.m */,
 			);
@@ -345,6 +454,7 @@
 		A97C54B91AC8F0370038818A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A97559C01ACBEE71004ADA42 /* Note */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -391,6 +501,10 @@
 			isa = PBXGroup;
 			children = (
 				A97C54D61AC8FB6C0038818A /* Common.h */,
+				A975599E1ACB88FE004ADA42 /* AWordDefault.h */,
+				A975599F1ACB88FE004ADA42 /* AWordDefault.m */,
+				A97559A11ACB8CE0004ADA42 /* AWordUser.h */,
+				A97559A21ACB8CE0004ADA42 /* AWordUser.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -398,6 +512,7 @@
 		A97C54D91AC9014D0038818A /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A97559B41ACBD99E004ADA42 /* UIPlaceHolderTextView */,
 				A98F98461ACA29B5007C4594 /* UMSocial_Sdk_Extra_Frameworks */,
 				A9B4E39B1AC9908E00A1DBDF /* UMAnalytics_Sdk_3.4.6 */,
 				A97C54E31AC933AD0038818A /* UMSocial_Sdk_4.2.1 */,
@@ -429,6 +544,19 @@
 		A97C54E21AC91FD70038818A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A9617A561ACC2EBC0024AE4A /* mine-setting-icon-click@2x.png */,
+				A9617A571ACC2EBC0024AE4A /* mine-setting-icon@2x.png */,
+				A97559C61ACBF0BC004ADA42 /* btn_bad_clicked@2x.png */,
+				A97559C71ACBF0BC004ADA42 /* btn_bad@2x.png */,
+				A97559C81ACBF0BC004ADA42 /* btn_good_clicked@2x.png */,
+				A97559C91ACBF0BC004ADA42 /* btn_good@2x.png */,
+				A97559CA1ACBF0BC004ADA42 /* btn_share_clicked@2x.png */,
+				A97559CB1ACBF0BC004ADA42 /* btn_share@2x.png */,
+				A97559AA1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png */,
+				A97559AB1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png */,
+				A97559A61ACB9DE4004ADA42 /* navigationButtonPublish@2x.png */,
+				A97559A71ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png */,
+				A97559A41ACB9748004ADA42 /* setup-head-default@2x.png */,
 				A97DBE4D1ACAED4900705682 /* camera-close-select@2x.png */,
 				A97DBE471ACAE7F600705682 /* smalliconWeixin@2x.png */,
 				A97DBE451ACAE7B500705682 /* iconWeixin@2x.png */,
@@ -682,17 +810,23 @@
 				A9FAD4321AC923FC007ADC10 /* MyViewController.xib in Resources */,
 				A93441FF1ACA919F00A6B233 /* tabbarVoice@2x.png in Resources */,
 				A93441FA1ACA919500A6B233 /* tabbarQuotation-dark@2x.png in Resources */,
+				A97559D01ACBF0BC004ADA42 /* btn_share_clicked@2x.png in Resources */,
 				A955109B1AC39E6A0006D16F /* Main.storyboard in Resources */,
+				A97559A51ACB9748004ADA42 /* setup-head-default@2x.png in Resources */,
 				A97DBE3F1ACAE29E00705682 /* Icon.png in Resources */,
 				A97DBE3D1ACAE29E00705682 /* Icon-Small.png in Resources */,
 				A93441ED1ACA8C8F00A6B233 /* defaultUserIcon.png in Resources */,
+				A97559CF1ACBF0BC004ADA42 /* btn_good@2x.png in Resources */,
+				A97559CC1ACBF0BC004ADA42 /* btn_bad_clicked@2x.png in Resources */,
 				A97DBE461ACAE7B500705682 /* iconWeixin@2x.png in Resources */,
 				A97C55071AC933AD0038818A /* UMSShareListController.xib in Resources */,
 				A93441EE1ACA8C8F00A6B233 /* defaultUserIcon@2x.png in Resources */,
+				A97559AC1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png in Resources */,
 				A97C54FE1AC933AD0038818A /* UMSocialLocalizable.strings in Resources */,
 				A93441E91ACA8AD200A6B233 /* Profile_filter_ImageIcon@2x.png in Resources */,
 				A97C55041AC933AD0038818A /* UMShareEditViewControlleriPad.xib in Resources */,
 				A98F98541ACA29B5007C4594 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				A9617A591ACC2EBC0024AE4A /* mine-setting-icon@2x.png in Resources */,
 				A95510A01AC39E6A0006D16F /* LaunchScreen.xib in Resources */,
 				A93442041ACA981D00A6B233 /* Default@2x.png in Resources */,
 				A97DBE401ACAE29E00705682 /* Icon@2x.png in Resources */,
@@ -704,17 +838,27 @@
 				A97DBE4C1ACAEBE300705682 /* first-login-sina@2x.png in Resources */,
 				A9FAD4281AC922BE007ADC10 /* NoteViewController.xib in Resources */,
 				A93441E61ACA8AC400A6B233 /* Profile_filter_contentIconClick@2x.png in Resources */,
+				A97559C51ACBEE99004ADA42 /* NoteTableViewCell.xib in Resources */,
+				A9617A551ACC27860024AE4A /* SetUpViewController.xib in Resources */,
+				A97559D11ACBF0BC004ADA42 /* btn_share@2x.png in Resources */,
 				A93441E11ACA89AA00A6B233 /* Profile_filter_voiceIcon@2x.png in Resources */,
 				A97C55031AC933AD0038818A /* UMShareEditViewController.xib in Resources */,
 				A97DBE4E1ACAED4900705682 /* camera-close-select@2x.png in Resources */,
+				A97559A91ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png in Resources */,
 				A93441E21ACA89AA00A6B233 /* Profile_filter_voiceIconClick@2x.png in Resources */,
+				A97559A81ACB9DE4004ADA42 /* navigationButtonPublish@2x.png in Resources */,
+				A97559CE1ACBF0BC004ADA42 /* btn_good_clicked@2x.png in Resources */,
 				A97DBE3C1ACAE29E00705682 /* Icon-Small-50@2x.png in Resources */,
 				A97C55061AC933AD0038818A /* UMSnsAccountViewController.xib in Resources */,
+				A97559CD1ACBF0BC004ADA42 /* btn_bad@2x.png in Resources */,
 				A93441F71ACA918100A6B233 /* tabbarSetup@2x.png in Resources */,
 				A97C55011AC933AD0038818A /* UMSCommentInputController.xib in Resources */,
+				A97559AD1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png in Resources */,
 				A93441F81ACA918100A6B233 /* tabbarSetupClick@2x.png in Resources */,
 				A93441FE1ACA919F00A6B233 /* tabbarVoice-dark@2x.png in Resources */,
+				A9617A581ACC2EBC0024AE4A /* mine-setting-icon-click@2x.png in Resources */,
 				A93441E51ACA8AC400A6B233 /* Profile_filter_contentIcon@2x.png in Resources */,
+				A97559B31ACBC683004ADA42 /* NotePublishViewController.xib in Resources */,
 				A9FAD4231AC922A5007ADC10 /* MainViewController.xib in Resources */,
 				A93441F61ACA918100A6B233 /* tabbarSetup-dark@2x.png in Resources */,
 				A97DBE421ACAE4E300705682 /* first-login-icon.png in Resources */,
@@ -770,21 +914,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9FAD4271AC922BE007ADC10 /* NoteViewController.m in Sources */,
+				A97559A01ACB88FE004ADA42 /* AWordDefault.m in Sources */,
 				A97C54D31AC8F10F0038818A /* XiaoYuAPIClient.m in Sources */,
+				A97559C41ACBEE99004ADA42 /* NoteTableViewCell.m in Sources */,
 				A9FAD4311AC923FC007ADC10 /* MyViewController.m in Sources */,
+				A97559BF1ACBE6C6004ADA42 /* NotePublishViewModel.m in Sources */,
+				A97559B21ACBC683004ADA42 /* NotePublishViewController.m in Sources */,
 				A97C54DD1AC901980038818A /* MBProgressHUD+Util.m in Sources */,
 				A97DBE331ACAE10800705682 /* LoginViewController.m in Sources */,
+				A97559A31ACB8CE0004ADA42 /* AWordUser.m in Sources */,
 				A95510981AC39E6A0006D16F /* ViewController.m in Sources */,
 				A98F986B1ACA2FA9007C4594 /* BaseRefreshViewController.m in Sources */,
+				A9617A541ACC27860024AE4A /* SetUpViewController.m in Sources */,
 				A97C54D21AC8F10F0038818A /* AFgzipResponseSerializer.m in Sources */,
 				A9FAD4221AC922A5007ADC10 /* MainViewController.m in Sources */,
 				A9FAD42C1AC923E2007ADC10 /* MessageViewController.m in Sources */,
 				A97C54CD1AC8F10F0038818A /* BaseViewModel.m in Sources */,
+				A9617A4F1ACC0D0F0024AE4A /* NoteViewModel.m in Sources */,
 				A97C54CF1AC8F10F0038818A /* NSString+HXAddtions.m in Sources */,
 				A95510951AC39E6A0006D16F /* AppDelegate.m in Sources */,
 				A97C54D11AC8F10F0038818A /* RequireEngine.m in Sources */,
 				A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */,
 				A93441DE1ACA311700A6B233 /* Ash_UIUtil.m in Sources */,
+				A97559B71ACBD99E004ADA42 /* UIPlaceHolderTextView.m in Sources */,
 				A97C54D41AC8F10F0038818A /* XMFishBaseCode.m in Sources */,
 				A97C54E11AC91DA10038818A /* CommonUtil.m in Sources */,
 				A9FAD4351AC925AC007ADC10 /* LoginViewModel.m in Sources */,

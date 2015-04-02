@@ -43,13 +43,21 @@
 
 #define kMainScreenFrame ([[UIScreen mainScreen] bounds])
 
-#define kNetworkErrorTips @"网络连接失败"
 
+//通知名
+#define kLoginSuccessNotificationName  @"kLoginSuccessNotificationName"
+#define kLogoutSuccessNotificationName @"kLogoutSuccessNotificationName"
+
+//文字标签
+#define kNetworkErrorTips @"网络连接失败"
+#define kSSoErrorTips @"授权失败，请重新授权"
+#define kLoginTips @"登录中"
 /**
  *    接口地址
  */
 
 #define Ash_AWord_API_URL @"http://121.43.150.13/QuestionServer"
+//#define Ash_AWord_API_URL @"http://192.168.1.3:8080/QuestionServer"
 
 /**
  * 微信开放平台信息
@@ -65,5 +73,9 @@
 
 #define kUmengAppkey @"551958aafd98c5cc010006d8"
 
+/**
+ *  调整图片的宽度
+ */
+#define NEWIMAGE_SIZE  700.f
 
 #endif

@@ -9,6 +9,8 @@
 #import "MyViewController.h"
 #import "UMSocial.h"
 #import "LoginViewModel.h"
+#import "LoginViewController.h"
+#import "SetUpViewController.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
@@ -31,19 +33,41 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self customViewDidLoad];
+
     
     self.navigationItem.title = @"我的";
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    
+    
+    self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(goSetUp) image:[UIImage imageNamed:@"mine-setting-icon"] highlightedImage:[UIImage imageNamed:@"mine-setting-icon-click"]];
+    
+    //注册通知的观察者
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccessNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLogoutSuccessNotificationName object:nil];
 }
 
+-(void)goSetUp
+{
+    SetUpViewController* setUpViewController = [[SetUpViewController alloc] init];
+    setUpViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:setUpViewController animated:YES];
+}
+-(void)loginSuccess
+{
+    [self.tableView reloadData];
+}
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 5;
+    return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (section == 1) {
+        return 2;
+    }
     return 1;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,25 +80,28 @@
     switch (indexPath.section) {
         case 0:
         {
-            cell.textLabel.text = @"登录";
+            if ([AWordUser sharedInstance].isLogin) {
+                cell.textLabel.text = [AWordUser sharedInstance].userName;
+                [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[AWordUser sharedInstance].userAvatar] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+                
+            }else{
+                cell.textLabel.text = @"登录";
+                [cell.imageView setImage:[UIImage imageNamed:@"defaultUserIcon"]];
+            }
+
         }
             break;
         case 1:
         {
-            cell.textLabel.text = @"我发表的文字";
+            if (indexPath.row == 0 ) {
+                cell.textLabel.text = @"我发表的图片";
+            }
+            if (indexPath.row == 1) {
+                cell.textLabel.text = @"我发表的声音";
+            }
         }
             break;
         case 2:
-        {
-            cell.textLabel.text = @"我发表的声音";
-        }
-            break;
-        case 3:
-        {
-            cell.textLabel.text = @"清楚缓存";
-        }
-            break;
-        case 4:
         {
             cell.textLabel.text = @"推荐给朋友";
         }
@@ -90,27 +117,12 @@
     switch (indexPath.section) {
         case 0:
         {
-            UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
-            
-            snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-                
-                //          获取微博用户名、uid、token等
-                
-                if (response.responseCode == UMSResponseCodeSuccess) {
-                    
-                    UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToQQ];
-                    [MBProgressHUD hudWithView:self.view label:@"登录中"];
-                    NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
-                    [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToQQ  completion:^(UMSocialResponseEntity *response){
-                        NSLog(@"SnsInformation is %@",response.data);
-                        if (response.data) {
-                            [self loginWithOpenId:[response.data objectForKey:@"openid"] withName:[response.data objectForKey:@"screen_name"] withGender:[response.data objectForKey:@"gender"] withFigureUrl:[response.data objectForKey:@"profile_image_url"]];
-                        }else{
-                            [MBProgressHUD errorHudWithView:self.view label:@"信息获取失败，重新授权" hidesAfter:1.0];
-                        }
-                    }];
-                    
-                }});
+            if (![AWordUser sharedInstance].isLogin)
+            {
+                LoginViewController* loginViewController = [[LoginViewController alloc] init];
+                [self.navigationController presentViewController:[[UINavigationController alloc] initWithRootViewController:loginViewController] animated:YES completion:nil];
+            }
+
         }
             break;
             
@@ -119,16 +131,7 @@
     }
 }
 
--(void)loginWithOpenId:(NSString*)openId withName:(NSString*)name withGender:(NSString*)gender withFigureUrl:(NSString*)figureUrl;
-{
-    PropertyEntity* loginViewModel = [LoginViewModel requireLoginWithOpenId:openId withName:name withGender:gender withFigureUrl:figureUrl];
-    [RequireEngine requireWithProperty:loginViewModel completionBlock:^(id viewModel) {
-        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
-        
-    } failedBlock:^(NSError *error) {
-        
-    }];
-}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

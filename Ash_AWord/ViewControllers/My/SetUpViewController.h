@@ -1,15 +1,14 @@
 //
-//  NoteViewController.h
+//  SetUpViewController.h
 //  Ash_AWord
 //
-//  Created by xmfish on 15/3/30.
+//  Created by xmfish on 15/4/1.
 //  Copyright (c) 2015年 ash. All rights reserved.
 //
 
 #import "ViewController.h"
-#import "BaseRefreshViewController.h"
 
-@interface NoteViewController : BaseRefreshViewController
+@interface SetUpViewController : ViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

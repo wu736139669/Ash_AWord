@@ -45,6 +45,9 @@
     
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor clearColor]];
     [[UITabBar appearance] setTintColor:[UIColor blackColor]];
+    
+    [UIBarButtonItem.appearance setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
 }
 
 - (void)didReceiveMemoryWarning

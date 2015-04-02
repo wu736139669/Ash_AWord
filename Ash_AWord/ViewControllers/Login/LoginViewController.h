@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+- (IBAction)qqLoginBtnClick:(id)sender;
+- (IBAction)weixinLoginBtnClick:(id)sender;
+- (IBAction)closeBtnClick:(id)sender;
 
 @end

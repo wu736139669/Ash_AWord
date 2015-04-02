@@ -7,7 +7,7 @@
 //
 
 #import "BaseRefreshViewController.h"
-#import "MJRefresh.h"
+
 
 @interface BaseRefreshViewController ()
 

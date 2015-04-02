@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "MJRefresh.h"
 @interface BaseRefreshViewController : ViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

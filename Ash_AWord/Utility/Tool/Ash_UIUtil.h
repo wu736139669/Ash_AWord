@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface Ash_UIUtil : NSObject
+
++(CGSize)downloadImageSizeWithURL:(id)imageURL;
 /**
  * 通过类名出创建xib类
  */
@@ -32,12 +34,12 @@
 /**
  * 创建自定义UIBarButtonItem，用于右边
  */
-+ (UIBarButtonItem *)rightBarButtonItemWithTarget:(id)target action:(SEL)action image:(UIImage *)image;
++ (UIBarButtonItem *)rightBarButtonItemWithTarget:(id)target action:(SEL)action image:(UIImage *)image highlightedImage:(UIImage*)highlightedImage;
 
 /**
  * 创建自定义UIBarButtonItem，用于左边
  */
-+ (UIBarButtonItem *)leftBarButtonItemWithTarget:(id)target action:(SEL)action image:(UIImage *)image;
++ (UIBarButtonItem *)leftBarButtonItemWithTarget:(id)target action:(SEL)action image:(UIImage *)image highlightedImage:(UIImage*)highlightedImage;
 
 + (CGFloat)currentScreenSizeRate;
 
@@ -66,6 +68,8 @@
  *    @return 压缩后的图片
  */
 +(UIImage*)compressImageDownToPhoneScreenSize:(UIImage*)originImage;
+
+
 @end
 
 @interface UIFont (CustomFont)
