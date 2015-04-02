@@ -16,6 +16,10 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MainViewController* mainViewController;
 
+/**
+ * 当前可视viewController
+ */
++ (UIViewController *)visibleViewController;
 
 @end
 

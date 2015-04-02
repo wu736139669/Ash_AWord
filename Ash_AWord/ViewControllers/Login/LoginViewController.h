@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController<UINavigationControllerDelegate>
 - (IBAction)qqLoginBtnClick:(id)sender;
 - (IBAction)weixinLoginBtnClick:(id)sender;
 - (IBAction)closeBtnClick:(id)sender;
 
+@property (strong, nonatomic)void (^loginSuccessBlock)();
+
+
++ (LoginViewController *)shareLoginViewController;
+
+
++ (void)presentLoginViewControllerInView:(UIViewController *)vc success:(void (^)(void))completion;
 @end

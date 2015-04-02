@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "LoginViewModel.h"
 #import "UMSocial.h"
+#import "AppDelegate.h"
 @interface LoginViewController ()
 
 @end
@@ -117,7 +118,13 @@
             [AWordUser sharedInstance].userName = name;
             [AWordUser sharedInstance].userAvatar = figureUrl;
             [AWordUser sharedInstance].userGender = gender;
-            [self closeBtnClick:nil];
+            [self dismissViewControllerAnimated:YES completion:^{
+                if (self.loginSuccessBlock)
+                {
+                    self.loginSuccessBlock();
+                    self.loginSuccessBlock = nil;
+                }
+            }];
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
         }else{
             [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
@@ -126,4 +133,36 @@
         
     }];
 }
+
++ (LoginViewController *)shareLoginViewController
+{
+    static LoginViewController *loginVC = nil;
+    if (loginVC == nil)
+    {
+        loginVC = [[LoginViewController alloc] initWithNibName:nil bundle:nil];
+    }
+    return loginVC;
+}
+
++ (void)presentLoginViewControllerInView:(UIViewController *)vc success:(void (^)(void))completion
+{
+    //已登录
+    if ([AWordUser sharedInstance].isLogin)
+    {
+        if (completion) completion();
+        return;
+    }
+    
+    if (!vc)
+    {
+        vc = [AppDelegate visibleViewController];
+    }
+    
+    LoginViewController *loginVC = [LoginViewController shareLoginViewController];
+    loginVC.loginSuccessBlock = completion;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+    nav.delegate = loginVC;
+    [vc presentViewController:nav animated:YES completion:nil];
+}
+
 @end

@@ -213,10 +213,10 @@
         [btn setImage:highlightedImage forState:UIControlStateHighlighted];
     }    [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    if (iOSVersion >= 7.0)
-    {
-        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -15);
-    }
+//    if (iOSVersion >= 7.0)
+//    {
+//        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -15);
+//    }
     
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     return barItem;
@@ -231,10 +231,10 @@
     }
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
-    if (iOSVersion >= 7.0)
-    {
-        btn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
-    }
+//    if (iOSVersion >= 7.0)
+//    {
+//        btn.imageEdgeInsets = UIEdgeInsetsMake(0, -15, 0, 0);
+//    }
     
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     return barItem;

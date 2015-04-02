@@ -119,8 +119,7 @@
         {
             if (![AWordUser sharedInstance].isLogin)
             {
-                LoginViewController* loginViewController = [[LoginViewController alloc] init];
-                [self.navigationController presentViewController:[[UINavigationController alloc] initWithRootViewController:loginViewController] animated:YES completion:nil];
+                [LoginViewController presentLoginViewControllerInView:self success:nil];
             }
 
         }

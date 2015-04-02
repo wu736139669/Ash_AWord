@@ -71,6 +71,20 @@
     return YES;
 }
 
+/**
+ * 当前可视viewController
+ */
++ (UIViewController *)visibleViewController
+{
+    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    UITabBarController *tab = (UITabBarController *)delegate.window.rootViewController;
+    if ([tab isKindOfClass:[UITabBarController class]])
+    {
+        return ([(UINavigationController *)[[tab viewControllers] objectAtIndex:tab.selectedIndex] visibleViewController]);
+    }
+    return nil;
+}
+
 #pragma mark methods
 -(void)setUmeng
 {

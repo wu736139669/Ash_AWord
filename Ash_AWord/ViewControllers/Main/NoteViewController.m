@@ -38,8 +38,8 @@
     
     self.navigationItem.title = @"文字";
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
-    
-    [self headerRereshing];
+    self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(headerBeginRefreshing) image:[UIImage imageNamed:@"navigationButtonRefresh"] highlightedImage:[UIImage imageNamed:@"navigationButtonRefreshClick"]];
+    [self headerBeginRefreshing];
 }
 
 #pragma mark MJRefreshDelegate
@@ -136,6 +136,10 @@
     }
     if (buttonIndex == 1) {
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    if(buttonIndex == 2)
+    {
+        return;
     }
     [self presentViewController:picker animated:YES completion:nil];
 
