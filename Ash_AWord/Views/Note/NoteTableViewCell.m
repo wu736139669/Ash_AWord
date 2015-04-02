@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     _contentLabel.font = [UIFont appFontOfSize:14.0];
+    _contentTextView.font = [UIFont appFontOfSize:14.0];
     _timeLabel.font = [UIFont appFontOfSize:14.0];
     
     _avatar.layer.cornerRadius = _avatar.frame.size.width/2;
@@ -53,8 +54,8 @@
     CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
-    _contentHeight.constant = labelRect.size.height;
-    _contentLabel.text = text_image.content;
+    _contentHeight.constant = labelRect.size.height+10;
+    _contentTextView.text = text_image.content;
     [_contentImgView sd_setImageWithURL:text_image.imageUrl placeholderImage:pressedColorImg];
 
 }
@@ -70,6 +71,6 @@
     if (imageHeight!=0 &&imageSize.width!=0) {
         imageHeight = imageHeight/(imageSize.width/(304*[Ash_UIUtil currentScreenSizeRate]));
     }
-    return imageHeight+labelRect.size.height+85;
+    return imageHeight+labelRect.size.height+95;
 }
 @end
