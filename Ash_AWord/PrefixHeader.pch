@@ -36,6 +36,8 @@
 #import "Ash_UIUtil.h"
 #import "Mantle.h"
 #import "SVWebViewController.h"
+#import "MobClick.h"
+#import "LoginViewController.h"
 #endif
 
 #endif

@@ -33,7 +33,9 @@
             [_myNav setTabBarItem:[[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage imageNamed:@"tabbarSetup-dark"] selectedImage:[UIImage imageNamed:@"tabbarSetupClick"]]];
         }
         
-        self.viewControllers = @[_noteNav, _messageNav, _myNav];
+//        self.viewControllers = @[_noteNav, _messageNav, _myNav];
+        self.viewControllers = @[_noteNav, _myNav];
+
     }
     return self;
 }
@@ -48,6 +50,8 @@
     
     [UIBarButtonItem.appearance setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

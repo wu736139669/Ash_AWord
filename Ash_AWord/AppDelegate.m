@@ -10,6 +10,7 @@
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
+#import "UMSocialSinaHandler.h"
 #import "MobClick.h"
 #import "MainViewController.h"
 @interface AppDelegate ()
@@ -92,7 +93,8 @@
     [UMSocialData setAppKey:kUmengAppkey];
     [UMSocialWechatHandler setWXAppId:kWXAppId appSecret:kWXAppSecret url:@"http://www.xiaoyu.com"];
     [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppSecret url:@"http://www.xiaoyu.com"];
-    
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+
     [MobClick startWithAppkey:kUmengAppkey reportPolicy:REALTIME channelId:@"App Store"];
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];

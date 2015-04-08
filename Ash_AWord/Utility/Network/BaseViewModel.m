@@ -12,7 +12,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"errCode": @"ret",
-             @"errMessage": @"errMessage",
+             @"errMessage": @"msg",
              };
 }
 
@@ -27,12 +27,12 @@
 
 - (BOOL)success
 {
-    return (self.errCode == 0);
+    return (self.errCode.integerValue == 0);
 }
 
 - (BOOL)needLogin
 {
-    return (self.errCode == 1001);
+    return (self.errCode.integerValue == 1001);
 }
 
 @end

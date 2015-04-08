@@ -10,6 +10,8 @@
 #import "LoginViewModel.h"
 #import "UMSocial.h"
 #import "AppDelegate.h"
+#import <TencentOpenAPI/QQApi.h>
+#import "WXApi.h"
 @interface LoginViewController ()
 
 @end
@@ -19,6 +21,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (![QQApi isQQInstalled]) {
+        _qqBtn.hidden = YES;
+    }
+    if (![WXApi isWXAppInstalled]) {
+        _wxBtn.hidden = YES;
+    }
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -42,6 +51,8 @@
 
 - (IBAction)qqLoginBtnClick:(id)sender
 {
+    [MobClick event:kUmen_qqlogin attributes:nil];
+
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
     
     snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
@@ -66,8 +77,41 @@
 
 }
 
+- (IBAction)sianLoginBtnClick:(id)sender {
+    [MobClick event:kUmen_sinalogin attributes:nil];
+
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
+    
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        
+        //          获取微博用户名、uid、token等
+        
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
+            
+            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+            [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
+                NSLog(@"SnsInformation is %@",response.data);
+                if (response.data) {
+                    NSString* gender = @"男";
+                    if ([[response.data objectForKey:@"gender"] integerValue]==0) {
+                        gender = @"女";
+                    }
+                    NSString* openid = [NSString stringWithFormat:@"%ld",((NSNumber*)[response.data objectForKey:@"uid"]).integerValue];
+                    [self loginWithOpenId:openid withName:[response.data objectForKey:@"screen_name"] withGender:gender withFigureUrl:[response.data objectForKey:@"profile_image_url"]];
+                }else{
+                    [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+                }
+            }];
+            
+        }});
+}
+
 - (IBAction)weixinLoginBtnClick:(id)sender
 {
+    [MobClick event:kUmen_wxlogin attributes:nil];
+
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
     
     snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
@@ -130,7 +174,8 @@
             [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
         }
     } failedBlock:^(NSError *error) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
     }];
 }
 

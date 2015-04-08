@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>OneWord</string>
+	<string>遇见你</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIconFiles</key>
@@ -49,6 +49,14 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx8fbd37e4da758bbd</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>sina</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>sina.54abd4a4fd98c51d33000807</string>
 			</array>
 		</dict>
 	</array>

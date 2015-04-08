@@ -40,6 +40,8 @@
 -(void)publish
 {
     if (_contentTextView.text.length>0 && _publishImage) {
+        [MobClick event:kUmen_addnote attributes:nil];
+
         [MBProgressHUD hudWithView:self.view label:@"发布中"];
         PropertyEntity* notePublishViewModel = [NotePublishViewModel requireAddNote:_contentTextView.text withImage:_publishImage];
         [RequireEngine requireWithProperty:notePublishViewModel completionBlock:^(id viewModel) {

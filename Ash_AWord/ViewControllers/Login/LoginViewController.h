@@ -10,11 +10,14 @@
 
 @interface LoginViewController : UIViewController<UINavigationControllerDelegate>
 - (IBAction)qqLoginBtnClick:(id)sender;
+- (IBAction)sianLoginBtnClick:(id)sender;
 - (IBAction)weixinLoginBtnClick:(id)sender;
 - (IBAction)closeBtnClick:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *qqBtn;
 @property (strong, nonatomic)void (^loginSuccessBlock)();
 
+@property (weak, nonatomic) IBOutlet UIButton *wxBtn;
 
 + (LoginViewController *)shareLoginViewController;
 

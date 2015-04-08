@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *badBtn;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
+- (IBAction)avatarBtnClick:(id)sender;
 
 - (IBAction)imageBtnClick:(id)sender;
 

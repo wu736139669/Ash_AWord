@@ -48,6 +48,8 @@ NetworkType;
  *   NSdate返回与指定NSdate相差天数的新的NSDate
  */
 +(NSDate*)newDateWithDate:(NSDate*)oldDate withOffSetDay:(NSInteger)day;
+//时间戳转时间
++(NSString*)timeFromtimeSp:(NSString*)timeSp;
 //判断是否同一天
 +(BOOL)isSameDay:(NSDate*)date1 date2:(NSDate*)date2;
 @end

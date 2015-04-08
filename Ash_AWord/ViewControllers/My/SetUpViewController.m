@@ -9,6 +9,7 @@
 #import "SetUpViewController.h"
 #import "EGOCache.h"
 #import "UMSocial.h"
+#import "AppDelegate.h"
 @interface SetUpViewController ()
 
 @end
@@ -117,10 +118,13 @@
         case 0:
             [self cleanCache];
             break;
-    case 1:
+        case 1:
         {
              [SetUpViewController shareAppWithViewController:self andTitle:@"听说" andContent:@"最真的表白，是我欲言又止的沉默" andImage:[UIImage imageNamed:@"Icon@2x"] andUrl:@"http://www.baidu.com"];
         }
+            break;
+        case 3:
+            [self showAbout];
             break;
         case 4:
             [self goToAppraisal];
@@ -139,7 +143,8 @@
 #pragma mark 关于
 -(void)showAbout
 {
-    
+    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_AWord_API_URL]]];
+    [self.navigationController pushViewController:svWebViewController animated:YES];
 }
 #pragma mark 清除缓存
 - (void)cleanCache{
@@ -168,6 +173,8 @@
 }
 -(void)lgout:(id)sender
 {
+    [MobClick event:kUmen_logout attributes:nil];
+
     [AWordUser sharedInstance].isLogin = NO;
     [AWordUser sharedInstance].uid = @"";
     [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
@@ -176,6 +183,9 @@
 
 + (void)shareAppWithViewController:(UIViewController *)controller andTitle:(NSString *)title andContent:(NSString *)content andImage:(UIImage *)image andUrl:(NSString *)url
 {
+    if (controller == nil) {
+        controller = [AppDelegate visibleViewController];
+    }
     if(title.length <= 0)
     {
         title = @"听说";

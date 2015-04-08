@@ -1,18 +1,20 @@
 //
-//  LoginViewModel.m
+//  UpdateViewModel.m
 //  Ash_AWord
 //
-//  Created by xmfish on 15/3/30.
+//  Created by xmfish on 15/4/8.
 //  Copyright (c) 2015年 ash. All rights reserved.
 //
 
-#import "LoginViewModel.h"
+#import "UpdateViewModel.h"
 
-@implementation LoginViewModel
-
+@implementation UpdateViewModel
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithDictionary:[super JSONKeyPathsByPropertyKey]];
-    [dic setObject:@"uid" forKey:@"uId"];
+    [dic setObject:@"update" forKey:@"update"];
+    [dic setObject:@"version" forKey:@"version"];
+    [dic setObject:@"version_info" forKey:@"version_info"];
+
     return dic;
 }
 
@@ -25,16 +27,18 @@
     return self;
 }
 
-+(PropertyEntity*)requireLoginWithOpenId:(NSString *)openId withName:(NSString *)name withGender:(NSString *)gender withFigureUrl:(NSString *)figureUrl
++(PropertyEntity*)requireUpdate
 {
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    NSString *version = [NSString stringWithFormat:@"v%@.%@",app_Version, buildVersion];
+    
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/login";
+    pro.reqURL = @"rs/common/get_version";
     pro.responesOBJ = self.class;
-    pro.pro = @{@"openid": openId,
-                @"name": name,
-                @"gender": gender,
-                @"figureurl": figureUrl
+    pro.pro = @{@"version": version,
                 };
     
     return pro;

@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="qqBtn" destination="d5n-Fh-iLu" id="5MN-io-dC2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wxBtn" destination="UkD-jq-1FA" id="KBt-Gx-hhf"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -43,18 +45,41 @@
                         <constraint firstAttribute="height" constant="1" id="gvB-h3-6cR"/>
                     </constraints>
                 </view>
+                <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0z-zr-FIh">
+                    <rect key="frame" x="30" y="330" width="260" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="dyY-bi-m4c"/>
+                        <constraint firstAttribute="height" constant="1" id="xMQ-Fj-c7T"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-jq-1FA">
                     <rect key="frame" x="0.0" y="280" width="320" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="Gq2-tu-f83"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title=" 微信账号登录" image="first-login-sina.png">
-                        <color key="titleColor" red="0.85882352939999995" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title=" 微信账号登录" image="iconWeixin.png">
+                        <color key="titleColor" red="0.035294117649999998" green="0.73333333329999995" blue="0.027450980390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="weixinLoginBtnClick:" destination="-1" eventType="touchUpInside" id="NNj-L8-Jpp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOa-ZS-ast">
+                    <rect key="frame" x="0.0" y="330" width="320" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="IY8-e9-DWd"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="wtE-EE-68S"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title=" 微博账号登录" image="first-login-sina.png">
+                        <color key="titleColor" red="0.93725490199999995" green="0.2470588235" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="sianLoginBtnClick:" destination="-1" eventType="touchUpInside" id="8Eq-fl-vhm"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07x-dP-nLy">
@@ -79,12 +104,18 @@
                 <constraint firstItem="07x-dP-nLy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Lfs-7l-4av"/>
                 <constraint firstItem="d5n-Fh-iLu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MSR-l1-iMs"/>
                 <constraint firstItem="d5n-Fh-iLu" firstAttribute="top" secondItem="MRU-Mw-Lxc" secondAttribute="bottom" constant="32" id="NSR-lT-IgV"/>
+                <constraint firstAttribute="trailing" secondItem="N0z-zr-FIh" secondAttribute="trailing" constant="30" id="PGb-6j-Kam"/>
                 <constraint firstAttribute="centerX" secondItem="MRU-Mw-Lxc" secondAttribute="centerX" id="RbP-3H-0mQ"/>
                 <constraint firstItem="UkD-jq-1FA" firstAttribute="top" secondItem="itZ-sn-jaF" secondAttribute="bottom" constant="3" id="WTN-PU-MmF"/>
                 <constraint firstItem="itZ-sn-jaF" firstAttribute="top" secondItem="d5n-Fh-iLu" secondAttribute="bottom" constant="2" id="ZG8-bE-RNp"/>
                 <constraint firstItem="itZ-sn-jaF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="a6i-G7-yf6"/>
+                <constraint firstItem="EOa-ZS-ast" firstAttribute="top" secondItem="UkD-jq-1FA" secondAttribute="bottom" constant="2" id="aR8-dm-Bo0"/>
+                <constraint firstAttribute="trailing" secondItem="EOa-ZS-ast" secondAttribute="trailing" id="be9-xL-usb"/>
+                <constraint firstItem="N0z-zr-FIh" firstAttribute="top" secondItem="UkD-jq-1FA" secondAttribute="bottom" constant="2" id="cTr-9w-W8z"/>
+                <constraint firstItem="EOa-ZS-ast" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iKK-V5-xpJ"/>
                 <constraint firstItem="UkD-jq-1FA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="l54-ha-fXW"/>
                 <constraint firstItem="07x-dP-nLy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="rlE-tw-9ZZ"/>
+                <constraint firstItem="N0z-zr-FIh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="s8L-zA-6NL"/>
                 <constraint firstAttribute="trailing" secondItem="d5n-Fh-iLu" secondAttribute="trailing" id="yTx-cp-DRM"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -96,5 +127,6 @@
         <image name="first-login-icon.png" width="114" height="114"/>
         <image name="first-login-qq.png" width="24" height="24"/>
         <image name="first-login-sina.png" width="22" height="22"/>
+        <image name="iconWeixin.png" width="28" height="28"/>
     </resources>
 </document>

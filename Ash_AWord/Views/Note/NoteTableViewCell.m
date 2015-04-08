@@ -10,6 +10,8 @@
 #import "NoteViewModel.h"
 #import "AppDelegate.h"
 #import "MWPhotoBrowser.h"
+#import "SetUpViewController.h"
+#import "MyNoteViewController.h"
 @interface NoteTableViewCell()<MWPhotoBrowserDelegate>
 @end
 @implementation NoteTableViewCell
@@ -26,6 +28,16 @@
     _avatar.layer.cornerRadius = _avatar.frame.size.width/2;
     _avatar.layer.masksToBounds = YES;
     
+    _contentImgView.contentMode = UIViewContentModeScaleAspectFill;
+    _contentImgView.clipsToBounds  = YES;
+    
+    _goodBtn.layer.cornerRadius = 3;
+    _goodBtn.layer.masksToBounds = YES;
+    _shareBtn.layer.cornerRadius = 3;
+    _shareBtn.layer.masksToBounds = YES;
+    _goodBtn.backgroundColor = [UIColor lineColor];
+    _shareBtn.backgroundColor = [UIColor lineColor];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,14 +48,74 @@
 
 - (IBAction)goodBtnClick:(id)sender
 {
-}
+    
+    if (![AWordUser sharedInstance].isLogin)
+    {
+        [LoginViewController presentLoginViewControllerInView:nil success:nil];
+        return;
+    }
+    
+    _goodBtn.enabled = NO;
+    if (_goodBtn.selected) {
+        [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount-1] forState:UIControlStateNormal];
+        [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount-1] forState:UIControlStateSelected];
+    }else{
+        [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount+1] forState:UIControlStateNormal];
+        [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount+1] forState:UIControlStateSelected];
+    }
+    [self setGoodBtnSelect:!_goodBtn.selected];
 
+    PropertyEntity* pro = [NoteViewModel requirePraiseWithRecordId:_text_image.messageId];
+    Text_Image* tempTI = _text_image;
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        NoteViewModel* noteViewModel = (NoteViewModel*)viewModel;
+        _goodBtn.enabled = YES;
+        if ([noteViewModel success]) {
+            
+            if (tempTI.hasPraised) {
+                tempTI.hasPraised = NO;
+                tempTI.praiseCount--;
+            }else{
+                tempTI.hasPraised = YES;
+                tempTI.praiseCount++;
+            }
+            
+        }else{
+            [MBProgressHUD errorHudWithView:nil label:noteViewModel.errMessage hidesAfter:1.0];
+            [self setGoodBtnSelect:!_goodBtn.selected];
+        }
+    } failedBlock:^(NSError *error) {
+        _goodBtn.enabled = YES;
+        [self setGoodBtnSelect:!_goodBtn.selected];
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+    }];
+}
+-(void)setGoodBtnSelect:(BOOL)isSelect
+{
+    if (isSelect) {
+        _goodBtn.selected = YES;
+        _goodBtn.backgroundColor = [UIColor lineColor];
+
+    }else{
+        _goodBtn.selected = NO;
+        _goodBtn.backgroundColor = [UIColor lineColor];
+    }
+}
 - (IBAction)badBtnClick:(id)sender
 {
 }
 
 - (IBAction)shareBtnClick:(id)sender
 {
+    [SetUpViewController shareAppWithViewController:nil andTitle:@"听说" andContent:_text_image.content andImage:_contentImgView.image andUrl:@"http://www.baidu.com"];
+    PropertyEntity* pro = [NoteViewModel requireShareWithRecordId:_text_image.messageId];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        if ([viewModel success]) {
+            _text_image.shareCount++;
+        }
+    } failedBlock:^(NSError *error) {
+    }];
+
 }
 -(void)setText_Image:(Text_Image *)text_image
 {
@@ -55,9 +127,11 @@
     UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 
+    _userName.text = text_image.ownerName;
     
+    [_avatar sd_setImageWithURL:text_image.ownerFigureurl placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
-    _timeLabel.text = text_image.createTime;
+    _timeLabel.text = [CommonUtil timeFromtimeSp:text_image.createTime.stringValue];
     UIFont *font = [UIFont appFontOfSize:14.0];
     CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     
@@ -65,6 +139,14 @@
     _contentHeight.constant = labelRect.size.height+25;
     _contentTextView.text = text_image.content;
     [_contentImgView sd_setImageWithURL:text_image.imageUrl placeholderImage:pressedColorImg];
+    
+    [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",text_image.praiseCount] forState:UIControlStateNormal];
+    [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",text_image.praiseCount] forState:UIControlStateSelected];
+    [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",text_image.shareCount] forState:UIControlStateNormal];
+    
+    [self setGoodBtnSelect:text_image.hasPraised];
+ 
+
 
 }
 +(CGFloat)heightWith:(Text_Image *)text_image
@@ -75,15 +157,28 @@
     
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     
-    CGSize imageSize = [Ash_UIUtil downloadImageSizeWithURL:text_image.imageUrl];
-//    CGSize imageSize = CGSizeMake(320, 600);
+
+    CGSize imageSize = CGSizeMake(text_image.imageWidth.floatValue, text_image.imageHeight.floatValue);
     CGFloat imageHeight = imageSize.height;
     if (imageHeight!=0 &&imageSize.width!=0)
     {
         imageHeight = imageHeight/(imageSize.width/(304*[Ash_UIUtil currentScreenSizeRate]));
     }
+    if (imageHeight>500) {
+        imageHeight = 500;
+    }
     return imageHeight+labelRect.size.height+95;
 }
+- (IBAction)avatarBtnClick:(id)sender {
+    if (![_text_image.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {
+        MyNoteViewController* myNoteViewController = [[MyNoteViewController alloc] init];
+        myNoteViewController.otherUserId = _text_image.ownerId;
+        myNoteViewController.otherName = _text_image.ownerName;
+        myNoteViewController.hidesBottomBarWhenPushed = YES;
+        [[AppDelegate visibleViewController].navigationController pushViewController:myNoteViewController animated:YES];
+    }
+}
+
 - (IBAction)imageBtnClick:(id)sender {
     
     MWPhotoBrowser *pBrowser = [[MWPhotoBrowser alloc]initWithDelegate:self];

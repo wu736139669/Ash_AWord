@@ -29,7 +29,7 @@
 /**
  * app store上的Apple ID
  */
-#define kAppleID 957252253
+#define kAppleID 983458853
 
 /**
  *  系统版本
@@ -78,6 +78,15 @@
 
 #define kUmengAppkey @"551cf898fd98c586460011d1"
 
+/**
+ * 友盟的数据
+ */
+#define kUmen_wxlogin @"wxlogin"
+#define kUmen_qqlogin @"qqlogin"
+#define kUmen_sinalogin @"sinalogin"
+#define kUmen_note @"note"
+#define kUmen_addnote @"addnote"
+#define kUmen_logout @"logout"
 /**
  *  调整图片的宽度
  */

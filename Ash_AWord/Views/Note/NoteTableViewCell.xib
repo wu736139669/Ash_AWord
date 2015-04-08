@@ -15,13 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-8X-1uX">
-                        <rect key="frame" x="8" y="8" width="24" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="7Ud-nZ-Cv0"/>
-                            <constraint firstAttribute="width" constant="24" id="eLa-By-4UF"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="游客" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq3-YP-dwB">
                         <rect key="frame" x="40" y="10" width="280" height="21"/>
                         <constraints>
@@ -31,26 +24,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeW-Yw-x4V">
-                        <rect key="frame" x="8" y="190" width="60" height="24"/>
-                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="RFj-ny-DWm"/>
-                            <constraint firstAttribute="width" constant="60" id="byb-Kg-xTe"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="0" image="btn_good.png">
-                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <state key="selected" image="btn_good_clicked.png">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                        <connections>
-                            <action selector="goodBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IBH-8l-81g"/>
-                        </connections>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A54-Sv-7Vo">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A54-Sv-7Vo">
                         <rect key="frame" x="76" y="190" width="60" height="24"/>
                         <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -102,7 +76,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="内容" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-LI-LRT">
-                        <rect key="frame" x="8" y="34" width="300" height="27"/>
+                        <rect key="frame" x="2" y="34" width="300" height="27"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="Uex-tf-US9"/>
@@ -110,13 +84,53 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
                         <rect key="frame" x="8" y="61" width="304" height="120"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="imageBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fbt-xq-94q"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-8X-1uX">
+                        <rect key="frame" x="8" y="8" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="7Ud-nZ-Cv0"/>
+                            <constraint firstAttribute="width" constant="24" id="eLa-By-4UF"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeW-Yw-x4V">
+                        <rect key="frame" x="8" y="190" width="60" height="24"/>
+                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="RFj-ny-DWm"/>
+                            <constraint firstAttribute="width" constant="60" id="byb-Kg-xTe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="0" image="mainCellDing.png">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="selected" image="mainCellDingClick.png">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" image="mainCellDingClick.png"/>
+                        <connections>
+                            <action selector="goodBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IBH-8l-81g"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwn-Sg-HbR">
+                        <rect key="frame" x="8" y="9" width="24" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" id="rBV-dO-ZZD"/>
+                            <constraint firstAttribute="width" constant="24" id="tee-R1-XN3"/>
+                        </constraints>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="avatarBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cRR-4P-gdr"/>
                         </connections>
                     </button>
                 </subviews>
@@ -127,18 +141,20 @@
                     <constraint firstAttribute="bottomMargin" secondItem="xeW-Yw-x4V" secondAttribute="bottom" constant="-3" id="CHt-YD-DRF"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Dxu-6O-Q88"/>
                     <constraint firstAttribute="bottomMargin" secondItem="A54-Sv-7Vo" secondAttribute="bottom" constant="-3" id="GQb-si-pt6"/>
+                    <constraint firstItem="nwn-Sg-HbR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Jfg-4S-075"/>
                     <constraint firstItem="Zq3-YP-dwB" firstAttribute="leading" secondItem="j8x-8X-1uX" secondAttribute="trailing" constant="8" id="Jr5-MH-iSW"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="centerY" secondItem="p9l-PS-2tC" secondAttribute="centerY" id="Jwe-wJ-Fh7"/>
                     <constraint firstItem="A54-Sv-7Vo" firstAttribute="leading" secondItem="xeW-Yw-x4V" secondAttribute="trailing" constant="8" id="PDA-wH-xbu"/>
                     <constraint firstItem="j8x-8X-1uX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="PiZ-qa-B5O"/>
-                    <constraint firstItem="2Rh-LI-LRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UIC-fn-AiY"/>
+                    <constraint firstItem="2Rh-LI-LRT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-6" id="UIC-fn-AiY"/>
                     <constraint firstItem="2Rh-LI-LRT" firstAttribute="top" secondItem="kO5-Uc-AhU" secondAttribute="bottom" constant="1" id="VMh-KQ-qOG"/>
                     <constraint firstItem="DAR-mT-RbS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="XpE-yY-Jq9"/>
                     <constraint firstItem="Zq3-YP-dwB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="Yz4-qJ-JUc"/>
                     <constraint firstItem="xeW-Yw-x4V" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="YzT-Tf-o6a"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="height" secondItem="p9l-PS-2tC" secondAttribute="height" id="Zgr-1g-SIR"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="centerX" secondItem="p9l-PS-2tC" secondAttribute="centerX" id="b9R-Qn-j79"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="4" id="ble-e8-Va3"/>
+                    <constraint firstItem="nwn-Sg-HbR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="bJZ-pq-qa8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="10" id="ble-e8-Va3"/>
                     <constraint firstItem="p9l-PS-2tC" firstAttribute="top" secondItem="2Rh-LI-LRT" secondAttribute="bottom" id="dUD-nk-z5D"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fRB-tZ-fsb"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="width" secondItem="p9l-PS-2tC" secondAttribute="width" id="g4i-cb-kjD"/>
@@ -164,16 +180,16 @@
                 <outlet property="timeLabel" destination="kO5-Uc-AhU" id="jky-Wu-oYB"/>
                 <outlet property="userName" destination="Zq3-YP-dwB" id="Ggo-yh-zdb"/>
             </connections>
-            <point key="canvasLocation" x="193" y="146"/>
+            <point key="canvasLocation" x="193" y="144"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="btn_bad.png" width="18" height="18"/>
         <image name="btn_bad_clicked.png" width="18" height="18"/>
-        <image name="btn_good.png" width="18" height="18"/>
-        <image name="btn_good_clicked.png" width="18" height="18"/>
         <image name="btn_share.png" width="18" height="18"/>
         <image name="btn_share_clicked.png" width="18" height="18"/>
         <image name="defaultUserIcon.png" width="50" height="50"/>
+        <image name="mainCellDing.png" width="20" height="20"/>
+        <image name="mainCellDingClick.png" width="20" height="20"/>
     </resources>
 </document>

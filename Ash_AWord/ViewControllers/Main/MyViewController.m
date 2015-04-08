@@ -11,6 +11,7 @@
 #import "LoginViewModel.h"
 #import "LoginViewController.h"
 #import "SetUpViewController.h"
+#import "MyNoteViewController.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
@@ -66,7 +67,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 1) {
-        return 2;
+        return 1;
     }
     return 1;
 }
@@ -122,6 +123,22 @@
                 [LoginViewController presentLoginViewControllerInView:self success:nil];
             }
 
+        }
+            break;
+        case 1:
+        {
+            if (![AWordUser sharedInstance].isLogin)
+            {
+                [LoginViewController presentLoginViewControllerInView:self success:nil];
+            }else
+            {
+                if (indexPath.row == 0) {
+                    MyNoteViewController* myNoteViewController = [[MyNoteViewController alloc] init];
+                    myNoteViewController.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:myNoteViewController animated:YES];
+                }
+            }
+            
         }
             break;
             

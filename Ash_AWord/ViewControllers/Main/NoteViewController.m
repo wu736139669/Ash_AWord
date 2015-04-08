@@ -10,7 +10,8 @@
 #import "NotePublishViewController.h"
 #import "NoteTableViewCell.h"
 #import "NoteViewModel.h"
-@interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+#import "UpdateViewModel.h"
+@interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_imageArr;
@@ -40,8 +41,34 @@
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
     self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(headerBeginRefreshing) image:[UIImage imageNamed:@"navigationButtonRefresh"] highlightedImage:[UIImage imageNamed:@"navigationButtonRefreshClick"]];
     [self headerBeginRefreshing];
+    
+    [self checkUpdate];
 }
 
+-(void)checkUpdate
+{
+    PropertyEntity* pro = [UpdateViewModel requireUpdate];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        DLog(@"%@",viewModel);
+        UpdateViewModel* updateViewModel = (UpdateViewModel*)viewModel;
+        if ([updateViewModel success]) {
+            if (updateViewModel.update==NO) {
+                UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:updateViewModel.version_info delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+                [alertView show];
+            }
+        }
+    } failedBlock:^(NSError *error) {
+        
+    }];
+}
+#pragma mark UIAlertDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/app/id%d?mt=8", kAppleID];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    }
+}
 #pragma mark MJRefreshDelegate
 -(void)headerRereshing
 {
@@ -55,6 +82,8 @@
 }
 -(void)loadData
 {
+    [MobClick event:kUmen_note attributes:nil];
+
     PropertyEntity* pro = [NoteViewModel requireWithOrder_by:Order_by_Time withPage:_page withPage_size:20];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
@@ -118,6 +147,11 @@
 #pragma mark publish
 -(void)publish
 {
+    if (![AWordUser sharedInstance].isLogin)
+    {
+        [LoginViewController presentLoginViewControllerInView:self success:nil];
+        return;
+    }
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
