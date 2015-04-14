@@ -17,7 +17,7 @@
     pro.requireType = HTTPRequestTypeWithPOSTDATA;
     proFile *file = [[proFile alloc] init];
     file.name = @"img";
-    file.img = [NSArray arrayWithObject:image];;
+    file.img = [NSArray arrayWithObject:image];
     pro.pFile = file;
     pro.reqURL = @"rs/text_image/add";
     pro.responesOBJ = self.class;

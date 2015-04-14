@@ -12,6 +12,7 @@
 #import "LoginViewController.h"
 #import "SetUpViewController.h"
 #import "MyNoteViewController.h"
+#import "MyMessageViewController.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
@@ -67,7 +68,7 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 1) {
-        return 1;
+        return 2;
     }
     return 1;
 }
@@ -136,12 +137,15 @@
                     MyNoteViewController* myNoteViewController = [[MyNoteViewController alloc] init];
                     myNoteViewController.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:myNoteViewController animated:YES];
+                }else{
+                    MyMessageViewController* myNoteViewController = [[MyMessageViewController alloc] init];
+                    myNoteViewController.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:myNoteViewController animated:YES];
                 }
             }
             
         }
             break;
-            
         default:
             break;
     }

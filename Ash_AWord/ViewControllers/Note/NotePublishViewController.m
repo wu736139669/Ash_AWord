@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.navigationItem.title = @"发表图片";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStyleDone target:self action:@selector(publish)];
     

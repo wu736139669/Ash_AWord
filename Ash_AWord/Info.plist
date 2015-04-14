@@ -11,6 +11,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon@2x</string>
+		<string>Icon120</string>
 		<string>Icon</string>
 	</array>
 	<key>CFBundleIdentifier</key>
@@ -32,7 +33,7 @@
 			<string>QQ</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41d5006a</string>
+				<string>QQ41d5279b</string>
 			</array>
 		</dict>
 		<dict>
@@ -40,7 +41,7 @@
 			<string>tencent</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent1104478314</string>
+				<string>tencent1104488347</string>
 			</array>
 		</dict>
 		<dict>
@@ -56,7 +57,7 @@
 			<string>sina</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sina.54abd4a4fd98c51d33000807</string>
+				<string>sina.551cf898fd98c586460011d1</string>
 			</array>
 		</dict>
 	</array>

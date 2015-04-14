@@ -21,9 +21,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView addGifHeaderWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-    [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+    [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
+    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
     [self customViewDidLoad];
+    [self.tableView.footer setTitle:@"" forState:MJRefreshFooterStateNoMoreData];
     self.tableView.separatorColor = [UIColor clearColor];
 }
 

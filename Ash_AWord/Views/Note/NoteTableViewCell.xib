@@ -75,15 +75,6 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="内容" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-LI-LRT">
-                        <rect key="frame" x="2" y="34" width="300" height="27"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="27" id="Uex-tf-US9"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
                         <rect key="frame" x="8" y="61" width="304" height="120"/>
                         <state key="normal">
@@ -133,6 +124,15 @@
                             <action selector="avatarBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cRR-4P-gdr"/>
                         </connections>
                     </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="内容" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-LI-LRT">
+                        <rect key="frame" x="2" y="34" width="310" height="27"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="Uex-tf-US9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="DAR-mT-RbS" secondAttribute="bottom" constant="-3" id="4TG-zs-Q0N"/>
@@ -154,7 +154,7 @@
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="height" secondItem="p9l-PS-2tC" secondAttribute="height" id="Zgr-1g-SIR"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="centerX" secondItem="p9l-PS-2tC" secondAttribute="centerX" id="b9R-Qn-j79"/>
                     <constraint firstItem="nwn-Sg-HbR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="1" id="bJZ-pq-qa8"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="10" id="ble-e8-Va3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="2Rh-LI-LRT" secondAttribute="trailing" id="ble-e8-Va3"/>
                     <constraint firstItem="p9l-PS-2tC" firstAttribute="top" secondItem="2Rh-LI-LRT" secondAttribute="bottom" id="dUD-nk-z5D"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fRB-tZ-fsb"/>
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="width" secondItem="p9l-PS-2tC" secondAttribute="width" id="g4i-cb-kjD"/>

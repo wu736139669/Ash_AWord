@@ -7,7 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "BaseRefreshViewController.h"
 
-@interface MessageViewController : ViewController
+@interface MessageViewController : BaseRefreshViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

@@ -37,7 +37,8 @@
     // Do any additional setup after loading the view from its nib.
     [self customViewDidLoad];
     
-    self.navigationItem.title = @"文字";
+    self.navigationItem.title = @"遇见你";
+    
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
     self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(headerBeginRefreshing) image:[UIImage imageNamed:@"navigationButtonRefresh"] highlightedImage:[UIImage imageNamed:@"navigationButtonRefreshClick"]];
     [self headerBeginRefreshing];
@@ -77,8 +78,7 @@
 }
 -(void)footerRereshing
 {
-    _page++;
-    [self footerEndRefreshing];
+    [self loadData];
 }
 -(void)loadData
 {
@@ -102,6 +102,7 @@
         }else{
             [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
         }
+        _page++;
         [self.tableView reloadData];
         
     } failedBlock:^(NSError *error) {
@@ -166,7 +167,7 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     UIImagePickerController* picker = [[UIImagePickerController alloc] init];
-    picker.allowsEditing = YES;
+//    picker.allowsEditing = YES;
     picker.delegate = self;
     if (buttonIndex == 0) {
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;

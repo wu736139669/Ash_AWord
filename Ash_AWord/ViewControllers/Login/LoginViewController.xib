@@ -45,7 +45,7 @@
                         <constraint firstAttribute="height" constant="1" id="gvB-h3-6cR"/>
                     </constraints>
                 </view>
-                <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0z-zr-FIh">
+                <view hidden="YES" alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0z-zr-FIh">
                     <rect key="frame" x="30" y="330" width="260" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -53,7 +53,7 @@
                         <constraint firstAttribute="height" constant="1" id="xMQ-Fj-c7T"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-jq-1FA">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-jq-1FA">
                     <rect key="frame" x="0.0" y="280" width="320" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="Gq2-tu-f83"/>
@@ -68,7 +68,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOa-ZS-ast">
-                    <rect key="frame" x="0.0" y="330" width="320" height="48"/>
+                    <rect key="frame" x="0.0" y="283" width="320" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="IY8-e9-DWd"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="wtE-EE-68S"/>
@@ -109,7 +109,7 @@
                 <constraint firstItem="UkD-jq-1FA" firstAttribute="top" secondItem="itZ-sn-jaF" secondAttribute="bottom" constant="3" id="WTN-PU-MmF"/>
                 <constraint firstItem="itZ-sn-jaF" firstAttribute="top" secondItem="d5n-Fh-iLu" secondAttribute="bottom" constant="2" id="ZG8-bE-RNp"/>
                 <constraint firstItem="itZ-sn-jaF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="a6i-G7-yf6"/>
-                <constraint firstItem="EOa-ZS-ast" firstAttribute="top" secondItem="UkD-jq-1FA" secondAttribute="bottom" constant="2" id="aR8-dm-Bo0"/>
+                <constraint firstItem="EOa-ZS-ast" firstAttribute="top" secondItem="UkD-jq-1FA" secondAttribute="bottom" constant="-45" id="aR8-dm-Bo0"/>
                 <constraint firstAttribute="trailing" secondItem="EOa-ZS-ast" secondAttribute="trailing" id="be9-xL-usb"/>
                 <constraint firstItem="N0z-zr-FIh" firstAttribute="top" secondItem="UkD-jq-1FA" secondAttribute="bottom" constant="2" id="cTr-9w-W8z"/>
                 <constraint firstItem="EOa-ZS-ast" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iKK-V5-xpJ"/>

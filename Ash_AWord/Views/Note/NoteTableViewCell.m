@@ -107,7 +107,7 @@
 
 - (IBAction)shareBtnClick:(id)sender
 {
-    [SetUpViewController shareAppWithViewController:nil andTitle:@"听说" andContent:_text_image.content andImage:_contentImgView.image andUrl:@"http://www.baidu.com"];
+    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_image.content andImage:_contentImgView.image andUrl:nil];
     PropertyEntity* pro = [NoteViewModel requireShareWithRecordId:_text_image.messageId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {
@@ -133,7 +133,7 @@
     
     _timeLabel.text = [CommonUtil timeFromtimeSp:text_image.createTime.stringValue];
     UIFont *font = [UIFont appFontOfSize:14.0];
-    CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
+    CGSize size = CGSizeMake(310*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     _contentHeight.constant = labelRect.size.height+25;

@@ -10,7 +10,7 @@
 #import "EGOCache.h"
 #import "UMSocial.h"
 #import "AppDelegate.h"
-@interface SetUpViewController ()
+@interface SetUpViewController ()<UIAlertViewDelegate>
 
 @end
 
@@ -120,7 +120,9 @@
             break;
         case 1:
         {
-             [SetUpViewController shareAppWithViewController:self andTitle:@"听说" andContent:@"最真的表白，是我欲言又止的沉默" andImage:[UIImage imageNamed:@"Icon@2x"] andUrl:@"http://www.baidu.com"];
+            NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+            
+             [SetUpViewController shareAppWithViewController:self andTitle:@"遇见你" andContent:@"最真的表白，是我欲言又止的沉默" andImage:[UIImage imageNamed:@"Icon@2x"] andUrl:str];
         }
             break;
         case 3:
@@ -137,7 +139,8 @@
 #pragma mark 跳到App Store评价
 - (void)goToAppraisal
 {
-    NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+//    NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+    NSString* str = [NSString stringWithFormat:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id;=%d",kAppleID];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
 }
 #pragma mark 关于
@@ -146,39 +149,57 @@
     SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_AWord_API_URL]]];
     [self.navigationController pushViewController:svWebViewController animated:YES];
 }
+#pragma mark UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1 &&alertView.tag == 101) {
+        [MobClick event:kUmen_logout attributes:nil];
+        
+        [AWordUser sharedInstance].isLogin = NO;
+        [AWordUser sharedInstance].uid = @"";
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    if(buttonIndex == 1 && alertView.tag == 102){
+        [MBProgressHUD hudWithView:nil label:@"清除缓存中"];
+        
+        //清除cookies
+        NSHTTPCookie *cookie;
+        NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+        for (cookie in [storage cookies])
+        {
+            [storage deleteCookie:cookie];
+        }
+        
+        //清除UIWebView的缓存
+        [[NSURLCache sharedURLCache] removeAllCachedResponses];
+        [[EGOCache globalCache] clearCache];
+        
+        //image缓存
+        SDImageCache *cache = [SDImageCache sharedImageCache];
+        [cache clearDiskOnCompletion:^{
+            [self.tableView reloadData];
+            [MBProgressHUD hideAllHUDsForView:nil animated:YES];
+            [MBProgressHUD checkHudWithView:nil label:@"缓存清除成功" hidesAfter:1];
+        }];
+    }
+}
 #pragma mark 清除缓存
 - (void)cleanCache{
-    [MBProgressHUD hudWithView:nil label:@"清除缓存中"];
     
-    //清除cookies
-    NSHTTPCookie *cookie;
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (cookie in [storage cookies])
-    {
-        [storage deleteCookie:cookie];
-    }
     
-    //清除UIWebView的缓存
-    [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    [[EGOCache globalCache] clearCache];
-    
-    //image缓存
-    SDImageCache *cache = [SDImageCache sharedImageCache];
-    [cache clearDiskOnCompletion:^{
-        [self.tableView reloadData];
-        [MBProgressHUD hideAllHUDsForView:nil animated:YES];
-        [MBProgressHUD checkHudWithView:nil label:@"缓存清除成功" hidesAfter:1];
-    }];
 
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:@"是否清除缓存" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    alertView.tag = 102;
+    [alertView show];
 }
 -(void)lgout:(id)sender
 {
-    [MobClick event:kUmen_logout attributes:nil];
-
-    [AWordUser sharedInstance].isLogin = NO;
-    [AWordUser sharedInstance].uid = @"";
-    [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:@"退出登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+    alertView.tag = 101;
+    [alertView show];
+    
+   
 }
 
 + (void)shareAppWithViewController:(UIViewController *)controller andTitle:(NSString *)title andContent:(NSString *)content andImage:(UIImage *)image andUrl:(NSString *)url
@@ -188,13 +209,20 @@
     }
     if(title.length <= 0)
     {
-        title = @"听说";
+        title = @"遇见你";
     }
     if(content.length <= 0)
     {
-        content = @"http://www.baidu.com";
+
+
+        content = @"最真的表白，是我欲言又止的沉默";
+
     }
-    
+    if (url.length <= 0) {
+        NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+        url = str;
+    }
+    url = Ash_AWord_First_URL;
     NSString *shareText = [NSString stringWithFormat:@"%@%@",content,url];
     if(!image)
     {

@@ -114,14 +114,19 @@
         return [[XiaoYuAPIClient sharedClient] POST:[proper reqURL]
                                          parameters:[proper encodePro]
                           constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-                                              for (int i = 0; i < proper.pFile.img.count; i++) {
-                                                  UIImage *uploadImage = proper.pFile.img[i];
-                                                  NSString *proName = [proper.pFile.name stringByAppendingFormat:@"%d", i];
-//                                                  NSData* data =  UIImageJPEGRepresentation(uploadImage, 0.5);
-//                                                  DLog(@"%ld kB",data.length/(8*1024));
-                                                  [formData appendPartWithFileData:UIImageJPEGRepresentation(uploadImage, 0.5) name:proper.pFile.img.count == 1 ? proper.pFile.name : proName fileName:[proName stringByAppendingString:@".jpg" ] mimeType:@"image/jpg"];
-                                              }
-                                            }
+                              if ([proper.pFile.name isEqualToString:@"img"]) {
+                                  for (int i = 0; i < proper.pFile.img.count; i++) {
+                                      UIImage *uploadImage = proper.pFile.img[i];
+                                      NSString *proName = [proper.pFile.name stringByAppendingFormat:@"%d", i];
+                                      //                                                  NSData* data =  UIImageJPEGRepresentation(uploadImage, 0.5);
+                                      //                                                  DLog(@"%ld kB",data.length/(8*1024));
+                                      [formData appendPartWithFileData:UIImageJPEGRepresentation(uploadImage, 0.5) name:proper.pFile.img.count == 1 ? proper.pFile.name : proName fileName:[proName stringByAppendingString:@".jpg" ] mimeType:@"image/jpg"];
+                                  }
+                              }else{
+                                  NSData* uploadFile = proper.pFile.img[0];
+                                  [formData appendPartWithFileData:uploadFile name:@"1" fileName:@"1.wav" mimeType:@"audio/x-wav"];
+                              }
+                            }
                                             success:^(AFHTTPRequestOperation * __unused task, id JSON) {
                                                 
                                                 DLog(@"%@", JSON);
