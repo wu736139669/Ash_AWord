@@ -71,7 +71,7 @@
 -(void)publish
 {
     if (_contentTextView.text.length>0 && _avPlay.duration>0) {
-        [MobClick event:kUmen_addnote attributes:nil];
+        [MobClick event:kUmen_addmessage];
         
         NSData *audioData = [NSData dataWithContentsOfFile:_fileUrl];
         if (audioData == nil) {

@@ -51,7 +51,7 @@
 
 - (IBAction)qqLoginBtnClick:(id)sender
 {
-    [MobClick event:kUmen_qqlogin attributes:nil];
+    [MobClick event:kUmen_qqlogin];
 
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
     
@@ -78,7 +78,7 @@
 }
 
 - (IBAction)sianLoginBtnClick:(id)sender {
-    [MobClick event:kUmen_sinalogin attributes:nil];
+    [MobClick event:kUmen_sinalogin];
 
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
     
@@ -110,7 +110,7 @@
 
 - (IBAction)weixinLoginBtnClick:(id)sender
 {
-    [MobClick event:kUmen_wxlogin attributes:nil];
+    [MobClick event:kUmen_wxlogin];
 
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
     

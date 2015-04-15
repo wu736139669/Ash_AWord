@@ -87,6 +87,8 @@
 #define kUmen_sinalogin @"sinalogin"
 #define kUmen_note @"note"
 #define kUmen_addnote @"addnote"
+#define kUmen_message @"message"
+#define kUmen_addmessage @"addmessage"
 #define kUmen_logout @"logout"
 /**
  *  调整图片的宽度

@@ -328,6 +328,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[NoteViewController loadData]"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Main/NoteViewController.m"
                   timestampString = "449747725.438284"
                   startingColumnNumber = "9223372036854775807"
@@ -342,6 +343,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__30-[NoteViewController loadData]_block_invoke"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Main/NoteViewController.m"
                   timestampString = "449747725.438437"
                   startingColumnNumber = "9223372036854775807"
@@ -566,6 +568,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__73-[LoginViewController loginWithOpenId:withName:withGender:withFigureUrl:]_block_invoke"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Login/LoginViewController.m"
                   timestampString = "450602465.012589"
                   startingColumnNumber = "9223372036854775807"
@@ -580,6 +583,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__73-[LoginViewController loginWithOpenId:withName:withGender:withFigureUrl:]_block_invoke"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Login/LoginViewController.m"
                   timestampString = "450602465.012886"
                   startingColumnNumber = "9223372036854775807"
@@ -594,6 +598,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__73-[LoginViewController loginWithOpenId:withName:withGender:withFigureUrl:]_block_invoke163"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Login/LoginViewController.m"
                   timestampString = "450602465.013064"
                   startingColumnNumber = "9223372036854775807"
@@ -642,6 +647,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[LoginViewController loginWithOpenId:withName:withGender:withFigureUrl:]"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Login/LoginViewController.m"
                   timestampString = "450602465.020671"
                   startingColumnNumber = "9223372036854775807"
@@ -656,6 +662,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__73-[LoginViewController loginWithOpenId:withName:withGender:withFigureUrl:]_block_invoke"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Login/LoginViewController.m"
                   timestampString = "450602465.021061"
                   startingColumnNumber = "9223372036854775807"
@@ -864,6 +871,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "-[MessagePublishViewController publish]"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
                   timestampString = "450621202.660591"
                   startingColumnNumber = "9223372036854775807"
@@ -878,6 +886,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "__39-[MessagePublishViewController publish]_block_invoke"
                   moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
                   timestampString = "450621202.660913"
                   startingColumnNumber = "9223372036854775807"
@@ -1302,6 +1311,22 @@
             startingLineNumber = "101"
             endingLineNumber = "101"
             landmarkName = "-tick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
+            timestampString = "450774507.719569"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

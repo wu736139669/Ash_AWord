@@ -34,7 +34,6 @@
         }
         
         self.viewControllers = @[_noteNav, _messageNav, _myNav];
-//        self.viewControllers = @[_noteNav, _myNav];
 
     }
     return self;

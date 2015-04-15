@@ -153,7 +153,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1 &&alertView.tag == 101) {
-        [MobClick event:kUmen_logout attributes:nil];
+        [MobClick event:kUmen_logout];
         
         [AWordUser sharedInstance].isLogin = NO;
         [AWordUser sharedInstance].uid = @"";

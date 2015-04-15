@@ -82,7 +82,7 @@
 }
 -(void)loadData
 {
-    [MobClick event:kUmen_note attributes:nil];
+    [MobClick event:kUmen_note];
 
     PropertyEntity* pro = [NoteViewModel requireWithOrder_by:Order_by_Time withPage:_page withPage_size:20];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {

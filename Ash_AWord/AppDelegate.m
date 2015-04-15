@@ -91,8 +91,8 @@
 {
 //    [WXApi registerApp:kWXAppId];
     [UMSocialData setAppKey:kUmengAppkey];
-    [UMSocialWechatHandler setWXAppId:kWXAppId appSecret:kWXAppSecret url:@"http://www.xiaoyu.com"];
-    [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppSecret url:@"http://www.xiaoyu.com"];
+    [UMSocialWechatHandler setWXAppId:kWXAppId appSecret:kWXAppSecret url:@"http://121.43.150.13/QuestionServer/home.html"];
+    [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppSecret url:@"http://121.43.150.13/QuestionServer/home.html"];
     [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
 
     [MobClick startWithAppkey:kUmengAppkey reportPolicy:REALTIME channelId:@"App Store"];
