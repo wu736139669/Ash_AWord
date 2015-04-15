@@ -222,7 +222,7 @@
         NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
         url = str;
     }
-    url = Ash_AWord_First_URL;
+//    url = Ash_AWord_First_URL;
     NSString *shareText = [NSString stringWithFormat:@"%@%@",content,url];
     if(!image)
     {

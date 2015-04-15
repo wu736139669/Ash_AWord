@@ -1519,7 +1519,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_Extra_Frameworks/Sina",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1cb5078-a2e9-47e1-9034-a1ab2bf7a109";
+				PROVISIONING_PROFILE = "e0b4f9a8-771b-4fcc-afb8-a404945e92fa";
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Debug;
@@ -1547,7 +1547,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/Vender/UMSocial_Sdk_Extra_Frameworks/Sina",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1cb5078-a2e9-47e1-9034-a1ab2bf7a109";
+				PROVISIONING_PROFILE = "e0b4f9a8-771b-4fcc-afb8-a404945e92fa";
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
 			};
 			name = Release;

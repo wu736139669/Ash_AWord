@@ -49,8 +49,7 @@
 }
 -(void)footerRereshing
 {
-    _page++;
-    [self footerEndRefreshing];
+    [self loadData];
 }
 -(void)loadData
 {
@@ -77,6 +76,7 @@
         }else{
             [self.tableView addGifFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
         }
+        _page++;
         [self.tableView reloadData];
         
     } failedBlock:^(NSError *error) {

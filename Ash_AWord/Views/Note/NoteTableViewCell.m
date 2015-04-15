@@ -107,7 +107,7 @@
 
 - (IBAction)shareBtnClick:(id)sender
 {
-    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_image.content andImage:_contentImgView.image andUrl:nil];
+    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_image.content andImage:_contentImgView.image andUrl:[NSString stringWithFormat:@"%@/web/image_share_info?record_id=%ld",Ash_AWord_API_URL,_text_image.messageId]];
     PropertyEntity* pro = [NoteViewModel requireShareWithRecordId:_text_image.messageId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {
@@ -133,16 +133,16 @@
     
     _timeLabel.text = [CommonUtil timeFromtimeSp:text_image.createTime.stringValue];
     UIFont *font = [UIFont appFontOfSize:14.0];
-    CGSize size = CGSizeMake(310*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
+    CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     _contentHeight.constant = labelRect.size.height+25;
     _contentTextView.text = text_image.content;
     [_contentImgView sd_setImageWithURL:text_image.imageUrl placeholderImage:pressedColorImg];
     
-    [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",text_image.praiseCount] forState:UIControlStateNormal];
-    [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",text_image.praiseCount] forState:UIControlStateSelected];
-    [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",text_image.shareCount] forState:UIControlStateNormal];
+    [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.praiseCount] forState:UIControlStateNormal];
+    [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.praiseCount] forState:UIControlStateSelected];
+    [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.shareCount] forState:UIControlStateNormal];
     
     [self setGoodBtnSelect:text_image.hasPraised];
  

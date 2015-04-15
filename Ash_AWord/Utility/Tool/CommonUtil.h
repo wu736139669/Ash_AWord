@@ -39,7 +39,6 @@ NetworkType;
  *   NSdate转为日历
  */
 +(NSDateComponents*)componentsWithDate:(NSDate*)date;
-+(NSDateComponents*)componentsWithDate:(NSDate*)date;
 /**
  *   NSdate相差天数
  */

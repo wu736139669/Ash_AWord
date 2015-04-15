@@ -97,6 +97,9 @@
 //    DLog("%f",_audioPlayer.progress);
     _nowTimeLabel.text = [NSString stringWithFormat:@"%.2ld:%.2ld",(long)_audioPlayer.progress/60,(long)_audioPlayer.progress%60];
     _timeProgressView.progress = _audioPlayer.progress/_audioPlayer.duration;
+    if (_audioPlayer.progress == _audioPlayer.duration) {
+        [_audioPlayer stop];
+    }
 }
 
 
@@ -148,7 +151,8 @@
     return labelRect.size.height+160;
 }
 - (IBAction)shareBtnClick:(id)sender {
-    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_voice.content andImage:nil andUrl:nil];
+    
+    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_voice.content andImage:nil andUrl:[NSString stringWithFormat:@"%@/web/voice_share_info?record_id=%ld",Ash_AWord_API_URL,_text_voice.messageId]];
     PropertyEntity* pro = [MessageViewModel requireShareWithRecordId:_text_voice.messageId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {
