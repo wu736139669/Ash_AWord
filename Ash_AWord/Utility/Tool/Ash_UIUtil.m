@@ -471,7 +471,11 @@
 {
     return [UIColor appMainColorAlpha:1];
 }
++ (UIColor *)greenYujianniColor
+{
+    return [UIColor colorWithHexString:@"#61BFA9" alpha:1];
 
+}
 /**
  * 按钮颜色：浅灰色
  */

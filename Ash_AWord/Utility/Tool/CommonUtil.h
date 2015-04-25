@@ -51,6 +51,10 @@ NetworkType;
 +(NSString*)timeFromtimeSp:(NSString*)timeSp;
 //判断是否同一天
 +(BOOL)isSameDay:(NSDate*)date1 date2:(NSDate*)date2;
+
++ (BOOL) validateUserName:(NSString *)name;
+
++ (BOOL) validateNickname:(NSString *)nickname;
 @end
 
 @interface NSString (MD5Extensions)

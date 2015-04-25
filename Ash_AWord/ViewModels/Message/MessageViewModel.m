@@ -124,5 +124,17 @@
     
     return pro;
 }
-
++(PropertyEntity*)requireDelWithRecordId:(NSInteger)recordId
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithGET;
+    pro.reqURL = @"rs/text_voice/del";
+    pro.responesOBJ = self.class;
+    pro.pro = @{
+                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
+                
+                };
+    
+    return pro;
+}
 @end

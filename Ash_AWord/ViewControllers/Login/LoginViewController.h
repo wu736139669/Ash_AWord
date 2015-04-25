@@ -16,9 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *qqBtn;
 @property (strong, nonatomic)void (^loginSuccessBlock)();
+- (IBAction)loginBtnClick:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *wxBtn;
 
+- (IBAction)registBtnClick:(id)sender;
 + (LoginViewController *)shareLoginViewController;
 
 

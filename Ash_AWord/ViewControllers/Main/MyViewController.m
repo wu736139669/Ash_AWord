@@ -13,6 +13,7 @@
 #import "SetUpViewController.h"
 #import "MyNoteViewController.h"
 #import "MyMessageViewController.h"
+#import "SetUserInfoViewController.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
@@ -78,18 +79,21 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
     }
     switch (indexPath.section) {
         case 0:
         {
+            
             if ([AWordUser sharedInstance].isLogin) {
                 cell.textLabel.text = [AWordUser sharedInstance].userName;
                 [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[AWordUser sharedInstance].userAvatar] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
-                
             }else{
                 cell.textLabel.text = @"登录";
                 [cell.imageView setImage:[UIImage imageNamed:@"defaultUserIcon"]];
             }
+            
+            
 
         }
             break;
@@ -122,6 +126,10 @@
             if (![AWordUser sharedInstance].isLogin)
             {
                 [LoginViewController presentLoginViewControllerInView:self success:nil];
+            }else{
+                SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
+                setUserInfoViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:setUserInfoViewController animated:YES];
             }
 
         }

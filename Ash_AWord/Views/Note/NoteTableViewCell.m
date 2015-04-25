@@ -55,7 +55,7 @@
         return;
     }
     
-    _goodBtn.enabled = NO;
+//    _goodBtn.enabled = NO;
     if (_goodBtn.selected) {
         [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount-1] forState:UIControlStateNormal];
         [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount-1] forState:UIControlStateSelected];

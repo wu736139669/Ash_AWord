@@ -117,6 +117,10 @@
 + (UIColor *)genenalBackgroudColor;
 
 /**
+ *
+ */
++(UIColor *)greenYujianniColor;
+/**
  * 按钮颜色：蓝绿色
  */
 + (UIColor *)buttonMainColor;

@@ -9,6 +9,7 @@
 #import "SetUpViewController.h"
 #import "EGOCache.h"
 #import "UMSocial.h"
+#import "ModifyPassWordViewController.h"
 #import "AppDelegate.h"
 @interface SetUpViewController ()<UIAlertViewDelegate>
 
@@ -32,7 +33,9 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    if([AWordUser sharedInstance].isLogin)
+        return 7;
+    return 6;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -105,6 +108,14 @@
         case 4:
             cell.textLabel.text = @"欢迎打5星好评";
             break;
+        case 5:
+            
+            cell.textLabel.text = @"用户须知";
+
+            break;
+        case 6:
+            cell.textLabel.text = @"密码修改";
+            break;
             
         default:
             break;
@@ -131,12 +142,28 @@
         case 4:
             [self goToAppraisal];
             break;
-            
+        case 5:
+            [self showUserNotice];
+            break;
+        case 6:
+             [self modifyPsw];
+            break;
         default:
             break;
     }
 }
 #pragma mark 跳到App Store评价
+
+-(void)modifyPsw
+{
+    ModifyPassWordViewController* modifyPassWordViewController = [[ModifyPassWordViewController alloc] init];
+    [self.navigationController pushViewController:modifyPassWordViewController animated:YES];
+}
+-(void)showUserNotice
+{
+    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_AWord_API_URL]]];
+    [self.navigationController pushViewController:svWebViewController animated:YES];
+}
 - (void)goToAppraisal
 {
 //    NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];

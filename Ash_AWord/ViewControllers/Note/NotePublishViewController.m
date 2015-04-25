@@ -31,8 +31,16 @@
     _imageView.image = _publishImage;
     
     [_contentTextView becomeFirstResponder];
+    UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
+    singleRecognizer.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:singleRecognizer];
     
 }
+-(void)singleTap:(UITapGestureRecognizer*)recognizer
+{
+    [self.view endEditing:YES];
+}
+
 -(void)cancel
 {
     UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:@"退出此次编辑" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];

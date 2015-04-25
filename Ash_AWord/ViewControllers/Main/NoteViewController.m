@@ -11,10 +11,12 @@
 #import "NoteTableViewCell.h"
 #import "NoteViewModel.h"
 #import "UpdateViewModel.h"
+#import "ReportViewController.h"
 @interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_imageArr;
+    NSInteger _reportIndex;
 }
 @end
 
@@ -27,6 +29,7 @@
         // Custom initialization
         _page = 1;
         _text_imageArr = [[NSMutableArray alloc] init];
+        _reportIndex = -1;
     }
     return self;
 }
@@ -44,8 +47,71 @@
     [self headerBeginRefreshing];
     
     [self checkUpdate];
+    
+    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+    longPressGr.minimumPressDuration = 1.0;
+    [self.tableView addGestureRecognizer:longPressGr];
 }
 
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint point = [gesture locationInView:self.tableView];
+        NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if(indexPath == nil) return ;
+        //add your code here
+//        NSLog(@"%ld",indexPath.section);
+        //启动弹出菜单
+        NSMutableArray *menuItems = [NSMutableArray array];
+        [self becomeFirstResponder];
+        
+//        UIMenuItem *messageCopyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(messageCopy:)];
+//        [menuItems addObject:messageCopyItem];
+        UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+        
+        [menuItems addObject:messageRepItem];
+
+       
+        _reportIndex = indexPath.section;
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:menuItems];
+        CGRect targetRect = cell.frame;
+        targetRect.origin.x = point.x;
+        targetRect.origin.y = point.y;
+        targetRect.size.height = 50;
+        targetRect.size.width = 0;
+        [menu setTargetRect:targetRect inView:self.tableView];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+-(void)messageRep:(id)sender {
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+
+    if (_reportIndex>=0) {
+        ReportViewController* reportViewController = [[ReportViewController alloc] init];
+        Text_Image* text_image = [_text_imageArr objectAtIndex:_reportIndex];
+        reportViewController.authorName = text_image.ownerName;
+        reportViewController.msgId = text_image.messageId;
+        reportViewController.msgType = Msg_Note;
+        reportViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:reportViewController animated:YES];
+    }
+    
+    
+}
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (  action == @selector(messageRep:)) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL) canBecomeFirstResponder{
+    return YES;
+}
 -(void)checkUpdate
 {
     PropertyEntity* pro = [UpdateViewModel requireUpdate];

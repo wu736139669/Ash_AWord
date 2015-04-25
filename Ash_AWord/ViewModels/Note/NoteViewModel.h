@@ -39,4 +39,6 @@ typedef enum {
 +(PropertyEntity*)requirePraiseWithRecordId:(NSInteger)recordId;
 +(PropertyEntity*)requireShareWithRecordId:(NSInteger)recordId;
 
++(PropertyEntity*)requireDelWithRecordId:(NSInteger)recordId;
+
 @end

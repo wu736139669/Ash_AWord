@@ -184,16 +184,16 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     //    [formatter setDateStyle:NSDateFormatterMediumStyle];
     //    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:MM"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:MM::ss"];
     NSDate * d = [NSDate dateWithTimeIntervalSince1970:[timeSp floatValue]/1000];
     
-    NSTimeInterval late = [d timeIntervalSince1970]*1;
+    NSTimeInterval late = [d timeIntervalSince1970];
     
     NSString * timeString = [formatter stringFromDate:d];
     
     NSDate * dat = [NSDate dateWithTimeIntervalSinceNow:0];
     
-    NSTimeInterval now = [dat timeIntervalSince1970]*1;
+    NSTimeInterval now = [dat timeIntervalSince1970];
     
     NSTimeInterval cha = now - late;
     if (cha/3600 < 1) {
@@ -252,10 +252,15 @@
             
             timeString = [NSString stringWithFormat:@"1周前"];
             
-        }else if(num > 10){
+        }else if(num > 10 && num <= 31){
             
-//            timeString = [NSString stringWithFormat:@"n天前"];
+            timeString = [NSString stringWithFormat:@"%d天前",num];
             
+        }else if (num >31 && num < 365){
+            timeString = [NSString stringWithFormat:@"%d月前",num/31];
+        }else{
+            timeString = [NSString stringWithFormat:@"%d年前",num/365];
+
         }
         
         
@@ -272,6 +277,19 @@
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
+}
++ (BOOL) validateUserName:(NSString *)name
+{
+    NSString *userNameRegex = @"^[a-zA-z_][a-zA-Z0-9_]{5,29}+$";
+    NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
+    BOOL B = [userNamePredicate evaluateWithObject:name];
+    return B;
+}
++ (BOOL) validateNickname:(NSString *)nickname
+{
+    NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{2,20}$";
+    NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nicknameRegex];
+    return [passWordPredicate evaluateWithObject:nickname];
 }
 @end
 

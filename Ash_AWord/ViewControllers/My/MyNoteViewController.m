@@ -9,10 +9,12 @@
 #import "MyNoteViewController.h"
 #import "NoteViewModel.h"
 #import "NoteTableViewCell.h"
+#import "ReportViewController.h"
 @interface MyNoteViewController ()
 {
     NSInteger _page;
     NSMutableArray* _text_imageArr;
+    NSInteger _reportIndex;
 }
 @end
 
@@ -25,6 +27,7 @@
         // Custom initialization
         _page = 1;
         _text_imageArr = [[NSMutableArray alloc] init];
+        _reportIndex = -1;
     }
     return self;
 }
@@ -39,6 +42,107 @@
     }
     [self customViewDidLoad];
     [self headerBeginRefreshing];
+    
+    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+    longPressGr.minimumPressDuration = 1.0;
+    [self.tableView addGestureRecognizer:longPressGr];
+}
+
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint point = [gesture locationInView:self.tableView];
+        NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if(indexPath == nil) return ;
+        //add your code here
+        //        NSLog(@"%ld",indexPath.section);
+        //启动弹出菜单
+        NSMutableArray *menuItems = [NSMutableArray array];
+        [self becomeFirstResponder];
+        
+        //        UIMenuItem *messageCopyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(messageCopy:)];
+        //        [menuItems addObject:messageCopyItem];
+        UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+        
+        [menuItems addObject:messageRepItem];
+        
+        if (!_otherUserId) {
+            UIMenuItem *messageDelItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(messageDel:)];
+            
+            [menuItems addObject:messageDelItem];
+        }
+
+        
+        _reportIndex = indexPath.section;
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:menuItems];
+        CGRect targetRect = cell.frame;
+        targetRect.origin.x = point.x;
+        targetRect.origin.y = point.y;
+        targetRect.size.height = 50;
+        targetRect.size.width = 0;
+        [menu setTargetRect:targetRect inView:self.tableView];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+-(void)messageRep:(id)sender {
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+    
+    if (_reportIndex>=0) {
+        ReportViewController* reportViewController = [[ReportViewController alloc] init];
+        Text_Image* text_image = [_text_imageArr objectAtIndex:_reportIndex];
+        reportViewController.authorName = text_image.ownerName;
+        reportViewController.msgId = text_image.messageId;
+        reportViewController.msgType = Msg_Note;
+        reportViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:reportViewController animated:YES];
+    }
+}
+-(void)messageDel:(id)sender
+{
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"确认删除" message:@"是否删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+    alertView.tag = 0;
+    [alertView show];
+}
+
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (  action == @selector(messageRep:) || action == @selector(messageDel:)) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL) canBecomeFirstResponder{
+    return YES;
+}
+
+#pragma mark --UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //删除
+    if (buttonIndex == 1) {
+        Text_Image* text_Image = [_text_imageArr objectAtIndex:_reportIndex];
+        PropertyEntity* pro = [NoteViewModel requireDelWithRecordId:text_Image.messageId];
+        [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+            
+            NoteViewModel* noteViewModel = (NoteViewModel*)viewModel;
+            
+            if ([noteViewModel success]) {
+                [self headerBeginRefreshing];
+            }else
+            {
+                [MBProgressHUD errorHudWithView:self.view label:noteViewModel.errMessage hidesAfter:1.0];
+            }
+            
+        } failedBlock:^(NSError *error) {
+            [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
+        }];
+    }
 }
 
 #pragma mark MJRefreshDelegate

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReportViewController">
+            <connections>
+                <outlet property="reportContentTextView" destination="xKM-Xc-EzY" id="dzN-zG-GA0"/>
+                <outlet property="reportNameLabel" destination="vfS-7S-EOM" id="nDn-lv-7ZS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="举报：白痴一样的吴盛华发表的内容" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfS-7S-EOM">
+                    <rect key="frame" x="0.0" y="41" width="320" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="thG-pK-DBS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKM-Xc-EzY" customClass="UIPlaceHolderTextView">
+                    <rect key="frame" x="0.0" y="80" width="320" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="xVX-Yi-CVD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="xKM-Xc-EzY" firstAttribute="top" secondItem="vfS-7S-EOM" secondAttribute="bottom" constant="18" id="AAa-ud-OsD"/>
+                <constraint firstItem="vfS-7S-EOM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="41" id="GDb-DL-YMD"/>
+                <constraint firstItem="xKM-Xc-EzY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h31-Vq-4gL"/>
+                <constraint firstAttribute="trailing" secondItem="xKM-Xc-EzY" secondAttribute="trailing" id="lxs-T0-GQT"/>
+                <constraint firstItem="vfS-7S-EOM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sM2-YW-K7L"/>
+                <constraint firstAttribute="trailing" secondItem="vfS-7S-EOM" secondAttribute="trailing" id="sWs-xK-1Jm"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

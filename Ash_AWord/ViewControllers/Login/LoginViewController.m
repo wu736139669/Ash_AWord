@@ -12,6 +12,8 @@
 #import "AppDelegate.h"
 #import <TencentOpenAPI/QQApi.h>
 #import "WXApi.h"
+#import "RegistAccountViewController.h"
+#import "OurLoginViewController.h"
 @interface LoginViewController ()
 
 @end
@@ -179,6 +181,12 @@
     }];
 }
 
+- (IBAction)registBtnClick:(id)sender {
+    RegistAccountViewController* registAccountViewController = [[RegistAccountViewController alloc] init];
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:registAccountViewController animated:YES];
+}
+
 + (LoginViewController *)shareLoginViewController
 {
     static LoginViewController *loginVC = nil;
@@ -210,4 +218,9 @@
     [vc presentViewController:nav animated:YES completion:nil];
 }
 
+- (IBAction)loginBtnClick:(id)sender {
+    OurLoginViewController* ourLoginViewController = [[OurLoginViewController alloc] init];
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:ourLoginViewController animated:YES];
+}
 @end

@@ -11,11 +11,13 @@
 #import "MessageViewModel.h"
 #import "MessageTableViewCell.h"
 #import "AudioPlayer.h"
+#import "ReportViewController.h"
 @interface MessageViewController ()<MessageTableViewCellDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_voiceArr;
     NSInteger _playIndex;
+    NSInteger _reportIndex;
 }
 @end
 
@@ -29,6 +31,7 @@
         _page = 1;
         _text_voiceArr = [[NSMutableArray alloc] init];
         _playIndex = -1;
+        _reportIndex = -1;
     }
     return self;
 }
@@ -44,6 +47,66 @@
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
     self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(headerBeginRefreshing) image:[UIImage imageNamed:@"navigationButtonRefresh"] highlightedImage:[UIImage imageNamed:@"navigationButtonRefreshClick"]];
     [self headerBeginRefreshing];
+    
+    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+    longPressGr.minimumPressDuration = 1.0;
+    [self.tableView addGestureRecognizer:longPressGr];
+}
+
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint point = [gesture locationInView:self.tableView];
+        NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if(indexPath == nil) return ;
+        //add your code here
+        NSMutableArray *menuItems = [NSMutableArray array];
+        [self becomeFirstResponder];
+        
+        UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+        
+        [menuItems addObject:messageRepItem];
+        
+        
+        _reportIndex = indexPath.section;
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:menuItems];
+        CGRect targetRect = cell.frame;
+        targetRect.origin.x = point.x;
+        targetRect.origin.y = point.y;
+        targetRect.size.height = 50;
+        targetRect.size.width = 0;
+        [menu setTargetRect:targetRect inView:self.tableView];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+-(void)messageRep:(id)sender {
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+    
+    if (_reportIndex>=0) {
+        ReportViewController* reportViewController = [[ReportViewController alloc] init];
+        Text_Voice* text_Voice = [_text_voiceArr objectAtIndex:_reportIndex];
+        reportViewController.authorName = text_Voice.ownerName;
+        reportViewController.msgId = text_Voice.messageId;
+        reportViewController.msgType = Msg_Message;
+        reportViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:reportViewController animated:YES];
+    }
+    
+    
+}
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (  action == @selector(messageRep:)) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL) canBecomeFirstResponder{
+    return YES;
 }
 #pragma publish
 -(void)publish

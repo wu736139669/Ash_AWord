@@ -151,6 +151,18 @@
 		A97DBE481ACAE7F600705682 /* smalliconWeixin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE471ACAE7F600705682 /* smalliconWeixin@2x.png */; };
 		A97DBE4C1ACAEBE300705682 /* first-login-sina@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE4B1ACAEBE300705682 /* first-login-sina@2x.png */; };
 		A97DBE4E1ACAED4900705682 /* camera-close-select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE4D1ACAED4900705682 /* camera-close-select@2x.png */; };
+		A98536721AEB66F9000312BF /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98536701AEB66F9000312BF /* ReportViewController.m */; };
+		A98536731AEB66F9000312BF /* ReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98536711AEB66F9000312BF /* ReportViewController.xib */; };
+		A98536771AEB7400000312BF /* RegistAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98536751AEB7400000312BF /* RegistAccountViewController.m */; };
+		A98536781AEB7400000312BF /* RegistAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98536761AEB7400000312BF /* RegistAccountViewController.xib */; };
+		A985367C1AEB8F89000312BF /* RegistInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A985367A1AEB8F88000312BF /* RegistInfoViewController.m */; };
+		A985367D1AEB8F89000312BF /* RegistInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A985367B1AEB8F88000312BF /* RegistInfoViewController.xib */; };
+		A98536811AEBC7BB000312BF /* SetUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A985367F1AEBC7BB000312BF /* SetUserInfoViewController.m */; };
+		A98536821AEBC7BB000312BF /* SetUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98536801AEBC7BB000312BF /* SetUserInfoViewController.xib */; };
+		A98536861AEBDA1E000312BF /* OurLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98536841AEBDA1E000312BF /* OurLoginViewController.m */; };
+		A98536871AEBDA1E000312BF /* OurLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98536851AEBDA1E000312BF /* OurLoginViewController.xib */; };
+		A985368B1AEBDDAB000312BF /* ModifyPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98536891AEBDDAB000312BF /* ModifyPassWordViewController.m */; };
+		A985368C1AEBDDAB000312BF /* ModifyPassWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A985368A1AEBDDAB000312BF /* ModifyPassWordViewController.xib */; };
 		A98D659D1AD37F18008668EE /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D659B1AD37F18008668EE /* MessageTableViewCell.m */; };
 		A98D659E1AD37F18008668EE /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A98D659C1AD37F18008668EE /* MessageTableViewCell.xib */; };
 		A98F98521ACA29B5007C4594 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A98F98481ACA29B5007C4594 /* libSocialQQ.a */; };
@@ -409,6 +421,24 @@
 		A97DBE471ACAE7F600705682 /* smalliconWeixin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "smalliconWeixin@2x.png"; sourceTree = "<group>"; };
 		A97DBE4B1ACAEBE300705682 /* first-login-sina@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first-login-sina@2x.png"; sourceTree = "<group>"; };
 		A97DBE4D1ACAED4900705682 /* camera-close-select@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-close-select@2x.png"; sourceTree = "<group>"; };
+		A985366F1AEB66F9000312BF /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		A98536701AEB66F9000312BF /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		A98536711AEB66F9000312BF /* ReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportViewController.xib; sourceTree = "<group>"; };
+		A98536741AEB7400000312BF /* RegistAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistAccountViewController.h; sourceTree = "<group>"; };
+		A98536751AEB7400000312BF /* RegistAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistAccountViewController.m; sourceTree = "<group>"; };
+		A98536761AEB7400000312BF /* RegistAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistAccountViewController.xib; sourceTree = "<group>"; };
+		A98536791AEB8F88000312BF /* RegistInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistInfoViewController.h; sourceTree = "<group>"; };
+		A985367A1AEB8F88000312BF /* RegistInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistInfoViewController.m; sourceTree = "<group>"; };
+		A985367B1AEB8F88000312BF /* RegistInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegistInfoViewController.xib; sourceTree = "<group>"; };
+		A985367E1AEBC7BB000312BF /* SetUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetUserInfoViewController.h; sourceTree = "<group>"; };
+		A985367F1AEBC7BB000312BF /* SetUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetUserInfoViewController.m; sourceTree = "<group>"; };
+		A98536801AEBC7BB000312BF /* SetUserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetUserInfoViewController.xib; sourceTree = "<group>"; };
+		A98536831AEBDA1E000312BF /* OurLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OurLoginViewController.h; sourceTree = "<group>"; };
+		A98536841AEBDA1E000312BF /* OurLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OurLoginViewController.m; sourceTree = "<group>"; };
+		A98536851AEBDA1E000312BF /* OurLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OurLoginViewController.xib; sourceTree = "<group>"; };
+		A98536881AEBDDAB000312BF /* ModifyPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPassWordViewController.h; sourceTree = "<group>"; };
+		A98536891AEBDDAB000312BF /* ModifyPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPassWordViewController.m; sourceTree = "<group>"; };
+		A985368A1AEBDDAB000312BF /* ModifyPassWordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyPassWordViewController.xib; sourceTree = "<group>"; };
 		A98D659A1AD37F18008668EE /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		A98D659B1AD37F18008668EE /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		A98D659C1AD37F18008668EE /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
@@ -580,6 +610,12 @@
 				A9754A231ADC199B0018BAAD /* MyMessageViewController.h */,
 				A9754A241ADC199B0018BAAD /* MyMessageViewController.m */,
 				A9754A251ADC199B0018BAAD /* MyMessageViewController.xib */,
+				A985367E1AEBC7BB000312BF /* SetUserInfoViewController.h */,
+				A985367F1AEBC7BB000312BF /* SetUserInfoViewController.m */,
+				A98536801AEBC7BB000312BF /* SetUserInfoViewController.xib */,
+				A98536881AEBDDAB000312BF /* ModifyPassWordViewController.h */,
+				A98536891AEBDDAB000312BF /* ModifyPassWordViewController.m */,
+				A985368A1AEBDDAB000312BF /* ModifyPassWordViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -979,6 +1015,15 @@
 				A97DBE301ACAE10800705682 /* LoginViewController.h */,
 				A97DBE311ACAE10800705682 /* LoginViewController.m */,
 				A97DBE321ACAE10800705682 /* LoginViewController.xib */,
+				A98536741AEB7400000312BF /* RegistAccountViewController.h */,
+				A98536751AEB7400000312BF /* RegistAccountViewController.m */,
+				A98536761AEB7400000312BF /* RegistAccountViewController.xib */,
+				A98536791AEB8F88000312BF /* RegistInfoViewController.h */,
+				A985367A1AEB8F88000312BF /* RegistInfoViewController.m */,
+				A985367B1AEB8F88000312BF /* RegistInfoViewController.xib */,
+				A98536831AEBDA1E000312BF /* OurLoginViewController.h */,
+				A98536841AEBDA1E000312BF /* OurLoginViewController.m */,
+				A98536851AEBDA1E000312BF /* OurLoginViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1091,6 +1136,9 @@
 				A9FAD42E1AC923FC007ADC10 /* MyViewController.h */,
 				A9FAD42F1AC923FC007ADC10 /* MyViewController.m */,
 				A9FAD4301AC923FC007ADC10 /* MyViewController.xib */,
+				A985366F1AEB66F9000312BF /* ReportViewController.h */,
+				A98536701AEB66F9000312BF /* ReportViewController.m */,
+				A98536711AEB66F9000312BF /* ReportViewController.xib */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1199,6 +1247,7 @@
 				A966FB961AD62C5D00542068 /* icon_error@2x.png in Resources */,
 				A97559A51ACB9748004ADA42 /* setup-head-default@2x.png in Resources */,
 				A97DBE3F1ACAE29E00705682 /* Icon.png in Resources */,
+				A98536871AEBDA1E000312BF /* OurLoginViewController.xib in Resources */,
 				A9754A271ADC199B0018BAAD /* MyMessageViewController.xib in Resources */,
 				A94DF6361AD4D94E00DCDCB0 /* MyNoteViewController.xib in Resources */,
 				A9E2711C1ADB97ED000B1542 /* Default.png in Resources */,
@@ -1207,7 +1256,9 @@
 				A97559CC1ACBF0BC004ADA42 /* btn_bad_clicked@2x.png in Resources */,
 				A97DBE461ACAE7B500705682 /* iconWeixin@2x.png in Resources */,
 				A96862421ACCF0B400DDAA6B /* LICENCE.txt in Resources */,
+				A985367D1AEB8F89000312BF /* RegistInfoViewController.xib in Resources */,
 				A99AA12F1ADD028400574B12 /* Icon120.png in Resources */,
+				A98536821AEBC7BB000312BF /* SetUserInfoViewController.xib in Resources */,
 				A97C55071AC933AD0038818A /* UMSShareListController.xib in Resources */,
 				A93441EE1ACA8C8F00A6B233 /* defaultUserIcon@2x.png in Resources */,
 				A97559AC1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png in Resources */,
@@ -1243,6 +1294,7 @@
 				A97559A91ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png in Resources */,
 				A93441E21ACA89AA00A6B233 /* Profile_filter_voiceIconClick@2x.png in Resources */,
 				A97559A81ACB9DE4004ADA42 /* navigationButtonPublish@2x.png in Resources */,
+				A98536781AEB7400000312BF /* RegistAccountViewController.xib in Resources */,
 				A97559CE1ACBF0BC004ADA42 /* btn_good_clicked@2x.png in Resources */,
 				A97883881AD369DF00D46477 /* mainCellDingClick@2x.png in Resources */,
 				A90BA0211AD606B400728393 /* voice-record-level@2x.png in Resources */,
@@ -1253,6 +1305,7 @@
 				A97559CD1ACBF0BC004ADA42 /* btn_bad@2x.png in Resources */,
 				A93441F71ACA918100A6B233 /* tabbarSetup@2x.png in Resources */,
 				A90BA0091AD6060600728393 /* playButtonClick@2x.png in Resources */,
+				A98536731AEB66F9000312BF /* ReportViewController.xib in Resources */,
 				A97C55011AC933AD0038818A /* UMSCommentInputController.xib in Resources */,
 				A97559AD1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png in Resources */,
 				A90BA00B1AD6060600728393 /* playButtonPlay@2x.png in Resources */,
@@ -1260,6 +1313,7 @@
 				A93441F81ACA918100A6B233 /* tabbarSetupClick@2x.png in Resources */,
 				A93441FE1ACA919F00A6B233 /* tabbarVoice-dark@2x.png in Resources */,
 				A9617A581ACC2EBC0024AE4A /* mine-setting-icon-click@2x.png in Resources */,
+				A985368C1AEBDDAB000312BF /* ModifyPassWordViewController.xib in Resources */,
 				A90BA0071AD6060600728393 /* play@2x.png in Resources */,
 				A93441E51ACA8AC400A6B233 /* Profile_filter_contentIcon@2x.png in Resources */,
 				A97559B31ACBC683004ADA42 /* NotePublishViewController.xib in Resources */,
@@ -1334,6 +1388,7 @@
 				A97C54DD1AC901980038818A /* MBProgressHUD+Util.m in Sources */,
 				A96862721ACCF13300DDAA6B /* PSTCollectionViewData.m in Sources */,
 				A97DBE331ACAE10800705682 /* LoginViewController.m in Sources */,
+				A98536721AEB66F9000312BF /* ReportViewController.m in Sources */,
 				A97559A31ACB8CE0004ADA42 /* AWordUser.m in Sources */,
 				A9754A1C1ADC080E0018BAAD /* AudioPlayer.m in Sources */,
 				A95510981AC39E6A0006D16F /* ViewController.m in Sources */,
@@ -1345,8 +1400,11 @@
 				A96862761ACCF13300DDAA6B /* PSTCollectionViewUpdateItem.m in Sources */,
 				A968626E1ACCF13300DDAA6B /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				A9FAD42C1AC923E2007ADC10 /* MessageViewController.m in Sources */,
+				A985367C1AEB8F89000312BF /* RegistInfoViewController.m in Sources */,
+				A98536811AEBC7BB000312BF /* SetUserInfoViewController.m in Sources */,
 				A968627A1ACCF13300DDAA6B /* PSTGridLayoutSection.m in Sources */,
 				A96862771ACCF13300DDAA6B /* PSTGridLayoutInfo.m in Sources */,
+				A985368B1AEBDDAB000312BF /* ModifyPassWordViewController.m in Sources */,
 				A96862751ACCF13300DDAA6B /* PSTCollectionViewLayout.m in Sources */,
 				A96862791ACCF13300DDAA6B /* PSTGridLayoutRow.m in Sources */,
 				A9754A1D1ADC080E0018BAAD /* AutoRecoveringHttpDataSource.m in Sources */,
@@ -1374,6 +1432,7 @@
 				A968624C1ACCF0B400DDAA6B /* README.md in Sources */,
 				A9754A1E1ADC080E0018BAAD /* CoreFoundationDataSource.m in Sources */,
 				A96862701ACCF13300DDAA6B /* PSTCollectionViewCell.m in Sources */,
+				A98536771AEB7400000312BF /* RegistAccountViewController.m in Sources */,
 				A97559B71ACBD99E004ADA42 /* UIPlaceHolderTextView.m in Sources */,
 				A97C54D41AC8F10F0038818A /* XMFishBaseCode.m in Sources */,
 				A97C54E11AC91DA10038818A /* CommonUtil.m in Sources */,
@@ -1381,6 +1440,7 @@
 				A99AA12D1ADCCB3C00574B12 /* MessageViewModel.m in Sources */,
 				A968626F1ACCF13300DDAA6B /* PSTCollectionView.m in Sources */,
 				A9FAD4351AC925AC007ADC10 /* LoginViewModel.m in Sources */,
+				A98536861AEBDA1E000312BF /* OurLoginViewController.m in Sources */,
 				A95510921AC39E6A0006D16F /* main.m in Sources */,
 				A98D659D1AD37F18008668EE /* MessageTableViewCell.m in Sources */,
 				A96862711ACCF13300DDAA6B /* PSTCollectionViewController.m in Sources */,
