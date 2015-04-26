@@ -15,6 +15,7 @@
     NSInteger _page;
     NSMutableArray* _text_imageArr;
     NSInteger _reportIndex;
+    BOOL _isShowDel;
 }
 @end
 
@@ -28,6 +29,7 @@
         _page = 1;
         _text_imageArr = [[NSMutableArray alloc] init];
         _reportIndex = -1;
+        _isShowDel = NO;
     }
     return self;
 }
@@ -37,6 +39,7 @@
     // Do any additional setup after loading the view from its nib.
     if(!_otherUserId){
         self.navigationItem.title = @"我发表的图片";
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"管理" style:UIBarButtonItemStyleDone target:self action:@selector(showDelBtn)];
     }else{
         self.navigationItem.title = [NSString stringWithFormat:@"%@发表的图片",_otherName];
     }
@@ -46,8 +49,21 @@
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
     [self.tableView addGestureRecognizer:longPressGr];
+    
 }
 
+-(void)showDelBtn
+{
+    if (_isShowDel) {
+        self.navigationItem.rightBarButtonItem.title = @"管理";
+        _isShowDel = NO;
+    }else{
+        _isShowDel = YES;
+        self.navigationItem.rightBarButtonItem.title = @"取消";
+
+    }
+    [self.tableView reloadData];
+}
 -(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
 {
     if(gesture.state == UIGestureRecognizerStateBegan)
@@ -221,10 +237,22 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     Text_Image* text_image = [_text_imageArr objectAtIndex:indexPath.section];
     [cell setText_Image:text_image];
+    if (_isShowDel) {
+        cell.closeBtn.hidden = NO;
+        cell.closeBtn.tag = indexPath.section;
+        cell.timeLabel.hidden = YES;
+        [cell.closeBtn addTarget:self action:@selector(msgDel:) forControlEvents:UIControlEventTouchUpInside];
+    }
     return cell;
 }
 
-
+-(void)msgDel:(UIButton*)button
+{
+    _reportIndex = button.tag;
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"确认删除" message:@"是否删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+    alertView.tag = 0;
+    [alertView show];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -115,6 +115,7 @@
     [_avatarImageView sd_setImageWithURL:text_voice.ownerFigureurl placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
     
     _timeLabel.text = [CommonUtil timeFromtimeSp:text_voice.createTime.stringValue];
+    _timeLabel.hidden = NO;
     UIFont *font = [UIFont appFontOfSize:14.0];
     CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
     
@@ -126,6 +127,7 @@
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_voice.praiseCount] forState:UIControlStateSelected];
     [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_voice.shareCount] forState:UIControlStateNormal];
     
+    _closeBtn.hidden = YES;
     [self setGoodBtnSelect:text_voice.hasPraised];
 
 }
@@ -265,5 +267,7 @@
         myNoteViewController.hidesBottomBarWhenPushed = YES;
         [[AppDelegate visibleViewController].navigationController pushViewController:myNoteViewController animated:YES];
     }
+}
+- (IBAction)closeBtnClick:(id)sender {
 }
 @end

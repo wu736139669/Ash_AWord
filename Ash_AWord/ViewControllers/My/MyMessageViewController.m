@@ -16,6 +16,8 @@
     NSMutableArray* _text_voiceArr;
     NSInteger _playIndex;
     NSInteger _reportIndex;
+    BOOL _isShowDel;
+
 }
 @end
 
@@ -30,6 +32,7 @@
         _text_voiceArr = [[NSMutableArray alloc] init];
         _playIndex = -1;
         _reportIndex = -1;
+        _isShowDel = NO;
     }
     return self;
 }
@@ -38,6 +41,7 @@
     // Do any additional setup after loading the view from its nib.
     if(!_otherUserId){
         self.navigationItem.title = @"我发表的声音";
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"管理" style:UIBarButtonItemStyleDone target:self action:@selector(showDelBtn)];
     }else{
         self.navigationItem.title = [NSString stringWithFormat:@"%@发表的声音",_otherName];
     }
@@ -46,6 +50,18 @@
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
     [self.tableView addGestureRecognizer:longPressGr];
+}
+-(void)showDelBtn
+{
+    if (_isShowDel) {
+        self.navigationItem.rightBarButtonItem.title = @"管理";
+        _isShowDel = NO;
+    }else{
+        _isShowDel = YES;
+        self.navigationItem.rightBarButtonItem.title = @"取消";
+        
+    }
+    [self.tableView reloadData];
 }
 -(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
 {
@@ -216,9 +232,22 @@
     [cell setText_Voice:text_voice];
     cell.tag = indexPath.section;
     cell.delegate = self;
+    if (_isShowDel) {
+        cell.closeBtn.hidden = NO;
+        cell.closeBtn.tag = indexPath.section;
+        cell.timeLabel.hidden = YES;
+        [cell.closeBtn addTarget:self action:@selector(msgDel:) forControlEvents:UIControlEventTouchUpInside];
+    }
+
     return cell;
 }
-
+-(void)msgDel:(UIButton*)button
+{
+    _reportIndex = button.tag;
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"确认删除" message:@"是否删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+    alertView.tag = 0;
+    [alertView show];
+}
 -(void)playWithIndex:(NSInteger)index
 {
     

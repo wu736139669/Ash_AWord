@@ -23,10 +23,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *nowTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (weak, nonatomic) IBOutlet UIButton *goodBtn;
+- (IBAction)closeBtnClick:(id)sender;
 @property (weak, nonatomic)id<MessageTableViewCellDelegate> delegate;
 - (IBAction)goodBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 - (IBAction)shareBtnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 - (IBAction)playBtnClick:(id)sender;

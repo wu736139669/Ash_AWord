@@ -50,6 +50,8 @@
 		A94D0EDD1AD5757A0002DEB1 /* UpdateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A94D0EDC1AD5757A0002DEB1 /* UpdateViewModel.m */; };
 		A94DF6351AD4D94E00DCDCB0 /* MyNoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A94DF6331AD4D94E00DCDCB0 /* MyNoteViewController.m */; };
 		A94DF6361AD4D94E00DCDCB0 /* MyNoteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A94DF6341AD4D94E00DCDCB0 /* MyNoteViewController.xib */; };
+		A950AB401AEC8B5E00D0F6DD /* closeButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A950AB3E1AEC8B5E00D0F6DD /* closeButton@2x.png */; };
+		A950AB411AEC8B5E00D0F6DD /* closeButtonClick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A950AB3F1AEC8B5E00D0F6DD /* closeButtonClick@2x.png */; };
 		A95510921AC39E6A0006D16F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A95510911AC39E6A0006D16F /* main.m */; };
 		A95510951AC39E6A0006D16F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A95510941AC39E6A0006D16F /* AppDelegate.m */; };
 		A95510981AC39E6A0006D16F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95510971AC39E6A0006D16F /* ViewController.m */; };
@@ -247,6 +249,8 @@
 		A94DF6321AD4D94E00DCDCB0 /* MyNoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNoteViewController.h; sourceTree = "<group>"; };
 		A94DF6331AD4D94E00DCDCB0 /* MyNoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNoteViewController.m; sourceTree = "<group>"; };
 		A94DF6341AD4D94E00DCDCB0 /* MyNoteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyNoteViewController.xib; sourceTree = "<group>"; };
+		A950AB3E1AEC8B5E00D0F6DD /* closeButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeButton@2x.png"; sourceTree = "<group>"; };
+		A950AB3F1AEC8B5E00D0F6DD /* closeButtonClick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeButtonClick@2x.png"; sourceTree = "<group>"; };
 		A955108C1AC39E6A0006D16F /* Ash_AWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ash_AWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A95510901AC39E6A0006D16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A95510911AC39E6A0006D16F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -909,6 +913,8 @@
 				A97559C91ACBF0BC004ADA42 /* btn_good@2x.png */,
 				A97559CA1ACBF0BC004ADA42 /* btn_share_clicked@2x.png */,
 				A97559CB1ACBF0BC004ADA42 /* btn_share@2x.png */,
+				A950AB3E1AEC8B5E00D0F6DD /* closeButton@2x.png */,
+				A950AB3F1AEC8B5E00D0F6DD /* closeButtonClick@2x.png */,
 				A97559AA1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png */,
 				A97559AB1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png */,
 				A97559A61ACB9DE4004ADA42 /* navigationButtonPublish@2x.png */,
@@ -1289,6 +1295,7 @@
 				A97559D11ACBF0BC004ADA42 /* btn_share@2x.png in Resources */,
 				A98D659E1AD37F18008668EE /* MessageTableViewCell.xib in Resources */,
 				A93441E11ACA89AA00A6B233 /* Profile_filter_voiceIcon@2x.png in Resources */,
+				A950AB411AEC8B5E00D0F6DD /* closeButtonClick@2x.png in Resources */,
 				A97C55031AC933AD0038818A /* UMShareEditViewController.xib in Resources */,
 				A97DBE4E1ACAED4900705682 /* camera-close-select@2x.png in Resources */,
 				A97559A91ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png in Resources */,
@@ -1298,6 +1305,7 @@
 				A97559CE1ACBF0BC004ADA42 /* btn_good_clicked@2x.png in Resources */,
 				A97883881AD369DF00D46477 /* mainCellDingClick@2x.png in Resources */,
 				A90BA0211AD606B400728393 /* voice-record-level@2x.png in Resources */,
+				A950AB401AEC8B5E00D0F6DD /* closeButton@2x.png in Resources */,
 				A90BA0141AD6066000728393 /* voice-bottom-sure-click@2x.png in Resources */,
 				A90BA0121AD6066000728393 /* voice-bottom-close-click@2x.png in Resources */,
 				A97C55061AC933AD0038818A /* UMSnsAccountViewController.xib in Resources */,
