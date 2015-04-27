@@ -7,7 +7,7 @@
 //
 
 #import "FeedbackViewController.h"
-
+#import "LoginViewModel.h"
 @interface FeedbackViewController ()<UITextViewDelegate>
 
 @end
@@ -22,7 +22,7 @@
     _contentTextView.placeholder = @"感谢您提出宝贵的意见";
     _contentTextView.delegate = self;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(completeBtnClick:)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(completeBtnClick:)];
     
     UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     singleRecognizer.numberOfTapsRequired = 1;
@@ -60,8 +60,33 @@
 */
 
 - (IBAction)completeBtnClick:(id)sender {
-    if(_contentTextView.text.length <= 0){
+    if(_contentTextView.text.length <= 0 || [_contentTextView.text isEqualToString:@""]){
         [MBProgressHUD errorHudWithView:nil label:@"请输入内容" hidesAfter:1.0];
+        return;
     }
+    
+    PropertyEntity* pro = [LoginViewModel requireFeedbackWithContent:_contentTextView.text];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if ([loginViewModel success]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+            
+            [MBProgressHUD checkHudWithView:nil label:@"举报成功" hidesAfter:1.0];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+            
+            
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+        }
+        
+    } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+        
+    }];
+
 }
 @end

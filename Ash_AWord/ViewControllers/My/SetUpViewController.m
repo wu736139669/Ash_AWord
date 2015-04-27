@@ -12,6 +12,7 @@
 #import "ModifyPassWordViewController.h"
 #import "AppDelegate.h"
 #import "FeedbackViewController.h"
+#import "LoginViewModel.h"
 @interface SetUpViewController ()<UIAlertViewDelegate>
 
 @end

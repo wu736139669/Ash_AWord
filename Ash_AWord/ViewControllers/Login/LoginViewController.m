@@ -100,7 +100,7 @@
                     if ([[response.data objectForKey:@"gender"] integerValue]==0) {
                         gender = @"女";
                     }
-                    NSString* openid = [NSString stringWithFormat:@"%ld",((NSNumber*)[response.data objectForKey:@"uid"]).integerValue];
+                    NSString* openid = [NSString stringWithFormat:@"%ld",(long)((NSNumber*)[response.data objectForKey:@"uid"]).integerValue];
                     [self loginWithOpenId:openid withName:[response.data objectForKey:@"screen_name"] withGender:gender withFigureUrl:[response.data objectForKey:@"profile_image_url"]];
                 }else{
                     [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];

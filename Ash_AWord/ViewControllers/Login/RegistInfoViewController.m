@@ -7,7 +7,7 @@
 //
 
 #import "RegistInfoViewController.h"
-
+#import "LoginViewModel.h"
 @interface RegistInfoViewController ()<UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIImage* _avatarImage;
@@ -28,7 +28,7 @@
     
     _nickNameTextField.delegate = self;
     
-    
+    _avatarImage = [UIImage imageNamed:@"Icon"];
     UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     singleRecognizer.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:singleRecognizer];
@@ -137,5 +137,40 @@
     _avatarImage = image;
     _avatarImageView.image = _avatarImage;
     
+}
+- (IBAction)completeRegistBtnClick:(id)sender {
+    if (![CommonUtil validateNickname:_nickNameTextField.text]) {
+        [MBProgressHUD errorHudWithView:nil label:@"昵称不合法" hidesAfter:1.0];
+        return;
+    }
+
+    PropertyEntity* pro = [LoginViewModel requireRegistWithUserName:_userAccount withNickName:_nickNameTextField.text withPassword:_passWord withGender:@"" withAvatar:_avatarImage];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if ([loginViewModel success]) {
+            
+            [AWordUser sharedInstance].isLogin = YES;
+            [AWordUser sharedInstance].uid = loginViewModel.uId;
+            [AWordUser sharedInstance].userName = _nickNameTextField.text;
+            [AWordUser sharedInstance].userAvatar = loginViewModel.figureurl;
+            [AWordUser sharedInstance].userGender = @"";
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+            
+            [MBProgressHUD checkHudWithView:nil label:@"注册成功" hidesAfter:1.0];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+
+            
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+        }
+        
+
+    } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+    }];
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "ModifyPassWordViewController.h"
-
+#import "LoginViewModel.h"
 @interface ModifyPassWordViewController ()<UITextFieldDelegate>
 
 @end
@@ -87,7 +87,7 @@
 
 - (IBAction)completeBtnClick:(id)sender {
     if (_oldPassWordTextField.text.length <= 0) {
-        [MBProgressHUD errorHudWithView:nil label:@"用户名不合法" hidesAfter:1.0];
+        [MBProgressHUD errorHudWithView:nil label:@"输入密码" hidesAfter:1.0];
         return;
     }
     if (_firstNewPswTextField.text.length<6 && _secondNewPswTextField.text.length<20){
@@ -98,5 +98,29 @@
         [MBProgressHUD errorHudWithView:nil label:@"两次密码输入不同" hidesAfter:1.0];
         return;
     }
+    
+    PropertyEntity* pro = [LoginViewModel requireModifyPassWord:_firstNewPswTextField.text withOldPaaaWord:_oldPassWordTextField.text];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if ([loginViewModel success]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+            
+            [MBProgressHUD checkHudWithView:nil label:@"修改成功" hidesAfter:1.0];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+            
+            
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+        }
+        
+        
+    } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+    }];
+
 }
 @end

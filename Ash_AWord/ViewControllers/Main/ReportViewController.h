@@ -8,15 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "UIPlaceHolderTextView.h"
-typedef enum {
-    Msg_Note = 1,
-    Msg_Message = 2,
-}MsgType;
+#import "LoginViewModel.h"
+
 @interface ReportViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *reportNameLabel;
 @property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *reportContentTextView;
 
 @property (strong, nonatomic)NSString* authorName;
 @property (assign, nonatomic)NSInteger msgId;
-@property (assign, nonatomic)MsgType msgType;
+@property (assign, nonatomic)Msg_Type msgType;
 @end

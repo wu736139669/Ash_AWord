@@ -11,6 +11,7 @@
 
 @protocol MessageTableViewCellDelegate<NSObject>
 -(void) playWithIndex:(NSInteger)index;
+-(void) reportWithIndex:(NSInteger)index;
 @end
 
 @interface MessageTableViewCell : UITableViewCell

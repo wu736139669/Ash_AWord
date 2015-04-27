@@ -13,5 +13,9 @@
 - (IBAction)avatarBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTextField;
+- (IBAction)completeRegistBtnClick:(id)sender;
+
+@property (strong, nonatomic)NSString* userAccount;
+@property (strong, nonatomic)NSString* passWord;
 
 @end

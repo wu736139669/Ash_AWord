@@ -51,7 +51,14 @@
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
     [self.tableView addGestureRecognizer:longPressGr];
+    
+    NSMutableArray *menuItems = [NSMutableArray array];
+    UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+    [menuItems addObject:messageRepItem];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuItems:menuItems];
 }
+
 
 -(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
 {
@@ -91,7 +98,7 @@
         Text_Voice* text_Voice = [_text_voiceArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_Voice.ownerName;
         reportViewController.msgId = text_Voice.messageId;
-        reportViewController.msgType = Msg_Message;
+        reportViewController.msgType = Message_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }
@@ -180,7 +187,7 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* cellIdentifier = [NSString stringWithFormat:@"cellIdentifier%ld",indexPath.section];
+    NSString* cellIdentifier = [NSString stringWithFormat:@"cellIdentifier%ld",(long)indexPath.section];
     MessageTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         UINib* nib = [UINib nibWithNibName:@"MessageTableViewCell" bundle:nil];
@@ -208,7 +215,11 @@
     }
     _playIndex = index;
 }
-
+#pragma mark NoteCellDelegate
+-(void)reportWithIndex:(NSInteger)index
+{
+    _reportIndex = index;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

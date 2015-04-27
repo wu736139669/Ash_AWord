@@ -131,6 +131,13 @@
     [self setGoodBtnSelect:text_voice.hasPraised];
 
 }
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if ([_delegate respondsToSelector:@selector(reportWithIndex:)]) {
+        [_delegate reportWithIndex:self.tag];
+    }
+    return NO;
+}
 -(void)setGoodBtnSelect:(BOOL)isSelect
 {
     if (isSelect) {

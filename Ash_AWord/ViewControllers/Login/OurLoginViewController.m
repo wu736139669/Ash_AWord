@@ -7,7 +7,7 @@
 //
 
 #import "OurLoginViewController.h"
-
+#import "LoginViewModel.h"
 @interface OurLoginViewController ()<UITextFieldDelegate>
 
 @end
@@ -91,5 +91,35 @@
         return;
 
     }
+    
+    PropertyEntity* pro = [LoginViewModel requireLoginWithUserName:_userAccountTextField.text withPassWord:_passwordTextField.text];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if ([loginViewModel success]) {
+            
+            [AWordUser sharedInstance].isLogin = YES;
+            [AWordUser sharedInstance].uid = loginViewModel.uId;
+            [AWordUser sharedInstance].userName = loginViewModel.userName;
+            [AWordUser sharedInstance].userAvatar = loginViewModel.figureurl;
+            [AWordUser sharedInstance].userGender = @"";
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+            
+            [MBProgressHUD checkHudWithView:nil label:@"登录成功" hidesAfter:1.0];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            });
+            
+            
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+        }
+        
+        
+    } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+    }];
+
 }
 @end

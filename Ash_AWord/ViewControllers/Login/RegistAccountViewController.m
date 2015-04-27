@@ -105,6 +105,8 @@
     }
     
     RegistInfoViewController* registInfoViewController = [[RegistInfoViewController alloc] init];
+    registInfoViewController.userAccount = _userAccountTextField.text;
+    registInfoViewController.passWord = _firstPassWordTextField.text;
     [self.navigationController pushViewController:registInfoViewController animated:YES];
 }
 

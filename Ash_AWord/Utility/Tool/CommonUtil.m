@@ -280,14 +280,14 @@
 }
 + (BOOL) validateUserName:(NSString *)name
 {
-    NSString *userNameRegex = @"^[a-zA-z_][a-zA-Z0-9_]{5,29}+$";
+    NSString *userNameRegex = @"^[a-zA-Z0-9_]{6,30}+$";
     NSPredicate *userNamePredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",userNameRegex];
     BOOL B = [userNamePredicate evaluateWithObject:name];
     return B;
 }
 + (BOOL) validateNickname:(NSString *)nickname
 {
-    NSString *nicknameRegex = @"^[\u4e00-\u9fa5]{2,20}$";
+    NSString *nicknameRegex = @"^[\u4e00-\u9fa5a-zA-Z0-9_]{2,30}$";
     NSPredicate *passWordPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",nicknameRegex];
     return [passWordPredicate evaluateWithObject:nickname];
 }

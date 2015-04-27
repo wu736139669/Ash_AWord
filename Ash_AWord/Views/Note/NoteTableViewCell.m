@@ -151,6 +151,13 @@
 
 
 }
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if ([_delegate respondsToSelector:@selector(reportWithIndex:)]) {
+        [_delegate reportWithIndex:self.tag];
+    }
+    return NO;
+}
 +(CGFloat)heightWith:(Text_Image *)text_image
 {
     UIFont *font = [UIFont appFontOfSize:14.0];

@@ -12,7 +12,7 @@
 #import "NoteViewModel.h"
 #import "UpdateViewModel.h"
 #import "ReportViewController.h"
-@interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
+@interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,NoteTableViewCellDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_imageArr;
@@ -51,6 +51,12 @@
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
     [self.tableView addGestureRecognizer:longPressGr];
+    
+    NSMutableArray *menuItems = [NSMutableArray array];
+    UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+    [menuItems addObject:messageRepItem];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuItems:menuItems];
 }
 
 -(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
@@ -65,18 +71,14 @@
 //        NSLog(@"%ld",indexPath.section);
         //启动弹出菜单
         NSMutableArray *menuItems = [NSMutableArray array];
-        [self becomeFirstResponder];
-        
-//        UIMenuItem *messageCopyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(messageCopy:)];
-//        [menuItems addObject:messageCopyItem];
         UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
-        
         [menuItems addObject:messageRepItem];
 
        
         _reportIndex = indexPath.section;
         UIMenuController *menu = [UIMenuController sharedMenuController];
         [menu setMenuItems:menuItems];
+        [self becomeFirstResponder];
         CGRect targetRect = cell.frame;
         targetRect.origin.x = point.x;
         targetRect.origin.y = point.y;
@@ -95,7 +97,7 @@
         Text_Image* text_image = [_text_imageArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_image.ownerName;
         reportViewController.msgId = text_image.messageId;
-        reportViewController.msgType = Msg_Note;
+        reportViewController.msgType = Note_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }
@@ -104,7 +106,8 @@
 }
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
-    if (  action == @selector(messageRep:)) {
+
+    if (  action == @selector(messageRep:) ) {
         return YES;
     }
     return NO;
@@ -219,6 +222,8 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     Text_Image* text_image = [_text_imageArr objectAtIndex:indexPath.section];
     [cell setText_Image:text_image];
+    cell.delegate = self;
+    cell.tag = indexPath.section;
     return cell;
 }
 #pragma mark publish
@@ -238,7 +243,11 @@
     }
    
 }
-
+#pragma mark NoteCellDelegate
+-(void)reportWithIndex:(NSInteger)index
+{
+    _reportIndex = index;
+}
 #pragma mark UIActonSheetDelegate
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {

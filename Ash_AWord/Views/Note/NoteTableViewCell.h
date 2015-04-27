@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol NoteTableViewCellDelegate<NSObject>
+-(void) reportWithIndex:(NSInteger)index;
+@end
+
 @class Text_Image;
 @interface NoteTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
@@ -17,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *contentImgView;
 @property (weak, nonatomic) IBOutlet UIButton *goodBtn;
 @property (weak, nonatomic) IBOutlet UIButton *badBtn;
+@property (weak, nonatomic)id<NoteTableViewCellDelegate>delegate;
 - (IBAction)closeBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;

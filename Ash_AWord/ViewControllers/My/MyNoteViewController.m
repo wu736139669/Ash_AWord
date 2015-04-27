@@ -10,7 +10,7 @@
 #import "NoteViewModel.h"
 #import "NoteTableViewCell.h"
 #import "ReportViewController.h"
-@interface MyNoteViewController ()
+@interface MyNoteViewController ()<NoteTableViewCellDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_imageArr;
@@ -49,6 +49,12 @@
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
     [self.tableView addGestureRecognizer:longPressGr];
+    
+    NSMutableArray *menuItems = [NSMutableArray array];
+    UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+    [menuItems addObject:messageRepItem];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuItems:menuItems];
     
 }
 
@@ -112,7 +118,7 @@
         Text_Image* text_image = [_text_imageArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_image.ownerName;
         reportViewController.msgId = text_image.messageId;
-        reportViewController.msgType = Msg_Note;
+        reportViewController.msgType = Note_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }
@@ -236,6 +242,8 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     Text_Image* text_image = [_text_imageArr objectAtIndex:indexPath.section];
+    cell.delegate = self;
+    cell.tag = indexPath.section;
     [cell setText_Image:text_image];
     if (_isShowDel) {
         cell.closeBtn.hidden = NO;
@@ -245,7 +253,10 @@
     }
     return cell;
 }
-
+-(void)reportWithIndex:(NSInteger)index
+{
+    _reportIndex = index;
+}
 -(void)msgDel:(UIButton*)button
 {
     _reportIndex = button.tag;

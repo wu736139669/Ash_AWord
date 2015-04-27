@@ -7,7 +7,7 @@
 //
 
 #import "SetUserInfoViewController.h"
-
+#import "LoginViewModel.h"
 @interface SetUserInfoViewController ()<UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     UIImage* _avatarImage;
@@ -28,6 +28,7 @@
     _nickNameTextField.delegate = self;
     
     [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:[AWordUser sharedInstance].userAvatar] placeholderImage:[UIImage imageNamed:@"Icon"]];
+    _nickNameTextField.text = [AWordUser sharedInstance].userName;
     _nickNameTextField.placeholder = [AWordUser sharedInstance].userName;
     
     UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
@@ -129,6 +130,44 @@
 -(void)sureModify
 {
     
+    if ( [_nickNameTextField.text isEqualToString:[AWordUser sharedInstance].userName] && !_avatarImage) {
+        [MBProgressHUD errorHudWithView:nil label:@"没有内容修改" hidesAfter:1.0];
+        return;
+    }
+    if ([_nickNameTextField.text isEqualToString:@""]) {
+        [MBProgressHUD errorHudWithView:nil label:@"昵称不能为空" hidesAfter:1.0];
+        return;
+    }
+    NSString* nickName = _nickNameTextField.text;
+    if (nickName.length <= 0 || [_nickNameTextField.text isEqualToString:@""]) {
+        nickName = _nickNameTextField.placeholder;
+    }
+    PropertyEntity* pro = [LoginViewModel requireModifyInfoWithNickName:nickName withGender:@"" withAvatarImg:_avatarImage];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if ([loginViewModel success]) {
+            [AWordUser sharedInstance].userName = nickName;
+            [AWordUser sharedInstance].userAvatar = loginViewModel.figureurl;
+            [AWordUser sharedInstance].userGender = @"";
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+            
+            [MBProgressHUD checkHudWithView:nil label:@"修改成功" hidesAfter:1.0];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+            
+            
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+        }
+        
+        
+    } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+    }];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
