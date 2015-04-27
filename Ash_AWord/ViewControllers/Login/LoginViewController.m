@@ -174,7 +174,7 @@
             }];
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
         }else{
-            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+            [MBProgressHUD errorHudWithView:self.view label:loginViewModel.errMessage hidesAfter:2.0];
         }
     } failedBlock:^(NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];

@@ -57,7 +57,6 @@
 		A95510981AC39E6A0006D16F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A95510971AC39E6A0006D16F /* ViewController.m */; };
 		A955109B1AC39E6A0006D16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A95510991AC39E6A0006D16F /* Main.storyboard */; };
 		A955109D1AC39E6A0006D16F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A955109C1AC39E6A0006D16F /* Images.xcassets */; };
-		A95510A01AC39E6A0006D16F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A955109E1AC39E6A0006D16F /* LaunchScreen.xib */; };
 		A9617A4F1ACC0D0F0024AE4A /* NoteViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9617A4E1ACC0D0F0024AE4A /* NoteViewModel.m */; };
 		A9617A541ACC27860024AE4A /* SetUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9617A521ACC27860024AE4A /* SetUpViewController.m */; };
 		A9617A551ACC27860024AE4A /* SetUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9617A531ACC27860024AE4A /* SetUpViewController.xib */; };
@@ -262,7 +261,6 @@
 		A95510971AC39E6A0006D16F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A955109A1AC39E6A0006D16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A955109C1AC39E6A0006D16F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A955109F1AC39E6A0006D16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		A95510AA1AC39E6A0006D16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A95510AB1AC39E6A0006D16F /* Ash_AWordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Ash_AWordTests.m; sourceTree = "<group>"; };
 		A9617A4D1ACC0D0F0024AE4A /* NoteViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewModel.h; sourceTree = "<group>"; };
@@ -574,7 +572,6 @@
 				A95510971AC39E6A0006D16F /* ViewController.m */,
 				A95510991AC39E6A0006D16F /* Main.storyboard */,
 				A955109C1AC39E6A0006D16F /* Images.xcassets */,
-				A955109E1AC39E6A0006D16F /* LaunchScreen.xib */,
 				A955108F1AC39E6A0006D16F /* Supporting Files */,
 			);
 			path = Ash_AWord;
@@ -1285,7 +1282,6 @@
 				A98F98541ACA29B5007C4594 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A9617A591ACC2EBC0024AE4A /* mine-setting-icon@2x.png in Resources */,
 				A968627C1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png in Resources */,
-				A95510A01AC39E6A0006D16F /* LaunchScreen.xib in Resources */,
 				A93442041ACA981D00A6B233 /* Default@2x.png in Resources */,
 				A97DBE401ACAE29E00705682 /* Icon@2x.png in Resources */,
 				A90BA00A1AD6060600728393 /* playButtonPause@2x.png in Resources */,
@@ -1475,14 +1471,6 @@
 				A955109A1AC39E6A0006D16F /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		A955109E1AC39E6A0006D16F /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A955109F1AC39E6A0006D16F /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 		A97C54E41AC933AD0038818A /* UMSocialLocalizable.strings */ = {

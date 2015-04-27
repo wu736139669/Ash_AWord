@@ -73,7 +73,7 @@
         if ([loginViewModel success]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
             
-            [MBProgressHUD checkHudWithView:nil label:@"举报成功" hidesAfter:1.0];
+            [MBProgressHUD checkHudWithView:nil label:@"反馈成功" hidesAfter:1.0];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
             });
@@ -81,7 +81,7 @@
             
         }else{
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+            [MBProgressHUD errorHudWithView:self.view label:loginViewModel.errMessage hidesAfter:1.0];
         }
         
     } failedBlock:^(NSError *error) {

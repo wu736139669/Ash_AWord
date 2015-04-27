@@ -40,6 +40,11 @@ static MBProgressHUD *activityHUD = nil;
     HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"errormark"]];
     HUD.mode = MBProgressHUDModeCustomView;
     HUD.labelText = msg;
+    if (msg.length > 12) {
+//        HUD.labelFont = [UIFont boldSystemFontOfSize:13];
+    }
+    
+    
     [HUD show:YES];
     [HUD hide:YES afterDelay:delay];
 }

@@ -37,7 +37,7 @@
 {
     if([AWordUser sharedInstance].isLogin && [AWordUser sharedInstance].loginType==1)
         return 8;
-    return 7;
+    return 6;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -111,14 +111,14 @@
             cell.textLabel.text = @"欢迎打5星好评";
             break;
         case 5:
-            
-            cell.textLabel.text = @"意见反馈";
-
-            break;
-
-        case 6:
             cell.textLabel.text = @"服务条款";
             break;
+        case 6:
+            
+            cell.textLabel.text = @"意见反馈";
+            break;
+
+        
         case 7:
             cell.textLabel.text = @"密码修改";
             break;
@@ -148,11 +148,12 @@
             [self goToAppraisal];
             break;
         case 5:
-            [self goFeedback];
-            break;
-        case 6:
             [self showUserNotice];
             break;
+        case 6:
+            [self goFeedback];
+            break;
+ 
         case 7:
              [self modifyPsw];
             break;

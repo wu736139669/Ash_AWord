@@ -161,7 +161,7 @@
             
             
         }else{
-            [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
+            [MBProgressHUD errorHudWithView:self.view label:loginViewModel.errMessage hidesAfter:1.0];
         }
         
         

@@ -91,7 +91,7 @@
                 [MBProgressHUD errorHudWithView:self.view label:messagePublihViewModel.errMessage hidesAfter:1.0];
             }
         } failedBlock:^(NSError *error) {
-            [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
+            [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:2.0];
             
         }];
     }
