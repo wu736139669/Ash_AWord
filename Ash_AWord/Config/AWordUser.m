@@ -20,8 +20,15 @@ static AWordUser *sharedObj = nil;
         sharedObj.userName = [AWordDefault getUserName];
         sharedObj.userAvatar = [AWordDefault getUserAvatar];
         sharedObj.userGender = [AWordDefault getUserGender];
+        sharedObj.loginType = [AWordDefault getLoginType];
     }
     return sharedObj;
+}
+
+-(void)setLoginType:(NSInteger)loginType
+{
+    _loginType = loginType;
+    [AWordDefault setLoginType:loginType];
 }
 
 -(void)setUserName:(NSString *)userName

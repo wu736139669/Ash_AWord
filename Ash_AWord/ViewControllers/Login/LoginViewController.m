@@ -160,6 +160,7 @@
         if ([loginViewModel success]) {
             
             [AWordUser sharedInstance].isLogin = YES;
+            [AWordUser sharedInstance].loginType = 0;
             [AWordUser sharedInstance].uid = loginViewModel.uId;
             [AWordUser sharedInstance].userName = name;
             [AWordUser sharedInstance].userAvatar = figureUrl;

@@ -98,7 +98,7 @@
         [MBProgressHUD errorHudWithView:nil label:@"两次密码输入不同" hidesAfter:1.0];
         return;
     }
-    
+    [MBProgressHUD hudWithView:self.view label:@"修改中"];
     PropertyEntity* pro = [LoginViewModel requireModifyPassWord:_firstNewPswTextField.text withOldPaaaWord:_oldPassWordTextField.text];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
@@ -119,6 +119,7 @@
         
         
     } failedBlock:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
     }];
 

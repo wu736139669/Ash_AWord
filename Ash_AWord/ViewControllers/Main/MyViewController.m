@@ -127,9 +127,13 @@
             {
                 [LoginViewController presentLoginViewControllerInView:self success:nil];
             }else{
-                SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
-                setUserInfoViewController.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:setUserInfoViewController animated:YES];
+                if([AWordUser sharedInstance].loginType == 1)
+                {
+                    SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
+                    setUserInfoViewController.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:setUserInfoViewController animated:YES];
+                }
+
             }
 
         }

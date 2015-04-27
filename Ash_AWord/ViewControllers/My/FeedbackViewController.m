@@ -64,7 +64,7 @@
         [MBProgressHUD errorHudWithView:nil label:@"请输入内容" hidesAfter:1.0];
         return;
     }
-    
+    [MBProgressHUD hudWithView:self.view label:@"提交中"];
     PropertyEntity* pro = [LoginViewModel requireFeedbackWithContent:_contentTextView.text];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
@@ -80,6 +80,7 @@
             
             
         }else{
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             [MBProgressHUD errorHudWithView:self.view label:kSSoErrorTips hidesAfter:1.0];
         }
         

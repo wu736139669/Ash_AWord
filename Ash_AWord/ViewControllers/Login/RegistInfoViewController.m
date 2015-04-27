@@ -143,7 +143,7 @@
         [MBProgressHUD errorHudWithView:nil label:@"昵称不合法" hidesAfter:1.0];
         return;
     }
-
+    [MBProgressHUD hudWithView:self.view label:@"注册中"];
     PropertyEntity* pro = [LoginViewModel requireRegistWithUserName:_userAccount withNickName:_nickNameTextField.text withPassword:_passWord withGender:@"" withAvatar:_avatarImage];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
@@ -152,6 +152,7 @@
         if ([loginViewModel success]) {
             
             [AWordUser sharedInstance].isLogin = YES;
+            [AWordUser sharedInstance].loginType = 1;
             [AWordUser sharedInstance].uid = loginViewModel.uId;
             [AWordUser sharedInstance].userName = _nickNameTextField.text;
             [AWordUser sharedInstance].userAvatar = loginViewModel.figureurl;
@@ -170,6 +171,7 @@
         
 
     } failedBlock:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
     }];
 }

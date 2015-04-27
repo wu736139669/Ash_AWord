@@ -33,4 +33,8 @@
 //获取最后更新时间
 +(void)setLastUpdateTime:(NSTimeInterval)date;
 +(NSTimeInterval)getLastUpdateTime;
+
+//设置登录方式
++(void)setLoginType:(NSInteger)loginType;
++(NSInteger)getLoginType;
 @end

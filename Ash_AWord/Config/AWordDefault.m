@@ -70,4 +70,13 @@
 {
     return [[NSUserDefaults standardUserDefaults] doubleForKey:@"updatetime"];
 }
++(void)setLoginType:(NSInteger)loginType
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInteger:loginType] forKey:@"logintype"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSInteger)getLoginType
+{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:@"logintype"];
+}
 @end

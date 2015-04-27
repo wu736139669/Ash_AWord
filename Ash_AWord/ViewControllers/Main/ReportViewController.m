@@ -38,6 +38,7 @@
         [MBProgressHUD errorHudWithView:nil label:@"请输入举报内容" hidesAfter:1.0];
         return;
     }
+    [MBProgressHUD hudWithView:self.view label:@"举报中"];
     PropertyEntity* pro = [LoginViewModel requireReportWith:_msgType withMsgId:_msgId withContent:_reportContentTextView.text];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
@@ -57,6 +58,7 @@
         }
 
     } failedBlock:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
 
     }];

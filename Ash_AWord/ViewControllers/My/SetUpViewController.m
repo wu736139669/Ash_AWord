@@ -35,7 +35,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if([AWordUser sharedInstance].isLogin)
+    if([AWordUser sharedInstance].isLogin && [AWordUser sharedInstance].loginType==1)
         return 8;
     return 7;
 }
@@ -115,11 +115,12 @@
             cell.textLabel.text = @"意见反馈";
 
             break;
+
         case 6:
-            cell.textLabel.text = @"密码修改";
+            cell.textLabel.text = @"服务条款";
             break;
-            case 7:
-        cell.textLabel.text = @"服务条款";
+        case 7:
+            cell.textLabel.text = @"密码修改";
             break;
         default:
             break;
@@ -150,11 +151,12 @@
             [self goFeedback];
             break;
         case 6:
-             [self modifyPsw];
-            break;
-        case 7:
             [self showUserNotice];
             break;
+        case 7:
+             [self modifyPsw];
+            break;
+
         default:
             break;
     }
@@ -173,7 +175,7 @@
 }
 -(void)showUserNotice
 {
-    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_AWord_API_URL]]];
+    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/notice.html",Ash_AWord_API_URL]]];
     [self.navigationController pushViewController:svWebViewController animated:YES];
 }
 - (void)goToAppraisal

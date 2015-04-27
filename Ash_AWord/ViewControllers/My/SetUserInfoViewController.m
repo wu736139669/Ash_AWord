@@ -138,6 +138,7 @@
         [MBProgressHUD errorHudWithView:nil label:@"昵称不能为空" hidesAfter:1.0];
         return;
     }
+    [MBProgressHUD hudWithView:self.view label:@"修改中"];
     NSString* nickName = _nickNameTextField.text;
     if (nickName.length <= 0 || [_nickNameTextField.text isEqualToString:@""]) {
         nickName = _nickNameTextField.placeholder;
@@ -165,6 +166,7 @@
         
         
     } failedBlock:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
     }];
 

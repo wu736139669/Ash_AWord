@@ -91,7 +91,7 @@
         return;
 
     }
-    
+    [MBProgressHUD hudWithView:self.view label:@"登录中"];
     PropertyEntity* pro = [LoginViewModel requireLoginWithUserName:_userAccountTextField.text withPassWord:_passwordTextField.text];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
@@ -100,6 +100,7 @@
         if ([loginViewModel success]) {
             
             [AWordUser sharedInstance].isLogin = YES;
+            [AWordUser sharedInstance].loginType = 1;
             [AWordUser sharedInstance].uid = loginViewModel.uId;
             [AWordUser sharedInstance].userName = loginViewModel.userName;
             [AWordUser sharedInstance].userAvatar = loginViewModel.figureurl;
@@ -118,6 +119,7 @@
         
         
     } failedBlock:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
     }];
 

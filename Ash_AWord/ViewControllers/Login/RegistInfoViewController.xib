@@ -34,7 +34,7 @@
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入昵称长度为2-20" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kgn-L4-rkT">
                     <rect key="frame" x="20" y="236" width="280" height="30"/>
-                    <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="gUx-V1-Vp9"/>
                     </constraints>

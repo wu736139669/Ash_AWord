@@ -111,7 +111,7 @@
 }
 
 - (IBAction)userNoticeBtnClick:(id)sender {
-    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_AWord_API_URL]]];
+    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/notice.html",Ash_AWord_API_URL]]];
     [self.navigationController pushViewController:svWebViewController animated:YES];
 }
 @end

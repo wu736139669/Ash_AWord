@@ -15,6 +15,7 @@
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, strong) NSString *userAvatar;
 @property (nonatomic, strong) NSString* userGender;
+@property (nonatomic, assign) NSInteger loginType; //0代表第三方,1代表本地.
 +(AWordUser*)sharedInstance;
 
 @end
