@@ -118,6 +118,8 @@
     NSDate * dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSTimeInterval now = [dat timeIntervalSince1970];
     NSTimeInterval cha = now - [AWordDefault getLastUpdateTime];
+    
+    //每天一次
     if (cha/86400 < 1 && cha>0) {
         return;
     }
