@@ -61,4 +61,13 @@
     return [[NSUserDefaults standardUserDefaults] stringForKey:@"usergender"];
     
 }
++(void)setLastUpdateTime:(NSTimeInterval)date
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithDouble:date] forKey:@"updatetime"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSTimeInterval)getLastUpdateTime
+{
+    return [[NSUserDefaults standardUserDefaults] doubleForKey:@"updatetime"];
+}
 @end

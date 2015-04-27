@@ -118,7 +118,7 @@
             cell.textLabel.text = @"密码修改";
             break;
             case 7:
-        cell.textLabel.text = @"用户须知";
+        cell.textLabel.text = @"服务条款";
             break;
         default:
             break;

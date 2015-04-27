@@ -29,4 +29,8 @@
 //获取用户性别
 +(void)setUserGender:(NSString*)userGender;
 +(NSString*)getUserGender;
+
+//获取最后更新时间
++(void)setLastUpdateTime:(NSTimeInterval)date;
++(NSTimeInterval)getLastUpdateTime;
 @end

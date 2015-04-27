@@ -114,11 +114,19 @@
 }
 -(void)checkUpdate
 {
+    
+    NSDate * dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    NSTimeInterval now = [dat timeIntervalSince1970];
+    NSTimeInterval cha = now - [AWordDefault getLastUpdateTime];
+    if (cha/86400 < 1 && cha>0) {
+        return;
+    }
     PropertyEntity* pro = [UpdateViewModel requireUpdate];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         DLog(@"%@",viewModel);
         UpdateViewModel* updateViewModel = (UpdateViewModel*)viewModel;
         if ([updateViewModel success]) {
+            [AWordDefault setLastUpdateTime:now];
             if (updateViewModel.update==NO) {
                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:updateViewModel.version_info delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
                 [alertView show];
