@@ -185,6 +185,8 @@
 		A99AA12C1ADCCB3C00574B12 /* MessagePublihViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A99AA1291ADCCB3C00574B12 /* MessagePublihViewModel.m */; };
 		A99AA12D1ADCCB3C00574B12 /* MessageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A99AA12B1ADCCB3C00574B12 /* MessageViewModel.m */; };
 		A99AA12F1ADD028400574B12 /* Icon120.png in Resources */ = {isa = PBXBuildFile; fileRef = A99AA12E1ADD028400574B12 /* Icon120.png */; };
+		A9B4A9541AEDC3620017C655 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B4A9521AEDC3620017C655 /* FeedbackViewController.m */; };
+		A9B4A9551AEDC3620017C655 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B4A9531AEDC3620017C655 /* FeedbackViewController.xib */; };
 		A9B4E39F1AC9908E00A1DBDF /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */; };
 		A9BE23BF1ACD8CA20032171A /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BE23BD1ACD8CA20032171A /* libSocialSina.a */; };
 		A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E271191ADB97ED000B1542 /* Default-568h.png */; };
@@ -471,6 +473,9 @@
 		A99AA12A1ADCCB3C00574B12 /* MessageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewModel.h; sourceTree = "<group>"; };
 		A99AA12B1ADCCB3C00574B12 /* MessageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewModel.m; sourceTree = "<group>"; };
 		A99AA12E1ADD028400574B12 /* Icon120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon120.png; sourceTree = "<group>"; };
+		A9B4A9511AEDC3620017C655 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		A9B4A9521AEDC3620017C655 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		A9B4A9531AEDC3620017C655 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		A9B4E39D1AC9908E00A1DBDF /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		A9B4E39E1AC9908E00A1DBDF /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
@@ -620,6 +625,9 @@
 				A98536881AEBDDAB000312BF /* ModifyPassWordViewController.h */,
 				A98536891AEBDDAB000312BF /* ModifyPassWordViewController.m */,
 				A985368A1AEBDDAB000312BF /* ModifyPassWordViewController.xib */,
+				A9B4A9511AEDC3620017C655 /* FeedbackViewController.h */,
+				A9B4A9521AEDC3620017C655 /* FeedbackViewController.m */,
+				A9B4A9531AEDC3620017C655 /* FeedbackViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -1284,6 +1292,7 @@
 				A97DBE481ACAE7F600705682 /* smalliconWeixin@2x.png in Resources */,
 				A97DBE441ACAE61400705682 /* first-login-qq@2x.png in Resources */,
 				A9FAD42D1AC923E2007ADC10 /* MessageViewController.xib in Resources */,
+				A9B4A9551AEDC3620017C655 /* FeedbackViewController.xib in Resources */,
 				A98F986C1ACA2FA9007C4594 /* BaseRefreshViewController.xib in Resources */,
 				A955109D1AC39E6A0006D16F /* Images.xcassets in Resources */,
 				A97DBE4C1ACAEBE300705682 /* first-login-sina@2x.png in Resources */,
@@ -1453,6 +1462,7 @@
 				A98D659D1AD37F18008668EE /* MessageTableViewCell.m in Sources */,
 				A96862711ACCF13300DDAA6B /* PSTCollectionViewController.m in Sources */,
 				A96862431ACCF0B400DDAA6B /* MWCaptionView.m in Sources */,
+				A9B4A9541AEDC3620017C655 /* FeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

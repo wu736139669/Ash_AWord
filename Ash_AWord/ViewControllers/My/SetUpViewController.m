@@ -11,6 +11,7 @@
 #import "UMSocial.h"
 #import "ModifyPassWordViewController.h"
 #import "AppDelegate.h"
+#import "FeedbackViewController.h"
 @interface SetUpViewController ()<UIAlertViewDelegate>
 
 @end
@@ -34,8 +35,8 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if([AWordUser sharedInstance].isLogin)
-        return 7;
-    return 6;
+        return 8;
+    return 7;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -110,13 +111,15 @@
             break;
         case 5:
             
-            cell.textLabel.text = @"用户须知";
+            cell.textLabel.text = @"意见反馈";
 
             break;
         case 6:
             cell.textLabel.text = @"密码修改";
             break;
-            
+            case 7:
+        cell.textLabel.text = @"用户须知";
+            break;
         default:
             break;
     }
@@ -143,10 +146,13 @@
             [self goToAppraisal];
             break;
         case 5:
-            [self showUserNotice];
+            [self goFeedback];
             break;
         case 6:
              [self modifyPsw];
+            break;
+        case 7:
+            [self showUserNotice];
             break;
         default:
             break;
@@ -154,6 +160,11 @@
 }
 #pragma mark 跳到App Store评价
 
+-(void)goFeedback
+{
+    FeedbackViewController* feedbackViewController = [[FeedbackViewController alloc] init];
+    [self.navigationController pushViewController:feedbackViewController animated:YES];
+}
 -(void)modifyPsw
 {
     ModifyPassWordViewController* modifyPassWordViewController = [[ModifyPassWordViewController alloc] init];
