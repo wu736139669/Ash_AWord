@@ -132,7 +132,7 @@
     //录音设置
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc]init];
     //设置录音格式  AVFormatIDKey==kAudioFormatLinearPCM
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
     //设置录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
     [recordSetting setValue:[NSNumber numberWithFloat:44100] forKey:AVSampleRateKey];
     //录音通道数  1 或 2
@@ -143,7 +143,7 @@
     [recordSetting setValue:[NSNumber numberWithInt:AVAudioQualityHigh] forKey:AVEncoderAudioQualityKey];
     
     NSString *strUrl = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    _fileUrl = [NSString stringWithFormat:@"%@/lll.wav", strUrl];
+    _fileUrl = [NSString stringWithFormat:@"%@/lll.aac", strUrl];
 //    _fileUrl = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/lll.wav"];
     NSURL *url = [NSURL fileURLWithPath:_fileUrl];
     _urlPlay = url;
