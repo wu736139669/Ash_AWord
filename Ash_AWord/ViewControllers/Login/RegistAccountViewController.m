@@ -95,7 +95,7 @@
         [MBProgressHUD errorHudWithView:nil label:@"用户名不合法" hidesAfter:1.0];
         return;
     }
-    if (_firstPassWordTextField.text.length<6 && _firstPassWordTextField.text.length<20){
+    if (_firstPassWordTextField.text.length<6 || _firstPassWordTextField.text.length>20){
         [MBProgressHUD errorHudWithView:nil label:@"密码长度应在6-20" hidesAfter:1.0];
         return;
     }
