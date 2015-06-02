@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImgView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageWidth;
 @property (weak, nonatomic) IBOutlet UIButton *goodBtn;
 @property (weak, nonatomic) IBOutlet UIButton *badBtn;
 @property (weak, nonatomic)id<NoteTableViewCellDelegate>delegate;

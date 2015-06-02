@@ -118,9 +118,9 @@
                                   for (int i = 0; i < proper.pFile.img.count; i++) {
                                       UIImage *uploadImage = proper.pFile.img[i];
                                       NSString *proName = [proper.pFile.name stringByAppendingFormat:@"%d", i];
-                                      //                                                  NSData* data =  UIImageJPEGRepresentation(uploadImage, 0.5);
-                                      //                                                  DLog(@"%ld kB",data.length/(8*1024));
-                                      [formData appendPartWithFileData:UIImageJPEGRepresentation(uploadImage, 0.5) name:proper.pFile.img.count == 1 ? proper.pFile.name : proName fileName:[proName stringByAppendingString:@".jpg" ] mimeType:@"image/jpg"];
+                                      NSData* data =  UIImageJPEGRepresentation(uploadImage, 0.1);
+                                    DLog(@"%ld kB",data.length/(8*1024));
+                                      [formData appendPartWithFileData:UIImageJPEGRepresentation(uploadImage, 0.1) name:proper.pFile.img.count == 1 ? proper.pFile.name : proName fileName:[proName stringByAppendingString:@".jpg" ] mimeType:@"image/jpg"];
                                   }
                               }else{
                                   NSData* uploadFile = proper.pFile.img[0];

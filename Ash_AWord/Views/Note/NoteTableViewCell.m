@@ -23,7 +23,7 @@
     _contentLabel.font = [UIFont appFontOfSize:14.0];
     _contentTextView.font = [UIFont appFontOfSize:14.0];
     _contentTextView.scrollEnabled = NO;
-    _timeLabel.font = [UIFont appFontOfSize:14.0];
+//    _timeLabel.font = [UIFont appFontOfSize:14.0];
     
     _avatar.layer.cornerRadius = _avatar.frame.size.width/2;
     _avatar.layer.masksToBounds = YES;
@@ -37,6 +37,12 @@
     _shareBtn.layer.masksToBounds = YES;
     _goodBtn.backgroundColor = [UIColor lineColor];
     _shareBtn.backgroundColor = [UIColor lineColor];
+    
+    _badBtn.layer.cornerRadius = 3;
+    _badBtn.layer.masksToBounds = YES;
+    _badBtn.backgroundColor = [UIColor lineColor];
+    
+    _imageWidth.constant = kScreenWidth-16.0;
 
 }
 
@@ -134,7 +140,7 @@
     _timeLabel.text = [CommonUtil timeFromtimeSp:text_image.createTime.stringValue];
     _timeLabel.hidden = NO;
     UIFont *font = [UIFont appFontOfSize:14.0];
-    CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
+    CGSize size = CGSizeMake(kScreenWidth-16.0,MAXFLOAT);
     
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     _contentHeight.constant = labelRect.size.height+25;
@@ -161,7 +167,7 @@
 +(CGFloat)heightWith:(Text_Image *)text_image
 {
     UIFont *font = [UIFont appFontOfSize:14.0];
-    CGSize size = CGSizeMake(300*[Ash_UIUtil currentScreenSizeRate],MAXFLOAT);
+    CGSize size = CGSizeMake(kScreenWidth-16.0,MAXFLOAT);
     
     
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];

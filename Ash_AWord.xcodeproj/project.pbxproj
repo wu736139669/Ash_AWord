@@ -188,6 +188,13 @@
 		A9B4A9551AEDC3620017C655 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B4A9531AEDC3620017C655 /* FeedbackViewController.xib */; };
 		A9B4E39F1AC9908E00A1DBDF /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9B4E39C1AC9908E00A1DBDF /* libMobClickLibrary.a */; };
 		A9BE23BF1ACD8CA20032171A /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BE23BD1ACD8CA20032171A /* libSocialSina.a */; };
+		A9CF211C1B1C36D0007490EF /* mainCellCommentClickN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF211A1B1C36D0007490EF /* mainCellCommentClickN@2x.png */; };
+		A9CF211D1B1C36D0007490EF /* mainCellCommentN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF211B1B1C36D0007490EF /* mainCellCommentN@2x.png */; };
+		A9CF21211B1C4C70007490EF /* NoteCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CF211F1B1C4C70007490EF /* NoteCommentViewController.m */; };
+		A9CF21221B1C4C70007490EF /* NoteCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CF21201B1C4C70007490EF /* NoteCommentViewController.xib */; };
+		A9CF21271B1C53E3007490EF /* CommentGoodListCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CF21251B1C53E3007490EF /* CommentGoodListCellTableViewCell.m */; };
+		A9CF21281B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CF21261B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib */; };
+		A9CF212A1B1C65A2007490EF /* praise-wall-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF21291B1C65A2007490EF /* praise-wall-white@2x.png */; };
 		A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E271191ADB97ED000B1542 /* Default-568h.png */; };
 		A9E2711C1ADB97ED000B1542 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2711A1ADB97ED000B1542 /* Default.png */; };
 		A9E2711E1ADBB25C000B1542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */; };
@@ -201,6 +208,8 @@
 		A9FAD4311AC923FC007ADC10 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAD42F1AC923FC007ADC10 /* MyViewController.m */; };
 		A9FAD4321AC923FC007ADC10 /* MyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9FAD4301AC923FC007ADC10 /* MyViewController.xib */; };
 		A9FAD4351AC925AC007ADC10 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A9FAD4341AC925AC007ADC10 /* LoginViewModel.m */; };
+		A9FD82B71B1D433800AC4DC9 /* accessory@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9FD82B51B1D433800AC4DC9 /* accessory@2x.png */; };
+		A9FD82B81B1D433800AC4DC9 /* accessoryN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9FD82B61B1D433800AC4DC9 /* accessoryN@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -480,6 +489,15 @@
 		A9B4E39E1AC9908E00A1DBDF /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		A9BE23BD1ACD8CA20032171A /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
 		A9BE23BE1ACD8CA20032171A /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		A9CF211A1B1C36D0007490EF /* mainCellCommentClickN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellCommentClickN@2x.png"; sourceTree = "<group>"; };
+		A9CF211B1B1C36D0007490EF /* mainCellCommentN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mainCellCommentN@2x.png"; sourceTree = "<group>"; };
+		A9CF211E1B1C4C70007490EF /* NoteCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteCommentViewController.h; sourceTree = "<group>"; };
+		A9CF211F1B1C4C70007490EF /* NoteCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteCommentViewController.m; sourceTree = "<group>"; };
+		A9CF21201B1C4C70007490EF /* NoteCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoteCommentViewController.xib; sourceTree = "<group>"; };
+		A9CF21241B1C53E3007490EF /* CommentGoodListCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentGoodListCellTableViewCell.h; sourceTree = "<group>"; };
+		A9CF21251B1C53E3007490EF /* CommentGoodListCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentGoodListCellTableViewCell.m; sourceTree = "<group>"; };
+		A9CF21261B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentGoodListCellTableViewCell.xib; sourceTree = "<group>"; };
+		A9CF21291B1C65A2007490EF /* praise-wall-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "praise-wall-white@2x.png"; sourceTree = "<group>"; };
 		A9E271191ADB97ED000B1542 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		A9E2711A1ADB97ED000B1542 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -498,6 +516,8 @@
 		A9FAD4301AC923FC007ADC10 /* MyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyViewController.xib; sourceTree = "<group>"; };
 		A9FAD4331AC925AC007ADC10 /* LoginViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		A9FAD4341AC925AC007ADC10 /* LoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
+		A9FD82B51B1D433800AC4DC9 /* accessory@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accessory@2x.png"; sourceTree = "<group>"; };
+		A9FD82B61B1D433800AC4DC9 /* accessoryN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "accessoryN@2x.png"; sourceTree = "<group>"; };
 		AD3C5DED2445FC2F0892A525 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E7B8559E65B4108EA2C3F343 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -748,6 +768,9 @@
 				A97559AF1ACBC683004ADA42 /* NotePublishViewController.h */,
 				A97559B01ACBC683004ADA42 /* NotePublishViewController.m */,
 				A97559B11ACBC683004ADA42 /* NotePublishViewController.xib */,
+				A9CF211E1B1C4C70007490EF /* NoteCommentViewController.h */,
+				A9CF211F1B1C4C70007490EF /* NoteCommentViewController.m */,
+				A9CF21201B1C4C70007490EF /* NoteCommentViewController.xib */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -810,6 +833,7 @@
 		A97C54B91AC8F0370038818A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A9CF21231B1C4EA2007490EF /* Common */,
 				A98D65991AD37EFD008668EE /* Message */,
 				A97559C01ACBEE71004ADA42 /* Note */,
 			);
@@ -905,6 +929,11 @@
 		A97C54E21AC91FD70038818A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A9FD82B51B1D433800AC4DC9 /* accessory@2x.png */,
+				A9FD82B61B1D433800AC4DC9 /* accessoryN@2x.png */,
+				A9CF21291B1C65A2007490EF /* praise-wall-white@2x.png */,
+				A9CF211A1B1C36D0007490EF /* mainCellCommentClickN@2x.png */,
+				A9CF211B1B1C36D0007490EF /* mainCellCommentN@2x.png */,
 				A966FB951AD62C5D00542068 /* icon_error@2x.png */,
 				A966FB971AD62CAE00542068 /* checkmark@2x.png */,
 				A966FB981AD62CAE00542068 /* errormark@2x.png */,
@@ -1135,6 +1164,16 @@
 			path = Sina;
 			sourceTree = "<group>";
 		};
+		A9CF21231B1C4EA2007490EF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				A9CF21241B1C53E3007490EF /* CommentGoodListCellTableViewCell.h */,
+				A9CF21251B1C53E3007490EF /* CommentGoodListCellTableViewCell.m */,
+				A9CF21261B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		A9FAD41E1AC92293007ADC10 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -1251,9 +1290,11 @@
 				A90BA0011AD6031E00728393 /* MessagePublishViewController.xib in Resources */,
 				A93442031ACA981D00A6B233 /* Default-568h@2x.png in Resources */,
 				A9FAD4321AC923FC007ADC10 /* MyViewController.xib in Resources */,
+				A9FD82B81B1D433800AC4DC9 /* accessoryN@2x.png in Resources */,
 				A93441FF1ACA919F00A6B233 /* tabbarVoice@2x.png in Resources */,
 				A968627E1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png in Resources */,
 				A9EA14C31B02E88300357529 /* LaunchScreen.xib in Resources */,
+				A9CF211D1B1C36D0007490EF /* mainCellCommentN@2x.png in Resources */,
 				A93441FA1ACA919500A6B233 /* tabbarQuotation-dark@2x.png in Resources */,
 				A97559D01ACBF0BC004ADA42 /* btn_share_clicked@2x.png in Resources */,
 				A90BA01F1AD606AE00728393 /* voice-record-icon@2x.png in Resources */,
@@ -1272,6 +1313,7 @@
 				A97DBE461ACAE7B500705682 /* iconWeixin@2x.png in Resources */,
 				A96862421ACCF0B400DDAA6B /* LICENCE.txt in Resources */,
 				A985367D1AEB8F89000312BF /* RegistInfoViewController.xib in Resources */,
+				A9CF21281B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib in Resources */,
 				A99AA12F1ADD028400574B12 /* Icon120.png in Resources */,
 				A98536821AEBC7BB000312BF /* SetUserInfoViewController.xib in Resources */,
 				A97C55071AC933AD0038818A /* UMSShareListController.xib in Resources */,
@@ -1284,6 +1326,7 @@
 				A97C55041AC933AD0038818A /* UMShareEditViewControlleriPad.xib in Resources */,
 				A978838A1AD36A0500D46477 /* mainCellDing@2x.png in Resources */,
 				A98F98541ACA29B5007C4594 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
+				A9CF211C1B1C36D0007490EF /* mainCellCommentClickN@2x.png in Resources */,
 				A9617A591ACC2EBC0024AE4A /* mine-setting-icon@2x.png in Resources */,
 				A968627C1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png in Resources */,
 				A93442041ACA981D00A6B233 /* Default@2x.png in Resources */,
@@ -1300,6 +1343,7 @@
 				A93441E61ACA8AC400A6B233 /* Profile_filter_contentIconClick@2x.png in Resources */,
 				A97559C51ACBEE99004ADA42 /* NoteTableViewCell.xib in Resources */,
 				A90BA0151AD6066000728393 /* voice-bottom-sure@2x.png in Resources */,
+				A9CF212A1B1C65A2007490EF /* praise-wall-white@2x.png in Resources */,
 				A9617A551ACC27860024AE4A /* SetUpViewController.xib in Resources */,
 				A97559D11ACBF0BC004ADA42 /* btn_share@2x.png in Resources */,
 				A98D659E1AD37F18008668EE /* MessageTableViewCell.xib in Resources */,
@@ -1319,6 +1363,7 @@
 				A90BA0121AD6066000728393 /* voice-bottom-close-click@2x.png in Resources */,
 				A97C55061AC933AD0038818A /* UMSnsAccountViewController.xib in Resources */,
 				A966FB9A1AD62CAE00542068 /* errormark@2x.png in Resources */,
+				A9CF21221B1C4C70007490EF /* NoteCommentViewController.xib in Resources */,
 				A97559CD1ACBF0BC004ADA42 /* btn_bad@2x.png in Resources */,
 				A93441F71ACA918100A6B233 /* tabbarSetup@2x.png in Resources */,
 				A90BA0091AD6060600728393 /* playButtonClick@2x.png in Resources */,
@@ -1342,6 +1387,7 @@
 				A97DBE421ACAE4E300705682 /* first-login-icon.png in Resources */,
 				A97C55051AC933AD0038818A /* UMSLoginViewController.xib in Resources */,
 				A97C55081AC933AD0038818A /* UMSocialSDKResourcesNew.bundle in Resources */,
+				A9FD82B71B1D433800AC4DC9 /* accessory@2x.png in Resources */,
 				A90BA01B1AD6069A00728393 /* voice-play-start@2x.png in Resources */,
 				A97DBE341ACAE10800705682 /* LoginViewController.xib in Resources */,
 				A93441EA1ACA8AD200A6B233 /* Profile_filter_ImageIconClick@2x.png in Resources */,
@@ -1394,6 +1440,7 @@
 				A9FAD4271AC922BE007ADC10 /* NoteViewController.m in Sources */,
 				A97559A01ACB88FE004ADA42 /* AWordDefault.m in Sources */,
 				A97C54D31AC8F10F0038818A /* XiaoYuAPIClient.m in Sources */,
+				A9CF21211B1C4C70007490EF /* NoteCommentViewController.m in Sources */,
 				A97559C41ACBEE99004ADA42 /* NoteTableViewCell.m in Sources */,
 				A96862481ACCF0B400DDAA6B /* MWTapDetectingImageView.m in Sources */,
 				A9FAD4311AC923FC007ADC10 /* MyViewController.m in Sources */,
@@ -1418,6 +1465,7 @@
 				A968626E1ACCF13300DDAA6B /* NSIndexPath+PSTCollectionViewAdditions.m in Sources */,
 				A9FAD42C1AC923E2007ADC10 /* MessageViewController.m in Sources */,
 				A985367C1AEB8F89000312BF /* RegistInfoViewController.m in Sources */,
+				A9CF21271B1C53E3007490EF /* CommentGoodListCellTableViewCell.m in Sources */,
 				A98536811AEBC7BB000312BF /* SetUserInfoViewController.m in Sources */,
 				A968627A1ACCF13300DDAA6B /* PSTGridLayoutSection.m in Sources */,
 				A96862771ACCF13300DDAA6B /* PSTGridLayoutInfo.m in Sources */,

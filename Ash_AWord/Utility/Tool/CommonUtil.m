@@ -184,7 +184,7 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     //    [formatter setDateStyle:NSDateFormatterMediumStyle];
     //    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:MM::ss"];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate * d = [NSDate dateWithTimeIntervalSince1970:[timeSp floatValue]/1000];
     
     NSTimeInterval late = [d timeIntervalSince1970];
@@ -230,38 +230,38 @@
         
     {
         
-        timeString = [NSString stringWithFormat:@"%f", cha/86400];
-        
-        timeString = [timeString substringToIndex:timeString.length-7];
-        
-        int num = [timeString intValue];
-        
-        if (num < 2) {
-            
-            timeString = [NSString stringWithFormat:@"昨天"];
-            
-        }else if(num == 2){
-            
-            timeString = [NSString stringWithFormat:@"前天"];
-            
-        }else if (num > 2 && num <7){
-            
-            timeString = [NSString stringWithFormat:@"%@天前", timeString];
-            
-        }else if (num >= 7 && num <= 10) {
-            
-            timeString = [NSString stringWithFormat:@"1周前"];
-            
-        }else if(num > 10 && num <= 31){
-            
-            timeString = [NSString stringWithFormat:@"%d天前",num];
-            
-        }else if (num >31 && num < 365){
-            timeString = [NSString stringWithFormat:@"%d月前",num/31];
-        }else{
-            timeString = [NSString stringWithFormat:@"%d年前",num/365];
-
-        }
+//        timeString = [NSString stringWithFormat:@"%f", cha/86400];
+//        
+//        timeString = [timeString substringToIndex:timeString.length-7];
+//        
+//        int num = [timeString intValue];
+//        
+//        if (num < 2) {
+//            
+//            timeString = [NSString stringWithFormat:@"昨天"];
+//            
+//        }else if(num == 2){
+//            
+//            timeString = [NSString stringWithFormat:@"前天"];
+//            
+//        }else if (num > 2 && num <7){
+//            
+//            timeString = [NSString stringWithFormat:@"%@天前", timeString];
+//            
+//        }else if (num >= 7 && num <= 10) {
+//            
+//            timeString = [NSString stringWithFormat:@"1周前"];
+//            
+//        }else if(num > 10 && num <= 31){
+//            
+//            timeString = [NSString stringWithFormat:@"%d天前",num];
+//            
+//        }else if (num >31 && num < 365){
+//            timeString = [NSString stringWithFormat:@"%d月前",num/31];
+//        }else{
+//            timeString = [NSString stringWithFormat:@"%d年前",num/365];
+//
+//        }
         
         
     }
