@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIImageView+Reloading.h"
+
 @protocol NoteTableViewCellDelegate<NSObject>
 -(void) reportWithIndex:(NSInteger)index;
 @end
@@ -27,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
+@property (nonatomic, assign)BOOL isComment;
 - (IBAction)avatarBtnClick:(id)sender;
 
 - (IBAction)imageBtnClick:(id)sender;

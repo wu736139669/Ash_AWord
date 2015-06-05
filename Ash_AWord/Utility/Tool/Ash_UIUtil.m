@@ -10,6 +10,19 @@
 
 @implementation Ash_UIUtil
 
++(CABasicAnimation*)getrotationAnimation
+{
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 2.0 ];
+    [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    rotationAnimation.duration = 1.0;
+    rotationAnimation.repeatCount = MAXFLOAT;//你可以设置到最大的整数值
+    rotationAnimation.cumulative = NO;
+    rotationAnimation.removedOnCompletion = NO;
+    rotationAnimation.fillMode = kCAFillModeForwards;
+    return rotationAnimation;
+}
 //讨厌警告
 -(id)diskImageDataBySearchingAllPathsForKey:(id)key{return nil;}
 +(CGSize)downloadImageSizeWithURL:(id)imageURL

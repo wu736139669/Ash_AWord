@@ -41,4 +41,7 @@ typedef enum {
 
 +(PropertyEntity*)requireDelWithRecordId:(NSInteger)recordId;
 
+
+
+
 @end

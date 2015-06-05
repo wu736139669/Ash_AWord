@@ -11,4 +11,7 @@
 @interface CommentGoodListCellTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *barBtImageView;
 
+- (IBAction)showMoreBtnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *showMoreBtn;
+-(void)setUserInfoArr:(NSArray*)userInfoArr;
 @end

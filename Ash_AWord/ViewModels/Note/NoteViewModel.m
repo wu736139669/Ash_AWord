@@ -65,8 +65,8 @@
     pro.reqURL = @"rs/text_image/load_public";
     pro.responesOBJ = self.class;
     pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
+                @"page": [NSString stringWithFormat:@"%ld",(long)page],
+                @"page_size": [NSString stringWithFormat:@"%ld",(long)page_size],
                 };
     
     return pro;
@@ -138,4 +138,6 @@
     
     return pro;
 }
+
+
 @end

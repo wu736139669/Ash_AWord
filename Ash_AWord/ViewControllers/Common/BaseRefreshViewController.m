@@ -22,10 +22,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView addLegendHeaderWithRefreshingTarget:self refreshingAction:@selector(headerRereshing)];
-    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
+//    [self.tableView addLegendFooterWithRefreshingTarget:self refreshingAction:@selector(footerRereshing)];
     [self customViewDidLoad];
     [self.tableView.footer setTitle:@"" forState:MJRefreshFooterStateNoMoreData];
-    self.tableView.separatorColor = [UIColor clearColor];
+//    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 #pragma mark MJRefreshDelegate

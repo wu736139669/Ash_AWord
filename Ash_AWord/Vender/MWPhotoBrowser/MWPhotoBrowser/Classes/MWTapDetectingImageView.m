@@ -12,6 +12,10 @@
 
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
+        UILongPressGestureRecognizer *longpress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onlongtabed:)];
+        longpress.minimumPressDuration = 1.0;///至少按1秒
+        longpress.numberOfTouchesRequired = 1;//只有一个触点
+        [self addGestureRecognizer:longpress];
 		self.userInteractionEnabled = YES;
 	}
 	return self;
@@ -19,6 +23,10 @@
 
 - (id)initWithImage:(UIImage *)image {
 	if ((self = [super initWithImage:image])) {
+        UILongPressGestureRecognizer *longpress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onlongtabed:)];
+        longpress.minimumPressDuration = 1.0;///至少按1秒
+        longpress.numberOfTouchesRequired = 1;//只有一个触点
+        [self addGestureRecognizer:longpress];
 		self.userInteractionEnabled = YES;
 	}
 	return self;
@@ -26,11 +34,23 @@
 
 - (id)initWithImage:(UIImage *)image highlightedImage:(UIImage *)highlightedImage {
 	if ((self = [super initWithImage:image highlightedImage:highlightedImage])) {
+        
+        UILongPressGestureRecognizer *longpress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onlongtabed:)];
+        longpress.minimumPressDuration = 1.0;///至少按1秒
+        longpress.numberOfTouchesRequired = 1;//只有一个触点
+        [self addGestureRecognizer:longpress];
 		self.userInteractionEnabled = YES;
 	}
 	return self;
 }
 
+
+-(void)onlongtabed:(UIGestureRecognizer*)gestureRecognizer
+{
+    if(gestureRecognizer.state == UIGestureRecognizerStateBegan){
+        [self handleLongTap:gestureRecognizer];
+    }
+}
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	UITouch *touch = [touches anyObject];
 	NSUInteger tapCount = touch.tapCount;
@@ -64,5 +84,8 @@
 	if ([_tapDelegate respondsToSelector:@selector(imageView:tripleTapDetected:)])
 		[_tapDelegate imageView:self tripleTapDetected:touch];
 }
-
+-(void)handleLongTap:(UIGestureRecognizer*)gestureRecognizer{
+    if ([_tapDelegate respondsToSelector:@selector(imageView:longTapDetected:)])
+        [_tapDelegate imageView:self longTapDetected:gestureRecognizer];
+}
 @end

@@ -14,7 +14,7 @@
 #import "MWPhotoBrowserPrivate.h"
 
 // Private methods and properties
-@interface MWZoomingScrollView () {
+@interface MWZoomingScrollView ()<UIActionSheetDelegate> {
     
     MWPhotoBrowser __weak *_photoBrowser;
 	MWTapDetectingView *_tapView; // for background taps
@@ -157,7 +157,9 @@
 // Image failed so just show black!
 - (void)displayImageFailure {
     [self hideLoadingIndicator];
-    _photoImageView.image = nil;
+    _photoImageView.image = [UIImage imageNamed:@"MWPhotoBrowser.bundle/images/ImageError.png"];
+    _photoImageView.hidden = NO;
+    return;
     if (!_loadingError) {
         _loadingError = [UIImageView new];
         _loadingError.image = [UIImage imageNamed:@"MWPhotoBrowser.bundle/images/ImageError.png"];
@@ -349,6 +351,12 @@
 #pragma mark - Tap Detection
 
 - (void)handleSingleTap:(CGPoint)touchPoint {
+
+//    [UIView animateWithDuration:0.3 animations:^{
+//        _photoBrowser.navigationController.navigationBarHidden = !_photoBrowser.navigationController.navigationBarHidden;
+//    }];
+    [_photoBrowser.navigationController popViewControllerAnimated:YES];
+
 	[_photoBrowser performSelector:@selector(toggleControls) withObject:nil afterDelay:0.2];
 }
 
@@ -380,10 +388,26 @@
 
 // Image View
 - (void)imageView:(UIImageView *)imageView singleTapDetected:(UITouch *)touch { 
-    [self handleSingleTap:[touch locationInView:imageView]];
+//    [self handleSingleTap:[touch locationInView:imageView]];
+    [_photoBrowser.navigationController popViewControllerAnimated:YES];
 }
 - (void)imageView:(UIImageView *)imageView doubleTapDetected:(UITouch *)touch {
     [self handleDoubleTap:[touch locationInView:imageView]];
+}
+-(void)imageView:(UIImageView *)imageView longTapDetected:(UIGestureRecognizer *)gestureRecognizer
+{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"保存图片", nil];
+    actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [actionSheet showInView:self];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        [_photoBrowser didSavePhoto];
+    }
+
+    
 }
 
 // Background View

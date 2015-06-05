@@ -10,6 +10,8 @@
 
 @interface Ash_UIUtil : NSObject
 
+
++(CABasicAnimation*)getrotationAnimation;
 +(CGSize)downloadImageSizeWithURL:(id)imageURL;
 /**
  * 通过类名出创建xib类

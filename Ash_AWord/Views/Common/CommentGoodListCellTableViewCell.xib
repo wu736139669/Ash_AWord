@@ -16,31 +16,56 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="praise-wall-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="W4b-n6-a3b">
-                        <rect key="frame" x="8" y="11" width="304" height="60"/>
+                        <rect key="frame" x="0.0" y="11" width="320" height="60"/>
                         <rect key="contentStretch" x="0.5" y="0.5" width="0.5" height="0.5"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="Jo1-RX-wkX"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accessory.png" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-th-INl">
-                        <rect key="frame" x="294" y="40" width="11" height="15"/>
+                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accessory.png" translatesAutoresizingMaskIntoConstraints="NO" id="1oY-th-INl">
+                        <rect key="frame" x="302" y="40" width="11" height="15"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="pG0-WF-Ko7"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hA-jI-rjQ">
+                        <rect key="frame" x="0.0" y="11" width="320" height="60"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="showMoreBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kNO-tE-N4p"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="W4b-n6-a3b" firstAttribute="width" secondItem="8hA-jI-rjQ" secondAttribute="width" id="98z-PA-MYj"/>
+                    <constraint firstItem="W4b-n6-a3b" firstAttribute="centerX" secondItem="8hA-jI-rjQ" secondAttribute="centerX" id="DlB-hu-56Z"/>
+                    <constraint firstAttribute="trailing" secondItem="1oY-th-INl" secondAttribute="trailing" constant="7" id="O24-QI-AfM"/>
                     <constraint firstItem="1oY-th-INl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="32" id="PDz-5x-UtU"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1oY-th-INl" secondAttribute="trailing" constant="7" id="TPf-qr-G9S"/>
                     <constraint firstAttribute="bottomMargin" secondItem="W4b-n6-a3b" secondAttribute="bottom" id="VJW-mr-NKP"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="W4b-n6-a3b" secondAttribute="trailing" id="YYn-wN-cho"/>
-                    <constraint firstItem="W4b-n6-a3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="l9L-v6-QGN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="W4b-n6-a3b" secondAttribute="trailing" constant="-8" id="YYn-wN-cho"/>
+                    <constraint firstItem="W4b-n6-a3b" firstAttribute="centerY" secondItem="8hA-jI-rjQ" secondAttribute="centerY" id="jXv-2f-SbB"/>
+                    <constraint firstItem="W4b-n6-a3b" firstAttribute="height" secondItem="8hA-jI-rjQ" secondAttribute="height" id="kml-e1-AgE"/>
+                    <constraint firstItem="W4b-n6-a3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="l9L-v6-QGN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1oY-th-INl" secondAttribute="bottom" constant="16" id="pyg-K1-vVE"/>
+                    <constraint firstItem="W4b-n6-a3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="qhY-GG-1W0"/>
+                    <constraint firstAttribute="trailing" secondItem="W4b-n6-a3b" secondAttribute="trailing" id="vSN-xo-hZd"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="YYn-wN-cho"/>
+                        <exclude reference="l9L-v6-QGN"/>
+                        <exclude reference="TPf-qr-G9S"/>
+                        <exclude reference="pyg-K1-vVE"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="barBtImageView" destination="W4b-n6-a3b" id="z9a-Am-LNG"/>
+                <outlet property="showMoreBtn" destination="8hA-jI-rjQ" id="Kbd-B0-9w3"/>
             </connections>
             <point key="canvasLocation" x="208" y="233"/>
         </tableViewCell>

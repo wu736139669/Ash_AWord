@@ -39,6 +39,7 @@
                         <state key="selected" image="btn_bad_clicked.png">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <state key="highlighted" image="mainCellCommentClickN.png"/>
                         <connections>
                             <action selector="badBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yTA-dX-7dR"/>
                         </connections>
@@ -62,12 +63,6 @@
                             <action selector="shareBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nYN-ew-TWw"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-PS-2tC">
-                        <rect key="frame" x="8" y="71" width="304" height="139"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="304" id="9aR-3O-ifk"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
                         <rect key="frame" x="8" y="71" width="304" height="139"/>
                         <state key="normal">
@@ -77,6 +72,12 @@
                             <action selector="imageBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Fbt-xq-94q"/>
                         </connections>
                     </button>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9l-PS-2tC">
+                        <rect key="frame" x="8" y="71" width="304" height="139"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="304" id="9aR-3O-ifk"/>
+                        </constraints>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="j8x-8X-1uX">
                         <rect key="frame" x="8" y="8" width="36" height="36"/>
                         <constraints>
@@ -118,7 +119,7 @@
                         </connections>
                     </button>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="内容" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-LI-LRT">
-                        <rect key="frame" x="3" y="44" width="314" height="27"/>
+                        <rect key="frame" x="3" y="44" width="317" height="27"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="27" id="Uex-tf-US9"/>
@@ -161,7 +162,7 @@
                     <constraint firstItem="kWq-q0-MPl" firstAttribute="trailing" secondItem="DAR-mT-RbS" secondAttribute="trailing" id="AQQ-Ig-HhY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Zq3-YP-dwB" secondAttribute="trailing" constant="-8" id="AWp-lE-bwq"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="top" secondItem="Zq3-YP-dwB" secondAttribute="bottom" constant="2" id="Bge-ea-k7W"/>
-                    <constraint firstItem="kWq-q0-MPl" firstAttribute="trailing" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="-5" id="BvJ-E9-Lps"/>
+                    <constraint firstItem="kWq-q0-MPl" firstAttribute="trailing" secondItem="2Rh-LI-LRT" secondAttribute="trailing" constant="-8" id="BvJ-E9-Lps"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xeW-Yw-x4V" secondAttribute="bottom" constant="-3" id="CHt-YD-DRF"/>
                     <constraint firstItem="kO5-Uc-AhU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Dxu-6O-Q88"/>
                     <constraint firstItem="xeW-Yw-x4V" firstAttribute="leading" secondItem="kWq-q0-MPl" secondAttribute="leading" id="GJL-lL-ScI"/>
@@ -202,12 +203,12 @@
                     <mask key="constraints">
                         <exclude reference="PiZ-qa-B5O"/>
                         <exclude reference="Jfg-4S-075"/>
-                        <exclude reference="Dxu-6O-Q88"/>
-                        <exclude reference="fRB-tZ-fsb"/>
-                        <exclude reference="vPz-jB-5bX"/>
                         <exclude reference="UIC-fn-AiY"/>
                         <exclude reference="VMh-KQ-qOG"/>
                         <exclude reference="ble-e8-Va3"/>
+                        <exclude reference="Dxu-6O-Q88"/>
+                        <exclude reference="fRB-tZ-fsb"/>
+                        <exclude reference="vPz-jB-5bX"/>
                         <exclude reference="9Mq-NC-LT4"/>
                         <exclude reference="8ZE-ff-hMV"/>
                         <exclude reference="hsb-xb-XRe"/>
@@ -220,6 +221,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="avatar" destination="j8x-8X-1uX" id="py5-Xn-OGw"/>
                 <outlet property="badBtn" destination="A54-Sv-7Vo" id="IBy-Q0-OvN"/>
@@ -242,6 +244,7 @@
         <image name="btn_share_clicked.png" width="18" height="18"/>
         <image name="closeButtonClick.png" width="21" height="21"/>
         <image name="defaultUserIcon.png" width="50" height="50"/>
+        <image name="mainCellCommentClickN.png" width="23" height="23"/>
         <image name="mainCellCommentN.png" width="23" height="23"/>
         <image name="mainCellDing.png" width="20" height="20"/>
         <image name="mainCellDingClick.png" width="20" height="20"/>

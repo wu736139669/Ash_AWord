@@ -38,6 +38,7 @@
 #import "SVWebViewController.h"
 #import "MobClick.h"
 #import "LoginViewController.h"
+#import "UIImageView+Reloading.h"
 #endif
 
 #endif

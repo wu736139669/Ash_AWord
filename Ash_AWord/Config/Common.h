@@ -95,4 +95,7 @@
  */
 #define NEWIMAGE_SIZE  700.f
 
+#define DefaultUserIcon [UIImage imageNamed:@"defaultUserIcon"]
+
+#define DefaultPageSize 20
 #endif

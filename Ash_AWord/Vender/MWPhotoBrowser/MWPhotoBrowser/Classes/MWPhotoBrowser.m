@@ -173,6 +173,7 @@
     _toolbar.barStyle = UIBarStyleBlackTranslucent;
     _toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     
+    
     // Toolbar Items
     if (self.displayNavArrows) {
         NSString *arrowPathFormat;
@@ -202,7 +203,6 @@
     
 	// Super
     [super viewDidLoad];
-	
 }
 
 - (void)performLayout {
@@ -392,6 +392,7 @@
         }
         _viewHasAppearedInitially = YES;
     }
+    self.navigationController.navigationBarHidden = YES;
 
 }
 
@@ -1502,13 +1503,13 @@
                     self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
                     
                     // Show loading spinner after a couple of seconds
-                    double delayInSeconds = 2.0;
-                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-                    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                        if (self.activityViewController) {
-                            [self showProgressHUDWithMessage:nil];
-                        }
-                    });
+//                    double delayInSeconds = 2.0;
+//                    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//                    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//                        if (self.activityViewController) {
+//                            [self showProgressHUDWithMessage:nil];
+//                        }
+//                    });
 
                     // Show
                     typeof(self) __weak weakSelf = self;
@@ -1593,6 +1594,10 @@
     self.navigationController.navigationBar.userInteractionEnabled = YES;
 }
 
+-(void)didSavePhoto
+{
+    [self savePhoto];
+}
 #pragma mark - Actions
 
 - (void)savePhoto {
@@ -1611,7 +1616,7 @@
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    [self showProgressHUDCompleteMessage: error ? NSLocalizedString(@"Failed", @"Informing the user a process has failed") : NSLocalizedString(@"Saved", @"Informing the user an item has been saved")];
+    [self showProgressHUDCompleteMessage: error ? NSLocalizedString(@"SaveFailed", @"Informing the user a process has failed") : NSLocalizedString(@"Saved", @"Informing the user an item has been saved")];
     [self hideControlsAfterDelay]; // Continue as normal...
 }
 

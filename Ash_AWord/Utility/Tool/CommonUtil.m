@@ -184,7 +184,7 @@
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     //    [formatter setDateStyle:NSDateFormatterMediumStyle];
     //    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:MM:ss"];
     NSDate * d = [NSDate dateWithTimeIntervalSince1970:[timeSp floatValue]/1000];
     
     NSTimeInterval late = [d timeIntervalSince1970];
@@ -218,11 +218,11 @@
     
     if (cha/3600 > 1 && cha/86400 < 1) {
         
-        timeString = [NSString stringWithFormat:@"%f", cha/3600];
-        
-        timeString = [timeString substringToIndex:timeString.length-7];
-        
-        timeString = [NSString stringWithFormat:@"%@小时前", timeString];
+//        timeString = [NSString stringWithFormat:@"%f", cha/3600];
+//        
+//        timeString = [timeString substringToIndex:timeString.length-7];
+//        
+//        timeString = [NSString stringWithFormat:@"%@小时前", timeString];
         
     }
     

@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Ash_AWord
+
+  Created by xmfish on 15/6/4.
+  Copyright (c) 2015年 ash. All rights reserved.
+*/
+
+"Saving" = "保存中";
+"SaveFailed" = "保存失败";
+"Saved" = "保存成功";

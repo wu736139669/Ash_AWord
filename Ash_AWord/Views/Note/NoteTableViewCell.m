@@ -12,6 +12,7 @@
 #import "MWPhotoBrowser.h"
 #import "SetUpViewController.h"
 #import "MyNoteViewController.h"
+#import "NoteCommentViewController.h"
 @interface NoteTableViewCell()<MWPhotoBrowserDelegate>
 @end
 @implementation NoteTableViewCell
@@ -20,6 +21,8 @@
 }
 - (void)awakeFromNib {
     // Initialization code
+    
+    _isComment = NO;
     _contentLabel.font = [UIFont appFontOfSize:14.0];
     _contentTextView.font = [UIFont appFontOfSize:14.0];
     _contentTextView.scrollEnabled = NO;
@@ -61,7 +64,6 @@
         return;
     }
     
-//    _goodBtn.enabled = NO;
     if (_goodBtn.selected) {
         [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount-1] forState:UIControlStateNormal];
         [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",_text_image.praiseCount-1] forState:UIControlStateSelected];
@@ -107,8 +109,22 @@
         _goodBtn.backgroundColor = [UIColor lineColor];
     }
 }
+-(void)setIsComment:(BOOL)isComment
+{
+    if (isComment) {
+        _badBtn.hidden = YES;
+    }else
+    {
+        _badBtn.hidden = NO;
+    }
+}
+//评论
 - (IBAction)badBtnClick:(id)sender
 {
+    NoteCommentViewController* noteCommentViewController = [[NoteCommentViewController alloc] init];
+    noteCommentViewController.hidesBottomBarWhenPushed = YES;
+    noteCommentViewController.text_image = _text_image;
+    [[AppDelegate visibleViewController].navigationController pushViewController:noteCommentViewController animated:YES];
 }
 
 - (IBAction)shareBtnClick:(id)sender
@@ -126,13 +142,6 @@
 -(void)setText_Image:(Text_Image *)text_image
 {
     _text_image = text_image;
-    CGSize imageSize = _contentImgView.frame.size;
-    UIGraphicsBeginImageContextWithOptions(imageSize, 0, [UIScreen mainScreen].scale);
-    [[UIColor colorWithWhite:0.6 alpha:0.5] set];
-    UIRectFill(CGRectMake(0, 0, imageSize.width, imageSize.height));
-    UIImage *pressedColorImg = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
     _userName.text = text_image.ownerName;
     
     [_avatar sd_setImageWithURL:text_image.ownerFigureurl placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
@@ -145,8 +154,13 @@
     CGRect labelRect = [text_image.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];
     _contentHeight.constant = labelRect.size.height+25;
     _contentTextView.text = text_image.content;
-    [_contentImgView sd_setImageWithURL:text_image.imageUrl placeholderImage:pressedColorImg];
+
     
+    _contentImgView.imageURL = text_image.imageUrl;
+
+    [_contentImgView setOnTouchTapBlock:^(UIImageView *imageView) {
+        [self imageBtnClick:nil];
+    }];
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.praiseCount] forState:UIControlStateNormal];
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.praiseCount] forState:UIControlStateSelected];
     [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.shareCount] forState:UIControlStateNormal];
