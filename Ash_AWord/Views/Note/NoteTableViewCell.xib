@@ -63,7 +63,7 @@
                             <action selector="shareBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nYN-ew-TWw"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
+                    <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kWq-q0-MPl">
                         <rect key="frame" x="8" y="71" width="304" height="139"/>
                         <state key="normal">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

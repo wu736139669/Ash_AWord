@@ -68,16 +68,21 @@ static char imageOriginalModelKey;
             progressView.frame = self.bounds;
             progressView.hidden = YES;
             progressView.backgroundColor = [UIColor clearColor];
-            [progressView setTitle:@"点击加载图片" forState:UIControlStateNormal];
+            
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:@"点击重新加载图片"];
+            NSRange strRange = {0,[str length]};
+            [str addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:strRange];
+            [progressView setAttributedTitle:str forState:UIControlStateNormal];
+//            [progressView setTitle:@"点击加载图片" forState:UIControlStateNormal];
             [progressView setTitle:@"图片加载中" forState:UIControlStateDisabled];
             progressView.titleLabel.shadowColor = [UIColor whiteColor];
             progressView.titleLabel.shadowOffset = CGSizeMake(1, 1);
             [progressView setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
             [progressView setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
             progressView.titleLabel.adjustsFontSizeToFitWidth = YES;
-//            CGSize size = CGSizeMake(progressView.frame.size.width,2000);
-//            CGSize labelsize = [progressView.titleLabel.text sizeWithFont:progressView.titleLabel.font constrainedToSize:size lineBreakMode:NSLineBreakByCharWrapping];
-//            progressView.frame = CGRectMake(0.0, 0.0, self.bounds.size.width, self.bounds.size.height);
+            CGSize size = CGSizeMake(progressView.frame.size.width,2000);
+            CGSize labelsize = [progressView.titleLabel.text sizeWithFont:progressView.titleLabel.font constrainedToSize:size lineBreakMode:NSLineBreakByCharWrapping];
+            progressView.frame = CGRectMake(0.0, 0.0, labelsize.width, labelsize.height);
             progressView.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
             [progressView addTarget:self action:@selector(reloadImageURL) forControlEvents:UIControlEventTouchUpInside];
             progressView.enabled = NO;
@@ -242,7 +247,12 @@ static char imageOriginalModelKey;
         dispatch_async(dispatch_get_main_queue(), ^{
 //            [pv.titleLabel setText:[NSString stringWithFormat:@"图片加载中%.1f %%",pvalue*100]];
             pv.center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-            [pv setTitle:[NSString stringWithFormat:@"图片加载中%.1f %%",pvalue*100] forState:UIControlStateDisabled];
+            
+            NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"图片加载中%.1f %%",pvalue*100]];
+            NSRange strRange = {0,[str length]};
+            [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:strRange];
+            [pv setAttributedTitle:str forState:UIControlStateDisabled];
+
             pv.hidden = NO;
         });
         
