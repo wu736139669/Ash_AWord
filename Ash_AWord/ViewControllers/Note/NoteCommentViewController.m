@@ -21,6 +21,7 @@
     CommentGoodListCellTableViewCell* _commentGoodListCellTableViewCell;
     NSInteger _page;
     NSMutableArray* _commentInfoArr;
+    BOOL _isFirstLoad;
 }
 @end
 
@@ -30,6 +31,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _page = 1;
+    _isFirstLoad = YES;
+
     _commentInfoArr = [[NSMutableArray alloc] init];
     [self customViewDidLoad];
     self.navigationItem.title = @"评论";
@@ -68,6 +71,12 @@
     
     _commentTextView = [Ash_UIUtil instanceXibView:@"CommentTextView"];
     _commentTextView.frame = self.view.frame;
+    
+    __weak  id weakSelf = self;
+    [_commentTextView setComentComplete:^(){
+        _isFirstLoad = YES;
+        [weakSelf headerBeginRefreshing];
+     }];
     [self.view addSubview:_commentTextView];
     _commentTextView.recordId = _text_image.messageId;
     [_commentTextView setHidden:YES];
@@ -75,9 +84,7 @@
     
     [self loadData];
     [self requirePraiseUser];
-    CGPoint point = self.tableView.contentOffset;
-    point.y = height;
-    [self.tableView setContentOffset:point];
+
 }
 
 
@@ -132,7 +139,23 @@
         {
             [MBProgressHUD errorHudWithView:self.view label:[viewModel errMessage] hidesAfter:1.0];
         }
+        
         [self.tableView reloadData];
+        if (_isFirstLoad) {
+            CGPoint point = self.tableView.contentOffset;
+//            //计算内容加上点赞列表cell高于显示多少，移动到能看到点赞列表。
+//            point.y = _headView.frame.size.height+80-self.tableView.frame.size.height;
+//            
+//            if (_commentInfoArr.count > 0) {
+//                point.y += [CommentTableViewCell getHeightWithCommentInfoViewModel:[_commentInfoArr objectAtIndex:0]];
+//            }
+//            [self.tableView setContentOffset:point];
+//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES ];
+            point.y = _headView.frame.size.height;
+            [self.tableView setContentOffset:point animated:YES];
+            
+            _isFirstLoad = NO;
+        }
 
         
     } failedBlock:^(NSError *error) {
@@ -171,7 +194,7 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* cellIdentifier = [NSString stringWithFormat:@"cellIdentifier%ld",indexPath.section];
+    NSString* cellIdentifier = [NSString stringWithFormat:@"cellIdentifier%ld",(long)indexPath.section];
     CommentTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
         UINib* nib = nil;
@@ -181,6 +204,11 @@
     }
     
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
+    if ([commentInfoViewModel.ownerId isEqualToString:_text_image.ownerId] ) {
+        [cell setIsAuthor:YES];
+    }else{
+        [cell setIsAuthor:NO];
+    }
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
 

@@ -16,6 +16,10 @@
     // Initialization code
     _avatarImageView.layer.masksToBounds = YES;
     _avatarImageView.layer.cornerRadius = 18.0;
+    _contentTextView.scrollEnabled = NO;
+    
+    _floorLabel.layer.masksToBounds = YES;
+    _floorLabel.layer.cornerRadius = 8.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,6 +28,14 @@
     // Configure the view for the selected state
 }
 
+-(void)setIsAuthor:(BOOL)isAuthor
+{
+    if (isAuthor) {
+        _floorLabel.hidden = NO;
+    }else{
+        _floorLabel.hidden = YES;
+    }
+}
 -(void)setCommentInfoViewModel:(CommentInfoViewModel *)commentInfoViewModel
 {
     [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:commentInfoViewModel.ownerFigureurl] placeholderImage:DefaultUserIcon];
@@ -34,7 +46,7 @@
 +(CGFloat)getHeightWithCommentInfoViewModel:(CommentInfoViewModel *)commentInfoViewModel
 {
     UIFont *font = [UIFont appFontOfSize:13.0];
-    CGSize size = CGSizeMake(kScreenWidth - 50,MAXFLOAT);
+    CGSize size = CGSizeMake(kScreenWidth - 60,MAXFLOAT);
     
     
     CGRect labelRect = [commentInfoViewModel.content boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:font} context:nil];

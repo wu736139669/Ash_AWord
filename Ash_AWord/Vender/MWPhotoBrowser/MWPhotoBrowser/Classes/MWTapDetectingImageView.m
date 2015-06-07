@@ -52,11 +52,12 @@
     }
 }
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
 	UITouch *touch = [touches anyObject];
 	NSUInteger tapCount = touch.tapCount;
 	switch (tapCount) {
 		case 1:
-			[self handleSingleTap:touch];
+            [self performSelector:@selector(handleSingleTap:) withObject:touch afterDelay:0.3];
 			break;
 		case 2:
 			[self handleDoubleTap:touch];

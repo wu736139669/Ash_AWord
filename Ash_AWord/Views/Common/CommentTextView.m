@@ -120,8 +120,11 @@
 
         if ([viewModel success]) {
             [MBProgressHUD checkHudWithView:nil label:@"评论成功" hidesAfter:1.0];
-            _tipLabel.text = @"";
+            _contentTextView.text = @"";
             [self hide];
+            if (_comentComplete) {
+                _comentComplete();
+            }
         }else{
             [MBProgressHUD checkHudWithView:nil label:[viewModel errMessage] hidesAfter:1.0];
 

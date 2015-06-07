@@ -94,6 +94,10 @@
 		A968627C1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A968627B1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png */; };
 		A968627E1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A968627D1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png */; };
 		A96F27EE1B2195BA00DA0A66 /* UIImageView+Reloading.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27ED1B2195BA00DA0A66 /* UIImageView+Reloading.m */; };
+		A96F27F41B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27F21B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m */; };
+		A96F27F51B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96F27F31B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib */; };
+		A96F27F91B21C5C800DA0A66 /* PraiseUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27F71B21C5C800DA0A66 /* PraiseUserListViewController.m */; };
+		A96F27FA1B21C5C800DA0A66 /* PraiseUserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96F27F81B21C5C800DA0A66 /* PraiseUserListViewController.xib */; };
 		A9754A1C1ADC080E0018BAAD /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9754A0F1ADC080E0018BAAD /* AudioPlayer.m */; };
 		A9754A1D1ADC080E0018BAAD /* AutoRecoveringHttpDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A9754A111ADC080E0018BAAD /* AutoRecoveringHttpDataSource.m */; };
 		A9754A1E1ADC080E0018BAAD /* CoreFoundationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A9754A131ADC080E0018BAAD /* CoreFoundationDataSource.m */; };
@@ -360,6 +364,12 @@
 		A968627D1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellmorebtnclickN@2x.png"; sourceTree = "<group>"; };
 		A96F27EC1B2195BA00DA0A66 /* UIImageView+Reloading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Reloading.h"; sourceTree = "<group>"; };
 		A96F27ED1B2195BA00DA0A66 /* UIImageView+Reloading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Reloading.m"; sourceTree = "<group>"; };
+		A96F27F11B21C5AC00DA0A66 /* PraiseUserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PraiseUserListTableViewCell.h; sourceTree = "<group>"; };
+		A96F27F21B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PraiseUserListTableViewCell.m; sourceTree = "<group>"; };
+		A96F27F31B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PraiseUserListTableViewCell.xib; sourceTree = "<group>"; };
+		A96F27F61B21C5C800DA0A66 /* PraiseUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PraiseUserListViewController.h; sourceTree = "<group>"; };
+		A96F27F71B21C5C800DA0A66 /* PraiseUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PraiseUserListViewController.m; sourceTree = "<group>"; };
+		A96F27F81B21C5C800DA0A66 /* PraiseUserListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PraiseUserListViewController.xib; sourceTree = "<group>"; };
 		A9754A0E1ADC080E0018BAAD /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		A9754A0F1ADC080E0018BAAD /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		A9754A101ADC080E0018BAAD /* AutoRecoveringHttpDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoRecoveringHttpDataSource.h; sourceTree = "<group>"; };
@@ -787,6 +797,26 @@
 			path = PSTCollectionView;
 			sourceTree = "<group>";
 		};
+		A96F27EF1B21B98900DA0A66 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A96F27F61B21C5C800DA0A66 /* PraiseUserListViewController.h */,
+				A96F27F71B21C5C800DA0A66 /* PraiseUserListViewController.m */,
+				A96F27F81B21C5C800DA0A66 /* PraiseUserListViewController.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		A96F27F01B21B9A800DA0A66 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A96F27F11B21C5AC00DA0A66 /* PraiseUserListTableViewCell.h */,
+				A96F27F21B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m */,
+				A96F27F31B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		A9754A0D1ADC080E0018BAAD /* AudioPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -867,6 +897,7 @@
 		A97C54B71AC8F0370038818A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A96F27EF1B21B98900DA0A66 /* User */,
 				A98D65971AD37BDF008668EE /* Message */,
 				A9617A501ACC274C0024AE4A /* My */,
 				A97559AE1ACBC615004ADA42 /* Note */,
@@ -893,6 +924,7 @@
 		A97C54B91AC8F0370038818A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A96F27F01B21B9A800DA0A66 /* User */,
 				A9CF21231B1C4EA2007490EF /* Common */,
 				A98D65991AD37EFD008668EE /* Message */,
 				A97559C01ACBEE71004ADA42 /* Note */,
@@ -1411,6 +1443,7 @@
 				A9CF211C1B1C36D0007490EF /* mainCellCommentClickN@2x.png in Resources */,
 				A9617A591ACC2EBC0024AE4A /* mine-setting-icon@2x.png in Resources */,
 				A968627C1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png in Resources */,
+				A96F27FA1B21C5C800DA0A66 /* PraiseUserListViewController.xib in Resources */,
 				A93442041ACA981D00A6B233 /* Default@2x.png in Resources */,
 				A9B6DFE11B202E7D0003C1BC /* comment_support_fake@2x.png in Resources */,
 				A97DBE401ACAE29E00705682 /* Icon@2x.png in Resources */,
@@ -1436,6 +1469,7 @@
 				A950AB411AEC8B5E00D0F6DD /* closeButtonClick@2x.png in Resources */,
 				A97C55031AC933AD0038818A /* UMShareEditViewController.xib in Resources */,
 				A97DBE4E1ACAED4900705682 /* camera-close-select@2x.png in Resources */,
+				A96F27F51B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib in Resources */,
 				A97559A91ACB9DE4004ADA42 /* navigationButtonPublishClick@2x.png in Resources */,
 				A93441E21ACA89AA00A6B233 /* Profile_filter_voiceIconClick@2x.png in Resources */,
 				A97559A81ACB9DE4004ADA42 /* navigationButtonPublish@2x.png in Resources */,
@@ -1570,6 +1604,7 @@
 				A9754A261ADC199B0018BAAD /* MyMessageViewController.m in Sources */,
 				A9617A4F1ACC0D0F0024AE4A /* NoteViewModel.m in Sources */,
 				A96862461ACCF0B400DDAA6B /* MWPhoto.m in Sources */,
+				A96F27F41B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m in Sources */,
 				A968624A1ACCF0B400DDAA6B /* MWZoomingScrollView.m in Sources */,
 				A97C54CF1AC8F10F0038818A /* NSString+HXAddtions.m in Sources */,
 				A96862501ACCF12300DDAA6B /* DACircularProgressView.m in Sources */,
@@ -1586,6 +1621,7 @@
 				A96862741ACCF13300DDAA6B /* PSTCollectionViewItemKey.m in Sources */,
 				A96862451ACCF0B400DDAA6B /* MWGridViewController.m in Sources */,
 				A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */,
+				A96F27F91B21C5C800DA0A66 /* PraiseUserListViewController.m in Sources */,
 				A93441DE1ACA311700A6B233 /* Ash_UIUtil.m in Sources */,
 				A968624C1ACCF0B400DDAA6B /* README.md in Sources */,
 				A9754A1E1ADC080E0018BAAD /* CoreFoundationDataSource.m in Sources */,

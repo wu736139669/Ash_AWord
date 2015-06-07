@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^CommentComplete)(void);
+
 @interface CommentTextView : UIView
 
 @property (nonatomic, assign) NSInteger recordId;
 
+@property (nonatomic, strong) CommentComplete comentComplete;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 - (IBAction)cancelBtnClick:(id)sender;
