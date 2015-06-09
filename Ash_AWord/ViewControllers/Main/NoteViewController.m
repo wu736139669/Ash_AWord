@@ -131,8 +131,8 @@
         DLog(@"%@",viewModel);
         UpdateViewModel* updateViewModel = (UpdateViewModel*)viewModel;
         if ([updateViewModel success]) {
-            [AWordDefault setLastUpdateTime:now];
-            if (updateViewModel.update==NO) {
+            if (updateViewModel.needUpdate==1) {
+                [AWordDefault setLastUpdateTime:now];
                 UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:nil message:updateViewModel.version_info delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
                 [alertView show];
             }

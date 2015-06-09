@@ -23,6 +23,9 @@
 }
 
 - (IBAction)showMoreBtnClick:(id)sender {
+    if (_showPraiseList) {
+        _showPraiseList();
+    }
 }
 
 -(void)setUserInfoArr:(NSArray *)userInfoArr

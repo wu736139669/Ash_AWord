@@ -9,7 +9,7 @@
 #import "BaseViewModel.h"
 
 @interface UpdateViewModel : BaseViewModel
-@property(assign,nonatomic)BOOL update;
+@property(assign,nonatomic)NSInteger needUpdate;     //是否需要更新
 @property(readonly,nonatomic)NSString* version;
 @property(readonly,nonatomic)NSString* version_info;
 

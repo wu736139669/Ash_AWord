@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ShowPraiseList)(void);
 @interface CommentGoodListCellTableViewCell : UITableViewCell
+
+@property (strong, nonatomic)ShowPraiseList showPraiseList;
 @property (weak, nonatomic) IBOutlet UIImageView *barBtImageView;
 
 - (IBAction)showMoreBtnClick:(id)sender;

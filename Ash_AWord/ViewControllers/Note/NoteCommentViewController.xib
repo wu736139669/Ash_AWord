@@ -34,7 +34,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LoG-6c-iVd">
-                            <rect key="frame" x="8" y="9" width="304" height="30"/>
+                            <rect key="frame" x="8" y="5" width="304" height="35"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <rect key="contentStretch" x="0.5" y="0.5" width="0.5" height="0.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -55,8 +55,8 @@
                         <constraint firstAttribute="height" constant="44" id="XhR-hh-n0j"/>
                         <constraint firstItem="LoG-6c-iVd" firstAttribute="leading" secondItem="r5a-d5-WZQ" secondAttribute="leading" constant="8" id="m2l-n5-FSN"/>
                         <constraint firstItem="Q7M-ao-nkc" firstAttribute="leading" secondItem="r5a-d5-WZQ" secondAttribute="leading" id="n0H-cg-00e"/>
-                        <constraint firstItem="LoG-6c-iVd" firstAttribute="top" secondItem="Q7M-ao-nkc" secondAttribute="bottom" constant="8" id="vpe-yl-926"/>
-                        <constraint firstAttribute="bottom" secondItem="LoG-6c-iVd" secondAttribute="bottom" constant="5" id="ztc-Jx-KGW"/>
+                        <constraint firstItem="LoG-6c-iVd" firstAttribute="top" secondItem="Q7M-ao-nkc" secondAttribute="bottom" constant="4" id="vpe-yl-926"/>
+                        <constraint firstAttribute="bottom" secondItem="LoG-6c-iVd" secondAttribute="bottom" constant="4" id="ztc-Jx-KGW"/>
                         <constraint firstAttribute="trailing" secondItem="LoG-6c-iVd" secondAttribute="trailing" constant="8" id="zuv-Pq-lj8"/>
                     </constraints>
                 </view>

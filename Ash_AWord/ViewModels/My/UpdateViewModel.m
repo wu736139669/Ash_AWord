@@ -11,7 +11,7 @@
 @implementation UpdateViewModel
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithDictionary:[super JSONKeyPathsByPropertyKey]];
-    [dic setObject:@"update" forKey:@"update"];
+    [dic setObject:@"need_update" forKey:@"needUpdate"];
     [dic setObject:@"version" forKey:@"version"];
     [dic setObject:@"version_info" forKey:@"version_info"];
 
@@ -32,7 +32,7 @@
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
-    NSString *version = [NSString stringWithFormat:@"v%@.%@",app_Version, buildVersion];
+    NSString *version = [NSString stringWithFormat:@"%@.%@",app_Version, buildVersion];
     
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOST;

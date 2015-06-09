@@ -14,6 +14,7 @@
 #import "UserViewModel.h"
 #import "CommentViewModel.h"
 #import "CommentTableViewCell.h"
+#import "PraiseUserListViewController.h"
 @interface NoteCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NoteTableViewCell* _headView;
@@ -51,6 +52,15 @@
     
     _commentGoodListCellTableViewCell = [Ash_UIUtil instanceXibView:@"CommentGoodListCellTableViewCell"];
     _commentGoodListCellTableViewCell.frame = CGRectMake(0, height, kScreenWidth, 80);
+    
+    __weak  NoteCommentViewController* weakSelf = self;
+    [_commentGoodListCellTableViewCell setShowPraiseList:^(void){
+        PraiseUserListViewController *praiseUserListViewController = [[PraiseUserListViewController alloc] init];
+        praiseUserListViewController.hidesBottomBarWhenPushed = YES;
+        praiseUserListViewController.recordId = weakSelf.text_image.messageId;
+        [weakSelf.navigationController pushViewController:praiseUserListViewController animated:YES];
+     }
+     ];
     [tableHeadView addSubview:_commentGoodListCellTableViewCell];
     
     self.tableView.tableHeaderView = tableHeadView;
@@ -72,7 +82,6 @@
     _commentTextView = [Ash_UIUtil instanceXibView:@"CommentTextView"];
     _commentTextView.frame = self.view.frame;
     
-    __weak  id weakSelf = self;
     [_commentTextView setComentComplete:^(){
         _isFirstLoad = YES;
         [weakSelf headerBeginRefreshing];
