@@ -13,6 +13,7 @@
 #import "SetUpViewController.h"
 #import "MyNoteViewController.h"
 #import "NoteCommentViewController.h"
+#import "PersonalInfoViewController.h"
 @interface NoteTableViewCell()<MWPhotoBrowserDelegate>
 @end
 @implementation NoteTableViewCell
@@ -199,6 +200,11 @@
     return imageHeight+labelRect.size.height+95;
 }
 - (IBAction)avatarBtnClick:(id)sender {
+    
+    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+    personalInfoViewController.hidesBottomBarWhenPushed = YES;
+    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
+    return;
     if (![_text_image.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {
         MyNoteViewController* myNoteViewController = [[MyNoteViewController alloc] init];
         myNoteViewController.otherUserId = _text_image.ownerId;
