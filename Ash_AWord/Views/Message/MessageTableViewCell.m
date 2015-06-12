@@ -12,6 +12,7 @@
 #import "AudioPlayer.h"
 #import "AppDelegate.h"
 #import "MyMessageViewController.h"
+#import "PersonalInfoViewController.h"
 @interface MessageTableViewCell()<AudioPlayerDelegate>
 @end
 @implementation MessageTableViewCell
@@ -267,12 +268,10 @@
 }
 
 - (IBAction)avatarBtnClick:(id)sender {
-    if (![_text_voice.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {
-        MyMessageViewController* myNoteViewController = [[MyMessageViewController alloc] init];
-        myNoteViewController.otherUserId = _text_voice.ownerId;
-        myNoteViewController.otherName = _text_voice.ownerName;
-        myNoteViewController.hidesBottomBarWhenPushed = YES;
-        [[AppDelegate visibleViewController].navigationController pushViewController:myNoteViewController animated:YES];
+    if (![_text_voice.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+        personalInfoViewController.hidesBottomBarWhenPushed = YES;
+        personalInfoViewController.otherUserId = _text_voice.ownerId;
+        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
     }
 }
 - (IBAction)closeBtnClick:(id)sender {

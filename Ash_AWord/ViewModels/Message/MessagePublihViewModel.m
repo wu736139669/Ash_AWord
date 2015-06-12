@@ -18,11 +18,12 @@
     file.name = @"wav";
     file.img = [NSArray arrayWithObject:fileData];;
     pro.pFile = file;
-    pro.reqURL = @"rs/text_voice/add";
     pro.responesOBJ = self.class;
-    //    content = [content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    pro.pro = @{@"content": content,
-                @"voiceLength":[NSNumber numberWithInteger:time],
+    NSDictionary* dic = @{@"content": content,
+                          @"voiceLength":[NSNumber numberWithInteger:time],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30001",
                 };
     return pro;
 }

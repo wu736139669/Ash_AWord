@@ -61,79 +61,91 @@
 +(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/load_public";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",(long)page],
-                @"page_size": [NSString stringWithFormat:@"%ld",(long)page_size],
+    
+    NSDictionary* dic = @{@"orderBy": [NSString stringWithFormat:@"%u",order_by],
+                          @"page": [NSString stringWithFormat:@"%ld",(long)page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",(long)page_size],
+                          };
+    
+    pro.pro = @{@"root": dic,
+                @"command": @"20004",
                 };
+    
     
     return pro;
 }
 +(PropertyEntity*)requireOhterWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size withOtherId:(NSString *)otherid
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/load_others";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
-                @"target_uid": otherid
+    NSDictionary* dic = @{@"orderBy": [NSString stringWithFormat:@"%u",order_by],
+                          @"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          @"targetUid": otherid
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20003",
                 };
-    
     return pro;
 }
 +(PropertyEntity*)requireMyWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/load_my";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
+    NSDictionary* dic = @{@"orderBy": [NSString stringWithFormat:@"%u",order_by],
+                          @"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20002",
                 };
-    
     return pro;
 }
 +(PropertyEntity*)requirePraiseWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/praise";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20005",
                 };
-    
     return pro;
 }
 +(PropertyEntity*)requireShareWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/share";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                
+
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20007",
                 };
-    
     return pro;
 }
 
 +(PropertyEntity*)requireDelWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/del";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20006",
                 };
     
     return pro;

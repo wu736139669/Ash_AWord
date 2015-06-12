@@ -24,6 +24,8 @@
         _sharedClient = [[XiaoYuAPIClient alloc] initWithBaseURL:[NSURL URLWithString:[self getApiBaseString]]];
         _sharedClient.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
 
+//        _sharedClient.requestSerializer = [AFJSONRequestSerializer serializer];
+//        _sharedClient.responseSerializer = [AFHTTPResponseSerializer serializer];
         [_sharedClient.requestSerializer setValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
         _sharedClient.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         

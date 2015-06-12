@@ -138,7 +138,6 @@
 		A97C54D11AC8F10F0038818A /* RequireEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C51AC8F10F0038818A /* RequireEngine.m */; };
 		A97C54D21AC8F10F0038818A /* AFgzipResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C81AC8F10F0038818A /* AFgzipResponseSerializer.m */; };
 		A97C54D31AC8F10F0038818A /* XiaoYuAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54CA1AC8F10F0038818A /* XiaoYuAPIClient.m */; };
-		A97C54D41AC8F10F0038818A /* XMFishBaseCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54CC1AC8F10F0038818A /* XMFishBaseCode.m */; };
 		A97C54DD1AC901980038818A /* MBProgressHUD+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54DC1AC901970038818A /* MBProgressHUD+Util.m */; };
 		A97C54E11AC91DA10038818A /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54E01AC91DA10038818A /* CommonUtil.m */; };
 		A97C54FE1AC933AD0038818A /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A97C54E41AC933AD0038818A /* UMSocialLocalizable.strings */; };
@@ -441,8 +440,6 @@
 		A97C54C81AC8F10F0038818A /* AFgzipResponseSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFgzipResponseSerializer.m; sourceTree = "<group>"; };
 		A97C54C91AC8F10F0038818A /* XiaoYuAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XiaoYuAPIClient.h; sourceTree = "<group>"; };
 		A97C54CA1AC8F10F0038818A /* XiaoYuAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XiaoYuAPIClient.m; sourceTree = "<group>"; };
-		A97C54CB1AC8F10F0038818A /* XMFishBaseCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMFishBaseCode.h; sourceTree = "<group>"; };
-		A97C54CC1AC8F10F0038818A /* XMFishBaseCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMFishBaseCode.m; sourceTree = "<group>"; };
 		A97C54D61AC8FB6C0038818A /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		A97C54D81AC8FCED0038818A /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		A97C54DB1AC901970038818A /* MBProgressHUD+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Util.h"; sourceTree = "<group>"; };
@@ -980,8 +977,6 @@
 				A97C54C61AC8F10F0038818A /* Serializer */,
 				A97C54C91AC8F10F0038818A /* XiaoYuAPIClient.h */,
 				A97C54CA1AC8F10F0038818A /* XiaoYuAPIClient.m */,
-				A97C54CB1AC8F10F0038818A /* XMFishBaseCode.h */,
-				A97C54CC1AC8F10F0038818A /* XMFishBaseCode.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1672,7 +1667,6 @@
 				A96862701ACCF13300DDAA6B /* PSTCollectionViewCell.m in Sources */,
 				A98536771AEB7400000312BF /* RegistAccountViewController.m in Sources */,
 				A97559B71ACBD99E004ADA42 /* UIPlaceHolderTextView.m in Sources */,
-				A97C54D41AC8F10F0038818A /* XMFishBaseCode.m in Sources */,
 				A97C54E11AC91DA10038818A /* CommonUtil.m in Sources */,
 				A96862491ACCF0B400DDAA6B /* MWTapDetectingView.m in Sources */,
 				A99AA12D1ADCCB3C00574B12 /* MessageViewModel.m in Sources */,

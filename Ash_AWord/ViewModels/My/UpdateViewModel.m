@@ -29,18 +29,16 @@
 
 +(PropertyEntity*)requireUpdate
 {
-    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
-    NSString *version = [NSString stringWithFormat:@"%@.%@",app_Version, buildVersion];
     
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/get_version";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"version": version,
+
+    NSDictionary* dic = @{@"version": [CommonUtil getVersion],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10001",
                 };
-    
     return pro;
 }
 @end

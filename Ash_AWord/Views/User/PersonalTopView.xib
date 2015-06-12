@@ -7,12 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PersonalTopView">
-            <rect key="frame" x="0.0" y="1" width="320" height="239"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="PersonalTopView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="286"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WX9-rs-4F1">
-                    <rect key="frame" x="0.0" y="99" width="320" height="140"/>
+                    <rect key="frame" x="0.0" y="146" width="320" height="140"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VjD-oC-vGz">
                             <rect key="frame" x="0.0" y="39" width="320" height="101"/>
@@ -188,6 +188,8 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="WX9-rs-4F1" secondAttribute="bottom" id="EHp-jo-kyp"/>
+                <constraint firstItem="WX9-rs-4F1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="109" id="fdX-7l-8fh"/>
                 <constraint firstAttribute="bottom" secondItem="WX9-rs-4F1" secondAttribute="bottom" id="gtr-tG-96M"/>
                 <constraint firstItem="WX9-rs-4F1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nQ3-aZ-41G"/>
                 <constraint firstAttribute="trailing" secondItem="WX9-rs-4F1" secondAttribute="trailing" id="zvw-PO-jv1"/>
@@ -195,7 +197,14 @@
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="fdX-7l-8fh"/>
+                    <exclude reference="gtr-tG-96M"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="attentionBtn" destination="bTo-Vv-aD5" id="Uex-bh-vYt"/>
                 <outlet property="attentionCountLabel" destination="aTY-fs-6Kn" id="EWv-uA-ptu"/>
@@ -213,7 +222,7 @@
                 <outlet property="signatureLabel" destination="QPy-Oj-huM" id="zN4-UV-Ef3"/>
                 <outlet property="voiceBtn" destination="e93-W1-QCy" id="vYg-jZ-5qD"/>
             </connections>
-            <point key="canvasLocation" x="203" y="217.5"/>
+            <point key="canvasLocation" x="203" y="231"/>
         </view>
     </objects>
     <resources>

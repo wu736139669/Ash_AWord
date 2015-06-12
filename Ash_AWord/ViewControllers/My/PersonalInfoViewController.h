@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;
 
+@property (nonatomic, strong)NSString* otherUserId;
 @end

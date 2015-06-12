@@ -201,16 +201,11 @@
 }
 - (IBAction)avatarBtnClick:(id)sender {
     
-    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
-    personalInfoViewController.hidesBottomBarWhenPushed = YES;
-    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
-    return;
-    if (![_text_image.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {
-        MyNoteViewController* myNoteViewController = [[MyNoteViewController alloc] init];
-        myNoteViewController.otherUserId = _text_image.ownerId;
-        myNoteViewController.otherName = _text_image.ownerName;
-        myNoteViewController.hidesBottomBarWhenPushed = YES;
-        [[AppDelegate visibleViewController].navigationController pushViewController:myNoteViewController animated:YES];
+
+    if (![_text_image.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+        personalInfoViewController.hidesBottomBarWhenPushed = YES;
+        personalInfoViewController.otherUserId = _text_image.ownerId;
+        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
     }
 }
 

@@ -7,8 +7,7 @@
 //
 
 #import "PropertyEntity.h"
-#import "XMFishBaseCode.h"
-
+#import "NSString+HXAddtions.h"
 @implementation proFile
 
 @end
@@ -17,30 +16,29 @@
 
 - (NSDictionary *)encodePro
 {
-//    XMFishBaseCode *bc = [[XMFishBaseCode alloc] init];
-//    
-//    [bc setToken:nil];
-//    [bc setCallback:_url];
-//    if (_pro)
-//    {
-//        [bc setParams:[NSMutableDictionary dictionaryWithDictionary:_pro]];
-//    }
-//    
-//    NSMutableString *key = [[NSMutableString alloc]initWithString:[bc getBaseCode]];
-//    [key stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//    NSDictionary *dic = @{@"mkey":key};
 
     NSMutableDictionary* dic;
-    if (_pro) {
-        dic = [NSMutableDictionary dictionaryWithDictionary:_pro];
+    if ([_pro objectForKey:@"root"]) {
+        dic = [NSMutableDictionary dictionaryWithDictionary:[_pro objectForKey:@"root"]];
     }else{
         dic = [NSMutableDictionary dictionary];
     }
     if ([AWordUser sharedInstance].isLogin && [AWordUser sharedInstance].uid) {
         [dic setObject:[AWordUser sharedInstance].uid forKey:@"uid"];
-
     }
-    return dic;
+    NSString* command = [_pro objectForKey:@"command"];
+    NSString* version = [CommonUtil getVersion];
+    NSString* root = [NSString jsonStringWithDictionary:dic];
+    
+    NSString* sign = [NSString stringWithFormat:@"%@%@%@%@", command, root, version, Sign_Key];
+    sign = [sign md5];
+    
+    NSDictionary* resultDic = @{@"root":root,
+                                @"version":version,
+                                @"command":command,
+                                @"sign":sign};
+    
+    return resultDic;
 }
 
 @end

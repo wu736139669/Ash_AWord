@@ -60,12 +60,15 @@
 +(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_voice/load_public";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
+    NSDictionary* dic = @{@"orderBy": [NSString stringWithFormat:@"%u",order_by],
+                          @"page": [NSString stringWithFormat:@"%ld",(long)page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",(long)page_size],
+                          };
+    
+    pro.pro = @{@"root": dic,
+                @"command": @"30004",
                 };
     
     return pro;
@@ -74,13 +77,15 @@
 +(PropertyEntity*)requireOhterWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size withOtherId:(NSString *)otherid
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_voice/load_others";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
-                @"target_uid": otherid
+    NSDictionary* dic = @{@"orderBy": [NSString stringWithFormat:@"%u",order_by],
+                          @"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          @"targetUid": otherid
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30003",
                 };
     
     return pro;
@@ -88,12 +93,14 @@
 +(PropertyEntity*)requireMyWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_voice/load_my";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"order_by": [NSString stringWithFormat:@"%u",order_by],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
+    NSDictionary* dic = @{@"orderBy": [NSString stringWithFormat:@"%u",order_by],
+                          @"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30002",
                 };
     
     return pro;
@@ -101,12 +108,14 @@
 +(PropertyEntity*)requirePraiseWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_voice/praise";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30005",
                 };
     
     return pro;
@@ -114,12 +123,14 @@
 +(PropertyEntity*)requireShareWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_voice/share";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30007",
                 };
     
     return pro;
@@ -127,12 +138,14 @@
 +(PropertyEntity*)requireDelWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_voice/del";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30006",
                 };
     
     return pro;

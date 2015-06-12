@@ -56,6 +56,9 @@
     [UIView animateWithDuration:0.3 animations:^{
         _selectView.frame = frame;
     }];
+    if (_isSelectImg) {
+        _isSelectImg(NO);
+    }
 }
 - (IBAction)imageBtnClick:(id)sender {
     if (_isSelectImage == YES) {
@@ -70,6 +73,9 @@
     [UIView animateWithDuration:0.3 animations:^{
         _selectView.frame = frame;
     }];
+    if (_isSelectImg) {
+        _isSelectImg(YES);
+    }
 }
 - (IBAction)attentionBtnClick:(id)sender {
 }

@@ -229,7 +229,6 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     Text_Voice* text_voice = [_text_voiceArr objectAtIndex:indexPath.section];
     return [MessageTableViewCell heightWith:text_voice];
-    //    return 140;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

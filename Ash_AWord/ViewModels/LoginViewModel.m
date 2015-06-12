@@ -30,13 +30,15 @@
 +(PropertyEntity*)requireLoginWithOpenId:(NSString *)openId withName:(NSString *)name withGender:(NSString *)gender withFigureUrl:(NSString *)figureUrl
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/login";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"openid": openId,
-                @"name": name,
-                @"gender": gender,
-                @"figureurl": figureUrl
+    NSDictionary* dic = @{@"openid": openId,
+                          @"name": name,
+                          @"gender": gender,
+                          @"figureurl": figureUrl
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10002",
                 };
     
     return pro;
@@ -45,46 +47,50 @@
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOSTDATA;
-    pro.reqURL = @"rs/common/register";
-    pro.responesOBJ = self.class;
     
     proFile *file = [[proFile alloc] init];
     file.name = @"img";
     file.img = [NSArray arrayWithObject:avatarImg];
     pro.pFile = file;
     
-    pro.pro = @{@"username": userName,
-                @"password": password,
-                @"gender": gender,
-                @"name": nickName
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    NSDictionary* dic = @{@"username": userName,
+                          @"password": password,
+                          @"gender": gender,
+                          @"name": nickName
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10003",
                 };
-    
     return pro;
 }
 
 +(PropertyEntity*)requireLoginWithUserName:(NSString *)userName withPassWord:(NSString *)passWord
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/login_local";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"username": userName,
-                @"password": passWord,
+    NSDictionary* dic = @{@"username": userName,
+                          @"password": passWord,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10004",
                 };
-    
     return pro;
 
 }
 +(PropertyEntity*)requireModifyPassWord:(NSString *)newPassword withOldPaaaWord:(NSString *)oldPassWord
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/edit_password";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"old_password": oldPassWord,
-                @"new_password": newPassword,
+    NSDictionary* dic = @{@"oldPassword": oldPassWord,
+                          @"newPassword": newPassword,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10005",
                 };
-    
     return pro;
 }
 
@@ -92,7 +98,6 @@
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOSTDATA;
-    pro.reqURL = @"rs/common/edit_userinfo";
     pro.responesOBJ = self.class;
     proFile *file = [[proFile alloc] init];
     file.name = @"img";
@@ -101,39 +106,38 @@
     }
     pro.pFile = file;
     
-    pro.pro = @{
-                
-                @"gender": gender,
-                @"name": nickName
-                };
-    
+    NSDictionary* dic = @{@"gender": gender,
+                          @"name": nickName
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10006",};
     return pro;
 }
 +(PropertyEntity*)requireReportWith:(Msg_Type)type withMsgId:(NSInteger)msgId withContent:(NSString *)content
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/tip_off";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                
-                @"type": [NSString stringWithFormat:@"%u",type],
-                @"record_id": [NSString stringWithFormat:@"%ld",(long)msgId],
-                @"content": content,
-                };
-    
+    NSDictionary* dic = @{
+                          
+                          @"type": [NSString stringWithFormat:@"%u",type],
+                          @"recordId": [NSString stringWithFormat:@"%ld",(long)msgId],
+                          @"content": content,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10007",};
     return pro;
 }
 +(PropertyEntity*)requireFeedbackWithContent:(NSString *)content
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/common/feedback";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"content": content,
-                };
-    
+    NSDictionary* dic = @{
+                          @"content": content,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10008",};
     return pro;
 }
 @end

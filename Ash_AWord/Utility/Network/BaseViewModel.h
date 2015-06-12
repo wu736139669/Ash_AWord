@@ -8,7 +8,11 @@
 
 #import "MTLModel.h"
 #import "MTLJSONAdapter.h"
-
+#import "NSString+HXAddtions.h"
+typedef enum {
+    Order_by_Time = 0,
+    Order_by_Good = 1,
+}Order_by;
 @interface BaseViewModel : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, readonly) NSNumber* errCode;

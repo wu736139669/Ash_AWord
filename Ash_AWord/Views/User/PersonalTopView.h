@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^IsSelectImage)(BOOL);
 
 @interface PersonalTopView : UIView
+@property (strong, nonatomic)IsSelectImage isSelectImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
 - (IBAction)avatarBtnClick:(id)sender;

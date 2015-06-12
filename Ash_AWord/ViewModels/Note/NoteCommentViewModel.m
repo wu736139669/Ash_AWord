@@ -66,13 +66,15 @@
 +(PropertyEntity*)requireAddwithRecordId:(NSString *)recordId withContent:(NSString *)content
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/add_comment";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"record_id": recordId,
-                @"content": content,
-                };
     
+    NSDictionary* dic = @{@"recordId": recordId,
+                          @"content": content,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10201",
+                };
     return pro;
 }
 @end

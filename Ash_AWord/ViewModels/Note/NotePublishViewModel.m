@@ -19,10 +19,11 @@
     file.name = @"img";
     file.img = [NSArray arrayWithObject:image];
     pro.pFile = file;
-    pro.reqURL = @"rs/text_image/add";
     pro.responesOBJ = self.class;
-//    content = [content stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    pro.pro = @{@"content": content,
+    NSDictionary* dic = @{@"content": content,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20001",
                 };
     return pro;
 }

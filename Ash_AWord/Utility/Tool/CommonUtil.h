@@ -21,6 +21,8 @@ NetworkType;
 
 @interface CommonUtil : NSObject
 
+//获取版本号
++(NSString*)getVersion;
 //获取系统网络类型
 + (NetworkType)networkType;
 

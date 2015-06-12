@@ -7,10 +7,7 @@
 //
 
 #import "BaseViewModel.h"
-typedef enum {
-    Order_by_Time = 0,
-    Order_by_Good = 1,
-}Order_by;
+
 
 @interface Text_Image : MTLModel<MTLJSONSerializing>
 @property (nonatomic, strong)NSString* content;
