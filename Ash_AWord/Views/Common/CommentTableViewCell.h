@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <DTCoreText/DTCoreText.h>
 @class CommentInfoViewModel;
 @interface CommentTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *floorLabel;
-@property (weak, nonatomic) IBOutlet UITextView *contentTextView;
+@property (weak, nonatomic) IBOutlet DTAttributedTextView *contentTextView;
+@property (strong, nonatomic)NSString* ownerId;
 
 -(void)setCommentInfoViewModel:(CommentInfoViewModel*)commentInfoViewModel;
--(void)setIsAuthor:(BOOL)isAuthor;
-+(CGFloat)getHeightWithCommentInfoViewModel:(CommentInfoViewModel*)commentInfoViewModel;
++(CGFloat)getHeightWithCommentInfoViewModel:(CommentInfoViewModel*)commentInfoViewModel isReplyOwner:(BOOL)isReplyOwner;
 @end

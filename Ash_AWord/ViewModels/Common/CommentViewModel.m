@@ -17,6 +17,9 @@
              @"ownerId" : @"ownerId",
              @"ownerFigureurl" : @"ownerFigureurl",
              @"ownerName" : @"ownerName",
+             @"commentType": @"type",
+             @"toUserId":@"toUserId",
+             @"toUserName":@"toUserName",
              };
 }
 @end
@@ -36,30 +39,35 @@
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:CommentInfoViewModel.class];
 }
 
-+(PropertyEntity*)requireAddCommentWithReconrdId:(NSInteger)recordId withContent:(NSString *)content
++(PropertyEntity*)requireAddCommentWithReconrdId:(NSInteger)recordId withContent:(NSString *)content WithType:(CommentType)commentType withToUid:(NSString *)otherId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithPOST;
-    pro.reqURL = @"rs/text_image/add_comment";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{
-                @"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                @"content": content,
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          @"content": content,
+                          @"type" : [NSString stringWithFormat:@"%u",commentType],
+                          @"toUserId": otherId,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10201",
                 };
-    
     return pro;
 }
-+(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size
++(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size WithType:(CommentType)commentType
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/load_comment";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                @"page": [NSString stringWithFormat:@"%ld",page],
-                @"page_size": [NSString stringWithFormat:@"%ld",page_size],
+    NSDictionary* dic = @{@"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          @"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          @"type" : [NSString stringWithFormat:@"%u",commentType],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10203",
                 };
-    
     return pro;
 }
 @end

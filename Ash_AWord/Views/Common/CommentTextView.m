@@ -13,6 +13,7 @@
 
 @implementation CommentTextView
 {
+    NSString* _commentId;
 }
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -26,8 +27,9 @@
     [self hide];
 }
 
--(void)show
+-(void)showWithUid:(NSString *)uid
 {
+    _commentId = uid;
     [_contentTextView becomeFirstResponder];
     self.hidden = NO;
     self.alpha = 1;
@@ -114,7 +116,11 @@
 
     [MBProgressHUD hudWithView:nil label:@"评论中"];
 
-    PropertyEntity* pro = [CommentViewModel requireAddCommentWithReconrdId:_recordId withContent:_contentTextView.text];
+    NSString* commentId = _commentId;
+    if (!commentId) {
+        commentId = _aothourId;
+    }
+    PropertyEntity* pro = [CommentViewModel requireAddCommentWithReconrdId:_recordId withContent:_contentTextView.text WithType:Image_Type withToUid:commentId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         [MBProgressHUD hideAllHUDsForView:nil animated:YES];
 

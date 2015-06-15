@@ -88,6 +88,7 @@
      }];
     [self.view addSubview:_commentTextView];
     _commentTextView.recordId = _text_image.messageId;
+    _commentTextView.aothourId = _text_image.ownerId;
     [_commentTextView setHidden:YES];
     
     
@@ -124,7 +125,7 @@
 {
     [MobClick event:kUmen_note];
     
-    PropertyEntity* pro = [CommentViewModel requireLoadCommentWithRecordId:_text_image.messageId withPage:_page withPage_size:DefaultPageSize];
+    PropertyEntity* pro = [CommentViewModel requireLoadCommentWithRecordId:_text_image.messageId withPage:_page withPage_size:DefaultPageSize WithType:Image_Type];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
         if ([viewModel success]) {
@@ -189,7 +190,11 @@
 {
 
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
-    return [CommentTableViewCell getHeightWithCommentInfoViewModel:commentInfoViewModel];
+    BOOL isReplyOwnew = YES;
+    if (![commentInfoViewModel.toUserId isEqualToString:_text_image.ownerId]) {
+        isReplyOwnew = NO;
+    }
+    return [CommentTableViewCell getHeightWithCommentInfoViewModel:commentInfoViewModel isReplyOwner:isReplyOwnew];
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -213,11 +218,7 @@
     }
     
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
-    if ([commentInfoViewModel.ownerId isEqualToString:_text_image.ownerId] ) {
-        [cell setIsAuthor:YES];
-    }else{
-        [cell setIsAuthor:NO];
-    }
+    cell.ownerId = _text_image.ownerId;
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
 
@@ -225,6 +226,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
+    [_commentTextView showWithUid:commentInfoViewModel.ownerId];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -242,7 +246,7 @@
 */
 
 - (IBAction)commentBtnClick:(id)sender {
-    [_commentTextView show];
+    [_commentTextView showWithUid:_text_image.ownerId];
 
 }
 @end

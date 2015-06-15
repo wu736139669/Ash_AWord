@@ -33,14 +33,17 @@
 +(PropertyEntity*)requireLoadPraiseUserWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
-    pro.requireType = HTTPRequestTypeWithGET;
-    pro.reqURL = @"rs/text_image/load_praise_user";
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
     pro.responesOBJ = self.class;
-    pro.pro = @{@"record_id": [NSString stringWithFormat:@"%ld",recordId],
-                @"page": [NSString stringWithFormat:@"%ld",(long)page],
-                @"page_size": [NSString stringWithFormat:@"%ld",(long)page_size],
-                };
+
     
+    NSDictionary* dic = @{@"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          @"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20008",
+                };
     return pro;
 }
 

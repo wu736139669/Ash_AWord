@@ -13,7 +13,7 @@ typedef void (^CommentComplete)(void);
 @interface CommentTextView : UIView
 
 @property (nonatomic, assign) NSInteger recordId;
-
+@property (nonatomic, strong) NSString* aothourId;
 @property (nonatomic, strong) CommentComplete comentComplete;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
@@ -23,6 +23,6 @@ typedef void (^CommentComplete)(void);
 
 - (IBAction)bgBtnClick:(id)sender;
 
--(void)show;
+-(void)showWithUid:(NSString*)uid;;
 -(void)hide;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "Ash_UIUtil.h"
-
+#import <DTCoreText.h>
 @implementation Ash_UIUtil
 
 +(CABasicAnimation*)getrotationAnimation
@@ -406,7 +406,21 @@
 {
     return kScreenWidth/320;
 }
-
++(CGSize)calculateSizeWithHtmlstring:(NSString *)htmlstr limitWidth:(CGFloat)width withFontSize:(NSInteger)fontSize
+{
+    NSDictionary* optionsDic = [Ash_UIUtil getHtmlDicWithFontSize:fontSize];
+    NSData *data = [htmlstr dataUsingEncoding:NSUTF8StringEncoding];
+    NSAttributedString *string = [[NSAttributedString alloc] initWithHTMLData:data options:optionsDic documentAttributes:nil];
+    DTAttributedTextContentView *attributedTextContextView = [[DTAttributedTextContentView alloc] initWithFrame:CGRectMake(0, 0, width, 500)];
+    attributedTextContextView.attributedString = string;
+    CGSize size = [attributedTextContextView suggestedFrameSizeToFitEntireStringConstraintedToWidth:width];
+    return size;
+}
++(NSDictionary*)getHtmlDicWithFontSize:(NSInteger)fontSize
+{
+     NSDictionary* optionsDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:kCTTextAlignmentLeft],DTDefaultTextAlignment,[UIColor blackColor],DTDefaultTextColor,[NSNumber numberWithInteger:fontSize], DTDefaultFontSize,[[UIFont appFontOfSize:1] fontName],DTDefaultFontName,[UIColor appMainColor],DTDefaultLinkColor, nil];
+    return optionsDic;
+}
 @end
 
 @implementation UIFont (CustomFont)

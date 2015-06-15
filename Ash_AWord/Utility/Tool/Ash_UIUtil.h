@@ -71,7 +71,15 @@
  */
 +(UIImage*)compressImageDownToPhoneScreenSize:(UIImage*)originImage;
 
+/**
+ *     根据宽度计算htmlsize
+ *
+ *    @param width控件宽度
+ *    @return 大小size
+ */
++(CGSize) calculateSizeWithHtmlstring:(NSString *)htmlstr limitWidth:(CGFloat)width withFontSize:(NSInteger)fontSize;
 
++(NSDictionary*)getHtmlDicWithFontSize:(NSInteger)fontSize;
 @end
 
 @interface UIFont (CustomFont)

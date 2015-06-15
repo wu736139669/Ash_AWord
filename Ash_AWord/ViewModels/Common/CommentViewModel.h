@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewModel.h"
-
+typedef enum{
+    Image_Type = 0,
+    Voice_Type = 1,
+}CommentType;
 @interface CommentInfoViewModel : BaseViewModel
 @property (nonatomic, strong) NSString *commentId;
 @property (nonatomic, strong) NSString *ownerId;
@@ -15,12 +18,15 @@
 @property (nonatomic, strong) NSString *ownerName;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *createTime;
+@property (nonatomic, strong) NSString *toUserId;
+@property (nonatomic, strong) NSString *toUserName;
+@property (nonatomic, assign) CommentType commentType;
 @end
 @interface CommentViewModel : BaseViewModel
 
 @property (nonatomic, strong)NSArray* commentInfoArr;
 
-+(PropertyEntity*)requireAddCommentWithReconrdId:(NSInteger)recordId withContent:(NSString*)content;
++(PropertyEntity*)requireAddCommentWithReconrdId:(NSInteger)recordId withContent:(NSString*)content WithType:(CommentType)commentType withToUid:(NSString*)otherId;
 
-+(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size;
++(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size WithType:(CommentType)commentType;
 @end
