@@ -23,6 +23,7 @@
 @property (nonatomic, assign)NSInteger shareCount;
 @property (nonatomic, assign)NSInteger praiseCount;
 @property (nonatomic, assign)NSInteger messageId;
+@property (nonatomic, assign)NSInteger commentCount;
 @end
 @interface NoteViewModel : BaseViewModel
 

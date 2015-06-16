@@ -13,10 +13,12 @@
 #import "NoteTableViewCell.h"
 #import "MessageTableViewCell.h"
 #import "MessageViewModel.h"
+#import "UserViewModel.h"
 @interface PersonalInfoViewController ()<NoteTableViewCellDelegate,MessageTableViewCellDelegate>
 {
     CExpandHeader *_header;
     PersonalTopView* _personalTopView;
+    UserViewModel* _userViewModel;
     NSMutableArray* _imageArr;
     NSMutableArray* _voiceArr;
     BOOL _isSelectImage;
@@ -42,15 +44,21 @@
     _imageArr = [[NSMutableArray alloc] init];
     _voiceArr = [[NSMutableArray alloc] init];
 
-    [self loadData];
+
+    self.tableView.hidden = YES;
+    
+    [DejalActivityView activityViewForView:self.view withLabel:kLoadingTips];
+    [self headerRereshing];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     _personalTopView = [Ash_UIUtil instanceXibView:@"PersonalTopView"];
-    
+//    _personalTopView.frame = CGRectMake(0, 0, kScreenWidth, 285*[Ash_UIUtil currentScreenSizeRate]);
     __weak PersonalInfoViewController *weakself = self;
+    [_personalTopView setuserInfoViewModel:_userViewModel];
+    
     [_personalTopView setIsSelectImg:^(BOOL isSelectImg){
         _isSelectImage = isSelectImg;
         if (isSelectImg) {
@@ -67,7 +75,9 @@
             }
         }
     }];
+//    [self.tableView beginUpdates];
     self.tableView.tableHeaderView = _personalTopView;
+//    [self.tableView endUpdates];
 }
 #pragma mark MJRefreshDelegate
 -(void)headerRereshing
@@ -77,19 +87,38 @@
     }else{
         _voicePage = 1;
     }
+    [self loadUserInfo];
     
-    [self loadData];
 }
 -(void)footerRereshing
 {
     [self loadData];
 }
+-(void)loadUserInfo
+{
+    PropertyEntity* pro = [UserViewModel requireUserInfoWithTargetUid:_otherUserId];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        [DejalActivityView removeView];
+        self.tableView.hidden = NO;
+        UserViewModel* userViewModel = (UserViewModel*)viewModel;
+        if ([userViewModel success]) {
+            _userViewModel = viewModel;
+            [_personalTopView setuserInfoViewModel:_userViewModel];
+            [self loadData];
 
+        }else{
+            [MBProgressHUD errorHudWithView:self.view label:userViewModel.errMessage hidesAfter:1.0];
+        }
+    } failedBlock:^(NSError *error) {
+        self.tableView.hidden = NO;
+        [DejalActivityView removeView];
+    }];
+}
 -(void)loadData
 {
     if (_isSelectImage) {
         PropertyEntity* pro;
-        if (!_otherUserId) {
+        if (_otherUserId && [_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
             pro  = [NoteViewModel requireMyWithOrder_by:Order_by_Time withPage:_imagePage withPage_size:DefaultPageSize];
         }else{
             pro = [NoteViewModel requireOhterWithOrder_by:Order_by_Time withPage:_imagePage withPage_size:DefaultPageSize withOtherId:_otherUserId];
@@ -122,7 +151,7 @@
 
     }else{
         PropertyEntity* pro ;
-        if (_otherUserId) {
+        if (_otherUserId && [_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
             pro = [MessageViewModel requireOhterWithOrder_by:Order_by_Time withPage:_voicePage withPage_size:DefaultPageSize withOtherId:_otherUserId];
             
         }else{

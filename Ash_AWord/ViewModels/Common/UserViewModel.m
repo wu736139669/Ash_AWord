@@ -19,6 +19,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithDictionary:[super JSONKeyPathsByPropertyKey]];
     [dic setObject:@"users" forKey:@"userInfoArr"];
+    [dic setObject:@"userinfo" forKey:@"userInfo"];
     return dic;
 }
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
@@ -29,6 +30,9 @@
 }
 + (NSValueTransformer *)userInfoArrJSONTransformer{
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:UserInfoViewModel.class];
+}
++ (NSValueTransformer *)userInfoJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:UserInfoViewModel.class];
 }
 +(PropertyEntity*)requireLoadPraiseUserWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
@@ -46,5 +50,18 @@
                 };
     return pro;
 }
-
++(PropertyEntity*)requireUserInfoWithTargetUid:(NSString *)targetUid
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    
+    
+    NSDictionary* dic = @{@"targetUid": targetUid,
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10009",
+                };
+    return pro;
+}
 @end

@@ -165,7 +165,7 @@
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.praiseCount] forState:UIControlStateNormal];
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.praiseCount] forState:UIControlStateSelected];
     [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.shareCount] forState:UIControlStateNormal];
-    
+    [_badBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_image.commentCount] forState:UIControlStateNormal];
     _closeBtn.hidden = YES;
     [self setGoodBtnSelect:text_image.hasPraised];
  

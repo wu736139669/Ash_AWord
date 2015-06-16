@@ -7,7 +7,7 @@
 //
 
 #import "PersonalTopView.h"
-
+#import "UserViewModel.h"
 @implementation PersonalTopView
 {
     BOOL _isSelectImage;
@@ -40,6 +40,21 @@
     _attentionBtn.layer.masksToBounds = YES;
     _attentionBtn.layer.cornerRadius = 2.0;
 
+}
+
+-(void)setuserInfoViewModel:(UserViewModel *)userViewModel
+{
+    _nameLabel.text = userViewModel.userInfo.name;
+    _attentionCountLabel.text = [NSString stringWithFormat:@"%ld",userViewModel.userInfo.followCount];
+    _fansCountLabel.text = [NSString stringWithFormat:@"%ld",userViewModel.userInfo.followerCount];
+    if (userViewModel.userInfo.signature) {
+        _signatureLabel.text = userViewModel.userInfo.signature;
+    }else{
+        _signatureLabel.text = @"该用户暂时没有填写签名～";
+    }
+    
+
+    [_avatarBtn sd_setImageWithURL:[NSURL URLWithString:userViewModel.userInfo.figureurl] forState:UIControlStateNormal placeholderImage:DefaultUserIcon];
 }
 - (IBAction)avatarBtnClick:(id)sender {
 }
@@ -79,4 +94,5 @@
 }
 - (IBAction)attentionBtnClick:(id)sender {
 }
+
 @end

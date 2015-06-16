@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^IsSelectImage)(BOOL);
 
+@class UserViewModel;
 @interface PersonalTopView : UIView
 @property (strong, nonatomic)IsSelectImage isSelectImg;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -31,4 +32,5 @@ typedef void (^IsSelectImage)(BOOL);
 @property (weak, nonatomic) IBOutlet UIButton *attentionBtn;
 - (IBAction)attentionBtnClick:(id)sender;
 
+-(void)setuserInfoViewModel:(UserViewModel*)userViewModel;
 @end

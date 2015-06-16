@@ -418,7 +418,7 @@
 }
 +(NSDictionary*)getHtmlDicWithFontSize:(NSInteger)fontSize
 {
-     NSDictionary* optionsDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:kCTTextAlignmentLeft],DTDefaultTextAlignment,[UIColor blackColor],DTDefaultTextColor,[NSNumber numberWithInteger:fontSize], DTDefaultFontSize,[[UIFont appFontOfSize:1] fontName],DTDefaultFontName,[UIColor appMainColor],DTDefaultLinkColor, nil];
+     NSDictionary* optionsDic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:kCTTextAlignmentLeft],DTDefaultTextAlignment,[UIColor blackColor],DTDefaultTextColor,[NSNumber numberWithInteger:fontSize], DTDefaultFontSize,[[UIFont appFontOfSize:1] fontName],DTDefaultFontName,[UIColor appMainColor],DTDefaultLinkColor,[NSNumber numberWithBool:NO], DTDefaultLinkDecoration, nil];
     return optionsDic;
 }
 @end

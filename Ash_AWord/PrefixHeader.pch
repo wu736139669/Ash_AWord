@@ -39,6 +39,7 @@
 #import "MobClick.h"
 #import "LoginViewController.h"
 #import "UIImageView+Reloading.h"
+#import "DejalActivityView.h"
 #endif
 
 #endif

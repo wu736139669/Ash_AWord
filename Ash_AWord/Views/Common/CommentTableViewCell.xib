@@ -40,17 +40,30 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-B6-eAd" customClass="DTAttributedTextView">
-                        <rect key="frame" x="49" y="16" width="271" height="82"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-B6-eAd" customClass="DTAttributedTextView">
+                        <rect key="frame" x="49" y="16" width="266" height="82"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYx-r1-Tw5">
+                        <rect key="frame" x="8" y="8" width="36" height="36"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="avatarBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Kxn-pK-HiZ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="qab-Nl-rao" firstAttribute="centerX" secondItem="eYx-r1-Tw5" secondAttribute="centerX" id="4sT-FS-HI3"/>
+                    <constraint firstItem="qab-Nl-rao" firstAttribute="height" secondItem="eYx-r1-Tw5" secondAttribute="height" id="9QX-LS-S2o"/>
                     <constraint firstItem="Biq-B6-eAd" firstAttribute="leading" secondItem="qab-Nl-rao" secondAttribute="trailing" constant="5" id="Ct8-e2-FK1"/>
-                    <constraint firstAttribute="trailing" secondItem="Biq-B6-eAd" secondAttribute="trailing" id="Jxe-1e-ijt"/>
+                    <constraint firstAttribute="trailing" secondItem="Biq-B6-eAd" secondAttribute="trailing" constant="5" id="Jxe-1e-ijt"/>
                     <constraint firstItem="ZiP-RG-jgh" firstAttribute="leading" secondItem="HNF-FY-BJ4" secondAttribute="trailing" constant="5" id="Ms5-W3-KbQ"/>
+                    <constraint firstItem="qab-Nl-rao" firstAttribute="width" secondItem="eYx-r1-Tw5" secondAttribute="width" id="N5a-ft-DRr"/>
                     <constraint firstItem="ZiP-RG-jgh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="QDZ-IA-030"/>
                     <constraint firstAttribute="bottom" secondItem="Biq-B6-eAd" secondAttribute="bottom" id="QSp-R5-rwH"/>
+                    <constraint firstItem="qab-Nl-rao" firstAttribute="centerY" secondItem="eYx-r1-Tw5" secondAttribute="centerY" id="Qfo-s2-NVm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Biq-B6-eAd" secondAttribute="bottom" constant="6" id="UO4-Ry-Jbt"/>
                     <constraint firstItem="HNF-FY-BJ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Vtb-ph-9tQ"/>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Xim-WS-hus"/>
@@ -67,11 +80,11 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="QDZ-IA-030"/>
-                        <exclude reference="cGm-cZ-Vir"/>
                         <exclude reference="UO4-Ry-Jbt"/>
                         <exclude reference="jTT-zl-ij6"/>
                         <exclude reference="xea-GT-ROG"/>
+                        <exclude reference="QDZ-IA-030"/>
+                        <exclude reference="cGm-cZ-Vir"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

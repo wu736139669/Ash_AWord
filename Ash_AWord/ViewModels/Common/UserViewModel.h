@@ -13,13 +13,21 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *gender;
 @property (nonatomic, strong) NSString *figureurl;
-
+@property (nonatomic, assign) NSInteger userType;
+@property (nonatomic, strong) NSString *username;
+@property (nonatomic, assign) NSInteger status;
+@property (nonatomic, strong) NSString *signature;
+@property (nonatomic, assign) NSInteger followCount;
+@property (nonatomic, assign) NSInteger followerCount;
 
 
 @end
 
 @interface UserViewModel : BaseViewModel
 @property (nonatomic, strong) NSArray *userInfoArr;;
-
+@property (nonatomic, strong)UserInfoViewModel* userInfo;
+@property (nonatomic, assign)NSInteger relation;//与当前用户关系。0：没有关系，1：已关注此人，2：已被此人关注，3：相互关注（如果是获取自己的个人信息，可以无视该项0.0）
 +(PropertyEntity*)requireLoadPraiseUserWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size;
+
++(PropertyEntity*)requireUserInfoWithTargetUid:(NSString*)targetUid;
 @end

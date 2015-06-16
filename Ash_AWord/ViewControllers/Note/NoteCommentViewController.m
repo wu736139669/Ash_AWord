@@ -219,6 +219,9 @@
     
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     cell.ownerId = _text_image.ownerId;
+    [cell setCommentWithUid:^(NSString* ownerId){
+        [_commentTextView showWithUid:ownerId];
+    }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
 

@@ -8,6 +8,10 @@
 
 #import "CommentTableViewCell.h"
 #import "CommentViewModel.h"
+#import "PersonalInfoViewController.h"
+#import "AppDelegate.h"
+@interface CommentInfoViewModel()<DTAttributedTextContentViewDelegate>
+@end
 @implementation CommentTableViewCell
 {
     CommentInfoViewModel* _commentInfoViewModel;
@@ -19,6 +23,11 @@
     
     _floorLabel.layer.masksToBounds = YES;
     _floorLabel.layer.cornerRadius = 8.0;
+    
+    _contentTextView.textDelegate = self;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [_contentTextView addGestureRecognizer:tap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,8 +44,16 @@
         _floorLabel.hidden = YES;
     }
 }
+- (IBAction)avatarBtnClick:(id)sender {
+    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+    personalInfoViewController.hidesBottomBarWhenPushed = YES;
+    personalInfoViewController.otherUserId = _commentInfoViewModel.ownerId;
+    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
+}
+
 -(void)setCommentInfoViewModel:(CommentInfoViewModel *)commentInfoViewModel
 {
+    _commentInfoViewModel = commentInfoViewModel;
     [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:commentInfoViewModel.ownerFigureurl] placeholderImage:DefaultUserIcon];
     _nameLabel.text = commentInfoViewModel.ownerName;
    
@@ -59,7 +76,7 @@
     if (!isReplyOwner){
         content = [CommentTableViewCell getContentWithCommentInfoViewModel:commentInfoViewModel];
     }
-    CGFloat height = [Ash_UIUtil calculateSizeWithHtmlstring:content limitWidth:kScreenWidth-50 withFontSize:13].height;
+    CGFloat height = [Ash_UIUtil calculateSizeWithHtmlstring:content limitWidth:kScreenWidth-55 withFontSize:13].height;
     
     return height+50;
 }
@@ -76,4 +93,39 @@
     
     return content;
 }
+
+#pragma mark  DTAttributedTextContentViewDelegate
+- (void)linkPushed:(DTLinkButton *)button
+{
+    DLog(@"%@",button.URL);
+    if(button.URL)
+    {
+        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+        personalInfoViewController.hidesBottomBarWhenPushed = YES;
+        personalInfoViewController.otherUserId = button.URL.absoluteString;
+        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
+    }
+}
+- (UIView *)attributedTextContentView:(DTAttributedTextContentView *)attributedTextContentView viewForLink:(NSURL *)url identifier:(NSString *)identifier frame:(CGRect)frame
+{
+    DTLinkButton *button = [[DTLinkButton alloc] initWithFrame:frame];
+    button.minimumHitSize = CGSizeMake(25, 25); // adjusts it's bounds so that button is always large enough
+    button.GUID = identifier;
+    button.URL = url;
+    // use normal push action for opening URL
+    [button addTarget:self action:@selector(linkPushed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return button;
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateRecognized)
+    {
+        if (_commentWithUid) {
+            _commentWithUid(_commentInfoViewModel.ownerId);
+        }
+    }
+}
+
 @end

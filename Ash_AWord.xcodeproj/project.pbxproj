@@ -95,6 +95,7 @@
 		A968627A1ACCF13300DDAA6B /* PSTGridLayoutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = A968626D1ACCF13300DDAA6B /* PSTGridLayoutSection.m */; };
 		A968627C1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A968627B1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png */; };
 		A968627E1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A968627D1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png */; };
+		A96D2F261B2FFDA300DC0284 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = A96D2F251B2FFDA300DC0284 /* DejalActivityView.m */; };
 		A96F27EE1B2195BA00DA0A66 /* UIImageView+Reloading.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27ED1B2195BA00DA0A66 /* UIImageView+Reloading.m */; };
 		A96F27F41B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27F21B21C5AC00DA0A66 /* PraiseUserListTableViewCell.m */; };
 		A96F27F51B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96F27F31B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib */; };
@@ -372,6 +373,8 @@
 		A968626D1ACCF13300DDAA6B /* PSTGridLayoutSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTGridLayoutSection.m; sourceTree = "<group>"; };
 		A968627B1ACCF3D200DDAA6B /* cellmorebtnnormalN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellmorebtnnormalN@2x.png"; sourceTree = "<group>"; };
 		A968627D1ACCF46E00DDAA6B /* cellmorebtnclickN@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellmorebtnclickN@2x.png"; sourceTree = "<group>"; };
+		A96D2F241B2FFDA300DC0284 /* DejalActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalActivityView.h; sourceTree = "<group>"; };
+		A96D2F251B2FFDA300DC0284 /* DejalActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalActivityView.m; sourceTree = "<group>"; };
 		A96F27EC1B2195BA00DA0A66 /* UIImageView+Reloading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Reloading.h"; sourceTree = "<group>"; };
 		A96F27ED1B2195BA00DA0A66 /* UIImageView+Reloading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Reloading.m"; sourceTree = "<group>"; };
 		A96F27F11B21C5AC00DA0A66 /* PraiseUserListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PraiseUserListTableViewCell.h; sourceTree = "<group>"; };
@@ -816,6 +819,15 @@
 			path = PSTCollectionView;
 			sourceTree = "<group>";
 		};
+		A96D2F231B2FFD9C00DC0284 /* DejalActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				A96D2F241B2FFDA300DC0284 /* DejalActivityView.h */,
+				A96D2F251B2FFDA300DC0284 /* DejalActivityView.m */,
+			);
+			path = DejalActivityView;
+			sourceTree = "<group>";
+		};
 		A96F27EF1B21B98900DA0A66 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1005,6 +1017,7 @@
 		A97C54D91AC9014D0038818A /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A96D2F231B2FFD9C00DC0284 /* DejalActivityView */,
 				A9A3A7551B281392001AAB3A /* CExpandHeader */,
 				A9754A0D1ADC080E0018BAAD /* AudioPlayer */,
 				A96862511ACCF13300DDAA6B /* PSTCollectionView */,
@@ -1614,6 +1627,7 @@
 				A97559B21ACBC683004ADA42 /* NotePublishViewController.m in Sources */,
 				A9754A1F1ADC080E0018BAAD /* DataSource.m in Sources */,
 				A97C54DD1AC901980038818A /* MBProgressHUD+Util.m in Sources */,
+				A96D2F261B2FFDA300DC0284 /* DejalActivityView.m in Sources */,
 				A96862721ACCF13300DDAA6B /* PSTCollectionViewData.m in Sources */,
 				A97DBE331ACAE10800705682 /* LoginViewController.m in Sources */,
 				A98536721AEB66F9000312BF /* ReportViewController.m in Sources */,

@@ -23,6 +23,7 @@
              @"ownerName" : @"ownerName",
              @"shareCount": @"shareCount",
              @"hasShared": @"hasShared",
+             @"commentCount": @"commentCount"
              };
 }
 + (NSValueTransformer *)imageUrlJSONTransformer {

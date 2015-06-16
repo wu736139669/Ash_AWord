@@ -57,6 +57,7 @@
 #define kNetworkErrorTips @"网络连接失败"
 #define kSSoErrorTips @"授权失败，请重新授权"
 #define kLoginTips @"登录中"
+#define kLoadingTips @"加载中。。。"
 /**
  *    接口地址
  */
