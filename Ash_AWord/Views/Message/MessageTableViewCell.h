@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *content;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *timeProgressView;
+- (IBAction)commitBtnClick:(id)sender;
 - (IBAction)avatarBtnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *commitBtn;
 @property (weak, nonatomic) IBOutlet UILabel *nowTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
 @property (weak, nonatomic) IBOutlet UIButton *goodBtn;
@@ -32,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
+@property (nonatomic, assign)BOOL isComment;
+
 - (IBAction)playBtnClick:(id)sender;
 
 -(void)stopPlay;

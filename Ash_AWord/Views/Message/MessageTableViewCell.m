@@ -13,6 +13,8 @@
 #import "AppDelegate.h"
 #import "MyMessageViewController.h"
 #import "PersonalInfoViewController.h"
+#import "MessageCommentViewController.h"
+
 @interface MessageTableViewCell()<AudioPlayerDelegate>
 @end
 @implementation MessageTableViewCell
@@ -37,6 +39,9 @@
     _shareBtn.layer.masksToBounds = YES;
     _goodBtn.backgroundColor = [UIColor lineColor];
     _shareBtn.backgroundColor = [UIColor lineColor];
+    _commitBtn.layer.cornerRadius = 3;
+    _commitBtn.layer.masksToBounds = YES;
+    _commitBtn.backgroundColor = [UIColor lineColor];
     
     _audioPlayer = [[AudioPlayer alloc] init];
     _audioPlayer.delegate = self;
@@ -47,7 +52,15 @@
 
     // Configure the view for the selected state
 }
-
+-(void)setIsComment:(BOOL)isComment
+{
+    if (isComment) {
+        _commitBtn.hidden = YES;
+    }else
+    {
+        _commitBtn.hidden = NO;
+    }
+}
 - (IBAction)playBtnClick:(id)sender {
     if (_playBtn.selected == NO) {
         _playBtn.selected = YES;
@@ -127,7 +140,8 @@
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_voice.praiseCount] forState:UIControlStateNormal];
     [_goodBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_voice.praiseCount] forState:UIControlStateSelected];
     [_shareBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_voice.shareCount] forState:UIControlStateNormal];
-    
+    [_commitBtn setTitle:[NSString stringWithFormat:@"%ld",(long)text_voice.commentCount] forState:UIControlStateNormal];
+
     _closeBtn.hidden = YES;
     [self setGoodBtnSelect:text_voice.hasPraised];
 
@@ -267,8 +281,15 @@
     [self updateControls];
 }
 
+- (IBAction)commitBtnClick:(id)sender {
+    MessageCommentViewController* messageCommentViewController = [[MessageCommentViewController alloc] init];
+    messageCommentViewController.hidesBottomBarWhenPushed = YES;
+    messageCommentViewController.text_Voice = _text_voice;
+    [[AppDelegate visibleViewController].navigationController pushViewController:messageCommentViewController animated:YES];
+}
+
 - (IBAction)avatarBtnClick:(id)sender {
-    if (![_text_voice.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+    if (![_text_voice.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"NoteCommentViewController" bundle:nil];
         personalInfoViewController.hidesBottomBarWhenPushed = YES;
         personalInfoViewController.otherUserId = _text_voice.ownerId;
         [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];

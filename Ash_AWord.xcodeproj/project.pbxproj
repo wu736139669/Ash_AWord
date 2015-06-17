@@ -101,6 +101,8 @@
 		A96F27F51B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96F27F31B21C5AC00DA0A66 /* PraiseUserListTableViewCell.xib */; };
 		A96F27F91B21C5C800DA0A66 /* PraiseUserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A96F27F71B21C5C800DA0A66 /* PraiseUserListViewController.m */; };
 		A96F27FA1B21C5C800DA0A66 /* PraiseUserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A96F27F81B21C5C800DA0A66 /* PraiseUserListViewController.xib */; };
+		A9744EDD1B311DBA0082301D /* MessageCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9744EDB1B311DBA0082301D /* MessageCommentViewController.m */; };
+		A9744EDE1B311DBA0082301D /* MessageCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9744EDC1B311DBA0082301D /* MessageCommentViewController.xib */; };
 		A9754A1C1ADC080E0018BAAD /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9754A0F1ADC080E0018BAAD /* AudioPlayer.m */; };
 		A9754A1D1ADC080E0018BAAD /* AutoRecoveringHttpDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A9754A111ADC080E0018BAAD /* AutoRecoveringHttpDataSource.m */; };
 		A9754A1E1ADC080E0018BAAD /* CoreFoundationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = A9754A131ADC080E0018BAAD /* CoreFoundationDataSource.m */; };
@@ -383,6 +385,9 @@
 		A96F27F61B21C5C800DA0A66 /* PraiseUserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PraiseUserListViewController.h; sourceTree = "<group>"; };
 		A96F27F71B21C5C800DA0A66 /* PraiseUserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PraiseUserListViewController.m; sourceTree = "<group>"; };
 		A96F27F81B21C5C800DA0A66 /* PraiseUserListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PraiseUserListViewController.xib; sourceTree = "<group>"; };
+		A9744EDA1B311DBA0082301D /* MessageCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCommentViewController.h; sourceTree = "<group>"; };
+		A9744EDB1B311DBA0082301D /* MessageCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCommentViewController.m; sourceTree = "<group>"; };
+		A9744EDC1B311DBA0082301D /* MessageCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCommentViewController.xib; sourceTree = "<group>"; };
 		A9754A0E1ADC080E0018BAAD /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		A9754A0F1ADC080E0018BAAD /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
 		A9754A101ADC080E0018BAAD /* AutoRecoveringHttpDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoRecoveringHttpDataSource.h; sourceTree = "<group>"; };
@@ -1217,6 +1222,9 @@
 				A90B9FFD1AD6031E00728393 /* MessagePublishViewController.h */,
 				A90B9FFE1AD6031E00728393 /* MessagePublishViewController.m */,
 				A90B9FFF1AD6031E00728393 /* MessagePublishViewController.xib */,
+				A9744EDA1B311DBA0082301D /* MessageCommentViewController.h */,
+				A9744EDB1B311DBA0082301D /* MessageCommentViewController.m */,
+				A9744EDC1B311DBA0082301D /* MessageCommentViewController.xib */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1559,6 +1567,7 @@
 				A90BA01D1AD606A700728393 /* voice-record-bg@2x.png in Resources */,
 				A90BA0231AD619B500728393 /* voice-record-level-bg@2x.png in Resources */,
 				A93441F61ACA918100A6B233 /* tabbarSetup-dark@2x.png in Resources */,
+				A9744EDE1B311DBA0082301D /* MessageCommentViewController.xib in Resources */,
 				A97DBE421ACAE4E300705682 /* first-login-icon.png in Resources */,
 				A97C55051AC933AD0038818A /* UMSLoginViewController.xib in Resources */,
 				A97C55081AC933AD0038818A /* UMSocialSDKResourcesNew.bundle in Resources */,
@@ -1623,6 +1632,7 @@
 				A9754A221ADC080E0018BAAD /* LocalFileDataSource.m in Sources */,
 				A97559BF1ACBE6C6004ADA42 /* NotePublishViewModel.m in Sources */,
 				A96862781ACCF13300DDAA6B /* PSTGridLayoutItem.m in Sources */,
+				A9744EDD1B311DBA0082301D /* MessageCommentViewController.m in Sources */,
 				A97938781B20BB0900180C08 /* CommentViewModel.m in Sources */,
 				A97559B21ACBC683004ADA42 /* NotePublishViewController.m in Sources */,
 				A9754A1F1ADC080E0018BAAD /* DataSource.m in Sources */,

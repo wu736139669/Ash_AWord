@@ -15,6 +15,8 @@ typedef void (^IsSelectImage)(BOOL);
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *avatarBtn;
 - (IBAction)avatarBtnClick:(id)sender;
+- (IBAction)attentionListClick:(id)sender;
+- (IBAction)fansListClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *signatureLabel;
 - (IBAction)voiceBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *voiceBtn;

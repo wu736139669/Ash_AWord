@@ -40,11 +40,17 @@
     _voicePage = 1;
     _playIndex = -1;
 
+    self.navigationItem.title = @"个人主页";
     
     _imageArr = [[NSMutableArray alloc] init];
     _voiceArr = [[NSMutableArray alloc] init];
 
+    NSLog(@"%@",[AWordUser sharedInstance].uid);
 
+    if ([_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
+        _bottomView.hidden = YES;
+        _tableBottomHeight.constant = 0.0;
+    }
     self.tableView.hidden = YES;
     
     [DejalActivityView activityViewForView:self.view withLabel:kLoadingTips];
@@ -152,11 +158,12 @@
     }else{
         PropertyEntity* pro ;
         if (_otherUserId && [_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
-            pro = [MessageViewModel requireOhterWithOrder_by:Order_by_Time withPage:_voicePage withPage_size:DefaultPageSize withOtherId:_otherUserId];
+            pro = [MessageViewModel requireMyWithOrder_by:Order_by_Time withPage:_voicePage withPage_size:DefaultPageSize];
+
             
         }else{
-            pro = [MessageViewModel requireMyWithOrder_by:Order_by_Time withPage:_voicePage withPage_size:DefaultPageSize];
-            
+            pro = [MessageViewModel requireOhterWithOrder_by:Order_by_Time withPage:_voicePage withPage_size:DefaultPageSize withOtherId:_otherUserId];
+
         }
         [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
             

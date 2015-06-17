@@ -7,10 +7,7 @@
 //
 
 #import "BaseViewModel.h"
-typedef enum{
-    Image_Type = 0,
-    Voice_Type = 1,
-}CommentType;
+
 @interface CommentInfoViewModel : BaseViewModel
 @property (nonatomic, strong) NSString *commentId;
 @property (nonatomic, strong) NSString *ownerId;

@@ -11,6 +11,9 @@
 @interface PersonalInfoViewController : BaseRefreshViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIImageView *topViewImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableBottomHeight;
+@property (weak, nonatomic) IBOutlet UIButton *chatBtn;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 - (IBAction)chatBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;

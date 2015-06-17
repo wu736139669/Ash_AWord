@@ -8,9 +8,13 @@
 
 #import "PersonalTopView.h"
 #import "UserViewModel.h"
+#import "PraiseUserListViewController.h"
+#import "AppDelegate.h"
 @implementation PersonalTopView
 {
     BOOL _isSelectImage;
+    UserViewModel* _userViewModel;
+    BOOL _isAttention;
 }
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -22,6 +26,7 @@
 -(void)awakeFromNib
 {
     _isSelectImage = YES;
+    _isAttention = NO;
     
     _line1.backgroundColor = [UIColor lineColor];
     _line2.backgroundColor = [UIColor lineColor];
@@ -38,12 +43,14 @@
     
     [_attentionBtn setTitleColor:[UIColor appMainColor] forState:UIControlStateNormal];
     _attentionBtn.layer.masksToBounds = YES;
+    _attentionBtn.titleLabel.adjustsFontSizeToFitWidth = YES;
     _attentionBtn.layer.cornerRadius = 2.0;
 
 }
 
 -(void)setuserInfoViewModel:(UserViewModel *)userViewModel
 {
+    _userViewModel = userViewModel;
     _nameLabel.text = userViewModel.userInfo.name;
     _attentionCountLabel.text = [NSString stringWithFormat:@"%ld",userViewModel.userInfo.followCount];
     _fansCountLabel.text = [NSString stringWithFormat:@"%ld",userViewModel.userInfo.followerCount];
@@ -52,11 +59,42 @@
     }else{
         _signatureLabel.text = @"该用户暂时没有填写签名～";
     }
-    
+    if ([userViewModel.userInfo.uid isEqualToString:[AWordUser sharedInstance].uid] ) {
+        _attentionBtn.hidden = YES;
+    }else{
+        _attentionBtn.hidden = NO;
 
+    }
+    if (userViewModel.relation == 0 || userViewModel.relation == 2) {
+        [_attentionBtn setTitle:@"关注" forState:UIControlStateNormal];
+        _isAttention = NO;
+    }else{
+        [_attentionBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+        [_attentionBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        _isAttention = YES;
+
+    }
     [_avatarBtn sd_setImageWithURL:[NSURL URLWithString:userViewModel.userInfo.figureurl] forState:UIControlStateNormal placeholderImage:DefaultUserIcon];
 }
 - (IBAction)avatarBtnClick:(id)sender {
+}
+
+- (IBAction)attentionListClick:(id)sender {
+    PraiseUserListViewController* praiseUserListViewController = [[PraiseUserListViewController alloc] init];
+    praiseUserListViewController.targetId = _userViewModel.userInfo.uid;
+    praiseUserListViewController.userListType = UserList_Attention_Type;
+    praiseUserListViewController.hidesBottomBarWhenPushed = YES;
+    [[AppDelegate visibleViewController].navigationController pushViewController:praiseUserListViewController animated:YES];
+    
+}
+
+- (IBAction)fansListClick:(id)sender {
+    PraiseUserListViewController* praiseUserListViewController = [[PraiseUserListViewController alloc] init];
+    praiseUserListViewController.targetId = _userViewModel.userInfo.uid;
+    praiseUserListViewController.userListType = UserList_Fans_Type;
+    praiseUserListViewController.hidesBottomBarWhenPushed = YES;
+    [[AppDelegate visibleViewController].navigationController pushViewController:praiseUserListViewController animated:YES];
+
 }
 - (IBAction)voiceBtnClick:(id)sender {
     if (_isSelectImage == NO) {
@@ -93,6 +131,27 @@
     }
 }
 - (IBAction)attentionBtnClick:(id)sender {
+    PropertyEntity* pro;
+    pro = [UserViewModel requireAttentionWithTargetUid:_userViewModel.userInfo.uid withIsAttention:!_isAttention];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        if ([viewModel success]) {
+            if (!_isAttention) {
+                [_attentionBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+//                [_attentionBtn setBackgroundColor:[UIColor lightGrayColor]];
+                [_attentionBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+
+            }else{
+                [_attentionBtn setTitle:@"关注" forState:UIControlStateNormal];
+                [_attentionBtn setTitleColor:[UIColor appMainColor] forState:UIControlStateNormal];
+
+            }
+            _isAttention = !_isAttention;
+        }else{
+            [MBProgressHUD errorHudWithView:nil label:[viewModel errMessage] hidesAfter:1.0];
+        }
+    } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
+    }];
 }
 
 @end

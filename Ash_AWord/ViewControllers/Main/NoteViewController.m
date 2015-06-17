@@ -258,7 +258,7 @@
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     if (buttonIndex == 1) {
-        picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         
     }
     if(buttonIndex == 2)

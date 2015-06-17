@@ -202,11 +202,10 @@
 - (IBAction)avatarBtnClick:(id)sender {
     
 
-    if (![_text_image.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
-        personalInfoViewController.hidesBottomBarWhenPushed = YES;
-        personalInfoViewController.otherUserId = _text_image.ownerId;
-        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
-    }
+    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+    personalInfoViewController.hidesBottomBarWhenPushed = YES;
+    personalInfoViewController.otherUserId = _text_image.ownerId;
+    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
 }
 
 - (IBAction)imageBtnClick:(id)sender {

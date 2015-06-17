@@ -9,7 +9,7 @@
 #import "PraiseUserListViewController.h"
 #import "PraiseUserListTableViewCell.h"
 #import "UserViewModel.h"
-
+#import "PersonalInfoViewController.h"
 @interface PraiseUserListViewController ()
 {
     NSInteger _page;
@@ -22,7 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.navigationItem.title = @"最近点赞的用户";
+    
+    self.navigationItem.title = @"最近点赞";
+    if (_userListType == UserList_Attention_Type) {
+        self.navigationItem.title = @"关注";
+    }else if(_userListType == UserList_Fans_Type){
+        self.navigationItem.title = @"粉丝";
+
+    }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
@@ -60,7 +67,16 @@
 -(void)loadData
 {
     
-    PropertyEntity* pro = [UserViewModel requireLoadPraiseUserWithRecordId:_recordId withPage:1 withPage_size:DefaultPageSize];
+    PropertyEntity* pro;
+    if (_userListType == UserList_Praise_Type) {
+        pro = [UserViewModel requireLoadPraiseUserWithRecordId:_recordId withPage:_page withPage_size:DefaultPageSize withType:_commentType];
+    }else if (_userListType == UserList_Attention_Type){
+        pro = [UserViewModel requireLoadUserListWithTargetUid:_targetId withType:1 withPage:_page withPage_size:DefaultPageSize];
+    }else{
+        pro = [UserViewModel requireLoadUserListWithTargetUid:_targetId withType:2 withPage:_page withPage_size:DefaultPageSize];
+
+    }
+
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {
             UserViewModel* userViewModel = (UserViewModel*)viewModel;
@@ -138,6 +154,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UserInfoViewModel* userInfoViewModel = [_dataArr objectAtIndex:indexPath.row];
+    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+    personalInfoViewController.hidesBottomBarWhenPushed = YES;
+    personalInfoViewController.otherUserId = userInfoViewModel.uid;
+    [self.navigationController pushViewController:personalInfoViewController animated:YES];
 }
 /*
 #pragma mark - Navigation

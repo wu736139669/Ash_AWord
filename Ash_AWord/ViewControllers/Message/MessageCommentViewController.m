@@ -1,33 +1,38 @@
 //
-//  NoteCommentViewController.m
+//  MessageCommentViewController.m
 //  Ash_AWord
 //
-//  Created by xmfish on 15/6/1.
+//  Created by xmfish on 15/6/17.
 //  Copyright (c) 2015年 ash. All rights reserved.
 //
 
-#import "NoteCommentViewController.h"
-#import "NoteTableViewCell.h"
-#import "NoteViewModel.h"
+#import "MessageCommentViewController.h"
+#import "MessageTableViewCell.h"
 #import "CommentTextView.h"
 #import "CommentGoodListCellTableViewCell.h"
+#import "PraiseUserListViewController.h"
+#import "MessageViewModel.h"
 #import "UserViewModel.h"
 #import "CommentViewModel.h"
 #import "CommentTableViewCell.h"
-#import "PraiseUserListViewController.h"
-@interface NoteCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MessageCommentViewController ()
 {
-    NoteTableViewCell* _headView;
+    MessageTableViewCell* _headView;
     CommentTextView* _commentTextView;
     CommentGoodListCellTableViewCell* _commentGoodListCellTableViewCell;
     NSInteger _page;
     NSMutableArray* _commentInfoArr;
     BOOL _isFirstLoad;
+
 }
 @end
 
-@implementation NoteCommentViewController
+@implementation MessageCommentViewController
 
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    return [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -42,9 +47,9 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-    _headView = [Ash_UIUtil instanceXibView:@"NoteTableViewCell"];
-    [_headView setText_Image:_text_image];
-    CGFloat height = [NoteTableViewCell heightWith:_text_image];
+    _headView = [Ash_UIUtil instanceXibView:@"MessageTableViewCell"];
+    [_headView setText_Voice:_text_Voice];
+    CGFloat height = [MessageTableViewCell heightWith:_text_Voice];
     _headView.frame = CGRectMake(0, 0, kScreenWidth, height);
     _headView.isComment = YES;
     UIView* tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, height+80)];
@@ -53,19 +58,20 @@
     _commentGoodListCellTableViewCell = [Ash_UIUtil instanceXibView:@"CommentGoodListCellTableViewCell"];
     _commentGoodListCellTableViewCell.frame = CGRectMake(0, height, kScreenWidth, 80);
     
-    __weak  NoteCommentViewController* weakSelf = self;
+    __weak  MessageCommentViewController* weakSelf = self;
     [_commentGoodListCellTableViewCell setShowPraiseList:^(void){
         PraiseUserListViewController *praiseUserListViewController = [[PraiseUserListViewController alloc] init];
         praiseUserListViewController.hidesBottomBarWhenPushed = YES;
-        praiseUserListViewController.recordId = weakSelf.text_image.messageId;
+        praiseUserListViewController.recordId = weakSelf.text_Voice.messageId;
         praiseUserListViewController.userListType = UserList_Praise_Type;
-        praiseUserListViewController.commentType = Image_Type;
+        praiseUserListViewController.commentType = Voice_Type;
         [weakSelf.navigationController pushViewController:praiseUserListViewController animated:YES];
-     }
+    }
      ];
     [tableHeadView addSubview:_commentGoodListCellTableViewCell];
     
     self.tableView.tableHeaderView = tableHeadView;
+    
     
     _lineView.backgroundColor = [UIColor lineColor];
     _lineHeight.constant = 0.5;
@@ -83,14 +89,14 @@
     
     _commentTextView = [Ash_UIUtil instanceXibView:@"CommentTextView"];
     _commentTextView.frame = self.view.frame;
-    _commentTextView.commentType = Image_Type;
+    _commentTextView.commentType = Voice_Type;
+
     [_commentTextView setComentComplete:^(){
-        _isFirstLoad = YES;
         [weakSelf headerBeginRefreshing];
-     }];
+    }];
     [self.view addSubview:_commentTextView];
-    _commentTextView.recordId = _text_image.messageId;
-    _commentTextView.aothourId = _text_image.ownerId;
+    _commentTextView.recordId = _text_Voice.messageId;
+    _commentTextView.aothourId = _text_Voice.ownerId;
     [_commentTextView setHidden:YES];
     
     
@@ -98,11 +104,9 @@
     [self requirePraiseUser];
 
 }
-
-
 -(void)requirePraiseUser
 {
-    PropertyEntity* pro = [UserViewModel requireLoadPraiseUserWithRecordId:_text_image.messageId withPage:1 withPage_size:10 withType:Image_Type];
+    PropertyEntity* pro = [UserViewModel requireLoadPraiseUserWithRecordId:_text_Voice.messageId withPage:1 withPage_size:10 withType:Voice_Type];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {
             [_commentGoodListCellTableViewCell setUserInfoArr:[(UserViewModel*)viewModel userInfoArr]];
@@ -127,7 +131,7 @@
 {
     [MobClick event:kUmen_note];
     
-    PropertyEntity* pro = [CommentViewModel requireLoadCommentWithRecordId:_text_image.messageId withPage:_page withPage_size:DefaultPageSize WithType:Image_Type];
+    PropertyEntity* pro = [CommentViewModel requireLoadCommentWithRecordId:_text_Voice.messageId withPage:_page withPage_size:DefaultPageSize WithType:Voice_Type];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
         if ([viewModel success]) {
@@ -155,20 +159,12 @@
         [self.tableView reloadData];
         if (_isFirstLoad) {
             CGPoint point = self.tableView.contentOffset;
-//            //计算内容加上点赞列表cell高于显示多少，移动到能看到点赞列表。
-//            point.y = _headView.frame.size.height+80-self.tableView.frame.size.height;
-//            
-//            if (_commentInfoArr.count > 0) {
-//                point.y += [CommentTableViewCell getHeightWithCommentInfoViewModel:[_commentInfoArr objectAtIndex:0]];
-//            }
-//            [self.tableView setContentOffset:point];
-//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES ];
             point.y = _headView.frame.size.height;
             [self.tableView setContentOffset:point animated:YES];
             
             _isFirstLoad = NO;
         }
-
+        
         
     } failedBlock:^(NSError *error) {
         [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
@@ -184,16 +180,16 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
+    
     return _commentInfoArr.count;
-
+    
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     BOOL isReplyOwnew = YES;
-    if (![commentInfoViewModel.toUserId isEqualToString:_text_image.ownerId]) {
+    if (![commentInfoViewModel.toUserId isEqualToString:_text_Voice.ownerId]) {
         isReplyOwnew = NO;
     }
     return [CommentTableViewCell getHeightWithCommentInfoViewModel:commentInfoViewModel isReplyOwner:isReplyOwnew];
@@ -201,7 +197,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-
+    
     return 5.0;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -220,21 +216,22 @@
     }
     
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
-    cell.ownerId = _text_image.ownerId;
+    cell.ownerId = _text_Voice.ownerId;
     [cell setCommentWithUid:^(NSString* ownerId){
         [_commentTextView showWithUid:ownerId];
     }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
-
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     [_commentTextView showWithUid:commentInfoViewModel.ownerId];
-
+    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -251,7 +248,7 @@
 */
 
 - (IBAction)commentBtnClick:(id)sender {
-    [_commentTextView showWithUid:_text_image.ownerId];
+    [_commentTextView showWithUid:_text_Voice.ownerId];
 
 }
 @end

@@ -15,6 +15,7 @@ typedef void (^CommentComplete)(void);
 @property (nonatomic, assign) NSInteger recordId;
 @property (nonatomic, strong) NSString* aothourId;
 @property (nonatomic, strong) CommentComplete comentComplete;
+@property (nonatomic, assign)CommentType commentType;
 @property (weak, nonatomic) IBOutlet UITextView *contentTextView;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 - (IBAction)cancelBtnClick:(id)sender;

@@ -100,4 +100,8 @@
 #define DefaultUserIcon [UIImage imageNamed:@"defaultUserIcon"]
 
 #define DefaultPageSize 20
+typedef enum{
+    Image_Type = 0,
+    Voice_Type = 1,
+}CommentType;
 #endif

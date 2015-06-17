@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PersonalInfoViewController">
             <connections>
+                <outlet property="bottomView" destination="RfR-Wi-Dtb" id="C7A-t4-zjq"/>
+                <outlet property="chatBtn" destination="sYY-oG-2Ed" id="Qhh-BN-RPI"/>
                 <outlet property="lineHeight" destination="fMj-Nw-YKG" id="1sh-5r-9If"/>
                 <outlet property="lineView" destination="mGD-VK-ptG" id="2U2-Ph-hHL"/>
+                <outlet property="tableBottomHeight" destination="4gb-ko-rFl" id="zAK-qY-CmQ"/>
                 <outlet property="tableView" destination="tLB-Tb-fTR" id="ZsR-II-Hek"/>
                 <outlet property="topViewImage" destination="FhV-5X-Wr2" id="0Dq-sQ-vjx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

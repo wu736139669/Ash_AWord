@@ -120,7 +120,7 @@
     if (!commentId) {
         commentId = _aothourId;
     }
-    PropertyEntity* pro = [CommentViewModel requireAddCommentWithReconrdId:_recordId withContent:_contentTextView.text WithType:Image_Type withToUid:commentId];
+    PropertyEntity* pro = [CommentViewModel requireAddCommentWithReconrdId:_recordId withContent:_contentTextView.text WithType:_commentType withToUid:commentId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         [MBProgressHUD hideAllHUDsForView:nil animated:YES];
 
