@@ -8,6 +8,7 @@
 
 #import "OurLoginViewController.h"
 #import "LoginViewModel.h"
+#import "EaseMob.h"
 @interface OurLoginViewController ()<UITextFieldDelegate>
 
 @end
@@ -98,7 +99,7 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if ([loginViewModel success]) {
-            
+            [Ash_UIUtil EaseMobLoginWithUserName:loginViewModel.uId];
             [AWordUser sharedInstance].isLogin = YES;
             [AWordUser sharedInstance].loginType = 1;
             [AWordUser sharedInstance].uid = loginViewModel.uId;

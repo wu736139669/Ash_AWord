@@ -14,6 +14,7 @@
 #import "MessageTableViewCell.h"
 #import "MessageViewModel.h"
 #import "UserViewModel.h"
+#import "ChatMainViewController.h"
 @interface PersonalInfoViewController ()<NoteTableViewCellDelegate,MessageTableViewCellDelegate>
 {
     CExpandHeader *_header;
@@ -324,5 +325,9 @@
 */
 
 - (IBAction)chatBtnClick:(id)sender {
+    ChatMainViewController* chatMainViewController = [[ChatMainViewController alloc] init];
+    chatMainViewController.otherUserAvatar = _userViewModel.userInfo.figureurl;
+    chatMainViewController.otherUserName = _userViewModel.userInfo.name;
+    [self.navigationController pushViewController:chatMainViewController animated:YES];
 }
 @end

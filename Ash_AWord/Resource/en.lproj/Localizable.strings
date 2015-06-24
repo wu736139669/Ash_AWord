@@ -8,3 +8,70 @@
 "Saving" = "Saving";
 "SaveFailed" = "SaveFailed";
 "Saved" = "Saved";
+
+//message
+"message.image" = "image";
+"message.location" = "location";
+"message.voice" = "audio";
+"message.vidio" = "vidio";
+"message.image1" = "[image]";
+"message.location1" = "[location]";
+"message.voice1" = "[audio]";
+"message.vidio1" = "[vidio]";
+"message.beginReceiveOffine" = "begin to receive offline messages";
+"message.endReceiveOffine" = "end to receive offline messages";
+"message.toolBar.inputPlaceHolder" = "input a new message";
+"message.toolBar.record.upCancel" = " Fingers up slide, cancel sending ";
+"message.toolBar.record.loosenCancel" = " loosen the fingers, to cancel sending ";
+"message.toolBar.record.touch" = "hold down to talk";
+"message.toolBar.record.send" = "loosen to send";
+"DXMessageToolBarDelegate.record" = "hold down to talk";
+"DXMessageToolBarDelegate.send" = "loosen to send";
+
+"message.downloadingAudio" = "downloading voice, click later";
+"message.downloadingVideo" = "downloading video...";
+"message.videoFail" = "video for failure!";
+"message.downloadingImage" = "downloading a image...";
+"message.imageFail" = "image for failure!";
+"message.thumImageFail" = "thumbnail for failure!";
+"message.simulatorNotSupportCamera" = "simulator does not support taking picture";
+"message.simulatorNotSupportVideo" = "simulator does not support vidio";
+"message.startRecordFail" = "failure to start recording";
+"message.noMessage" = "no messages";
+
+
+//location
+"location.messageType" = "location message";
+"location.fail" = "locate failure";
+"location.ongoning" = "locating...";
+
+"search" = "Search";
+"error" = "Error";
+"delete" = "Delete";
+"copy" = "Copy";
+"save" = "Save";
+"prompt" = "Prompt";
+"add" = "Add";
+"send" = "Send";
+"open" = "Open";
+"down" = "Down";
+"choose" = "Choose";
+"accept" = "Accept";
+"reject" = "Reject";
+"wait" = "Please wait...";
+
+//NSDateCategory
+"NSDateCategory.text1" = "one minute";
+"NSDateCategory.text2" = "%.f minutes ago";
+"NSDateCategory.text3" = "%.f hours ago";
+"NSDateCategory.text4" = "%.f days ago";
+"NSDateCategory.text5" = "M-d";
+"NSDateCategory.text6" = "%.f years ago";
+"NSDateCategory.text7" = "M-d %@";
+"NSDateCategory.text8" = "M-d HH:mm";
+"NSDateCategory.text9" = "aa hh:mm";
+"NSDateCategory.text10" = "aa hh:mm";
+"NSDateCategory.text11" = "aa hh:mm";
+"NSDateCategory.text12" = "aa hh:mm";
+"NSDateCategory.text13" = "M-d HH:mm";
+"NSDateCategory.text14" = "today %@";

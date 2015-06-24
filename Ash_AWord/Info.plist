@@ -26,6 +26,8 @@
 	<string>2.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>需要使用定位</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

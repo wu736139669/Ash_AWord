@@ -10,10 +10,12 @@
 #import "BaseRefreshViewController.h"
 @class Text_Image;
 @interface NoteCommentViewController : BaseRefreshViewController
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 - (IBAction)commentBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 @property (strong, nonatomic)Text_Image* text_image;
+
 @end

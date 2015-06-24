@@ -8,8 +8,33 @@
 
 #import "Ash_UIUtil.h"
 #import <DTCoreText.h>
+#import "EaseMob.h"
 @implementation Ash_UIUtil
 
++(void)EaseMobLoginWithUserName:(NSString *)userName
+{
+    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:userName password:EasePassword withCompletion:^(NSString *username, NSString *password, EMError *error) {
+        if (!error) {
+            DLog(@"注册成功");
+            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userName password:EasePassword completion:^(NSDictionary *loginInfo, EMError *error) {
+                if (!error && loginInfo) {
+                    // 设置自动登录
+                    [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                    DLog(@"登陆成功");
+                }
+            } onQueue:nil];
+        }else if (error.errorCode == EMErrorServerDuplicatedAccount) {
+            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userName password:EasePassword completion:^(NSDictionary *loginInfo, EMError *error) {
+                if (!error && loginInfo) {
+                    // 设置自动登录
+                    [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+                    DLog(@"登陆成功");
+                }
+            } onQueue:nil];
+        }
+    } onQueue:nil];
+
+}
 +(CABasicAnimation*)getrotationAnimation
 {
     CABasicAnimation* rotationAnimation;

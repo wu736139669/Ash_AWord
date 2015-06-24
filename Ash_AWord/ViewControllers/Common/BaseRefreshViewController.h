@@ -11,7 +11,6 @@
 @interface BaseRefreshViewController : ViewController<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
 - (void)headerRereshing;
 - (void)footerRereshing;
 - (void)headerBeginRefreshing;

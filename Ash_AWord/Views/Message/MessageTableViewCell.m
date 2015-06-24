@@ -289,11 +289,11 @@
 }
 
 - (IBAction)avatarBtnClick:(id)sender {
-    if (![_text_voice.ownerId isEqualToString:[AWordUser sharedInstance].uid] ) {        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"NoteCommentViewController" bundle:nil];
-        personalInfoViewController.hidesBottomBarWhenPushed = YES;
-        personalInfoViewController.otherUserId = _text_voice.ownerId;
-        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
-    }
+    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"PersonalInfoViewController" bundle:nil];
+    personalInfoViewController.hidesBottomBarWhenPushed = YES;
+    personalInfoViewController.otherUserId = _text_voice.ownerId;
+    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
+    
 }
 - (IBAction)closeBtnClick:(id)sender {
 }

@@ -10,6 +10,7 @@
 
 @interface Ash_UIUtil : NSObject
 
++(void)EaseMobLoginWithUserName:(NSString*)userName;
 
 +(CABasicAnimation*)getrotationAnimation;
 +(CGSize)downloadImageSizeWithURL:(id)imageURL;

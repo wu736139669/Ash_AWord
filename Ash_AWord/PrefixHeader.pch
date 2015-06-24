@@ -40,6 +40,8 @@
 #import "LoginViewController.h"
 #import "UIImageView+Reloading.h"
 #import "DejalActivityView.h"
+#import "EMErrorDefs.h"
+#import "EaseMob.h"
 #endif
 
 #endif

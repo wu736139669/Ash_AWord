@@ -68,6 +68,12 @@
 #define Sign_Key @"yjn@jjyy123"
 
 /**
+ *环信信息
+ */
+#define EaseMobApnsCertName @"ashyujianni"
+#define EaseMobAppKey @"ash#ashyujianni"
+#define EasePassword @"123456"
+/**
  * 微信开放平台信息
  */
 #define kWXAppId @"wx557ac33ef4304d7c"

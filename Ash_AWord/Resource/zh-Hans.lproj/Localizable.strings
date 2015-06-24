@@ -9,3 +9,68 @@
 "Saving" = "保存中";
 "SaveFailed" = "保存失败";
 "Saved" = "保存成功";
+
+//message
+"message.image" = "图片";
+"message.location" = "位置";
+"message.voice" = "音频";
+"message.vidio" = "视频";
+"message.image1" = "[图片]";
+"message.location1" = "[位置]";
+"message.voice1" = "[音频]";
+"message.vidio1" = "[视频]";
+"message.beginReceiveOffine" = "开始接收离线消息";
+"message.endReceiveOffine" = "离线消息接收成功";
+"message.toolBar.inputPlaceHolder" = "输入新消息";
+"message.toolBar.record.upCancel" = " 手指上滑，取消发送 ";
+"message.toolBar.record.loosenCancel" = " 松开手指，取消发送 ";
+"message.toolBar.record.touch" = "按住说话";
+"message.toolBar.record.send" = "松开发送";
+
+"message.downloadingAudio" = "正在下载语音，稍后点击";
+"message.downloadingVideo" = "正在获取视频...";
+"message.videoFail" = "视频获取失败!";
+"message.downloadingImage" = "正在获取大图...";
+"message.imageFail" = "大图获取失败!";
+"message.thumImageFail" = "缩略图获取失败!";
+"message.simulatorNotSupportCamera" = "模拟器不支持拍照";
+"message.simulatorNotSupportVideo" = "模拟器不支持录像";
+"message.startRecordFail" = "开始录音失败";
+"message.noMessage" = "消息已经清空";
+
+"search" = "搜索";
+"error" = "错误";
+"delete" = "删除";
+"copy" = "复制";
+"save" = "保存";
+"prompt" = "提示";
+"add" = "添加";
+"send" = "发送";
+"open" = "打开";
+"down" = "完成";
+"choose" = "选择";
+"accept" = "接受";
+"reject" = "拒绝";
+"wait" = "请等待...";
+
+//location
+"location.messageType" = "位置信息";
+"location.fail" = "定位失败";
+"location.ongoning" = "正在定位...";
+
+
+//NSDateCategory
+"NSDateCategory.text1" = "1分钟内";
+"NSDateCategory.text2" = "%.f分钟前";
+"NSDateCategory.text3" = "%.f小时前";
+"NSDateCategory.text4" = "%.f天前";
+"NSDateCategory.text5" = "M月d日";
+"NSDateCategory.text6" = "%.f年前";
+"NSDateCategory.text7" = "昨天 %@";
+"NSDateCategory.text8" = "昨天HH:mm";
+"NSDateCategory.text9" = "凌晨hh:mm";
+"NSDateCategory.text10" = "上午hh:mm";
+"NSDateCategory.text11" = "下午hh:mm";
+"NSDateCategory.text12" = "晚上hh:mm";
+"NSDateCategory.text13" = "昨天HH:mm";
+"NSDateCategory.text14" = "今天 %@";

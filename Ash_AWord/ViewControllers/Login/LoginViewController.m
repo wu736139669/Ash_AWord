@@ -14,6 +14,7 @@
 #import "WXApi.h"
 #import "RegistAccountViewController.h"
 #import "OurLoginViewController.h"
+#import "EaseMob.h"
 @interface LoginViewController ()
 
 @end
@@ -156,9 +157,9 @@
     [RequireEngine requireWithProperty:loginViewModel completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
+
         if ([loginViewModel success]) {
-            
+            [Ash_UIUtil EaseMobLoginWithUserName:loginViewModel.uId];
             [AWordUser sharedInstance].isLogin = YES;
             [AWordUser sharedInstance].loginType = 0;
             [AWordUser sharedInstance].uid = loginViewModel.uId;
