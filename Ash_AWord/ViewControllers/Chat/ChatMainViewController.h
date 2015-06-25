@@ -14,5 +14,5 @@
 
 @property (strong, nonatomic)NSString* otherUserName;
 @property (strong, nonatomic)NSString* otherUserAvatar;
-
+@property (strong, nonatomic)NSString* otherUserId;
 @end

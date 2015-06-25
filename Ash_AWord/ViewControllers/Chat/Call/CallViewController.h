@@ -55,7 +55,7 @@ static CTCallCenter *g_callCenter;
 @property (strong, nonatomic) UITapGestureRecognizer *tapRecognizer;
 
 - (instancetype)initWithSession:(EMCallSession *)session
-                     isIncoming:(BOOL)isIncoming;
+                     isIncoming:(BOOL)isIncoming withName:(NSString*)name withAvatar:(NSString*)avatar;
 
 + (BOOL)canVideo;
 

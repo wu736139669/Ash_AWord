@@ -15,6 +15,7 @@
 
 @interface CallViewController (){
     NSString * _audioCategory;
+    NSString* _avatar;
 }
 
 @end
@@ -22,17 +23,18 @@
 @implementation CallViewController
 
 - (instancetype)initWithSession:(EMCallSession *)session
-                     isIncoming:(BOOL)isIncoming
+                     isIncoming:(BOOL)isIncoming withName:(NSString *)name withAvatar:(NSString *)avatar
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _callSession = session;
+        
         _isIncoming = isIncoming;
         _timeLabel.text = @"";
         _timeLength = 0;
-        _chatter = session.sessionChatter;
-        
-//        [[EaseMob sharedInstance].callManager removeDelegate:self];
+        _chatter = name;
+        _avatar = avatar;
+        [[EaseMob sharedInstance].callManager removeDelegate:self];
         [[EaseMob sharedInstance].callManager addDelegate:self delegateQueue:nil];
         
         g_callCenter = [[CTCallCenter alloc] init];
@@ -169,7 +171,8 @@
     [_topView addSubview:_timeLabel];
     
     _headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake((_topView.frame.size.width - 50) / 2, CGRectGetMaxY(_statusLabel.frame) + 20, 50, 50)];
-    _headerImageView.image = DefaultUserIcon;
+//    _headerImageView.image = DefaultUserIcon;
+    [_headerImageView sd_setImageWithURL:[NSURL URLWithString:_avatar] placeholderImage:DefaultUserIcon];
     [_topView addSubview:_headerImageView];
     
     _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_headerImageView.frame) + 5, _topView.frame.size.width, 20)];

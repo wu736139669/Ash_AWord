@@ -13,27 +13,30 @@
 
 +(void)EaseMobLoginWithUserName:(NSString *)userName
 {
+    
+    
     [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:userName password:EasePassword withCompletion:^(NSString *username, NSString *password, EMError *error) {
         if (!error) {
             DLog(@"注册成功");
-            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userName password:EasePassword completion:^(NSDictionary *loginInfo, EMError *error) {
-                if (!error && loginInfo) {
-                    // 设置自动登录
-                    [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
-                    DLog(@"登陆成功");
-                }
-            } onQueue:nil];
+            [self loginWithUserName:username];
         }else if (error.errorCode == EMErrorServerDuplicatedAccount) {
-            [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userName password:EasePassword completion:^(NSDictionary *loginInfo, EMError *error) {
-                if (!error && loginInfo) {
-                    // 设置自动登录
-                    [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
-                    DLog(@"登陆成功");
-                }
-            } onQueue:nil];
+            [self loginWithUserName:username];
         }
     } onQueue:nil];
 
+}
++(void)loginWithUserName:(NSString*)userName
+{
+    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:userName password:EasePassword completion:^(NSDictionary *loginInfo, EMError *error) {
+        if (!error && loginInfo) {
+            // 设置自动登录
+            [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+            DLog(@"登陆成功");
+        }
+        EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
+        options.nickname = [AWordUser sharedInstance].userName;
+        [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
+    } onQueue:nil];
 }
 +(CABasicAnimation*)getrotationAnimation
 {

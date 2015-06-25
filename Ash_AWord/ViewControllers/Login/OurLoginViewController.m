@@ -100,6 +100,7 @@
         
         if ([loginViewModel success]) {
             [Ash_UIUtil EaseMobLoginWithUserName:loginViewModel.uId];
+            
             [AWordUser sharedInstance].isLogin = YES;
             [AWordUser sharedInstance].loginType = 1;
             [AWordUser sharedInstance].uid = loginViewModel.uId;

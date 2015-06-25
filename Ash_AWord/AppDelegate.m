@@ -24,16 +24,42 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    _mainViewController = [[MainViewController alloc] init];
-    self.window.rootViewController = _mainViewController;
-    _mainViewController.delegate = self;
+
     
+
+    
+    
+    application.applicationIconBadgeNumber = 0;
+    
+    if([application respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        UIUserNotificationType notificationTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:notificationTypes categories:nil];
+        [application registerUserNotificationSettings:settings];
+    }
+    
+#if !TARGET_IPHONE_SIMULATOR
+    //iOS8 注册APNS
+    if ([application respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        [application registerForRemoteNotifications];
+    }else{
+        UIRemoteNotificationType notificationTypes = UIRemoteNotificationTypeBadge |
+        UIRemoteNotificationTypeSound |
+        UIRemoteNotificationTypeAlert;
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:notificationTypes];
+    }
+#endif
     
     
     //注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
     [[EaseMob sharedInstance] registerSDKWithAppKey:EaseMobAppKey apnsCertName:EaseMobApnsCertName];
     // 需要在注册sdk后写上该方法
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
+    _mainViewController = [[MainViewController alloc] init];
+    self.window.rootViewController = _mainViewController;
+    _mainViewController.delegate = self;
+
     //登陆聊天的
     if ([AWordUser sharedInstance].isLogin)
     {
@@ -72,7 +98,42 @@
     [[EaseMob sharedInstance] applicationWillTerminate:application];
 
 }
+// 将得到的deviceToken传给SDK
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+}
 
+// 注册deviceToken失败
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    [[EaseMob sharedInstance] application:application didFailToRegisterForRemoteNotificationsWithError:error];
+    DLog(@"error -- %@",error);
+}
+// 绑定deviceToken回调
+- (void)didBindDeviceWithError:(EMError *)error
+{
+    if (error) {
+//        TTAlertNoTitle(NSLocalizedString(@"apns.failToBindDeviceToken", @"Fail to bind device token"));
+    }
+}
+
+
+
+// 打印收到的apns信息
+-(void)didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSError *parseError = nil;
+    NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
+                                                        options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSString *str =  [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"推送内容"
+                                                    message:str
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"ok", @"OK")
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+}
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     return  [UMSocialSnsService handleOpenURL:url];

@@ -328,6 +328,7 @@
     ChatMainViewController* chatMainViewController = [[ChatMainViewController alloc] init];
     chatMainViewController.otherUserAvatar = _userViewModel.userInfo.figureurl;
     chatMainViewController.otherUserName = _userViewModel.userInfo.name;
+    chatMainViewController.otherUserId = _otherUserId;
     [self.navigationController pushViewController:chatMainViewController animated:YES];
 }
 @end

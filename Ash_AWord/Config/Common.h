@@ -70,7 +70,7 @@
 /**
  *环信信息
  */
-#define EaseMobApnsCertName @"ashyujianni"
+#define EaseMobApnsCertName @"yujianni"
 #define EaseMobAppKey @"ash#ashyujianni"
 #define EasePassword @"123456"
 /**

@@ -13,7 +13,7 @@
 #import "MessageReadManager.h"
 //#import "UIImageView+EMWebCache.h"
 #import "EMCDDeviceManager.h"
-
+#import "AppDelegate.h"
 static MessageReadManager *detailInstance = nil;
 
 @interface MessageReadManager()
@@ -64,18 +64,28 @@ static MessageReadManager *detailInstance = nil;
 
 - (MWPhotoBrowser *)photoBrowser
 {
-    if (_photoBrowser == nil) {
+    
         _photoBrowser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+        //是否显示分享按钮
         _photoBrowser.displayActionButton = YES;
+        //左右分页切换
         _photoBrowser.displayNavArrows = YES;
+        //是否显示选择按钮
         _photoBrowser.displaySelectionButtons = NO;
-        _photoBrowser.alwaysShowControls = NO;
-        _photoBrowser.wantsFullScreenLayout = YES;
+        //是否显示条件控制控件
+        _photoBrowser.alwaysShowControls = YES;
+        //是否全屏
         _photoBrowser.zoomPhotosToFill = YES;
-        _photoBrowser.enableGrid = NO;
-        _photoBrowser.startOnGrid = NO;
+        
+        //允许使用网络查看所有图片
+        _photoBrowser.enableGrid = YES;
+        //是否第一张
+        _photoBrowser.startOnGrid = YES;
+        _photoBrowser.enableSwipeToDismiss = YES;
+        [_photoBrowser showNextPhotoAnimated:YES];
+        [_photoBrowser showPreviousPhotoAnimated:YES];
         [_photoBrowser setCurrentPhotoIndex:0];
-    }
+    
     
     return _photoBrowser;
 }
@@ -84,7 +94,7 @@ static MessageReadManager *detailInstance = nil;
 {
     if (_photoNavigationController == nil) {
         _photoNavigationController = [[UINavigationController alloc] initWithRootViewController:self.photoBrowser];
-        _photoNavigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        _photoNavigationController.modalTransitionStyle = UIModalTransitionStylePartialCurl;
     }
     
     [self.photoBrowser reloadData];
@@ -137,8 +147,8 @@ static MessageReadManager *detailInstance = nil;
         self.photos = photoArray;
     }
     
-    UIViewController *rootController = [self.keyWindow rootViewController];
-    [rootController presentViewController:self.photoNavigationController animated:YES completion:nil];
+
+    [[AppDelegate visibleViewController].navigationController pushViewController:self.photoBrowser animated:YES];
 }
 
 - (BOOL)prepareMessageAudioModel:(MessageModel *)messageModel

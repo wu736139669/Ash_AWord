@@ -197,10 +197,17 @@
     if (buttonIndex == 1 &&alertView.tag == 101) {
         [MobClick event:kUmen_logout];
         
-        [AWordUser sharedInstance].isLogin = NO;
-        [AWordUser sharedInstance].uid = @"";
-        [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
-        [self.navigationController popViewControllerAnimated:YES];
+        [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:NO completion:^(NSDictionary *info, EMError *error) {
+            if (!error && info) {
+
+            }
+            [AWordUser sharedInstance].isLogin = NO;
+            [AWordUser sharedInstance].uid = @"";
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+            DLog(@"退出成功");
+        } onQueue:nil];
+
     }
     if(buttonIndex == 1 && alertView.tag == 102){
         [MBProgressHUD hudWithView:nil label:@"清除缓存中"];
