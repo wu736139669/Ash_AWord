@@ -50,7 +50,7 @@
     [self headerBeginRefreshing];
     
     //注册通知的观察者
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headerBeginRefreshing) name:kMessagePushSuccessNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headerRereshing) name:kMessagePushSuccessNotificationName object:nil];
     
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
