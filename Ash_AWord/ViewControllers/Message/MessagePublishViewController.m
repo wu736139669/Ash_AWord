@@ -86,6 +86,8 @@
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             if ([messagePublihViewModel success]) {
                 [MBProgressHUD checkHudWithView:self.view label:@"发布成功" hidesAfter:1.0];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotePushSuccessNotificationName object:nil];
+
                 [self dismissViewControllerAnimated:YES completion:nil];
             }else{
                 [MBProgressHUD errorHudWithView:self.view label:messagePublihViewModel.errMessage hidesAfter:1.0];

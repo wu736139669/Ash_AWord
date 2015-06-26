@@ -15,6 +15,7 @@
 #import "CommentViewModel.h"
 #import "CommentTableViewCell.h"
 #import "PraiseUserListViewController.h"
+#import "ReportViewController.h"
 @interface NoteCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NoteTableViewCell* _headView;
@@ -23,6 +24,7 @@
     NSInteger _page;
     NSMutableArray* _commentInfoArr;
     BOOL _isFirstLoad;
+    NSInteger _reportIndex;
 }
 @end
 
@@ -33,7 +35,7 @@
     // Do any additional setup after loading the view from its nib.
     _page = 1;
     _isFirstLoad = YES;
-
+    _reportIndex = -1;
     _commentInfoArr = [[NSMutableArray alloc] init];
     [self customViewDidLoad];
     self.navigationItem.title = @"评论";
@@ -85,8 +87,9 @@
     _commentTextView.frame = self.view.frame;
     _commentTextView.commentType = Image_Type;
     [_commentTextView setComentComplete:^(){
-        _isFirstLoad = YES;
-        [weakSelf headerBeginRefreshing];
+        _isFirstLoad = NO;
+        _page = 1;
+        [weakSelf loadData];
      }];
     [self.view addSubview:_commentTextView];
     _commentTextView.recordId = _text_image.messageId;
@@ -94,10 +97,13 @@
     [_commentTextView setHidden:YES];
     
     
+
+    
     [self loadData];
     [self requirePraiseUser];
 
 }
+
 
 
 -(void)requirePraiseUser
@@ -156,13 +162,6 @@
         if (_isFirstLoad) {
             CGPoint point = self.tableView.contentOffset;
 //            //计算内容加上点赞列表cell高于显示多少，移动到能看到点赞列表。
-//            point.y = _headView.frame.size.height+80-self.tableView.frame.size.height;
-//            
-//            if (_commentInfoArr.count > 0) {
-//                point.y += [CommentTableViewCell getHeightWithCommentInfoViewModel:[_commentInfoArr objectAtIndex:0]];
-//            }
-//            [self.tableView setContentOffset:point];
-//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES ];
             point.y = _headView.frame.size.height;
             [self.tableView setContentOffset:point animated:YES];
             
@@ -218,11 +217,16 @@
         [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
-    
+    cell.commentType = Image_Type;
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     cell.ownerId = _text_image.ownerId;
     [cell setCommentWithUid:^(NSString* ownerId){
         [_commentTextView showWithUid:ownerId];
+    }];
+    [cell setDelCommentSuccess:^(void){
+        _isFirstLoad = NO;
+        _page = 1;
+        [self loadData];
     }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;

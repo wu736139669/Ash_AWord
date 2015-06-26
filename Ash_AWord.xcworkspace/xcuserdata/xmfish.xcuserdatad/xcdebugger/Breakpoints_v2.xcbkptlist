@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "455182245.754147"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "-numberOfSectionsInTableView:"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NotePublishViewController.m"
-            timestampString = "451641749.207606"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
             landmarkType = "5">
          </BreakpointContent>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-loadData"
             landmarkType = "5">
             <Locations>
@@ -713,11 +713,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450631991.198771"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "-detectionVoice"
             landmarkType = "5">
          </BreakpointContent>
@@ -729,11 +729,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450631991.198771"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "-updateIndicateur"
             landmarkType = "5">
          </BreakpointContent>
@@ -745,11 +745,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450631991.198771"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -761,11 +761,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450631991.198771"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "-alertView:clickedButtonAtIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -825,11 +825,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450624994.91475"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
             landmarkName = "-audio"
             landmarkType = "5">
          </BreakpointContent>
@@ -841,11 +841,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450624994.91475"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "-audio"
             landmarkType = "5">
          </BreakpointContent>
@@ -857,11 +857,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450624994.91475"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-audio"
             landmarkType = "5">
          </BreakpointContent>
@@ -905,11 +905,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/MessageViewController.m"
-            timestampString = "455711777.493401"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-playWithIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -921,11 +921,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessagePublishViewController.m"
-            timestampString = "450631991.198771"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "-audioRecorderDidFinishRecording:successfully:"
             landmarkType = "5">
          </BreakpointContent>
@@ -969,11 +969,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/MessageViewController.m"
-            timestampString = "455711777.493401"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-footerRereshing"
             landmarkType = "5">
          </BreakpointContent>
@@ -985,11 +985,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-headerRereshing"
             landmarkType = "5">
          </BreakpointContent>
@@ -1177,11 +1177,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -1241,11 +1241,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "451816790.449978"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "-canBecomeFirstResponder"
             landmarkType = "5">
          </BreakpointContent>
@@ -1529,11 +1529,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "452502958.630353"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1545,11 +1545,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "452502960.942063"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1561,11 +1561,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "455182245.754147"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-didReceiveMemoryWarning"
             landmarkType = "5">
          </BreakpointContent>
@@ -1577,11 +1577,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "455182245.754147"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1593,11 +1593,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "455182245.754147"
+            timestampString = "456990925.57948"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
             landmarkName = "-imagePickerControllerDidCancel:"
             landmarkType = "5">
             <Locations>
@@ -2137,11 +2137,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -2153,11 +2153,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "-loadData"
             landmarkType = "5">
             <Locations>
@@ -2201,11 +2201,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -2233,11 +2233,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-requirePraiseUser"
             landmarkType = "5">
          </BreakpointContent>
@@ -2249,11 +2249,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "-requirePraiseUser"
             landmarkType = "5">
          </BreakpointContent>
@@ -2265,11 +2265,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-requirePraiseUser"
             landmarkType = "5">
             <Locations>
@@ -2313,11 +2313,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -2345,11 +2345,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/Views/Common/CommentTableViewCell.m"
-            timestampString = "456068317.847602"
+            timestampString = "456988908.52767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-setCommentInfoViewModel:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2361,11 +2361,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456214002.949678"
+            timestampString = "456989677.640236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2377,11 +2377,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456034301.74356"
+            timestampString = "456982707.310468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -2409,11 +2409,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/Views/Common/CommentTableViewCell.m"
-            timestampString = "456068317.847602"
+            timestampString = "456988908.52767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "-linkPushed:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2441,11 +2441,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/Views/Common/CommentTableViewCell.m"
-            timestampString = "456068281.61508"
+            timestampString = "456988908.52767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "-avatarBtnClick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2585,11 +2585,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Note/NoteCommentViewController.m"
-            timestampString = "456212684.376134"
+            timestampString = "456982707.310468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -2617,11 +2617,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Message/MessageCommentViewController.m"
-            timestampString = "456214095.079766"
+            timestampString = "456990312.358791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "-loadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -2821,7 +2821,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/Utility/Tool/Ash_UIUtil.m"
@@ -4127,6 +4127,22 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "-encodePro"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/Views/Common/CommentTableViewCell.m"
+            timestampString = "456988935.971535"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-longPressToDo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -92,7 +92,9 @@
     _commentTextView.commentType = Voice_Type;
 
     [_commentTextView setComentComplete:^(){
-        [weakSelf headerBeginRefreshing];
+        _isFirstLoad = NO;
+        _page = 1;
+        [weakSelf loadData];
     }];
     [self.view addSubview:_commentTextView];
     _commentTextView.recordId = _text_Voice.messageId;
@@ -214,11 +216,17 @@
         [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
-    
+    cell.commentType = Voice_Type;
+
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     cell.ownerId = _text_Voice.ownerId;
     [cell setCommentWithUid:^(NSString* ownerId){
         [_commentTextView showWithUid:ownerId];
+    }];
+    [cell setDelCommentSuccess:^(void){
+        _isFirstLoad = NO;
+        _page = 1;
+        [self loadData];
     }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;

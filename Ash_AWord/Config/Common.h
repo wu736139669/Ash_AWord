@@ -55,6 +55,11 @@
 
 #define kReceiveMessage @"kReceiveMessage"
 
+//发表
+#define kNotePushSuccessNotificationName  @"kNotePushSuccessNotificationName"
+#define kMessagePushSuccessNotificationName  @"kMessagePushSuccessNotificationName"
+
+
 //文字标签
 #define kNetworkErrorTips @"网络连接失败"
 #define kSSoErrorTips @"授权失败，请重新授权"

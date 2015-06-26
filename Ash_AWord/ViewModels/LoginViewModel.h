@@ -9,8 +9,10 @@
 #import "BaseViewModel.h"
 
 typedef enum {
-    Note_Type = 0,
-    Message_Type = 1,
+    Note_Img_Type = 0,
+    Message_Voice_Type = 1,
+    Report_Note_Img_Type = 2,
+    Report_Message_Voice_Type = 3,
 }Msg_Type;
 @interface LoginViewModel : BaseViewModel
 

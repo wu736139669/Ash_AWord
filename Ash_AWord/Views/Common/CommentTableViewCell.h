@@ -11,7 +11,7 @@
 @class CommentInfoViewModel;
 
 typedef void (^CommentWithUid)(NSString*);
-
+typedef void (^DelCommentSuccess)(void);
 @interface CommentTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -20,6 +20,9 @@ typedef void (^CommentWithUid)(NSString*);
 @property (weak, nonatomic) IBOutlet DTAttributedTextView *contentTextView;
 @property (strong, nonatomic)NSString* ownerId;
 @property (strong, nonatomic)CommentWithUid commentWithUid;
+@property (strong, nonatomic)DelCommentSuccess delCommentSuccess;
+
+@property (assign, nonatomic)CommentType commentType;
 - (IBAction)avatarBtnClick:(id)sender;
 -(void)setCommentInfoViewModel:(CommentInfoViewModel*)commentInfoViewModel;
 +(CGFloat)getHeightWithCommentInfoViewModel:(CommentInfoViewModel*)commentInfoViewModel isReplyOwner:(BOOL)isReplyOwner;

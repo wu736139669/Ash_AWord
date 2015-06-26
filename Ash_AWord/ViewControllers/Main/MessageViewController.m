@@ -46,7 +46,11 @@
     self.navigationItem.title = @"听你说";
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
     self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(headerBeginRefreshing) image:[UIImage imageNamed:@"navigationButtonRefresh"] highlightedImage:[UIImage imageNamed:@"navigationButtonRefreshClick"]];
+    
     [self headerBeginRefreshing];
+    
+    //注册通知的观察者
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headerBeginRefreshing) name:kMessagePushSuccessNotificationName object:nil];
     
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
@@ -98,7 +102,7 @@
         Text_Voice* text_Voice = [_text_voiceArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_Voice.ownerName;
         reportViewController.msgId = text_Voice.messageId;
-        reportViewController.msgType = Message_Type;
+        reportViewController.msgType = Message_Voice_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }

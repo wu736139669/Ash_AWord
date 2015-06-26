@@ -48,6 +48,9 @@
     
     [self checkUpdate];
     
+    //注册通知的观察者
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headerBeginRefreshing) name:kNotePushSuccessNotificationName object:nil];
+    
     UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
     longPressGr.minimumPressDuration = 1.0;
     [self.tableView addGestureRecognizer:longPressGr];
@@ -67,8 +70,7 @@
         NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint:point];
         UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath];
         if(indexPath == nil) return ;
-        //add your code here
-//        NSLog(@"%ld",indexPath.section);
+
         //启动弹出菜单
         NSMutableArray *menuItems = [NSMutableArray array];
         UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
@@ -97,13 +99,12 @@
         Text_Image* text_image = [_text_imageArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_image.ownerName;
         reportViewController.msgId = text_image.messageId;
-        reportViewController.msgType = Note_Type;
+        reportViewController.msgType = Note_Img_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }
-    
-    
 }
+
 -(BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
 

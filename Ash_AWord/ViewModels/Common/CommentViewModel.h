@@ -24,6 +24,7 @@
 @property (nonatomic, strong)NSArray* commentInfoArr;
 
 +(PropertyEntity*)requireAddCommentWithReconrdId:(NSInteger)recordId withContent:(NSString*)content WithType:(CommentType)commentType withToUid:(NSString*)otherId;
++(PropertyEntity*)requireDelCommentWithCommentId:(NSInteger)commentId;
 
 +(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size WithType:(CommentType)commentType;
 @end

@@ -10,7 +10,8 @@
 #import "CommentViewModel.h"
 #import "PersonalInfoViewController.h"
 #import "AppDelegate.h"
-@interface CommentInfoViewModel()<DTAttributedTextContentViewDelegate>
+#import "ReportViewController.h"
+@interface CommentInfoViewModel()<DTAttributedTextContentViewDelegate,UIAlertViewDelegate>
 @end
 @implementation CommentTableViewCell
 {
@@ -28,6 +29,10 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     [_contentTextView addGestureRecognizer:tap];
+    
+    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+    longPressGr.minimumPressDuration = 1.0;
+    [self addGestureRecognizer:longPressGr];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -127,5 +132,90 @@
         }
     }
 }
+
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        
+        //启动弹出菜单
+        NSMutableArray *menuItems = [NSMutableArray array];
+        UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+        [menuItems addObject:messageRepItem];
+        
+        UIMenuItem *messageCopyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(messageCopy:)];
+        [menuItems addObject:messageCopyItem];
+        
+        if ([_commentInfoViewModel.ownerId isEqualToString:[AWordUser sharedInstance].uid]) {
+            UIMenuItem *messageDelItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(messageDel:)];
+            [menuItems addObject:messageDelItem];
+        }
+        
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:menuItems];
+        [self becomeFirstResponder];
+        CGRect targetRect = self.frame;
+
+        [menu setTargetRect:targetRect inView:self.superview];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+-(void)messageCopy:(id)sender{
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = _commentInfoViewModel.content;
+}
+-(void)messageDel:(id)sender{
+    
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"确认删除" message:@"是否删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+    alertView.tag = 0;
+    [alertView show];
+}
+-(void)messageRep:(id)sender {
+//    UIMenuController *menu = [UIMenuController sharedMenuController];
+//    [menu setMenuVisible:NO animated:YES];
+    
+    ReportViewController* reportViewController = [[ReportViewController alloc] init];
+    reportViewController.authorName = _commentInfoViewModel.ownerName;
+    reportViewController.msgId = _commentInfoViewModel.commentId.integerValue;
+    if (_commentType == Image_Type) {
+        reportViewController.msgType = Report_Note_Img_Type;
+    }else{
+        reportViewController.msgType = Report_Message_Voice_Type;
+    }
+    reportViewController.hidesBottomBarWhenPushed = YES;
+    [[AppDelegate visibleViewController].navigationController pushViewController:reportViewController animated:YES];
+    
+}
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (  action == @selector(messageRep:) || action== @selector(messageCopy:)|| action== @selector(messageDel:)) {
+        return YES;
+    }
+    
+    return NO;
+}
+-(BOOL) canBecomeFirstResponder{
+    return YES;
+}
+
+#pragma mark --UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //删除
+    if (buttonIndex == 1) {
+        PropertyEntity* pro = [CommentViewModel requireDelCommentWithCommentId:_commentInfoViewModel.commentId.integerValue];
+        [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+            if ([viewModel success]) {
+                if (_delCommentSuccess) {
+                    _delCommentSuccess();
+                }
+            }else{
+                [MBProgressHUD errorHudWithView:nil label:[viewModel errMessage] hidesAfter:1.0];
+            }
+        } failedBlock:nil];
+    }
+}
+
 
 @end

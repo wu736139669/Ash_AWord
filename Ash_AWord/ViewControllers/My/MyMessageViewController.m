@@ -121,7 +121,7 @@
         Text_Voice* text_Voice = [_text_voiceArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_Voice.ownerName;
         reportViewController.msgId = text_Voice.messageId;
-        reportViewController.msgType = Message_Type;
+        reportViewController.msgType = Message_Voice_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }

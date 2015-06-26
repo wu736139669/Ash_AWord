@@ -118,7 +118,7 @@
         Text_Image* text_image = [_text_imageArr objectAtIndex:_reportIndex];
         reportViewController.authorName = text_image.ownerName;
         reportViewController.msgId = text_image.messageId;
-        reportViewController.msgType = Note_Type;
+        reportViewController.msgType = Note_Img_Type;
         reportViewController.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:reportViewController animated:YES];
     }

@@ -55,6 +55,19 @@
                 };
     return pro;
 }
++(PropertyEntity*)requireDelCommentWithCommentId:(NSInteger)commentId
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    NSDictionary* dic = @{
+                          @"commentId": [NSString stringWithFormat:@"%ld",commentId],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10202",
+                };
+    return pro;
+}
 +(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size WithType:(CommentType)commentType
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];

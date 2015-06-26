@@ -146,6 +146,8 @@
                                             failure:^(AFHTTPRequestOperation *__unused task, NSError *error) {
                                                 if (failedBlock) {
                                                     failedBlock(error);
+                                                }else{
+                                                    [MBProgressHUD errorHudWithView:nil label:kNetworkErrorTips hidesAfter:1.0];
                                                 }
                                                 
                                                 [self responseFromCacheWithAPIKey:apiKey property:proper completionBlock:completionBlock];
