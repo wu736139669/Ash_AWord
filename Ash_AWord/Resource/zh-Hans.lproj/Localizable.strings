@@ -38,6 +38,8 @@
 "message.startRecordFail" = "开始录音失败";
 "message.noMessage" = "消息已经清空";
 
+"The other side is not online" = "对方不在线";
+
 "search" = "搜索";
 "error" = "错误";
 "delete" = "删除";

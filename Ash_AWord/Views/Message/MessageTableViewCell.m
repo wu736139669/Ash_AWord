@@ -176,7 +176,7 @@
 }
 - (IBAction)shareBtnClick:(id)sender {
     
-    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_voice.content andImage:nil andUrl:[NSString stringWithFormat:@"%@/web/voice_share_info?record_id=%ld",Ash_AWord_API_URL,_text_voice.messageId]];
+    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_voice.content andImage:nil andUrl:[NSString stringWithFormat:@"%@/voice_share_info?record_id=%ld",Ash_AWord_Share_URL,_text_voice.messageId]];
     PropertyEntity* pro = [MessageViewModel requireShareWithRecordId:_text_voice.messageId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {

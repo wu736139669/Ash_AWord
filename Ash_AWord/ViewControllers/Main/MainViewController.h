@@ -10,4 +10,5 @@
 
 @interface MainViewController : UITabBarController
 
+-(NSInteger)setupUnreadMessageCount;
 @end

@@ -39,7 +39,7 @@
 "message.startRecordFail" = "failure to start recording";
 "message.noMessage" = "no messages";
 
-
+"The other side is not online" = "The other side is not online";
 //location
 "location.messageType" = "location message";
 "location.fail" = "locate failure";

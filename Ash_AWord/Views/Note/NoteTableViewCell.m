@@ -130,7 +130,7 @@
 
 - (IBAction)shareBtnClick:(id)sender
 {
-    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_image.content andImage:_contentImgView.image andUrl:[NSString stringWithFormat:@"%@/web/image_share_info?record_id=%ld",Ash_AWord_API_URL,(long)_text_image.messageId]];
+    [SetUpViewController shareAppWithViewController:nil andTitle:@"遇见你" andContent:_text_image.content andImage:_contentImgView.image andUrl:[NSString stringWithFormat:@"%@/image_share_info?record_id=%ld",Ash_AWord_Share_URL,(long)_text_image.messageId]];
     PropertyEntity* pro = [NoteViewModel requireShareWithRecordId:_text_image.messageId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {

@@ -229,6 +229,10 @@
 		A97C55061AC933AD0038818A /* UMSnsAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97C54FA1AC933AD0038818A /* UMSnsAccountViewController.xib */; };
 		A97C55071AC933AD0038818A /* UMSShareListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97C54FB1AC933AD0038818A /* UMSShareListController.xib */; };
 		A97C55081AC933AD0038818A /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A97C54FC1AC933AD0038818A /* UMSocialSDKResourcesNew.bundle */; };
+		A97CCE291B3BE6440046FE17 /* MessageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97CCE271B3BE6440046FE17 /* MessageListViewController.m */; };
+		A97CCE2A1B3BE6440046FE17 /* MessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97CCE281B3BE6440046FE17 /* MessageListViewController.xib */; };
+		A97CCE2E1B3BEBDA0046FE17 /* MessageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A97CCE2C1B3BEBDA0046FE17 /* MessageListTableViewCell.m */; };
+		A97CCE2F1B3BEBDA0046FE17 /* MessageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97CCE2D1B3BEBDA0046FE17 /* MessageListTableViewCell.xib */; };
 		A97DBE331ACAE10800705682 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97DBE311ACAE10800705682 /* LoginViewController.m */; };
 		A97DBE341ACAE10800705682 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE321ACAE10800705682 /* LoginViewController.xib */; };
 		A97DBE3F1ACAE29E00705682 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE391ACAE29E00705682 /* Icon.png */; };
@@ -293,6 +297,8 @@
 		A9B6DFE41B202E950003C1BC /* night_user_comment_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B6DFE31B202E950003C1BC /* night_user_comment_circle@2x.png */; };
 		A9B6DFE61B2033A80003C1BC /* toolbar_light_comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9B6DFE51B2033A80003C1BC /* toolbar_light_comment@2x.png */; };
 		A9B6DFEC1B2068790003C1BC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9B6DFEE1B2068790003C1BC /* Localizable.strings */; };
+		A9B7BD791B3C083E00C0B1D7 /* MyMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B7BD771B3C083E00C0B1D7 /* MyMessageTableViewCell.m */; };
+		A9B7BD7A1B3C083E00C0B1D7 /* MyMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B7BD781B3C083E00C0B1D7 /* MyMessageTableViewCell.xib */; };
 		A9B8FEC51B32A4CF00619C7D /* ChatMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B8FEC31B32A4CF00619C7D /* ChatMainViewController.m */; };
 		A9B8FEC61B32A4CF00619C7D /* ChatMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9B8FEC41B32A4CF00619C7D /* ChatMainViewController.xib */; };
 		A9B8FEC91B32AC7000619C7D /* DXMessageToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A9B8FEC81B32AC7000619C7D /* DXMessageToolBar.m */; };
@@ -819,6 +825,12 @@
 		A97C54FB1AC933AD0038818A /* UMSShareListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMSShareListController.xib; sourceTree = "<group>"; };
 		A97C54FC1AC933AD0038818A /* UMSocialSDKResourcesNew.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResourcesNew.bundle; sourceTree = "<group>"; };
 		A97C54FD1AC933AD0038818A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/UMSocialLocalizable.strings"; sourceTree = "<group>"; };
+		A97CCE261B3BE6440046FE17 /* MessageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListViewController.h; sourceTree = "<group>"; };
+		A97CCE271B3BE6440046FE17 /* MessageListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListViewController.m; sourceTree = "<group>"; };
+		A97CCE281B3BE6440046FE17 /* MessageListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListViewController.xib; sourceTree = "<group>"; };
+		A97CCE2B1B3BEBDA0046FE17 /* MessageListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListTableViewCell.h; sourceTree = "<group>"; };
+		A97CCE2C1B3BEBDA0046FE17 /* MessageListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListTableViewCell.m; sourceTree = "<group>"; };
+		A97CCE2D1B3BEBDA0046FE17 /* MessageListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListTableViewCell.xib; sourceTree = "<group>"; };
 		A97DBE301ACAE10800705682 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A97DBE311ACAE10800705682 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A97DBE321ACAE10800705682 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -905,6 +917,9 @@
 		A9B6DFE51B2033A80003C1BC /* toolbar_light_comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_light_comment@2x.png"; sourceTree = "<group>"; };
 		A9B6DFED1B2068790003C1BC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A9B6DFEF1B20687B0003C1BC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9B7BD761B3C083E00C0B1D7 /* MyMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewCell.h; sourceTree = "<group>"; };
+		A9B7BD771B3C083E00C0B1D7 /* MyMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageTableViewCell.m; sourceTree = "<group>"; };
+		A9B7BD781B3C083E00C0B1D7 /* MyMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageTableViewCell.xib; sourceTree = "<group>"; };
 		A9B8FEBB1B32930100619C7D /* libEaseMobClientSDKLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDKLite.a; sourceTree = "<group>"; };
 		A9B8FEC21B32A4CF00619C7D /* ChatMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMainViewController.h; sourceTree = "<group>"; };
 		A9B8FEC31B32A4CF00619C7D /* ChatMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMainViewController.m; sourceTree = "<group>"; };
@@ -1202,6 +1217,9 @@
 				A9B4A9511AEDC3620017C655 /* FeedbackViewController.h */,
 				A9B4A9521AEDC3620017C655 /* FeedbackViewController.m */,
 				A9B4A9531AEDC3620017C655 /* FeedbackViewController.xib */,
+				A97CCE261B3BE6440046FE17 /* MessageListViewController.h */,
+				A97CCE271B3BE6440046FE17 /* MessageListViewController.m */,
+				A97CCE281B3BE6440046FE17 /* MessageListViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -1323,6 +1341,9 @@
 				A9A3A74C1B2805DA001AAB3A /* PersonalTopView.h */,
 				A9A3A74D1B2805DA001AAB3A /* PersonalTopView.m */,
 				A9A3A74F1B2805EA001AAB3A /* PersonalTopView.xib */,
+				A97CCE2B1B3BEBDA0046FE17 /* MessageListTableViewCell.h */,
+				A97CCE2C1B3BEBDA0046FE17 /* MessageListTableViewCell.m */,
+				A97CCE2D1B3BEBDA0046FE17 /* MessageListTableViewCell.xib */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2330,6 +2351,9 @@
 				A9B6DFCA1B1FFDB20003C1BC /* CommentTextView.h */,
 				A9B6DFCB1B1FFDB20003C1BC /* CommentTextView.m */,
 				A9B6DFD11B20054B0003C1BC /* CommentTextView.xib */,
+				A9B7BD761B3C083E00C0B1D7 /* MyMessageTableViewCell.h */,
+				A9B7BD771B3C083E00C0B1D7 /* MyMessageTableViewCell.m */,
+				A9B7BD781B3C083E00C0B1D7 /* MyMessageTableViewCell.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2571,6 +2595,7 @@
 				A971EDF31B32B7AF0023740E /* chatBar_more_locationSelected@2x.png in Resources */,
 				A971EDF41B32B7AF0023740E /* chatBar_more_photo@2x.png in Resources */,
 				A971EE0A1B32B7C40023740E /* chatBar_colorMore_video@2x.png in Resources */,
+				A9B7BD7A1B3C083E00C0B1D7 /* MyMessageTableViewCell.xib in Resources */,
 				A99AA12F1ADD028400574B12 /* Icon120.png in Resources */,
 				A98536821AEBC7BB000312BF /* SetUserInfoViewController.xib in Resources */,
 				A9C58DED1B3AA8EC0007FCDC /* VoiceSearchFeedback004.png in Resources */,
@@ -2675,6 +2700,7 @@
 				A971EDF21B32B7AF0023740E /* chatBar_more_location@2x.png in Resources */,
 				A9FD82BD1B1D544300AC4DC9 /* CommentTableViewCell.xib in Resources */,
 				A971EE091B32B7C40023740E /* chatBar_colorMore_photoSelected@2x.png in Resources */,
+				A97CCE2A1B3BE6440046FE17 /* MessageListViewController.xib in Resources */,
 				A9C58DE31B3AA8EC0007FCDC /* chatFire_audioPlaying2.png in Resources */,
 				A98536731AEB66F9000312BF /* ReportViewController.xib in Resources */,
 				A9C58DF61B3AA8EC0007FCDC /* VoiceSearchFeedback008@2x.png in Resources */,
@@ -2709,6 +2735,7 @@
 				A93441E51ACA8AC400A6B233 /* Profile_filter_contentIcon@2x.png in Resources */,
 				A971EDF11B32B7AF0023740E /* chatBar_more_cameraSelected@2x.png in Resources */,
 				A97559B31ACBC683004ADA42 /* NotePublishViewController.xib in Resources */,
+				A97CCE2F1B3BEBDA0046FE17 /* MessageListTableViewCell.xib in Resources */,
 				A966FB991AD62CAE00542068 /* checkmark@2x.png in Resources */,
 				A9C58E0C1B3AA8EC0007FCDC /* VoiceSearchFeedback019@2x.png in Resources */,
 				A978CB401B3A3D7100028C4A /* chat_location_detail_disclosure@2x.png in Resources */,
@@ -2841,6 +2868,7 @@
 				A9F917D31B3906150007A3AC /* MessageModelManager.m in Sources */,
 				A9754A1D1ADC080E0018BAAD /* AutoRecoveringHttpDataSource.m in Sources */,
 				A971EDB61B32B5740023740E /* EMCDDeviceManager+Remind.m in Sources */,
+				A97CCE2E1B3BEBDA0046FE17 /* MessageListTableViewCell.m in Sources */,
 				A97C54CD1AC8F10F0038818A /* BaseViewModel.m in Sources */,
 				A9754A261ADC199B0018BAAD /* MyMessageViewController.m in Sources */,
 				A9617A4F1ACC0D0F0024AE4A /* NoteViewModel.m in Sources */,
@@ -2872,6 +2900,7 @@
 				A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */,
 				A96F27F91B21C5C800DA0A66 /* PraiseUserListViewController.m in Sources */,
 				A93441DE1ACA311700A6B233 /* Ash_UIUtil.m in Sources */,
+				A9B7BD791B3C083E00C0B1D7 /* MyMessageTableViewCell.m in Sources */,
 				A9B8FEC91B32AC7000619C7D /* DXMessageToolBar.m in Sources */,
 				A968624C1ACCF0B400DDAA6B /* README.md in Sources */,
 				A9754A1E1ADC080E0018BAAD /* CoreFoundationDataSource.m in Sources */,
@@ -2906,6 +2935,7 @@
 				A96862431ACCF0B400DDAA6B /* MWCaptionView.m in Sources */,
 				A9F7F45F1B33BC4E00317F3E /* CallViewController.m in Sources */,
 				A971EDCA1B32B6A40023740E /* EMVoiceConverter.mm in Sources */,
+				A97CCE291B3BE6440046FE17 /* MessageListViewController.m in Sources */,
 				A9FD82BC1B1D544300AC4DC9 /* CommentTableViewCell.m in Sources */,
 				A9B6DFCC1B1FFDB20003C1BC /* CommentTextView.m in Sources */,
 				A96F27EE1B2195BA00DA0A66 /* UIImageView+Reloading.m in Sources */,

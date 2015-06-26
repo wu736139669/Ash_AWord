@@ -14,9 +14,14 @@
 #import "MyNoteViewController.h"
 #import "MyMessageViewController.h"
 #import "SetUserInfoViewController.h"
+#import "MessageListViewController.h"
+#import "MyMessageTableViewCell.h"
+#import "MainViewController.h"
+#import "AppDelegate.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
+    
 }
 @end
 
@@ -49,8 +54,14 @@
     //注册通知的观察者
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLoginSuccessNotificationName object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kLogoutSuccessNotificationName object:nil];
-}
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:kReceiveMessage object:nil];
 
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 -(void)goSetUp
 {
     SetUpViewController* setUpViewController = [[SetUpViewController alloc] init];
@@ -64,7 +75,7 @@
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -76,9 +87,21 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* cellIdentifier = @"cell";
+    if (indexPath.section == 2) {
+        cellIdentifier = @"MyMessageTableViewCell";
+    }
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        if (indexPath.section == 2) {
+            UINib* nib = nil;
+            nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
+            [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        }else{
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        }
+        
         
     }
     switch (indexPath.section) {
@@ -109,7 +132,9 @@
             break;
         case 2:
         {
-            cell.textLabel.text = @"推荐给朋友";
+            cell.textLabel.text = @"消息";
+            NSInteger count = [((AppDelegate*)[UIApplication sharedApplication].delegate).mainViewController setupUnreadMessageCount];
+            [(MyMessageTableViewCell*)cell setUnReadCount:count];
         }
             break;
         default:
@@ -156,6 +181,13 @@
                 }
             }
             
+        }
+            break;
+            case 2:
+        {
+            MessageListViewController* messageListViewController = [[MessageListViewController alloc] init];
+            messageListViewController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:messageListViewController animated:YES];
         }
             break;
         default:

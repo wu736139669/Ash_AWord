@@ -73,22 +73,7 @@
     return _slimeView;
 }
 
-- (instancetype)initWithChatter:(NSString *)chatter conversationType:(EMConversationType)type
-{
-    self = [super initWithNibName:nil bundle:nil];
-    if (self) {
-        _isPlayingAudio = NO;
-//        _chatter = chatter;
-//        _conversationType = type;
-        _messages = [NSMutableArray array];
-        
-        //根据接收者的username获取当前会话的管理者
-        _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:chatter conversationType:type];
-        [_conversation markAllMessagesAsRead:YES];
-    }
-    
-    return self;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -102,6 +87,12 @@
 
     self.navigationItem.title = _otherUserName;
     
+    if (!_otherUserName) {
+        _otherUserName = @"";
+    }
+    if (!_otherUserAvatar) {
+        _otherUserAvatar = @"";
+    }
     //根据接收者的username获取当前会话的管理者
     _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:_otherUserId conversationType:eConversationTypeChat];
     [_conversation markAllMessagesAsRead:YES];
@@ -365,18 +356,19 @@
 {
     // 隐藏键盘
     [self keyBoardHidden];
-    EMCallSession *callSession = nil;
-    EMError *error = nil;
-    
-    if (![CallViewController canVideo]) {
-        return;
-    }
-    callSession = [[EaseMob sharedInstance].callManager asyncMakeVideoCall:_conversation.chatter timeout:50 error:&error];
-    
-    
-    CallViewController *callController = [[CallViewController alloc] initWithSession:callSession isIncoming:NO withName:_otherUserName withAvatar:_otherUserAvatar];
-    callController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [self presentViewController:callController animated:NO completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"callOutWithChatter" object:@{@"chatter":_otherUserId, @"type":[NSNumber numberWithInt:eCallSessionTypeVideo],@"username":_otherUserName,@"useravatar":_otherUserAvatar}];
+//    EMCallSession *callSession = nil;
+//    EMError *error = nil;
+//    
+//    if (![CallViewController canVideo]) {
+//        return;
+//    }
+//    callSession = [[EaseMob sharedInstance].callManager asyncMakeVideoCall:_conversation.chatter timeout:50 error:&error];
+//    
+//    
+//    CallViewController *callController = [[CallViewController alloc] initWithSession:callSession isIncoming:NO withName:_otherUserName withAvatar:_otherUserAvatar];
+//    callController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+//    [self presentViewController:callController animated:NO completion:nil];
 }
 
 #pragma mark - helper

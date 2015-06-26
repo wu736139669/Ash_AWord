@@ -144,8 +144,6 @@
                                                 [self saveCacheWithAPIKey:apiKey property:proper data:tweet];
                                             }
                                             failure:^(AFHTTPRequestOperation *__unused task, NSError *error) {
-                                                NSLog(@"%@", error.description);
-                                                
                                                 if (failedBlock) {
                                                     failedBlock(error);
                                                 }

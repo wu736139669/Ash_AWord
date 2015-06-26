@@ -50,9 +50,15 @@
     }
 #endif
     
+    NSString* apnsCertName = EaseMobApnsCertName_Dev;
+#if DEBUG
+    apnsCertName = EaseMobApnsCertName_Dev;
+#else
+    apnsCertName = EaseMobApnsCertNameProduct;
+#endif
     
     //注册 APNS文件的名字, 需要与后台上传证书时的名字一一对应
-    [[EaseMob sharedInstance] registerSDKWithAppKey:EaseMobAppKey apnsCertName:EaseMobApnsCertName];
+    [[EaseMob sharedInstance] registerSDKWithAppKey:EaseMobAppKey apnsCertName:apnsCertName];
     // 需要在注册sdk后写上该方法
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     

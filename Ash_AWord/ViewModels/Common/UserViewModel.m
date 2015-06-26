@@ -21,6 +21,7 @@
     [dic setObject:@"users" forKey:@"userInfoArr"];
     [dic setObject:@"friends" forKey:@"friendUserArr"];
     [dic setObject:@"userinfo" forKey:@"userInfo"];
+    [dic setObject:@"userBaseInfos" forKey:@"userBaseInfoArr"];
     return dic;
 }
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
@@ -32,6 +33,9 @@
     };
     
     return self;
+}
++ (NSValueTransformer *)userBaseInfoArrJSONTransformer{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:UserInfoViewModel.class];
 }
 + (NSValueTransformer *)userInfoArrJSONTransformer{
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:UserInfoViewModel.class];
@@ -110,6 +114,25 @@
     if (isAttention == 2) {
         command = @"10104";
     }
+    pro.pro = @{@"root": dic,
+                @"command": command,
+                };
+    return pro;
+}
+
++(PropertyEntity*)requireUserListWithUid:(NSArray *)uidArr
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    
+    if (uidArr.count == 0) {
+        uidArr = [NSArray array];
+    }
+    NSDictionary* dic = @{@"targetUids": uidArr,
+                          };
+    NSString* command = @"10010";
+
     pro.pro = @{@"root": dic,
                 @"command": command,
                 };

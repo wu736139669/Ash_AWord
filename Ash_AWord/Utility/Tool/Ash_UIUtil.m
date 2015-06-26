@@ -21,6 +21,8 @@
             [self loginWithUserName:username];
         }else if (error.errorCode == EMErrorServerDuplicatedAccount) {
             [self loginWithUserName:username];
+        }else{
+            [self loginWithUserName:username];  
         }
     } onQueue:nil];
 
@@ -32,9 +34,12 @@
             // 设置自动登录
             [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
             DLog(@"登陆成功");
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
+
         }
         EMPushNotificationOptions *options = [[EaseMob sharedInstance].chatManager pushNotificationOptions];
         options.nickname = [AWordUser sharedInstance].userName;
+        options.displayStyle = ePushNotificationDisplayStyle_messageSummary;
         [[EaseMob sharedInstance].chatManager asyncUpdatePushOptions:options];
     } onQueue:nil];
 }

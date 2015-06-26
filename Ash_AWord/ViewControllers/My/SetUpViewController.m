@@ -197,7 +197,7 @@
     if (buttonIndex == 1 &&alertView.tag == 101) {
         [MobClick event:kUmen_logout];
         
-        [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:NO completion:^(NSDictionary *info, EMError *error) {
+        [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
             if (!error && info) {
 
             }
@@ -262,10 +262,7 @@
     }
     if(content.length <= 0)
     {
-
-
         content = @"最真的表白，是我欲言又止的沉默";
-
     }
     if (url.length <= 0) {
         NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];

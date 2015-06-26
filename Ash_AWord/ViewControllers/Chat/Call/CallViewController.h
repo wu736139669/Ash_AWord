@@ -57,6 +57,6 @@ static CTCallCenter *g_callCenter;
 - (instancetype)initWithSession:(EMCallSession *)session
                      isIncoming:(BOOL)isIncoming withName:(NSString*)name withAvatar:(NSString*)avatar;
 
-+ (BOOL)canVideo;
++ (BOOL)canVideoWithAlertStr:(NSString*)str;
 
 @end

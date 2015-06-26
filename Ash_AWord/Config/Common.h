@@ -53,6 +53,8 @@
 #define kLoginSuccessNotificationName  @"kLoginSuccessNotificationName"
 #define kLogoutSuccessNotificationName @"kLogoutSuccessNotificationName"
 
+#define kReceiveMessage @"kReceiveMessage"
+
 //文字标签
 #define kNetworkErrorTips @"网络连接失败"
 #define kSSoErrorTips @"授权失败，请重新授权"
@@ -64,13 +66,15 @@
 
 #define Ash_AWord_API_URL @"http://121.43.150.13/QuestionServer/rs/yjn/post"
 #define Ash_AWord_First_URL @"http://121.43.150.13"
+#define Ash_AWord_Share_URL @"http://121.43.150.13/QuestionServer/web"
 //#define Ash_AWord_API_URL @"http://192.168.1.3:8080/QuestionServer"
 #define Sign_Key @"yjn@jjyy123"
 
 /**
  *环信信息
  */
-#define EaseMobApnsCertName @"yujianni"
+#define EaseMobApnsCertName_Dev @"yujianni"
+#define EaseMobApnsCertNameProduct @"yujianni_product"
 #define EaseMobAppKey @"ash#ashyujianni"
 #define EasePassword @"123456"
 /**

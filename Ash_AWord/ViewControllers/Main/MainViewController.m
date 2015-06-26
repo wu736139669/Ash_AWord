@@ -92,6 +92,7 @@ static NSString *kMessageType = @"MessageType";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callOutWithChatter:) name:@"callOutWithChatter" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callControllerClose:) name:@"callControllerClose" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupUnreadMessageCount) name:kLogoutSuccessNotificationName object:nil];
     self.selectedIndex = 0;
     
 }
@@ -142,7 +143,7 @@ static NSString *kMessageType = @"MessageType";
 
 
 // 统计未读消息数
--(void)setupUnreadMessageCount
+-(NSInteger)setupUnreadMessageCount
 {
     NSArray *conversations = [[[EaseMob sharedInstance] chatManager] conversations];
 
@@ -157,9 +158,10 @@ static NSString *kMessageType = @"MessageType";
             _myNav.tabBarItem.badgeValue = nil;
         }
     }
-    
     UIApplication *application = [UIApplication sharedApplication];
     [application setApplicationIconBadgeNumber:unreadCount];
+    return unreadCount;
+
 }
 
 
@@ -232,6 +234,8 @@ static NSString *kMessageType = @"MessageType";
 // 收到消息回调
 -(void)didReceiveMessage:(EMMessage *)message
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReceiveMessage object:nil];
+
     BOOL needShowNotification = (message.messageType != eMessageTypeChat) ? [self needShowNotification:message.conversationChatter] : YES;
     if (needShowNotification) {
 #if !TARGET_IPHONE_SIMULATOR
@@ -396,21 +400,21 @@ static NSString *kMessageType = @"MessageType";
 #pragma mark - 自动登录回调
 
 - (void)willAutoReconnect{
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.ongoing", @"reconnecting...") hidesAfter:1.0];
+//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//    [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.ongoing", @"reconnecting...") hidesAfter:1.0];
 //    [self hideHud];
 //    [self showHint:NSLocalizedString(@"reconnection.ongoing", @"reconnecting...")];
 }
 
 - (void)didAutoReconnectFinishedWithError:(NSError *)error{
 //    [self hideHud];
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-
-    if (error) {
-        [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.fail", @"reconnection failure, later will continue to reconnection") hidesAfter:1.0];
-    }else{
-        [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.success", @"reconnection successful！") hidesAfter:1.0];
-    }
+//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//
+//    if (error) {
+//        [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.fail", @"reconnection failure, later will continue to reconnection") hidesAfter:1.0];
+//    }else{
+//        [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.success", @"reconnection successful！") hidesAfter:1.0];
+//    }
 }
 
 #pragma mark - ICallManagerDelegate
@@ -433,7 +437,7 @@ static NSString *kMessageType = @"MessageType";
             }
             
 #warning 在后台不能进行视频通话
-            if(callSession.type == eCallSessionTypeVideo && ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground || ![CallViewController canVideo])){
+            if(callSession.type == eCallSessionTypeVideo && ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground || ![CallViewController canVideoWithAlertStr:@"有人想与你视频,如果需要视频,"])){
                 error = [EMError errorWithCode:EMErrorInitFailure andDescription:@"不能进行视频通话"];
                 break;
             }
@@ -470,7 +474,7 @@ static NSString *kMessageType = @"MessageType";
             callSession = [[EaseMob sharedInstance].callManager asyncMakeVoiceCall:chatter timeout:50 error:&error];
         }
         else if (type == eCallSessionTypeVideo){
-            if (![CallViewController canVideo]) {
+            if (![CallViewController canVideoWithAlertStr:@""]) {
                 return;
             }
             callSession = [[EaseMob sharedInstance].callManager asyncMakeVideoCall:chatter timeout:50 error:&error];

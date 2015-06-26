@@ -27,6 +27,7 @@
 @property (nonatomic, strong) NSArray *userInfoArr;
 @property (nonatomic, strong) NSArray *friendUserArr;
 @property (nonatomic, strong)UserInfoViewModel* userInfo;
+@property (nonatomic, strong) NSArray *userBaseInfoArr;
 @property (nonatomic, assign)NSInteger relation;//与当前用户关系。0：没有关系，1：已关注此人，2：已被此人关注，3：相互关注（如果是获取自己的个人信息，可以无视该项0.0）
 +(PropertyEntity*)requireLoadPraiseUserWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size withType:(CommentType)type;
 
@@ -34,4 +35,6 @@
 
 +(PropertyEntity*)requireLoadUserListWithTargetUid:(NSString*)targetUid withType:(NSInteger)isAttention withPage:(NSInteger)page withPage_size:(NSInteger)page_size; // 1是关注列表,2是粉丝列表
 +(PropertyEntity*)requireAttentionWithTargetUid:(NSString*)targetUid withIsAttention:(BOOL)isAttention;
+
++(PropertyEntity*)requireUserListWithUid:(NSArray*)uidArr;
 @end

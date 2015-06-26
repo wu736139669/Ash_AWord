@@ -28,7 +28,6 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _callSession = session;
-        
         _isIncoming = isIncoming;
         _timeLabel.text = @"";
         _timeLength = 0;
@@ -36,7 +35,11 @@
         _avatar = avatar;
         [[EaseMob sharedInstance].callManager removeDelegate:self];
         [[EaseMob sharedInstance].callManager addDelegate:self delegateQueue:nil];
-        
+        if(!isIncoming && session.type==eCallSessionTypeAudio)
+        {
+            [self _beginRing];
+
+        }
         g_callCenter = [[CTCallCenter alloc] init];
         g_callCenter.callEventHandler=^(CTCall* call)
         {
@@ -295,6 +298,9 @@
 {
     [_ringPlayer stop];
 
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryAmbient error:nil];
+    [audioSession setActive:YES error:nil];
     NSString *musicPath = [[NSBundle mainBundle] pathForResource:@"callRing" ofType:@"mp3"];
     NSURL *url = [[NSURL alloc] initFileURLWithPath:musicPath];
 
@@ -481,12 +487,13 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
 //    [self hideHud];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    [self _stopRing];
     if(error){
+        [self _stopRing];
+
         _statusLabel.text = @"连接失败";
         [self _insertMessageWithStr:@"通话失败"];
         
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", @"Error") message:error.description delegate:self cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
+        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"error", @"Error") message:NSLocalizedString(error.description, error.description) delegate:self cancelButtonTitle:NSLocalizedString(@"ok", @"OK") otherButtonTitles:nil, nil];
         errorAlert.tag = kAlertViewTag_Close;
         [errorAlert show];
         
@@ -494,6 +501,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
     
     if (callSession.status == eCallSessionStatusDisconnected) {
+        [self _stopRing];
+
         NSLog(@"callSession.status == eCallSessionStatusDisconnected");
         _statusLabel.text = @"通话已挂断";
         NSString *str = @"通话结束";
@@ -514,6 +523,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     }
     else if (callSession.status == eCallSessionStatusAccepted)
     {
+        [self _stopRing];
+
         _statusLabel.text = @"可以通话了...";
         _timeLength = 0;
         _timeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timeTimerAction:) userInfo:nil repeats:YES];
@@ -581,7 +592,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     if(![_audioCategory isEqualToString:AVAudioSessionCategoryPlayAndRecord]){
         [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
         [audioSession setActive:YES error:nil];
-        NSLog(@"xieyajie===========2");
     }
     
     [[EaseMob sharedInstance].callManager asyncAnswerCall:_callSession.sessionId];
@@ -601,11 +611,12 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     [[EaseMob sharedInstance].callManager asyncEndCall:_callSession.sessionId reason:eCallReason_Hangup];
 }
 
-+ (BOOL)canVideo
++ (BOOL)canVideoWithAlertStr:(NSString *)str
 {
     if([[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending){
-        if(!([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo] == AVAuthorizationStatusAuthorized)){\
-            UIAlertView * alt = [[UIAlertView alloc] initWithTitle:@"未获得授权使用摄像头" message:@"请在iOS\"设置中\"-\"隐私\"-\"相机\"中打开" delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
+        if(!([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo] == AVAuthorizationStatusAuthorized)){
+            NSString* alertMsg = [NSString stringWithFormat:@"%@请在iOS\"设置中\"-\"隐私\"-\"相机\"中打开",str];
+            UIAlertView * alt = [[UIAlertView alloc] initWithTitle:@"未获得授权使用摄像头" message:alertMsg delegate:self cancelButtonTitle:nil otherButtonTitles:@"知道了", nil];
             [alt show];
             return NO;
         }
