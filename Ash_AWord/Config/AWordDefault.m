@@ -79,4 +79,17 @@
 {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"logintype"];
 }
++(BOOL)setHeadBgImg:(UIImage *)headBgImg
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"headbg.png"]];   // 保存文件的名称
+    return [UIImagePNGRepresentation(headBgImg)writeToFile: filePath atomically:YES];
+}
++(UIImage*)getHeadBgImg
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *filePath = [[paths objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"headbg.png"]];   // 保存文件的名称
+    UIImage *img = [UIImage imageWithContentsOfFile:filePath];
+    return img;
+}
 @end

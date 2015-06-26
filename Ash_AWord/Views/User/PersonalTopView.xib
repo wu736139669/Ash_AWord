@@ -215,13 +215,24 @@
                         <constraint firstItem="5o9-fJ-VTY" firstAttribute="leading" secondItem="WX9-rs-4F1" secondAttribute="leading" constant="10" id="psm-pO-aXr"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bla-xA-hHn">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="146"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="WX9-rs-4F1" secondAttribute="bottom" id="EHp-jo-kyp"/>
+                <constraint firstItem="bla-xA-hHn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Syn-Oj-cR0"/>
+                <constraint firstItem="bla-xA-hHn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VCd-F5-BRl"/>
                 <constraint firstItem="WX9-rs-4F1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="109" id="fdX-7l-8fh"/>
                 <constraint firstAttribute="bottom" secondItem="WX9-rs-4F1" secondAttribute="bottom" id="gtr-tG-96M"/>
+                <constraint firstAttribute="trailing" secondItem="bla-xA-hHn" secondAttribute="trailing" id="mD5-ut-f3G"/>
                 <constraint firstItem="WX9-rs-4F1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nQ3-aZ-41G"/>
+                <constraint firstItem="WX9-rs-4F1" firstAttribute="top" secondItem="bla-xA-hHn" secondAttribute="bottom" id="uEZ-fY-OE0"/>
                 <constraint firstAttribute="trailing" secondItem="WX9-rs-4F1" secondAttribute="trailing" id="zvw-PO-jv1"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -240,6 +251,7 @@
                 <outlet property="attentionCountLabel" destination="aTY-fs-6Kn" id="EWv-uA-ptu"/>
                 <outlet property="avatarBtn" destination="5o9-fJ-VTY" id="Bfn-tL-ki0"/>
                 <outlet property="fansCountLabel" destination="dV9-mk-6So" id="nVx-CR-WIf"/>
+                <outlet property="headBtn" destination="bla-xA-hHn" id="vNS-IO-6v3"/>
                 <outlet property="imageBtn" destination="bSw-ar-jAL" id="gXt-L0-dkx"/>
                 <outlet property="line1" destination="sml-su-cYb" id="dQy-oU-Ans"/>
                 <outlet property="line1Width" destination="iis-R5-w9v" id="iZx-cd-KgH"/>

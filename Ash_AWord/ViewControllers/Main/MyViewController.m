@@ -18,6 +18,7 @@
 #import "MyMessageTableViewCell.h"
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import "PersonalInfoViewController.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
@@ -154,9 +155,14 @@
             }else{
                 if([AWordUser sharedInstance].loginType == 1)
                 {
-                    SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
-                    setUserInfoViewController.hidesBottomBarWhenPushed = YES;
-                    [self.navigationController pushViewController:setUserInfoViewController animated:YES];
+//                    SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
+//                    setUserInfoViewController.hidesBottomBarWhenPushed = YES;
+//                    [self.navigationController pushViewController:setUserInfoViewController animated:YES];
+                    
+                    PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+                    personalInfoViewController.hidesBottomBarWhenPushed = YES;
+                    personalInfoViewController.otherUserId = [AWordUser sharedInstance].uid;
+                    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
                 }
 
             }

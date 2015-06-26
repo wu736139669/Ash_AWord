@@ -15,7 +15,7 @@
 #import "MessageViewModel.h"
 #import "UserViewModel.h"
 #import "ChatMainViewController.h"
-@interface PersonalInfoViewController ()<NoteTableViewCellDelegate,MessageTableViewCellDelegate>
+@interface PersonalInfoViewController ()<NoteTableViewCellDelegate,MessageTableViewCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
     CExpandHeader *_header;
     PersonalTopView* _personalTopView;
@@ -43,10 +43,13 @@
 
     self.navigationItem.title = @"个人主页";
     
+    if ([AWordUser sharedInstance].headBgImg) {
+        _topViewImage.image = [AWordUser sharedInstance].headBgImg;
+    }
+    
     _imageArr = [[NSMutableArray alloc] init];
     _voiceArr = [[NSMutableArray alloc] init];
 
-    NSLog(@"%@",[AWordUser sharedInstance].uid);
 
     if ([_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
         _bottomView.hidden = YES;
@@ -65,7 +68,8 @@
 //    _personalTopView.frame = CGRectMake(0, 0, kScreenWidth, 285*[Ash_UIUtil currentScreenSizeRate]);
     __weak PersonalInfoViewController *weakself = self;
     [_personalTopView setuserInfoViewModel:_userViewModel];
-    
+
+    [_personalTopView.headBtn addTarget:self action:@selector(selectHeadImage:) forControlEvents:UIControlEventTouchUpInside];
     [_personalTopView setIsSelectImg:^(BOOL isSelectImg){
         _isSelectImage = isSelectImg;
         if (isSelectImg) {
@@ -82,9 +86,66 @@
             }
         }
     }];
+    
 //    [self.tableView beginUpdates];
     self.tableView.tableHeaderView = _personalTopView;
 //    [self.tableView endUpdates];
+}
+
+#pragma mark 替换头图
+-(void)selectHeadImage:(id)sender
+{
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    }else{
+        [self actionSheet:nil clickedButtonAtIndex:1];
+    }
+
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    if (buttonIndex == 0) {
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    if (buttonIndex == 1) {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+    }
+    if(buttonIndex == 2)
+    {
+        return;
+    }
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+#pragma mark UIImagePickerControllerDelegate
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated: YES completion: ^(void){}];
+    
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage* image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    // resize image
+    image = [Ash_UIUtil fixOrientation:image];
+    image = [Ash_UIUtil compressImageDownToPhoneScreenSize:image];
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    
+//    _avatarImage = image;
+//    _avatarImageView.image = _avatarImage;
+    _topViewImage.image = image;
+    [[AWordUser sharedInstance] setHeadBgImg:image];
+    
 }
 #pragma mark MJRefreshDelegate
 -(void)headerRereshing

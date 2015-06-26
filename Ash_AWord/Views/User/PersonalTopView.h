@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^IsSelectImage)(BOOL);
-
 @class UserViewModel;
 @interface PersonalTopView : UIView
 @property (strong, nonatomic)IsSelectImage isSelectImg;
@@ -33,6 +32,8 @@ typedef void (^IsSelectImage)(BOOL);
 @property (weak, nonatomic) IBOutlet UIView *selectView;
 @property (weak, nonatomic) IBOutlet UIButton *attentionBtn;
 - (IBAction)attentionBtnClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *headBtn;
+- (IBAction)headBtnClick:(id)sender;
 
 -(void)setuserInfoViewModel:(UserViewModel*)userViewModel;
 @end

@@ -21,6 +21,7 @@ static AWordUser *sharedObj = nil;
         sharedObj.userAvatar = [AWordDefault getUserAvatar];
         sharedObj.userGender = [AWordDefault getUserGender];
         sharedObj.loginType = [AWordDefault getLoginType];
+        sharedObj.headBgImg = [AWordDefault getHeadBgImg];
     }
     return sharedObj;
 }
@@ -57,4 +58,10 @@ static AWordUser *sharedObj = nil;
     _userAvatar = userAvatar;
     [AWordDefault setUserAvatar:userAvatar];
 }
+-(void)setHeadBgImg:(UIImage *)headBgImg
+{
+    _headBgImg = headBgImg;
+    [AWordDefault setHeadBgImg:headBgImg];
+}
+
 @end

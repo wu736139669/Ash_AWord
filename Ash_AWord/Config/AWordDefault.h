@@ -37,4 +37,8 @@
 //设置登录方式
 +(void)setLoginType:(NSInteger)loginType;
 +(NSInteger)getLoginType;
+
+//保存背景图片
++(BOOL)setHeadBgImg:(UIImage *)headBgImg;
++(UIImage*)getHeadBgImg;
 @end
