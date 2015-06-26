@@ -2649,11 +2649,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456994426.356087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "-didSendText:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2729,11 +2729,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456994426.356087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "-moreViewPhotoAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2837,15 +2837,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "635"
-            endingLineNumber = "635"
+            startingLineNumber = "645"
+            endingLineNumber = "645"
             landmarkName = "-reloadTableViewDataWithMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2853,15 +2853,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636"
+            startingLineNumber = "646"
+            endingLineNumber = "646"
             landmarkName = "-reloadTableViewDataWithMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2885,31 +2885,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "638"
-            endingLineNumber = "638"
-            landmarkName = "-reloadTableViewDataWithMessage:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "637"
-            endingLineNumber = "637"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
             landmarkName = "-reloadTableViewDataWithMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2921,11 +2905,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "653"
-            endingLineNumber = "653"
+            startingLineNumber = "647"
+            endingLineNumber = "647"
+            landmarkName = "-reloadTableViewDataWithMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "663"
+            endingLineNumber = "663"
             landmarkName = "-didReceiveMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2937,11 +2937,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "712"
-            endingLineNumber = "712"
+            startingLineNumber = "726"
+            endingLineNumber = "726"
             landmarkName = "-formatMessages:"
             landmarkType = "5">
             <Locations>
@@ -2985,11 +2985,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "782"
-            endingLineNumber = "782"
+            startingLineNumber = "796"
+            endingLineNumber = "796"
             landmarkName = "-didFetchingMessageAttachments:progress:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3049,11 +3049,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "786"
-            endingLineNumber = "786"
+            startingLineNumber = "800"
+            endingLineNumber = "800"
             landmarkName = "-loadMoreMessages"
             landmarkType = "5">
          </BreakpointContent>
@@ -3065,11 +3065,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "791"
-            endingLineNumber = "791"
+            startingLineNumber = "805"
+            endingLineNumber = "805"
             landmarkName = "-loadMoreMessages"
             landmarkType = "5">
          </BreakpointContent>
@@ -3081,11 +3081,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "685"
-            endingLineNumber = "685"
+            startingLineNumber = "695"
+            endingLineNumber = "695"
             landmarkName = "-formatMessages:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3129,11 +3129,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "688"
-            endingLineNumber = "688"
+            startingLineNumber = "698"
+            endingLineNumber = "698"
             landmarkName = "-formatMessages:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3269,15 +3269,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
+            startingLineNumber = "653"
+            endingLineNumber = "653"
             landmarkName = "-didReceiveMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3289,11 +3289,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
+            startingLineNumber = "669"
+            endingLineNumber = "669"
             landmarkName = "-didReceiveMessageId:chatter:error:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3353,11 +3353,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "654"
-            endingLineNumber = "654"
+            startingLineNumber = "664"
+            endingLineNumber = "664"
             landmarkName = "-didReceiveMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3369,11 +3369,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "655"
-            endingLineNumber = "655"
+            startingLineNumber = "665"
+            endingLineNumber = "665"
             landmarkName = "-didReceiveMessageId:chatter:error:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3785,11 +3785,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "584"
-            endingLineNumber = "584"
+            startingLineNumber = "594"
+            endingLineNumber = "594"
             landmarkName = "-callSessionStatusChanged:changeReason:error:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3849,11 +3849,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456994426.356087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "344"
+            endingLineNumber = "344"
             landmarkName = "-moreViewAudioCallAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3897,11 +3897,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "894"
-            endingLineNumber = "894"
+            startingLineNumber = "925"
+            endingLineNumber = "925"
             landmarkName = "-proximitySensorChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3913,11 +3913,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "892"
-            endingLineNumber = "892"
+            startingLineNumber = "923"
+            endingLineNumber = "923"
             landmarkName = "-proximitySensorChanged:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3989,15 +3989,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456997414.065256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "499"
-            endingLineNumber = "499"
+            startingLineNumber = "505"
+            endingLineNumber = "505"
             landmarkName = "-sendTextMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -4025,11 +4025,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "456933977.786965"
+            timestampString = "456993612.555684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -4159,6 +4159,246 @@
             startingLineNumber = "302"
             endingLineNumber = "302"
             landmarkName = "-headerBeginRefreshing"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/My/MessageListViewController.m"
+            timestampString = "456992825.022664"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-loadData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "950"
+            endingLineNumber = "950"
+            landmarkName = "-routerEventWithName:userInfo:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "806"
+            endingLineNumber = "806"
+            landmarkName = "-loadMoreMessages"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "708"
+            endingLineNumber = "708"
+            landmarkName = "-formatMessages:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
+            landmarkName = "-formatMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "802"
+            endingLineNumber = "802"
+            landmarkName = "-loadMoreMessages"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "846"
+            endingLineNumber = "846"
+            landmarkName = "-shouldAckMessage:read:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "868"
+            endingLineNumber = "868"
+            landmarkName = "-shouldMarkMessageAsRead"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "877"
+            endingLineNumber = "877"
+            landmarkName = "-sendHasReadResponseForMessages:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ChatMainViewController sendHasReadResponseForMessages:]"
+                  moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+                  timestampString = "456997731.778097"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "877"
+                  endingLineNumber = "877"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__57-[ChatMainViewController sendHasReadResponseForMessages:]_block_invoke"
+                  moduleName = "Ash_AWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/xmfish/Documents/Ash_Soft/Ash_AWord/Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+                  timestampString = "456997731.778294"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "877"
+                  endingLineNumber = "877"
+                  offsetFromSymbolStart = "52">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "880"
+            endingLineNumber = "880"
+            landmarkName = "-sendHasReadResponseForMessages:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "937"
+            endingLineNumber = "937"
+            landmarkName = "-markMessagesAsRead:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
+            timestampString = "456997414.065256"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
+            landmarkName = "-addMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Chat/ChatCell/EMChatViewBaseCell.m"
+            timestampString = "456997720.024828"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-messageCopy:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

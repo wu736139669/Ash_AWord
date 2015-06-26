@@ -28,6 +28,7 @@
 
 extern NSString *const kRouterEventChatHeadImageTapEventName;
 
+typedef void (^DelMessage)(NSInteger);
 @interface EMChatViewBaseCell : UITableViewCell
 {
     UIImageView *_headImageView;
@@ -39,6 +40,7 @@ extern NSString *const kRouterEventChatHeadImageTapEventName;
 }
 
 @property (nonatomic, strong) MessageModel *messageModel;
+@property (strong, nonatomic)DelMessage delMessage;
 
 @property (nonatomic, strong) UIImageView *headImageView;       //头像
 @property (nonatomic, strong) UILabel *nameLabel;               //姓名（暂时不支持显示）

@@ -38,6 +38,21 @@
         [MBProgressHUD errorHudWithView:nil label:@"请输入举报内容" hidesAfter:1.0];
         return;
     }
+    if (_msgId <= 0) {
+        [MBProgressHUD hudWithView:self.view label:@"举报中"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [MBProgressHUD checkHudWithView:nil label:@"举报成功" hidesAfter:1.0];
+            [self.view endEditing:YES];
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        });
+        return;
+    }
     [MBProgressHUD hudWithView:self.view label:@"举报中"];
     PropertyEntity* pro = [LoginViewModel requireReportWith:_msgType withMsgId:_msgId withContent:_reportContentTextView.text];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
@@ -46,7 +61,8 @@
         
         if ([loginViewModel success]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
-            
+            [self.view endEditing:YES];
+
             [MBProgressHUD checkHudWithView:nil label:@"举报成功" hidesAfter:1.0];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC*1.0), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];

@@ -166,6 +166,7 @@ NSString *const kShouldResendCell = @"kShouldResendCell";
         //已读
         _hasRead = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SEND_STATUS_SIZE, SEND_STATUS_SIZE)];
         _hasRead.text = @"已读";
+        _hasRead.textColor = [UIColor lightGrayColor];
         _hasRead.textAlignment = NSTextAlignmentCenter;
         _hasRead.font = [UIFont systemFontOfSize:12];
         [_hasRead sizeToFit];

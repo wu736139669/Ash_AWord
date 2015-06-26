@@ -27,6 +27,8 @@
     self.textLabel.textColor = [UIColor grayColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
+
+    
     return self;
 }
 

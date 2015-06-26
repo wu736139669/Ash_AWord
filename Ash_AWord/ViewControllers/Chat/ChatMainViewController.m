@@ -27,7 +27,8 @@
 #import "NSDateFormatter+Category.h"
 #import "MessageReadManager.h"
 #import "SRRefreshView.h"
-
+#import "PersonalInfoViewController.h"
+#import "AppDelegate.h"
 #define KPageCount 20
 
 @interface ChatMainViewController ()<UITableViewDelegate,UITableViewDataSource,DXMessageToolBarDelegate,LocationViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,DXChatBarMoreViewDelegate,EMCallManagerDelegate,EMCDDeviceManagerDelegate,EMChatManagerDelegate,SRRefreshDelegate>
@@ -123,6 +124,8 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyBoardHidden)];
     [self.view addGestureRecognizer:tap];
+    
+
     
     [self.tableView addSubview:self.slimeView];
 
@@ -257,7 +260,7 @@
             }
         }
         EMChatVideo *chatVideo = [[EMChatVideo alloc] initWithFile:[mp4 relativePath] displayName:@"video.mp4"];
-//        [self sendVideoMessage:chatVideo];
+        [self sendVideoMessage:chatVideo];
         
     }else{
         UIImage *orgImage = info[UIImagePickerControllerOriginalImage];
@@ -457,7 +460,10 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             cell.messageModel = model;
-            
+            [cell setDelMessage:^(NSInteger index){
+                [self deleteMsgWithIndex:index];
+            }];
+            cell.tag = indexPath.row;
             return cell;
         }
     }
@@ -557,10 +563,14 @@
     }
     
     MessageModel *model = [MessageModelManager modelWithMessage:message];
-    model.nickName = model.username;
+
     if (model.isSender){
+        model.nickName = [AWordUser sharedInstance].userName;
+
         model.headImageURL = [NSURL URLWithString:[AWordUser sharedInstance].userAvatar];
     }else{
+        model.nickName = _otherUserName;
+
         model.headImageURL = [NSURL URLWithString:_otherUserAvatar];
     }
     
@@ -696,8 +706,12 @@
             }
             
             MessageModel *model = [MessageModelManager modelWithMessage:message];
-            model.nickName = model.username;
 
+            if (model.isSender) {
+                model.nickName = [AWordUser sharedInstance].userName;
+            }else{
+                model.nickName = _otherUserName;
+            }
             if (model.isSender){
                 model.headImageURL = [NSURL URLWithString:[AWordUser sharedInstance].userAvatar];
             }else{
@@ -781,7 +795,7 @@
 }
 
 - (void)didFetchingMessageAttachments:(EMMessage *)message progress:(float)progress{
-    NSLog(@"didFetchingMessageAttachment: %f", progress);
+    DLog(@"didFetchingMessageAttachment: %f", progress);
 }
 - (void)loadMoreMessages
 {
@@ -867,6 +881,23 @@
         }
     });
 }
+
+- (void)didReceiveHasReadResponse:(EMReceipt *)resp;
+{
+
+    for (int i=0; i<_dataSource.count; i++) {
+        
+        MessageModel* message = [_dataSource objectAtIndex:i];
+        if ([message isKindOfClass:[NSString class]]) {
+            continue;
+        }
+        if ([message.messageId isEqualToString:resp.chatId]) {
+
+            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:i inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        }
+    }
+}
 - (void)stopAudioPlayingWithChangeCategory:(BOOL)isChange
 {
     //停止音频播放及播放动画
@@ -945,6 +976,14 @@
         [self.tableView endUpdates];
     }else if([eventName isEqualToString:kRouterEventChatCellVideoTapEventName]){
         [self chatVideoCellPressed:model];
+    }else if([eventName isEqualToString:kRouterEventChatHeadImageTapEventName]){
+        if ([_otherUserId isEqualToString:@"admin"]) {
+            return;
+        }
+        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
+        personalInfoViewController.hidesBottomBarWhenPushed = YES;
+        personalInfoViewController.otherUserId = _otherUserId;
+        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
     }
 }
 
@@ -1150,6 +1189,32 @@
     }
 }
 
+- (void)deleteMsgWithIndex:(NSInteger)index;
+{
+    if (index > 0) {
+        MessageModel *model = [_dataSource objectAtIndex:index];
+        NSMutableIndexSet *indexs = [NSMutableIndexSet indexSetWithIndex:index];
+        [_conversation removeMessage:model.message];
+        [_messages removeObject:model.message];
+        NSMutableArray *indexPaths = [NSMutableArray arrayWithObjects:[NSIndexPath indexPathForRow:index inSection:0], nil];;
+        if (index - 1 >= 0) {
+            id nextMessage = nil;
+            id prevMessage = [_dataSource objectAtIndex:(index- 1)];
+            if (index + 1 < [_dataSource count]) {
+                nextMessage = [_dataSource objectAtIndex:(index + 1)];
+            }
+            if ((!nextMessage || [nextMessage isKindOfClass:[NSString class]]) && [prevMessage isKindOfClass:[NSString class]]) {
+                [indexs addIndex:index - 1];
+                [indexPaths addObject:[NSIndexPath indexPathForRow:(index - 1) inSection:0]];
+            }
+        }
+        
+        [_dataSource removeObjectsAtIndexes:indexs];
+        [self.tableView beginUpdates];
+        [self.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView endUpdates];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

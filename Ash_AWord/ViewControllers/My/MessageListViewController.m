@@ -10,7 +10,7 @@
 #import "MessageListTableViewCell.h"
 #import "ChatMainViewController.h"
 #import "UserViewModel.h"
-@interface MessageListViewController ()
+@interface MessageListViewController ()<UIAlertViewDelegate>
 {
     NSInteger _page;
     NSMutableArray* _dataArr;
@@ -26,11 +26,14 @@
     // Do any additional setup after loading the view from its nib.
     
     [self customViewDidLoad];
-    _userArr = [NSMutableArray array];
+//    _userArr = [NSMutableArray array];
     
     self.navigationItem.title = @"消息列表";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空列表" style:UIBarButtonItemStyleDone target:self action:@selector(clearList)];
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.tableView reloadData];
     [self.tableView removeFooter];
 }
 
@@ -41,9 +44,29 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self loadData];
-
+    
+    [self headerBeginRefreshing];
+    
 }
+
+-(void)clearList
+{
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"确认清空" message:@"是否清空" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清空", nil];
+    alertView.tag = 0;
+    [alertView show];
+}
+#pragma mark --UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //删除
+    if (buttonIndex == 1) {
+        if ([[EaseMob sharedInstance].chatManager removeAllConversationsWithDeleteMessages:YES append2Chat:YES]) {
+            [_dataArr removeAllObjects];
+            [self.tableView reloadData];
+        }
+    }
+}
+
 -(void)headerRereshing
 {
     _page=1;
@@ -78,13 +101,18 @@
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
         if ([viewModel success]) {
-            [_userArr removeAllObjects];
             _userArr = [NSMutableArray arrayWithArray:[(UserViewModel*)viewModel userBaseInfoArr]];
+        }else{
+            [_dataArr removeAllObjects];
+//            [MBProgressHUD errorHudWithView:self.view label:[viewModel errMessage] hidesAfter:1.0];
         }
 
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
     } failedBlock:^(NSError *error) {
+        [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
+
+        [_dataArr removeAllObjects];
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
     }];
@@ -141,6 +169,23 @@
 
     return cell;
     
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+       EMConversation* conversation = [_dataArr objectAtIndex:indexPath.row];
+        if ( [[EaseMob sharedInstance].chatManager removeConversationByChatter:conversation.chatter deleteMessages:YES append2Chat:YES]) {
+            [_dataArr removeObjectAtIndex:indexPath.row];
+            // Delete the row from the data source.
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        }
+
+        
+    }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

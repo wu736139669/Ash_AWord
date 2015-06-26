@@ -12,6 +12,8 @@
 
 #import "EMChatViewBaseCell.h"
 //#import "UIImageView+EMWebCache.h"
+#import "ReportViewController.h"
+#import "AppDelegate.h"
 
 NSString *const kRouterEventChatHeadImageTapEventName = @"kRouterEventChatHeadImageTapEventName";
 
@@ -27,6 +29,11 @@ NSString *const kRouterEventChatHeadImageTapEventName = @"kRouterEventChatHeadIm
     if (self) {
         // Initialization code
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headImagePressed:)];
+        
+        UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressToDo:)];
+        longPressGr.minimumPressDuration = 1.0;
+        [self addGestureRecognizer:longPressGr];
+        
         CGFloat originX = HEAD_PADDING;
         if (model.isSender) {
             originX = self.bounds.size.width - HEAD_SIZE - HEAD_PADDING;
@@ -73,6 +80,7 @@ NSString *const kRouterEventChatHeadImageTapEventName = @"kRouterEventChatHeadIm
     // Configure the view for the selected state
 }
 
+
 #pragma mark - setter
 
 - (void)setMessageModel:(MessageModel *)messageModel
@@ -86,7 +94,87 @@ NSString *const kRouterEventChatHeadImageTapEventName = @"kRouterEventChatHeadIm
 }
 
 #pragma mark - private
+-(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateBegan)
+    {
+        CGPoint point = [gesture locationInView:self.superview];
+        
+        
+        //启动弹出菜单
 
+        NSMutableArray *menuItems = [NSMutableArray array];
+
+        UIMenuItem *messageCopyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(messageCopy:)];
+        [menuItems addObject:messageCopyItem];
+        
+        
+        UIMenuItem *messageDelItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(messageDel:)];
+        [menuItems addObject:messageDelItem];
+        
+        if (!_messageModel.isSender) {
+            UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+            [menuItems addObject:messageRepItem];
+        }
+
+        
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        [menu setMenuItems:menuItems];
+        [self becomeFirstResponder];
+        CGRect targetRect = self.frame;
+        targetRect.origin.x = point.x;
+        targetRect.origin.y = point.y;
+        targetRect.size.height = 50;
+        targetRect.size.width = 0;
+        [menu setTargetRect:targetRect inView:self.superview];
+        [menu setMenuVisible:YES animated:YES];
+    }
+}
+-(void)messageRep:(id)sender {
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    [menu setMenuVisible:NO animated:YES];
+    
+    ReportViewController* reportViewController = [[ReportViewController alloc] init];
+    reportViewController.authorName = _messageModel.nickName;
+    reportViewController.msgId = 0;
+    reportViewController.hidesBottomBarWhenPushed = YES;
+    [[AppDelegate visibleViewController].navigationController pushViewController:reportViewController animated:YES];
+}
+-(void)messageCopy:(id)sender{
+    
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    if (_messageModel.content) {
+        pasteboard.string = _messageModel.content;
+    }
+}
+-(void)messageDel:(id)sender{
+    
+    UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"确认删除" message:@"是否删除" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"删除", nil];
+    alertView.tag = 0;
+    [alertView show];
+}
+-(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    
+    if (  action == @selector(messageRep:) || action == @selector(messageCopy:)|| action == @selector(messageDel:)) {
+        return YES;
+    }
+    return NO;
+}
+-(BOOL) canBecomeFirstResponder{
+    return YES;
+}
+
+#pragma mark --UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //删除
+    if (buttonIndex == 1) {
+        if (_delMessage) {
+            _delMessage(self.tag);
+        }
+    }
+}
 -(void)headImagePressed:(id)sender
 {
     [super routerEventWithName:kRouterEventChatHeadImageTapEventName userInfo:@{KMESSAGEKEY:self.messageModel}];
