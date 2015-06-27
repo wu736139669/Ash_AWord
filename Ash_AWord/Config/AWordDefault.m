@@ -79,6 +79,17 @@
 {
     return [[NSUserDefaults standardUserDefaults] integerForKey:@"logintype"];
 }
+
++(void)setSignature:(NSString *)sinagure
+{
+    [[NSUserDefaults standardUserDefaults] setObject:sinagure forKey:@"sinagure"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++(NSString*)getSignature
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:@"sinagure"];
+    
+}
 +(BOOL)setHeadBgImg:(UIImage *)headBgImg
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);

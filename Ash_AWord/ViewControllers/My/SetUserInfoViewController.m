@@ -8,7 +8,7 @@
 
 #import "SetUserInfoViewController.h"
 #import "LoginViewModel.h"
-@interface SetUserInfoViewController ()<UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface SetUserInfoViewController ()<UITextFieldDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 {
     UIImage* _avatarImage;
 }
@@ -30,6 +30,22 @@
     [_avatarImageView sd_setImageWithURL:[NSURL URLWithString:[AWordUser sharedInstance].userAvatar] placeholderImage:[UIImage imageNamed:@"Icon"]];
     _nickNameTextField.text = [AWordUser sharedInstance].userName;
     _nickNameTextField.placeholder = [AWordUser sharedInstance].userName;
+    _nickNameTextField.layer.borderColor = [[UIColor lineColor] CGColor];
+    
+    _signatureTextView.layer.borderWidth = 0.5;
+    _signatureTextView.layer.borderColor = [[UIColor lineColor] CGColor];
+    _signatureTextView.layer.cornerRadius = 5;
+    _signatureTextView.layer.masksToBounds = YES;
+    
+    _signatureTextView.font = [UIFont appBoldFontOfSize:14.0];
+    if ([AWordUser sharedInstance].signature.length > 0) {
+        _signatureTextView.placeholder = [AWordUser sharedInstance].signature;
+    }else{
+        _signatureTextView.placeholder = @"还未填写签名";
+
+    }
+    
+    _signatureTextView.delegate = self;
     
     UITapGestureRecognizer *singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
     singleRecognizer.numberOfTapsRequired = 1;
@@ -42,6 +58,44 @@
 {
     [self.view endEditing:YES];
 }
+
+//开始编辑输入框的时候，软键盘出现，执行此事件
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    
+    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
+    
+    self.view.frame = CGRectMake(0.0f, -20, self.view.frame.size.width, self.view.frame.size.height);
+    
+    [UIView commitAnimations];
+    
+    
+}
+
+
+//当用户按下return键或者按回车键，keyboard消失
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+    }
+    return YES;
+}
+
+
+//输入框编辑完成以后，将视图恢复到原始状态
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    NSTimeInterval animationDuration = 0.30f;
+    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    self.view.frame =CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
 #pragma mark UITextField
 //开始编辑输入框的时候，软键盘出现，执行此事件
 -(void)textFieldDidBeginEditing:(UITextField *)textField
@@ -130,7 +184,15 @@
 -(void)sureModify
 {
     
-    if ( [_nickNameTextField.text isEqualToString:[AWordUser sharedInstance].userName] && !_avatarImage) {
+    if (_signatureTextView.text.length > 40) {
+        [MBProgressHUD errorHudWithView:nil label:@"个性签名要在40字以内" hidesAfter:1.0];
+        return;
+    }
+    if ([_signatureTextView.text isEqualToString:@""] && [AWordUser sharedInstance].signature.length<=0) {
+        [MBProgressHUD errorHudWithView:nil label:@"没有内容修改" hidesAfter:1.0];
+        return;
+    }
+    if ( [_nickNameTextField.text isEqualToString:[AWordUser sharedInstance].userName] && !_avatarImage && [_signatureTextView.text isEqualToString:[AWordUser sharedInstance].signature]) {
         [MBProgressHUD errorHudWithView:nil label:@"没有内容修改" hidesAfter:1.0];
         return;
     }
@@ -143,7 +205,11 @@
     if (nickName.length <= 0 || [_nickNameTextField.text isEqualToString:@""]) {
         nickName = _nickNameTextField.placeholder;
     }
-    PropertyEntity* pro = [LoginViewModel requireModifyInfoWithNickName:nickName withGender:@"" withAvatarImg:_avatarImage];
+    NSString* signature = _signatureTextView.text;
+    if (signature.length <= 0 || [_signatureTextView.text isEqualToString:@""]) {
+        signature = _signatureTextView.placeholder;
+    }
+    PropertyEntity* pro = [LoginViewModel requireModifyInfoWithNickName:nickName withGender:@"" withAvatarImg:_avatarImage withSignature:signature];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         LoginViewModel* loginViewModel = (LoginViewModel*)viewModel;
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -152,6 +218,7 @@
             [AWordUser sharedInstance].userName = nickName;
             [AWordUser sharedInstance].userAvatar = loginViewModel.figureurl;
             [AWordUser sharedInstance].userGender = @"";
+            [AWordUser sharedInstance].signature = signature;
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginSuccessNotificationName object:nil];
             
             [MBProgressHUD checkHudWithView:nil label:@"修改成功" hidesAfter:1.0];

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *signature;
 @property (nonatomic, assign) NSInteger followCount;
 @property (nonatomic, assign) NSInteger followerCount;
+@property (nonatomic, assign) BOOL isNew;
 
 
 @end

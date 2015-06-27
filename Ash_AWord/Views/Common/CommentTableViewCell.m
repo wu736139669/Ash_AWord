@@ -25,6 +25,11 @@
     _floorLabel.layer.masksToBounds = YES;
     _floorLabel.layer.cornerRadius = 8.0;
     
+    _isNewLabel.layer.masksToBounds = YES;
+    _isNewLabel.layer.cornerRadius = 5.0;
+    
+    _isNewView.hidden = YES;
+    _isAllowReport = YES;
     _contentTextView.textDelegate = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
@@ -67,6 +72,7 @@
     }else{
         [self setIsAuthor:NO];
     }
+    _isNewView.hidden = !commentInfoViewModel.status;
     NSString* content = commentInfoViewModel.content;
     if (![commentInfoViewModel.toUserId isEqualToString:_ownerId]){
         content = [CommentTableViewCell getContentWithCommentInfoViewModel:commentInfoViewModel];
@@ -135,21 +141,26 @@
 
 -(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
 {
+    
     if(gesture.state == UIGestureRecognizerStateBegan)
     {
         
         //启动弹出菜单
         NSMutableArray *menuItems = [NSMutableArray array];
-        UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
-        [menuItems addObject:messageRepItem];
+
         
+        if (_isAllowReport) {
+            UIMenuItem *messageRepItem = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(messageRep:)];
+            [menuItems addObject:messageRepItem];
+            if ([_commentInfoViewModel.ownerId isEqualToString:[AWordUser sharedInstance].uid]) {
+                UIMenuItem *messageDelItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(messageDel:)];
+                [menuItems addObject:messageDelItem];
+            }
+        }
         UIMenuItem *messageCopyItem = [[UIMenuItem alloc] initWithTitle:@"复制" action:@selector(messageCopy:)];
         [menuItems addObject:messageCopyItem];
         
-        if ([_commentInfoViewModel.ownerId isEqualToString:[AWordUser sharedInstance].uid]) {
-            UIMenuItem *messageDelItem = [[UIMenuItem alloc] initWithTitle:@"删除" action:@selector(messageDel:)];
-            [menuItems addObject:messageDelItem];
-        }
+
         
         UIMenuController *menu = [UIMenuController sharedMenuController];
         [menu setMenuItems:menuItems];

@@ -15,6 +15,7 @@
 #import "MessageViewModel.h"
 #import "UserViewModel.h"
 #import "ChatMainViewController.h"
+#import "SetUserInfoViewController.h"
 @interface PersonalInfoViewController ()<NoteTableViewCellDelegate,MessageTableViewCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
     CExpandHeader *_header;
@@ -54,11 +55,14 @@
     if ([_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
         _bottomView.hidden = YES;
         _tableBottomHeight.constant = 0.0;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"修改信息" style:UIBarButtonItemStyleDone target:self action:@selector(modifyInfo)];
     }
     self.tableView.hidden = YES;
     
     [DejalActivityView activityViewForView:self.view withLabel:kLoadingTips];
     [self headerRereshing];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(headerRereshing) name:kLoginSuccessNotificationName object:nil];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -69,7 +73,9 @@
     __weak PersonalInfoViewController *weakself = self;
     [_personalTopView setuserInfoViewModel:_userViewModel];
 
-    [_personalTopView.headBtn addTarget:self action:@selector(selectHeadImage:) forControlEvents:UIControlEventTouchUpInside];
+    if ([_otherUserId isEqualToString:[AWordUser sharedInstance].uid]) {
+        [_personalTopView.headBtn addTarget:self action:@selector(selectHeadImage:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [_personalTopView setIsSelectImg:^(BOOL isSelectImg){
         _isSelectImage = isSelectImg;
         if (isSelectImg) {
@@ -92,6 +98,14 @@
 //    [self.tableView endUpdates];
 }
 
+#pragma mark 修改个人信息
+-(void)modifyInfo
+{
+    SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
+    setUserInfoViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:setUserInfoViewController animated:YES];
+
+}
 #pragma mark 替换头图
 -(void)selectHeadImage:(id)sender
 {

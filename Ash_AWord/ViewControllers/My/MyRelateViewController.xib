@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyMessageViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRelateViewController">
             <connections>
-                <outlet property="tableView" destination="JAL-oF-Xht" id="hIr-48-XqW"/>
+                <outlet property="tableView" destination="S0H-EM-lPe" id="yFs-Cf-vYh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,17 +16,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="JAL-oF-Xht">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="S0H-EM-lPe">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="JAL-oF-Xht" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jc6-dH-5Ft"/>
-                <constraint firstItem="JAL-oF-Xht" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NLy-eU-8fY"/>
-                <constraint firstAttribute="trailing" secondItem="JAL-oF-Xht" secondAttribute="trailing" id="h1q-1c-pVE"/>
-                <constraint firstAttribute="bottom" secondItem="JAL-oF-Xht" secondAttribute="bottom" id="sX8-uv-rAh"/>
+                <constraint firstAttribute="trailing" secondItem="S0H-EM-lPe" secondAttribute="trailing" id="BCN-bi-BHD"/>
+                <constraint firstItem="S0H-EM-lPe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Oe2-1e-YaH"/>
+                <constraint firstItem="S0H-EM-lPe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cqh-d3-xjf"/>
+                <constraint firstAttribute="bottom" secondItem="S0H-EM-lPe" secondAttribute="bottom" id="hI4-pZ-6ye"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

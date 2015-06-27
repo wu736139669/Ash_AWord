@@ -17,6 +17,8 @@ typedef enum {
 
 @property (nonatomic, readonly) NSNumber* errCode;
 @property (nonatomic, readonly) NSString *errMessage;
+@property (nonatomic, readonly) NSInteger notReadCommentNum;//用户发表的所有记录的未读评论总数（每个接口都会返回该项）
+@property (nonatomic, readonly) NSInteger myNewFollowerCount;//用户上一次加载关注自己的用户列表之后新关注自己的用户数（每个接口都会返回该项）
 
 - (BOOL)success;
 

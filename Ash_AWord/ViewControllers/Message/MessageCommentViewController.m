@@ -219,6 +219,7 @@
     cell.commentType = Voice_Type;
 
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
+    commentInfoViewModel.status = 1;
     cell.ownerId = _text_Voice.ownerId;
     [cell setCommentWithUid:^(NSString* ownerId){
         [_commentTextView showWithUid:ownerId];

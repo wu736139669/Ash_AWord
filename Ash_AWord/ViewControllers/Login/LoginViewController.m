@@ -93,9 +93,7 @@
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToSina];
             
-            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
             [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToSina  completion:^(UMSocialResponseEntity *response){
-                NSLog(@"SnsInformation is %@",response.data);
                 if (response.data) {
                     NSString* gender = @"男";
                     if ([[response.data objectForKey:@"gender"] integerValue]==0) {

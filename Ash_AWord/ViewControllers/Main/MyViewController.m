@@ -19,6 +19,8 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
 #import "PersonalInfoViewController.h"
+#import "PraiseUserListViewController.h"
+#import "MyRelateViewController.h"
 @interface MyViewController ()
 {
     NSArray* cellTitleArr;
@@ -76,11 +78,11 @@
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 5;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == 2 || section == 3) {
         return 2;
     }
     return 1;
@@ -88,12 +90,12 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* cellIdentifier = @"cell";
-    if (indexPath.section == 2) {
+    if (indexPath.section == 4 || (indexPath.section==2&&indexPath.row==1) || indexPath.section==1) {
         cellIdentifier = @"MyMessageTableViewCell";
     }
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        if (indexPath.section == 2) {
+        if (indexPath.section == 4 || (indexPath.section==1&&indexPath.row==1) || indexPath.section==1) {
             UINib* nib = nil;
             nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
             [tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
@@ -105,6 +107,8 @@
         
         
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
     switch (indexPath.section) {
         case 0:
         {
@@ -123,6 +127,25 @@
             break;
         case 1:
         {
+            cell.textLabel.text = @"与我相关";
+            [(MyMessageTableViewCell*)cell setUnReadColor:[UIColor appMainColor]];
+            [(MyMessageTableViewCell*)cell setUnReadCount:[AWordUser sharedInstance].notReadCommentNum];
+        }
+            break;
+        case 2:
+        {
+            if (indexPath.row == 0 ) {
+                cell.textLabel.text = @"我的关注";
+            }
+            if (indexPath.row == 1) {
+                cell.textLabel.text = @"我的粉丝";
+                [(MyMessageTableViewCell*)cell setUnReadColor:[UIColor appMainColor]];
+                [(MyMessageTableViewCell*)cell setUnReadCount:[AWordUser sharedInstance].myNewFollowerCount];
+            }
+        }
+            break;
+        case 3:
+        {
             if (indexPath.row == 0 ) {
                 cell.textLabel.text = @"我发表的图片";
             }
@@ -131,11 +154,13 @@
             }
         }
             break;
-        case 2:
+        case 4:
         {
             cell.textLabel.text = @"消息";
             NSInteger count = [((AppDelegate*)[UIApplication sharedApplication].delegate).mainViewController setupUnreadMessageCount];
+            [(MyMessageTableViewCell*)cell setUnReadColor:[UIColor redColor]];
             [(MyMessageTableViewCell*)cell setUnReadCount:count];
+            
         }
             break;
         default:
@@ -155,14 +180,11 @@
             }else{
                 if([AWordUser sharedInstance].loginType == 1)
                 {
-//                    SetUserInfoViewController* setUserInfoViewController = [[SetUserInfoViewController alloc] init];
-//                    setUserInfoViewController.hidesBottomBarWhenPushed = YES;
-//                    [self.navigationController pushViewController:setUserInfoViewController animated:YES];
                     
                     PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
                     personalInfoViewController.hidesBottomBarWhenPushed = YES;
                     personalInfoViewController.otherUserId = [AWordUser sharedInstance].uid;
-                    [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
+                    [self.navigationController pushViewController:personalInfoViewController animated:YES];
                 }
 
             }
@@ -170,6 +192,35 @@
         }
             break;
         case 1:
+        {
+            MyRelateViewController* myRelateViewController = [[MyRelateViewController alloc] init];
+            myRelateViewController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:myRelateViewController animated:YES];
+        }
+            break;
+        case 2:
+        {
+            if (![AWordUser sharedInstance].isLogin)
+            {
+                [LoginViewController presentLoginViewControllerInView:self success:nil];
+            }else
+            {
+                PraiseUserListViewController* praiseUserListViewController = [[PraiseUserListViewController alloc] init];
+                praiseUserListViewController.targetId = [AWordUser sharedInstance].uid;
+                praiseUserListViewController.userListType = UserList_Fans_Type;
+                praiseUserListViewController.hidesBottomBarWhenPushed = YES;
+                if (indexPath.row == 0) {
+                    praiseUserListViewController.userListType = UserList_Attention_Type;
+                }else{
+                    praiseUserListViewController.userListType = UserList_Fans_Type;
+                }
+                [self.navigationController pushViewController:praiseUserListViewController animated:YES];
+
+            }
+
+        }
+            break;
+        case 3:
         {
             if (![AWordUser sharedInstance].isLogin)
             {
@@ -189,7 +240,7 @@
             
         }
             break;
-            case 2:
+        case 4:
         {
             MessageListViewController* messageListViewController = [[MessageListViewController alloc] init];
             messageListViewController.hidesBottomBarWhenPushed = YES;

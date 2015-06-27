@@ -10,6 +10,7 @@
                 <outlet property="avatarBtn" destination="6m0-pr-AnS" id="WQE-S9-rxX"/>
                 <outlet property="avatarImageView" destination="aR4-Ns-KIq" id="NG3-g3-kHm"/>
                 <outlet property="nickNameTextField" destination="f6E-ZQ-vlM" id="3Cv-wV-iRh"/>
+                <outlet property="signatureTextView" destination="6FG-FG-PDe" id="LgM-mg-Ucf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -60,17 +61,35 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性签名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMc-rS-TB5">
+                    <rect key="frame" x="20" y="251" width="56" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6FG-FG-PDe" customClass="UIPlaceHolderTextView">
+                    <rect key="frame" x="18" y="276" width="284" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="MRK-h4-W4a"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6m0-pr-AnS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="77" id="0kv-XB-XA2"/>
                 <constraint firstAttribute="trailing" secondItem="f6E-ZQ-vlM" secondAttribute="trailing" constant="20" id="2hz-ha-lYL"/>
+                <constraint firstItem="6FG-FG-PDe" firstAttribute="top" secondItem="SMc-rS-TB5" secondAttribute="bottom" constant="8" id="8K8-57-Rcm"/>
+                <constraint firstItem="6FG-FG-PDe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="AUZ-qs-dyL"/>
+                <constraint firstItem="SMc-rS-TB5" firstAttribute="top" secondItem="f6E-ZQ-vlM" secondAttribute="bottom" constant="15" id="FHI-9O-iiZ"/>
                 <constraint firstAttribute="centerX" secondItem="6m0-pr-AnS" secondAttribute="centerX" id="HwA-53-ec4"/>
                 <constraint firstAttribute="centerX" secondItem="aR4-Ns-KIq" secondAttribute="centerX" id="Jrg-i8-VWm"/>
                 <constraint firstItem="f6E-ZQ-vlM" firstAttribute="top" secondItem="SWc-2U-wd0" secondAttribute="bottom" constant="8" id="LxR-Ea-KqA"/>
+                <constraint firstAttribute="trailing" secondItem="6FG-FG-PDe" secondAttribute="trailing" constant="18" id="Nth-Br-MGO"/>
                 <constraint firstItem="f6E-ZQ-vlM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="SBz-no-mEa"/>
                 <constraint firstItem="aR4-Ns-KIq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="82" id="XUg-iU-e6l"/>
                 <constraint firstItem="SWc-2U-wd0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="177" id="pJm-yH-V3p"/>
+                <constraint firstItem="SMc-rS-TB5" firstAttribute="leading" secondItem="SWc-2U-wd0" secondAttribute="leading" id="wOP-QM-jVp"/>
                 <constraint firstItem="SWc-2U-wd0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="zb7-x6-5J5"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

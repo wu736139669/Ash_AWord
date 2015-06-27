@@ -17,11 +17,14 @@ typedef void (^DelCommentSuccess)(void);
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *floorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *isNewLabel;
 @property (weak, nonatomic) IBOutlet DTAttributedTextView *contentTextView;
 @property (strong, nonatomic)NSString* ownerId;
+@property (weak, nonatomic) IBOutlet UIImageView *isNewView;
 @property (strong, nonatomic)CommentWithUid commentWithUid;
 @property (strong, nonatomic)DelCommentSuccess delCommentSuccess;
 
+@property (assign,nonatomic)BOOL isAllowReport;
 @property (assign, nonatomic)CommentType commentType;
 - (IBAction)avatarBtnClick:(id)sender;
 -(void)setCommentInfoViewModel:(CommentInfoViewModel*)commentInfoViewModel;

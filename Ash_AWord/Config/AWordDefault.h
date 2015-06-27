@@ -38,6 +38,9 @@
 +(void)setLoginType:(NSInteger)loginType;
 +(NSInteger)getLoginType;
 
+//设置个性签名
++(void)setSignature:(NSString*)sinagure;
++(NSString*)getSignature;
 //保存背景图片
 +(BOOL)setHeadBgImg:(UIImage *)headBgImg;
 +(UIImage*)getHeadBgImg;

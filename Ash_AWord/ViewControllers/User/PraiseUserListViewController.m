@@ -28,7 +28,6 @@
         self.navigationItem.title = @"关注";
     }else if(_userListType == UserList_Fans_Type){
         self.navigationItem.title = @"粉丝";
-
     }
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

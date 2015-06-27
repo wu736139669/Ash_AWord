@@ -176,7 +176,7 @@
 }
 -(void)showUserNotice
 {
-    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/notice.html",Ash_AWord_API_URL]]];
+    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/notice.html",Ash_Aword_Base_URL]]];
     [self.navigationController pushViewController:svWebViewController animated:YES];
 }
 - (void)goToAppraisal
@@ -188,7 +188,7 @@
 #pragma mark 关于
 -(void)showAbout
 {
-    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_AWord_API_URL]]];
+    SVWebViewController* svWebViewController = [[SVWebViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@/about.html",Ash_Aword_Base_URL]]];
     [self.navigationController pushViewController:svWebViewController animated:YES];
 }
 #pragma mark UIAlertViewDelegate

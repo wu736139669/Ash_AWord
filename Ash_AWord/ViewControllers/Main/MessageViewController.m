@@ -163,7 +163,6 @@
         [self.tableView reloadData];
         
     } failedBlock:^(NSError *error) {
-//        _page--;
         [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
         [self footerEndRefreshing];
         [self headerEndRefreshing];

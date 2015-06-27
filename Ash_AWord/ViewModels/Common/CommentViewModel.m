@@ -20,6 +20,7 @@
              @"commentType": @"type",
              @"toUserId":@"toUserId",
              @"toUserName":@"toUserName",
+             @"status" : @"status",
              };
 }
 @end
@@ -80,6 +81,19 @@
                           };
     pro.pro = @{@"root": dic,
                 @"command": @"10203",
+                };
+    return pro;
+}
++(PropertyEntity*)requireLoadMyCommentWithPage:(NSInteger)page withPage_size:(NSInteger)page_size
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    NSDictionary* dic = @{@"page": [NSString stringWithFormat:@"%ld",page],
+                          @"pageSize": [NSString stringWithFormat:@"%ld",page_size],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10204",
                 };
     return pro;
 }

@@ -14,12 +14,17 @@
     // Initialization code
     _unReadCountLabel.layer.cornerRadius = 10.0;
     _unReadCountLabel.layer.masksToBounds = YES;
+    _unReadCountLabel.hidden = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+-(void)setUnReadColor:(UIColor *)color
+{
+    _unReadCountLabel.backgroundColor = color;
 }
 -(void)setUnReadCount:(NSInteger)unReadConut
 {

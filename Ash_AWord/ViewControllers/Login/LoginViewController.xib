@@ -102,7 +102,7 @@
                         <constraint firstAttribute="width" constant="46" id="zHz-0E-PK4"/>
                     </constraints>
                     <state key="normal" title="登录">
-                        <color key="titleColor" red="0.3803921569" green="0.74901960779999999" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.38039215686274508" green="0.74901960784313726" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>

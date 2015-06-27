@@ -15,6 +15,8 @@
     [dic setObject:@"uid" forKey:@"uId"];
     [dic setObject:@"figureurl" forKey:@"figureurl"];
     [dic setObject:@"name" forKey:@"userName"];
+    [dic setObject:@"signature" forKey:@"signature"];
+    [dic setObject:@"gender" forKey:@"gender"];
     return dic;
 }
 
@@ -94,7 +96,7 @@
     return pro;
 }
 
-+(PropertyEntity*)requireModifyInfoWithNickName:(NSString *)nickName withGender:(NSString *)gender withAvatarImg:(UIImage *)avatarImg
++(PropertyEntity*)requireModifyInfoWithNickName:(NSString *)nickName withGender:(NSString *)gender withAvatarImg:(UIImage *)avatarImg withSignature:(NSString *)signature
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOSTDATA;
@@ -107,7 +109,8 @@
     pro.pFile = file;
     
     NSDictionary* dic = @{@"gender": gender,
-                          @"name": nickName
+                          @"name": nickName,
+                          @"signature": signature,
                           };
     pro.pro = @{@"root": dic,
                 @"command": @"10006",};

@@ -13,6 +13,8 @@
     return @{
              @"errCode": @"ret",
              @"errMessage": @"msg",
+             @"notReadCommentNum": @"notReadCommentNum",
+             @"myNewFollowerCount": @"myNewFollowerCount",
              };
 }
 
@@ -21,6 +23,8 @@
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self != nil)
     {
+        [AWordUser sharedInstance].notReadCommentNum = _notReadCommentNum;
+        [AWordUser sharedInstance].myNewFollowerCount = _myNewFollowerCount;
     }
     return self;
 }

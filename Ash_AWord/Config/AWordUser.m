@@ -22,6 +22,9 @@ static AWordUser *sharedObj = nil;
         sharedObj.userGender = [AWordDefault getUserGender];
         sharedObj.loginType = [AWordDefault getLoginType];
         sharedObj.headBgImg = [AWordDefault getHeadBgImg];
+        sharedObj.signature = [AWordDefault getSignature];
+        sharedObj.notReadCommentNum = 0;
+        sharedObj.myNewFollowerCount = 0;
     }
     return sharedObj;
 }
@@ -63,5 +66,9 @@ static AWordUser *sharedObj = nil;
     _headBgImg = headBgImg;
     [AWordDefault setHeadBgImg:headBgImg];
 }
-
+-(void)setSignature:(NSString *)signature
+{
+    _signature = signature;
+    [AWordDefault setSignature:signature];
+}
 @end

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *createTime;
 @property (nonatomic, strong) NSString *toUserId;
 @property (nonatomic, strong) NSString *toUserName;
+@property (nonatomic, assign) NSInteger status;//状态。0：未读，1：已读
 @property (nonatomic, assign) CommentType commentType;
 @end
 @interface CommentViewModel : BaseViewModel
@@ -27,4 +28,6 @@
 +(PropertyEntity*)requireDelCommentWithCommentId:(NSInteger)commentId;
 
 +(PropertyEntity*)requireLoadCommentWithRecordId:(NSInteger)recordId withPage:(NSInteger)page withPage_size:(NSInteger)page_size WithType:(CommentType)commentType;
+
++(PropertyEntity*)requireLoadMyCommentWithPage:(NSInteger)page withPage_size:(NSInteger)page_size;
 @end

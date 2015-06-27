@@ -40,6 +40,13 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acitvity_center_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="eMG-PA-nNU">
+                        <rect key="frame" x="297" y="0.0" width="23" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Dmm-9C-oWb"/>
+                            <constraint firstAttribute="width" constant="23" id="u0I-Ba-FY2"/>
+                        </constraints>
+                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-B6-eAd" customClass="DTAttributedTextView">
                         <rect key="frame" x="49" y="16" width="266" height="82"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -58,6 +65,7 @@
                     <constraint firstItem="qab-Nl-rao" firstAttribute="centerX" secondItem="eYx-r1-Tw5" secondAttribute="centerX" id="4sT-FS-HI3"/>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="height" secondItem="eYx-r1-Tw5" secondAttribute="height" id="9QX-LS-S2o"/>
                     <constraint firstItem="Biq-B6-eAd" firstAttribute="leading" secondItem="qab-Nl-rao" secondAttribute="trailing" constant="5" id="Ct8-e2-FK1"/>
+                    <constraint firstItem="eMG-PA-nNU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="GmY-ys-4Bc"/>
                     <constraint firstAttribute="trailing" secondItem="Biq-B6-eAd" secondAttribute="trailing" constant="5" id="Jxe-1e-ijt"/>
                     <constraint firstItem="ZiP-RG-jgh" firstAttribute="leading" secondItem="HNF-FY-BJ4" secondAttribute="trailing" constant="5" id="Ms5-W3-KbQ"/>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="width" secondItem="eYx-r1-Tw5" secondAttribute="width" id="N5a-ft-DRr"/>
@@ -77,6 +85,7 @@
                     <constraint firstItem="HNF-FY-BJ4" firstAttribute="leading" secondItem="qab-Nl-rao" secondAttribute="trailing" constant="8" id="vHk-Qa-UVw"/>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="vo4-6n-JGW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Biq-B6-eAd" secondAttribute="trailing" constant="10" id="xea-GT-ROG"/>
+                    <constraint firstAttribute="trailing" secondItem="eMG-PA-nNU" secondAttribute="trailing" id="yb4-9K-sCj"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -92,6 +101,7 @@
                 <outlet property="avatarImageView" destination="qab-Nl-rao" id="wUN-5h-CDf"/>
                 <outlet property="contentTextView" destination="Biq-B6-eAd" id="Sgg-UY-WKg"/>
                 <outlet property="floorLabel" destination="ZiP-RG-jgh" id="i5k-Oq-tHp"/>
+                <outlet property="isNewView" destination="eMG-PA-nNU" id="5IM-jp-tWm"/>
                 <outlet property="nameLabel" destination="HNF-FY-BJ4" id="gqu-ya-Fzi"/>
                 <outlet property="timeLabel" destination="aio-xk-LSD" id="t5S-sR-9vq"/>
             </connections>
@@ -99,6 +109,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="acitvity_center_new.png" width="46" height="47"/>
         <image name="defaultUserIcon.png" width="50" height="50"/>
     </resources>
 </document>

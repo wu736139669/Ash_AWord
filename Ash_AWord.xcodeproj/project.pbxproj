@@ -233,6 +233,9 @@
 		A97CCE2A1B3BE6440046FE17 /* MessageListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97CCE281B3BE6440046FE17 /* MessageListViewController.xib */; };
 		A97CCE2E1B3BEBDA0046FE17 /* MessageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A97CCE2C1B3BEBDA0046FE17 /* MessageListTableViewCell.m */; };
 		A97CCE2F1B3BEBDA0046FE17 /* MessageListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97CCE2D1B3BEBDA0046FE17 /* MessageListTableViewCell.xib */; };
+		A97D70F21B3E3BAB0070BE84 /* acitvity_center_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A97D70F11B3E3BAB0070BE84 /* acitvity_center_new@2x.png */; };
+		A97D70F61B3E40520070BE84 /* MyRelateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97D70F41B3E40520070BE84 /* MyRelateViewController.m */; };
+		A97D70F71B3E40520070BE84 /* MyRelateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97D70F51B3E40520070BE84 /* MyRelateViewController.xib */; };
 		A97DBE331ACAE10800705682 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97DBE311ACAE10800705682 /* LoginViewController.m */; };
 		A97DBE341ACAE10800705682 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE321ACAE10800705682 /* LoginViewController.xib */; };
 		A97DBE3F1ACAE29E00705682 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A97DBE391ACAE29E00705682 /* Icon.png */; };
@@ -831,6 +834,10 @@
 		A97CCE2B1B3BEBDA0046FE17 /* MessageListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageListTableViewCell.h; sourceTree = "<group>"; };
 		A97CCE2C1B3BEBDA0046FE17 /* MessageListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageListTableViewCell.m; sourceTree = "<group>"; };
 		A97CCE2D1B3BEBDA0046FE17 /* MessageListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageListTableViewCell.xib; sourceTree = "<group>"; };
+		A97D70F11B3E3BAB0070BE84 /* acitvity_center_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "acitvity_center_new@2x.png"; sourceTree = "<group>"; };
+		A97D70F31B3E40520070BE84 /* MyRelateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRelateViewController.h; sourceTree = "<group>"; };
+		A97D70F41B3E40520070BE84 /* MyRelateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRelateViewController.m; sourceTree = "<group>"; };
+		A97D70F51B3E40520070BE84 /* MyRelateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRelateViewController.xib; sourceTree = "<group>"; };
 		A97DBE301ACAE10800705682 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A97DBE311ACAE10800705682 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A97DBE321ACAE10800705682 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -1220,6 +1227,9 @@
 				A97CCE261B3BE6440046FE17 /* MessageListViewController.h */,
 				A97CCE271B3BE6440046FE17 /* MessageListViewController.m */,
 				A97CCE281B3BE6440046FE17 /* MessageListViewController.xib */,
+				A97D70F31B3E40520070BE84 /* MyRelateViewController.h */,
+				A97D70F41B3E40520070BE84 /* MyRelateViewController.m */,
+				A97D70F51B3E40520070BE84 /* MyRelateViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -1922,6 +1932,7 @@
 			children = (
 				A9C58DAE1B3AA8EC0007FCDC /* audio */,
 				A9F7F4581B33B51F00317F3E /* back@2x.png */,
+				A97D70F11B3E3BAB0070BE84 /* acitvity_center_new@2x.png */,
 				A971EDF61B32B7C40023740E /* chatBar_colorMore_audioCall@2x.png */,
 				A971EDF71B32B7C40023740E /* chatBar_colorMore_audioCallSelected@2x.png */,
 				A971EDF81B32B7C40023740E /* chatBar_colorMore_camera@2x.png */,
@@ -2588,6 +2599,7 @@
 				A9C58E091B3AA8EC0007FCDC /* VoiceSearchFeedback018.png in Resources */,
 				A971EE041B32B7C40023740E /* chatBar_colorMore_camera@2x.png in Resources */,
 				A94691CD1B26EACE00B5D26B /* PersonalInfoViewController.xib in Resources */,
+				A97D70F71B3E40520070BE84 /* MyRelateViewController.xib in Resources */,
 				A96862421ACCF0B400DDAA6B /* LICENCE.txt in Resources */,
 				A985367D1AEB8F89000312BF /* RegistInfoViewController.xib in Resources */,
 				A978CB2D1B3A3D5A00028C4A /* chat_sender_audio_playing_full@2x.png in Resources */,
@@ -2679,6 +2691,7 @@
 				A98536781AEB7400000312BF /* RegistAccountViewController.xib in Resources */,
 				A971EDF01B32B7AF0023740E /* chatBar_more_camera@2x.png in Resources */,
 				A97559CE1ACBF0BC004ADA42 /* btn_good_clicked@2x.png in Resources */,
+				A97D70F21B3E3BAB0070BE84 /* acitvity_center_new@2x.png in Resources */,
 				A9B6DFE61B2033A80003C1BC /* toolbar_light_comment@2x.png in Resources */,
 				A97883881AD369DF00D46477 /* mainCellDingClick@2x.png in Resources */,
 				A90BA0211AD606B400728393 /* voice-record-level@2x.png in Resources */,
@@ -2938,6 +2951,7 @@
 				A97CCE291B3BE6440046FE17 /* MessageListViewController.m in Sources */,
 				A9FD82BC1B1D544300AC4DC9 /* CommentTableViewCell.m in Sources */,
 				A9B6DFCC1B1FFDB20003C1BC /* CommentTextView.m in Sources */,
+				A97D70F61B3E40520070BE84 /* MyRelateViewController.m in Sources */,
 				A96F27EE1B2195BA00DA0A66 /* UIImageView+Reloading.m in Sources */,
 				A9B4A9541AEDC3620017C655 /* FeedbackViewController.m in Sources */,
 			);

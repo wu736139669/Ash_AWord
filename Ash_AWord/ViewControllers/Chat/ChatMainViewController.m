@@ -199,7 +199,8 @@
                                                                  completion:^(NSError *error)
          {
              if (error) {
-                 NSLog(NSLocalizedString(@"message.startRecordFail", @"failure to start recording"));
+//                 DLog(NSLocalizedString(@"message.startRecordFail", @"failure to start recording"));
+                 
              }
          }];
     }
@@ -256,7 +257,7 @@
             NSError *error = nil;
             [fileman removeItemAtURL:videoURL error:&error];
             if (error) {
-                NSLog(@"failed to remove file, error:%@.", error);
+                DLog(@"failed to remove file, error:%@.", error);
             }
         }
         EMChatVideo *chatVideo = [[EMChatVideo alloc] initWithFile:[mp4 relativePath] displayName:@"video.mp4"];
@@ -393,16 +394,16 @@
         [exportSession exportAsynchronouslyWithCompletionHandler:^{
             switch ([exportSession status]) {
                 case AVAssetExportSessionStatusFailed: {
-                    NSLog(@"failed, error:%@.", exportSession.error);
+                    DLog(@"failed, error:%@.", exportSession.error);
                 } break;
                 case AVAssetExportSessionStatusCancelled: {
-                    NSLog(@"cancelled.");
+                    DLog(@"cancelled.");
                 } break;
                 case AVAssetExportSessionStatusCompleted: {
-                    NSLog(@"completed.");
+                    DLog(@"completed.");
                 } break;
                 default: {
-                    NSLog(@"others.");
+                    DLog(@"others.");
                 } break;
             }
             dispatch_semaphore_signal(wait);
@@ -1128,7 +1129,7 @@
                     }
                     else
                     {
-                        NSLog(@"Read %@ failed!", localPath);
+                        DLog(@"Read %@ failed!", localPath);
                     }
                     return ;
                 }
@@ -1153,7 +1154,7 @@
                         }
                         else
                         {
-                            NSLog(@"Read %@ failed!", localPath);
+                            DLog(@"Read %@ failed!", localPath);
                         }
                         return ;
                     }

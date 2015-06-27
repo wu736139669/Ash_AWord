@@ -512,7 +512,7 @@
 
 + (UIColor *)appMainColorAlpha:(CGFloat)alpha
 {
-    return [UIColor colorWithHexString:@"#68d430" alpha:1];
+    return [UIColor colorWithHexString:@"#61BFA9" alpha:1];
 }
 
 + (UIColor *)appNavBackgroundColor

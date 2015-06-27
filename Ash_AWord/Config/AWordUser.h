@@ -17,6 +17,9 @@
 @property (nonatomic, strong) NSString* userGender;
 @property (nonatomic, assign) NSInteger loginType; //0代表第三方,1代表本地.
 @property (nonatomic, strong) UIImage* headBgImg;
+@property (nonatomic, strong) NSString* signature;
+@property (nonatomic, assign)NSInteger myNewFollowerCount;
+@property (nonatomic, assign)NSInteger notReadCommentNum;
 +(AWordUser*)sharedInstance;
 
 @end

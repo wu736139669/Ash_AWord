@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *unReadCountLabel;
 
 -(void)setUnReadCount:(NSInteger)unReadConut;
+-(void)setUnReadColor:(UIColor*)color;
 @end

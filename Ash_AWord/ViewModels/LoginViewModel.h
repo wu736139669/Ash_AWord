@@ -19,6 +19,9 @@ typedef enum {
 @property (nonatomic, strong) NSString* uId; //用户id。
 @property (nonatomic, strong) NSString* figureurl;
 @property (nonatomic, strong) NSString* userName;
+@property (nonatomic, strong) NSString* gender;
+@property (nonatomic, strong) NSString* signature;
+
 
 + (PropertyEntity *)requireLoginWithOpenId:(NSString*)openId withName:(NSString*)name withGender:(NSString*)gender withFigureUrl:(NSString*)figureUrl;
 
@@ -32,7 +35,7 @@ typedef enum {
 +(PropertyEntity*)requireModifyPassWord:(NSString*)newPassword withOldPaaaWord:(NSString*)oldPassWord;
 
 //修改信息
-+(PropertyEntity*)requireModifyInfoWithNickName:(NSString*)nickName withGender:(NSString*)gender withAvatarImg:(UIImage*)avatarImg;
++(PropertyEntity*)requireModifyInfoWithNickName:(NSString*)nickName withGender:(NSString*)gender withAvatarImg:(UIImage*)avatarImg withSignature:(NSString*)signature;
 
 //举报
 +(PropertyEntity*)requireReportWith:(Msg_Type)type withMsgId:(NSInteger)msgId withContent:(NSString*)content ;

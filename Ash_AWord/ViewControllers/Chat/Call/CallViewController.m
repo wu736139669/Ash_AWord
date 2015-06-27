@@ -45,7 +45,6 @@
         {
             if(call.callState == CTCallStateIncoming)
             {
-                NSLog(@"Call is incoming");
                 [_timeTimer invalidate];
                 [self _stopRing];
                 
@@ -503,7 +502,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     if (callSession.status == eCallSessionStatusDisconnected) {
         [self _stopRing];
 
-        NSLog(@"callSession.status == eCallSessionStatusDisconnected");
         _statusLabel.text = @"通话已挂断";
         NSString *str = @"通话结束";
         if(_timeLength == 0)
