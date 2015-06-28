@@ -9,5 +9,6 @@
 #import "ViewController.h"
 
 @interface MessageSetViewController : ViewController
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
