@@ -27,7 +27,7 @@
     // Initialization code
     _content.font = [UIFont appFontOfSize:14.0];
     _content.scrollEnabled = NO;
-    _timeLabel.font = [UIFont appFontOfSize:14.0];
+//    _timeLabel.font = [UIFont appFontOfSize:14.0];
     
     _avatarImageView.layer.cornerRadius = _avatarImageView.frame.size.width/2;
     _avatarImageView.layer.masksToBounds = YES;

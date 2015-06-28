@@ -106,6 +106,10 @@
     for (EMConversation* conversation  in _dataArr) {
         [uidArr addObject:conversation.chatter];
     }
+    if (uidArr.count<=0) {
+        [self headerEndRefreshing];
+        return;
+    }
     PropertyEntity* pro = [UserViewModel requireUserListWithUid:uidArr];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
@@ -114,7 +118,6 @@
             _ifRefresh = NO;
         }else{
             [_dataArr removeAllObjects];
-//            [MBProgressHUD errorHudWithView:self.view label:[viewModel errMessage] hidesAfter:1.0];
         }
 
         [self.tableView reloadData];

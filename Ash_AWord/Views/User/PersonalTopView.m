@@ -10,6 +10,7 @@
 #import "UserViewModel.h"
 #import "PraiseUserListViewController.h"
 #import "AppDelegate.h"
+#import "MWPhotoBrowser.h"
 @implementation PersonalTopView
 {
     BOOL _isSelectImage;
@@ -77,8 +78,40 @@
     [_avatarBtn sd_setImageWithURL:[NSURL URLWithString:userViewModel.userInfo.figureurl] forState:UIControlStateNormal placeholderImage:DefaultUserIcon];
 }
 - (IBAction)avatarBtnClick:(id)sender {
+    MWPhotoBrowser *pBrowser = [[MWPhotoBrowser alloc]initWithDelegate:self];
+    //是否显示分享按钮
+    pBrowser.displayActionButton = YES;
+    //左右分页切换
+    pBrowser.displayNavArrows = YES;
+    //是否显示选择按钮
+    pBrowser.displaySelectionButtons = NO;
+    //是否显示条件控制控件
+    pBrowser.alwaysShowControls = YES;
+    //是否全屏
+    pBrowser.zoomPhotosToFill = YES;
+    
+    //允许使用网络查看所有图片
+    pBrowser.enableGrid = YES;
+    //是否第一张
+    pBrowser.startOnGrid = YES;
+    pBrowser.enableSwipeToDismiss = YES;
+    [pBrowser showNextPhotoAnimated:YES];
+    [pBrowser showPreviousPhotoAnimated:YES];
+    [pBrowser setCurrentPhotoIndex:0];
+    [[AppDelegate visibleViewController].navigationController pushViewController:pBrowser animated:YES];
+
+}
+#pragma mark - MWPhotoBrowserDelegate
+-(NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
+{
+    return 1;
 }
 
+-(id<MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
+{
+    MWPhoto *photo = [[MWPhoto alloc]initWithURL:[NSURL URLWithString:_userViewModel.userInfo.figureurl]];
+    return photo;
+}
 - (IBAction)attentionListClick:(id)sender {
     PraiseUserListViewController* praiseUserListViewController = [[PraiseUserListViewController alloc] init];
     praiseUserListViewController.targetId = _userViewModel.userInfo.uid;

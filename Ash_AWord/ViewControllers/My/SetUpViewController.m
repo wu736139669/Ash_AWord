@@ -247,13 +247,17 @@
 {
     if (buttonIndex == 1 &&alertView.tag == 101) {
         [MobClick event:kUmen_logout];
-        
+        [MBProgressHUD hudWithView:self.view label:@"正在退出..."];
         [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+
             if (!error && info) {
 
             }
             [AWordUser sharedInstance].isLogin = NO;
             [AWordUser sharedInstance].uid = @"";
+            [AWordUser sharedInstance].notReadCommentNum = 0;
+            [AWordUser sharedInstance].myNewFollowerCount = 0;
             [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutSuccessNotificationName object:nil];
             [self.navigationController popViewControllerAnimated:YES];
             DLog(@"退出成功");

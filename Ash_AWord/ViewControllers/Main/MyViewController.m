@@ -193,9 +193,15 @@
             break;
         case 1:
         {
-            MyRelateViewController* myRelateViewController = [[MyRelateViewController alloc] init];
-            myRelateViewController.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:myRelateViewController animated:YES];
+            if (![AWordUser sharedInstance].isLogin)
+            {
+                [LoginViewController presentLoginViewControllerInView:self success:nil];
+            }else{
+                MyRelateViewController* myRelateViewController = [[MyRelateViewController alloc] init];
+                myRelateViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:myRelateViewController animated:YES];
+            }
+            
         }
             break;
         case 2:
