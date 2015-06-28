@@ -14,6 +14,7 @@
 #import "FeedbackViewController.h"
 #import "LoginViewModel.h"
 #import "MessageSetViewController.h"
+#import "BlackListViewController.h"
 @interface SetUpViewController ()<UIAlertViewDelegate>
 
 @end
@@ -32,11 +33,11 @@
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
+    if (section == 0 || section == 1) {
         return 1;
     }
     if([AWordUser sharedInstance].isLogin && [AWordUser sharedInstance].loginType==1)
@@ -45,7 +46,7 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 20.0;
+    return 0.01;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -53,14 +54,15 @@
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    if (section == 0 ) {
+    if (section == 0 || section == 1) {
         return 10.0;
     }
     return 100.0;
 }
+
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    if (![AWordUser sharedInstance].isLogin || section == 0) {
+    if (![AWordUser sharedInstance].isLogin || section == 0 || section == 1) {
         return nil;
     }
     UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
@@ -88,7 +90,11 @@
         cell.textLabel.text = @"消息设置";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
-    }else
+    }else if(indexPath.section == 1){
+        cell.textLabel.text = @"黑名单";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else
     {
     switch (indexPath.row) {
         case 0:
@@ -160,6 +166,9 @@
     if (indexPath.section == 0) {
         [self goMessageSet];
         return;
+    }else if (indexPath.section == 1){
+        [self goBlackList];
+        return;
     }
     switch (indexPath.row) {
         case 0:
@@ -194,6 +203,12 @@
     }
 }
 #pragma mark 跳到App Store评价
+-(void)goBlackList
+{
+    BlackListViewController* blackListViewController = [[BlackListViewController alloc] init];
+    blackListViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:blackListViewController animated:YES];
+}
 -(void)goMessageSet
 {
     MessageSetViewController* messageSetViewController = [[MessageSetViewController alloc] init];

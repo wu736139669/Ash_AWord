@@ -109,3 +109,21 @@
 "NSDateCategory.text12" = "晚上hh:mm";
 "NSDateCategory.text13" = "昨天HH:mm";
 "NSDateCategory.text14" = "今天 %@";
+
+//friend
+"friend.add" = "添加好友";
+"friend.somebodyAddWithName" = "%@ 添加你为好友";
+"friend.beRefusedToAdd" = "你被'%@'无耻的拒绝了";
+"friend.inputNameToSearch" = "输入要查找的好友";
+"friend.repeat" = "'%@'已经是你的好友了!";
+"friend.repeatApply" = "您已向'%@'发送好友请求了!";
+"friend.notAddSelf" = "不能添加自己为好友";
+"friend.repeatInvite" = "%@已经给你发来了申请";
+"friend.somebodyInvite" = "%@ 邀请你为好友";
+"friend.sendApply" = "正在发送申请...";
+"friend.sendApplyFail" = "发送申请失败，请重新操作";
+"friend.sendApplySuccess" = "发送申请成功";
+"friend.black" = "黑名单";
+"friend.notChatSelf" = "不能跟自己聊天";
+"friend.notDeleteSelf" = "不能删除自己";
+"friend.block" = "加入黑名单";

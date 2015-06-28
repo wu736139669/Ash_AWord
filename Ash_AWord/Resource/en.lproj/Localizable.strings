@@ -108,3 +108,21 @@
 "setting.microphoneAuthority" = "Please open in \"Setting\"-\"Privacy\"-\"Microphone\".";
 "setting.cameraNoAuthority" = "No camera permissions";
 "setting.cameraAuthority" = "Please open in \"Setting\"-\"Privacy\"-\"Camera\".";
+
+//friend
+"friend.add" = "add friend";
+"friend.somebodyAddWithName" = "%@ add you as a friend";
+"friend.beRefusedToAdd" = "you are shameless refused by '%@'";
+"friend.inputNameToSearch" = "input to find friends";
+"friend.repeat" = "'%@'has been your friend!";
+"friend.repeatApply" = "you have send fridend request to '%@'!";
+"friend.notAddSelf" = "can't add yourself as a friend";
+"friend.repeatInvite" = "%@ have sent the application to you";
+"friend.somebodyInvite" = "%@ invite you as a friend";
+"friend.sendApply" = "sending application...";
+"friend.sendApplyFail" = "send application fails, please operate again";
+"friend.sendApplySuccess" = "send successfully";
+"friend.black" = "Black List";
+"friend.notChatSelf" = "can't talk to yourself";
+"friend.notDeleteSelf" = "can't delete self";
+"friend.block" = "Move to blacklist";

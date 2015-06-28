@@ -51,6 +51,7 @@
 
     _typeSelectBgView = [Ash_UIUtil instanceXibView:@"TypeSelectBgView"];
     _typeSelectBgView.frame = self.view.frame;
+    _typeSelectBgView.hidden = YES;
     [self.view addSubview:_typeSelectBgView];
     _typeSelectBgView.typeIndex = _type;
     [_typeSelectBgView.allBtn addTarget:self action:@selector(selectTypeBtn:) forControlEvents:UIControlEventTouchUpInside];

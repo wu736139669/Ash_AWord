@@ -27,7 +27,6 @@
     // Do any additional setup after loading the view from its nib.
     
     [self customViewDidLoad];
-//    _userArr = [NSMutableArray array];
     
     self.navigationItem.title = @"消息列表";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空列表" style:UIBarButtonItemStyleDone target:self action:@selector(clearList)];

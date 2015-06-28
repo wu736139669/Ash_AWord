@@ -31,7 +31,7 @@
 #import "AppDelegate.h"
 #define KPageCount 20
 
-@interface ChatMainViewController ()<UITableViewDelegate,UITableViewDataSource,DXMessageToolBarDelegate,LocationViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,DXChatBarMoreViewDelegate,EMCallManagerDelegate,EMCDDeviceManagerDelegate,EMChatManagerDelegate,SRRefreshDelegate>
+@interface ChatMainViewController ()<UITableViewDelegate,UITableViewDataSource,DXMessageToolBarDelegate,LocationViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,DXChatBarMoreViewDelegate,EMCallManagerDelegate,EMCDDeviceManagerDelegate,EMChatManagerDelegate,SRRefreshDelegate,UIActionSheetDelegate>
 {
     DXMessageToolBar *_chatToolBar;
     NSMutableArray* _dataSource;
@@ -86,6 +86,9 @@
     _messageQueue = dispatch_queue_create("easemob.com", NULL);
     _isPlayingAudio = NO;
 
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"更多" style:UIBarButtonItemStyleDone target:self action:@selector(setBlackFriend)];
+    
     self.navigationItem.title = _otherUserName;
     
     if (!_otherUserName) {
@@ -133,6 +136,32 @@
     
     //通过会话管理者获取已收发消息
     [self loadMoreMessages];
+}
+
+#pragma mark 加入黑名单
+-(void)setBlackFriend
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"cancel", @"Cancel") destructiveButtonTitle:NSLocalizedString(@"friend.block", @"join the blacklist") otherButtonTitles:nil, nil];
+    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex != actionSheet.cancelButtonIndex) {
+        [MBProgressHUD hudWithView:self.view label:NSLocalizedString(@"wait", @"Pleae wait...")];
+        __weak typeof(self) weakSelf = self;
+        [[EaseMob sharedInstance].chatManager asyncBlockBuddy:_conversation.chatter relationship:eRelationshipBoth withCompletion:^(NSString *username, EMError *error){
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            if (!error)
+            {
+                //由于加入黑名单成功后会刷新黑名单，所以此处不需要再更改好友列表
+                [MBProgressHUD errorHudWithView:self.view label:@"成功加入，可以在设置->黑名单中删除。" hidesAfter:2.0];
+            }
+            else
+            {
+                [MBProgressHUD errorHudWithView:self.view label:error.description hidesAfter:1.0];
+            }
+        } onQueue:nil];
+    }
 }
 
 #pragma mark - DXMessageToolBarDelegate

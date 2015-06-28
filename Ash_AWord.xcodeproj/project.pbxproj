@@ -374,6 +374,8 @@
 		A9DABA3D1B3FE4B80008E30B /* TypeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA3C1B3FE4B80008E30B /* TypeSelectView.xib */; };
 		A9DABA401B3FE6F30008E30B /* TypeSelectBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABA3F1B3FE6F30008E30B /* TypeSelectBgView.m */; };
 		A9DABA421B3FE6FD0008E30B /* TypeSelectBgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA411B3FE6FD0008E30B /* TypeSelectBgView.xib */; };
+		A9DABA461B40130A0008E30B /* BlackListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABA441B40130A0008E30B /* BlackListViewController.m */; };
+		A9DABA471B40130A0008E30B /* BlackListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA451B40130A0008E30B /* BlackListViewController.xib */; };
 		A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E271191ADB97ED000B1542 /* Default-568h.png */; };
 		A9E2711C1ADB97ED000B1542 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2711A1ADB97ED000B1542 /* Default.png */; };
 		A9E2711E1ADBB25C000B1542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */; };
@@ -1022,6 +1024,9 @@
 		A9DABA3E1B3FE6F30008E30B /* TypeSelectBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSelectBgView.h; sourceTree = "<group>"; };
 		A9DABA3F1B3FE6F30008E30B /* TypeSelectBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSelectBgView.m; sourceTree = "<group>"; };
 		A9DABA411B3FE6FD0008E30B /* TypeSelectBgView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeSelectBgView.xib; sourceTree = "<group>"; };
+		A9DABA431B40130A0008E30B /* BlackListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackListViewController.h; sourceTree = "<group>"; };
+		A9DABA441B40130A0008E30B /* BlackListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackListViewController.m; sourceTree = "<group>"; };
+		A9DABA451B40130A0008E30B /* BlackListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListViewController.xib; sourceTree = "<group>"; };
 		A9E271191ADB97ED000B1542 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		A9E2711A1ADB97ED000B1542 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1259,6 +1264,9 @@
 				A97B1A391B3FA80E00D538F9 /* MessageSetViewController.h */,
 				A97B1A3A1B3FA80E00D538F9 /* MessageSetViewController.m */,
 				A97B1A3B1B3FA80E00D538F9 /* MessageSetViewController.xib */,
+				A9DABA431B40130A0008E30B /* BlackListViewController.h */,
+				A9DABA441B40130A0008E30B /* BlackListViewController.m */,
+				A9DABA451B40130A0008E30B /* BlackListViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -2667,6 +2675,7 @@
 				A9B6DFD91B201E5B0003C1BC /* share_send_highlighted@2x.png in Resources */,
 				A93441EE1ACA8C8F00A6B233 /* defaultUserIcon@2x.png in Resources */,
 				A97559AC1ACB9DF0004ADA42 /* navigationButtonRefresh@2x.png in Resources */,
+				A9DABA471B40130A0008E30B /* BlackListViewController.xib in Resources */,
 				A90BA0181AD6067F00728393 /* voice-continue-record-bg@2x.png in Resources */,
 				A90BA0081AD6060600728393 /* playButton@2x.png in Resources */,
 				A9B6DFD61B201E4E0003C1BC /* share_close@2x.png in Resources */,
@@ -2971,6 +2980,7 @@
 				A96862741ACCF13300DDAA6B /* PSTCollectionViewItemKey.m in Sources */,
 				A96862451ACCF0B400DDAA6B /* MWGridViewController.m in Sources */,
 				A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */,
+				A9DABA461B40130A0008E30B /* BlackListViewController.m in Sources */,
 				A96F27F91B21C5C800DA0A66 /* PraiseUserListViewController.m in Sources */,
 				A93441DE1ACA311700A6B233 /* Ash_UIUtil.m in Sources */,
 				A9B7BD791B3C083E00C0B1D7 /* MyMessageTableViewCell.m in Sources */,
