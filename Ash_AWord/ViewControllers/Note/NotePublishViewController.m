@@ -115,7 +115,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
         actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        [actionSheet showFromTabBar:self.tabBarController.tabBar];
+        [actionSheet showInView:self.view];
     }else{
         [self actionSheet:nil clickedButtonAtIndex:1];
     }
