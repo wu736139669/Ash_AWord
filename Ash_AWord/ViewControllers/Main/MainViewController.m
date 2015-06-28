@@ -76,7 +76,7 @@ static NSString *kMessageType = @"MessageType";
     // Do any additional setup after loading the view from its nib.
     
     [[UITableViewHeaderFooterView appearance] setTintColor:[UIColor clearColor]];
-    [[UITabBar appearance] setTintColor:[UIColor blackColor]];
+    [[UITabBar appearance] setTintColor:[UIColor appMainColor]];
     
     [UIBarButtonItem.appearance setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];

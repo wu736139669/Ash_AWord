@@ -12,11 +12,16 @@
 #import "NoteViewModel.h"
 #import "UpdateViewModel.h"
 #import "ReportViewController.h"
+#import "TypeSelectView.h"
+#import "TypeSelectBgView.h"
 @interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,NoteTableViewCellDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_imageArr;
     NSInteger _reportIndex;
+    TypeSelectView* _typeSelectView;
+    TypeSelectBgView* _typeSelectBgView;
+    NSInteger _type;   //_type＝0 代表全部,1代表关注.
 }
 @end
 
@@ -30,6 +35,7 @@
         _page = 1;
         _text_imageArr = [[NSMutableArray alloc] init];
         _reportIndex = -1;
+        _type = 0;
     }
     return self;
 }
@@ -41,6 +47,20 @@
     [self customViewDidLoad];
     
     self.navigationItem.title = @"遇见你";
+    
+
+    _typeSelectBgView = [Ash_UIUtil instanceXibView:@"TypeSelectBgView"];
+    _typeSelectBgView.frame = self.view.frame;
+    [self.view addSubview:_typeSelectBgView];
+    _typeSelectBgView.typeIndex = _type;
+    [_typeSelectBgView.allBtn addTarget:self action:@selector(selectTypeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_typeSelectBgView.attentionBtn addTarget:self action:@selector(selectTypeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_typeSelectBgView hide];
+    
+    _typeSelectView = [Ash_UIUtil instanceXibView:@"TypeSelectView"];
+    [_typeSelectView.typeBtn addTarget:self action:@selector(showTypeSelect:) forControlEvents:UIControlEventTouchUpInside];
+    _typeSelectView.frame = CGRectMake(0, 0, 60, 40);
+    self.navigationItem.titleView = _typeSelectView;
     
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
     self.navigationItem.rightBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(headerBeginRefreshing) image:[UIImage imageNamed:@"navigationButtonRefresh"] highlightedImage:[UIImage imageNamed:@"navigationButtonRefreshClick"]];
@@ -62,6 +82,29 @@
     [menu setMenuItems:menuItems];
 }
 
+-(void)selectTypeBtn:(UIButton*)button
+{
+    [_typeSelectBgView hide];
+    if (_type == button.tag) {
+        return;
+    }else{
+        _type = button.tag;
+        if (_type == 0) {
+            _typeSelectView.titleLabel.text = @"全部";
+        }else{
+            _typeSelectView.titleLabel.text = @"关注";
+        }
+        _typeSelectBgView.typeIndex = _type;
+        [self headerBeginRefreshing];
+
+    }
+}
+-(void)showTypeSelect:(id)sender
+{
+    if (_typeSelectBgView.hidden) {
+        [_typeSelectBgView show];
+    }
+}
 -(void)longPressToDo:(UILongPressGestureRecognizer *)gesture
 {
     if(gesture.state == UIGestureRecognizerStateBegan)
@@ -164,7 +207,7 @@
 {
     [MobClick event:kUmen_note];
 
-    PropertyEntity* pro = [NoteViewModel requireWithOrder_by:Order_by_Time withPage:_page withPage_size:DefaultPageSize];
+    PropertyEntity* pro = [NoteViewModel requireWithOrder_by:Order_by_Time withPage:_page withPage_size:DefaultPageSize withType:_type];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
         NoteViewModel* noteViewModel = (NoteViewModel*)viewModel;

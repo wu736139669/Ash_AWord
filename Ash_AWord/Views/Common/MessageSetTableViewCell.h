@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MessageSetTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UISwitch *isSlectSwitch;
 
 @end

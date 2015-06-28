@@ -367,6 +367,13 @@
 		A9DAB9A21B3FC1240008E30B /* MessageSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */; };
 		A9DAB9A31B3FC1240008E30B /* MessageSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */; };
 		A9DABA301B3FCF800008E30B /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DABA2B1B3FCE870008E30B /* libEaseMobClientSDK.a */; };
+		A9DABA341B3FD98F0008E30B /* EMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABA331B3FD98F0008E30B /* EMAlertView.m */; };
+		A9DABA361B3FDFFC0008E30B /* Profile_filter_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA351B3FDFFC0008E30B /* Profile_filter_down@2x.png */; };
+		A9DABA381B3FE2660008E30B /* Profile_filter_upClick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA371B3FE2660008E30B /* Profile_filter_upClick@2x.png */; };
+		A9DABA3B1B3FE4A50008E30B /* TypeSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABA3A1B3FE4A50008E30B /* TypeSelectView.m */; };
+		A9DABA3D1B3FE4B80008E30B /* TypeSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA3C1B3FE4B80008E30B /* TypeSelectView.xib */; };
+		A9DABA401B3FE6F30008E30B /* TypeSelectBgView.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DABA3F1B3FE6F30008E30B /* TypeSelectBgView.m */; };
+		A9DABA421B3FE6FD0008E30B /* TypeSelectBgView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DABA411B3FE6FD0008E30B /* TypeSelectBgView.xib */; };
 		A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E271191ADB97ED000B1542 /* Default-568h.png */; };
 		A9E2711C1ADB97ED000B1542 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2711A1ADB97ED000B1542 /* Default.png */; };
 		A9E2711E1ADBB25C000B1542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */; };
@@ -1005,6 +1012,16 @@
 		A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSetTableViewCell.m; sourceTree = "<group>"; };
 		A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageSetTableViewCell.xib; sourceTree = "<group>"; };
 		A9DABA2B1B3FCE870008E30B /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
+		A9DABA321B3FD98F0008E30B /* EMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMAlertView.h; sourceTree = "<group>"; };
+		A9DABA331B3FD98F0008E30B /* EMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMAlertView.m; sourceTree = "<group>"; };
+		A9DABA351B3FDFFC0008E30B /* Profile_filter_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile_filter_down@2x.png"; sourceTree = "<group>"; };
+		A9DABA371B3FE2660008E30B /* Profile_filter_upClick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Profile_filter_upClick@2x.png"; sourceTree = "<group>"; };
+		A9DABA391B3FE4A50008E30B /* TypeSelectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSelectView.h; sourceTree = "<group>"; };
+		A9DABA3A1B3FE4A50008E30B /* TypeSelectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSelectView.m; sourceTree = "<group>"; };
+		A9DABA3C1B3FE4B80008E30B /* TypeSelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeSelectView.xib; sourceTree = "<group>"; };
+		A9DABA3E1B3FE6F30008E30B /* TypeSelectBgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSelectBgView.h; sourceTree = "<group>"; };
+		A9DABA3F1B3FE6F30008E30B /* TypeSelectBgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSelectBgView.m; sourceTree = "<group>"; };
+		A9DABA411B3FE6FD0008E30B /* TypeSelectBgView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeSelectBgView.xib; sourceTree = "<group>"; };
 		A9E271191ADB97ED000B1542 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		A9E2711A1ADB97ED000B1542 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1900,6 +1917,7 @@
 		A97C54D91AC9014D0038818A /* Vender */ = {
 			isa = PBXGroup;
 			children = (
+				A9DABA311B3FD98F0008E30B /* EMAlertView */,
 				A9744EDF1B3155150082301D /* EaseMobSDK */,
 				A96D2F231B2FFD9C00DC0284 /* DejalActivityView */,
 				A9A3A7551B281392001AAB3A /* CExpandHeader */,
@@ -1943,6 +1961,8 @@
 			children = (
 				A9C58DAE1B3AA8EC0007FCDC /* audio */,
 				A9F7F4581B33B51F00317F3E /* back@2x.png */,
+				A9DABA371B3FE2660008E30B /* Profile_filter_upClick@2x.png */,
+				A9DABA351B3FDFFC0008E30B /* Profile_filter_down@2x.png */,
 				A97D70F11B3E3BAB0070BE84 /* acitvity_center_new@2x.png */,
 				A971EDF61B32B7C40023740E /* chatBar_colorMore_audioCall@2x.png */,
 				A971EDF71B32B7C40023740E /* chatBar_colorMore_audioCallSelected@2x.png */,
@@ -2379,8 +2399,23 @@
 				A9DAB99F1B3FC1240008E30B /* MessageSetTableViewCell.h */,
 				A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */,
 				A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */,
+				A9DABA391B3FE4A50008E30B /* TypeSelectView.h */,
+				A9DABA3A1B3FE4A50008E30B /* TypeSelectView.m */,
+				A9DABA3C1B3FE4B80008E30B /* TypeSelectView.xib */,
+				A9DABA3E1B3FE6F30008E30B /* TypeSelectBgView.h */,
+				A9DABA3F1B3FE6F30008E30B /* TypeSelectBgView.m */,
+				A9DABA411B3FE6FD0008E30B /* TypeSelectBgView.xib */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		A9DABA311B3FD98F0008E30B /* EMAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				A9DABA321B3FD98F0008E30B /* EMAlertView.h */,
+				A9DABA331B3FD98F0008E30B /* EMAlertView.m */,
+			);
+			path = EMAlertView;
 			sourceTree = "<group>";
 		};
 		A9F7F45A1B33BC4E00317F3E /* Call */ = {
@@ -2558,6 +2593,7 @@
 				A90BA0191AD6067F00728393 /* voice-continue-record-bgN@2x.png in Resources */,
 				A9C58DF81B3AA8EC0007FCDC /* VoiceSearchFeedback009@2x.png in Resources */,
 				A978CB291B3A3D5A00028C4A /* chat_sender_audio_playing_000@2x.png in Resources */,
+				A9DABA3D1B3FE4B80008E30B /* TypeSelectView.xib in Resources */,
 				A97C55001AC933AD0038818A /* UMSCommentDetailController.xib in Resources */,
 				A93441F21ACA916D00A6B233 /* tabbarQuotationClick@2x.png in Resources */,
 				A90BA0011AD6031E00728393 /* MessagePublishViewController.xib in Resources */,
@@ -2679,6 +2715,7 @@
 				A971EDF51B32B7AF0023740E /* chatBar_more_photoSelected@2x.png in Resources */,
 				A97559C51ACBEE99004ADA42 /* NoteTableViewCell.xib in Resources */,
 				A90BA0151AD6066000728393 /* voice-bottom-sure@2x.png in Resources */,
+				A9DABA381B3FE2660008E30B /* Profile_filter_upClick@2x.png in Resources */,
 				A971EDDD1B32B7960023740E /* chatBar_faceSelected@2x.png in Resources */,
 				A9CF212A1B1C65A2007490EF /* praise-wall-white@2x.png in Resources */,
 				A9617A551ACC27860024AE4A /* SetUpViewController.xib in Resources */,
@@ -2733,6 +2770,7 @@
 				A9C58DE31B3AA8EC0007FCDC /* chatFire_audioPlaying2.png in Resources */,
 				A98536731AEB66F9000312BF /* ReportViewController.xib in Resources */,
 				A9C58DF61B3AA8EC0007FCDC /* VoiceSearchFeedback008@2x.png in Resources */,
+				A9DABA421B3FE6FD0008E30B /* TypeSelectBgView.xib in Resources */,
 				A97C55011AC933AD0038818A /* UMSCommentInputController.xib in Resources */,
 				A971EE0D1B32B7C40023740E /* chatBar_colorMore_videoSelected@2x.png in Resources */,
 				A97559AD1ACB9DF0004ADA42 /* navigationButtonRefreshClick@2x.png in Resources */,
@@ -2784,6 +2822,7 @@
 				A9FD82B71B1D433800AC4DC9 /* accessory@2x.png in Resources */,
 				A9C58E001B3AA8EC0007FCDC /* VoiceSearchFeedback013@2x.png in Resources */,
 				A9C58DFA1B3AA8EC0007FCDC /* VoiceSearchFeedback010@2x.png in Resources */,
+				A9DABA361B3FDFFC0008E30B /* Profile_filter_down@2x.png in Resources */,
 				A90BA01B1AD6069A00728393 /* voice-play-start@2x.png in Resources */,
 				A9C58DE71B3AA8EC0007FCDC /* VoiceSearchFeedback001.png in Resources */,
 				A978CB361B3A3D6700028C4A /* chat_receiver_audio_playing000@2x.png in Resources */,
@@ -2845,6 +2884,7 @@
 				A9FAD4271AC922BE007ADC10 /* NoteViewController.m in Sources */,
 				A97559A01ACB88FE004ADA42 /* AWordDefault.m in Sources */,
 				A97C54D31AC8F10F0038818A /* XiaoYuAPIClient.m in Sources */,
+				A9DABA341B3FD98F0008E30B /* EMAlertView.m in Sources */,
 				A9CF21211B1C4C70007490EF /* NoteCommentViewController.m in Sources */,
 				A9F917C51B39055A0007A3AC /* EMChatImageBubbleView.m in Sources */,
 				A97559C41ACBEE99004ADA42 /* NoteTableViewCell.m in Sources */,
@@ -2861,6 +2901,7 @@
 				A971EDB31B32B5740023740E /* EMCDDeviceManager+Media.m in Sources */,
 				A9754A1F1ADC080E0018BAAD /* DataSource.m in Sources */,
 				A971EDB41B32B5740023740E /* EMCDDeviceManager+Microphone.m in Sources */,
+				A9DABA3B1B3FE4A50008E30B /* TypeSelectView.m in Sources */,
 				A97C54DD1AC901980038818A /* MBProgressHUD+Util.m in Sources */,
 				A96D2F261B2FFDA300DC0284 /* DejalActivityView.m in Sources */,
 				A9F917DA1B390A220007A3AC /* NSDateFormatter+Category.m in Sources */,
@@ -2923,6 +2964,7 @@
 				A9DAB9A21B3FC1240008E30B /* MessageSetTableViewCell.m in Sources */,
 				A9754A211ADC080E0018BAAD /* HttpDataSource.m in Sources */,
 				A9754A201ADC080E0018BAAD /* DataSourceWrapper.m in Sources */,
+				A9DABA401B3FE6F30008E30B /* TypeSelectBgView.m in Sources */,
 				A97B1A3C1B3FA80E00D538F9 /* MessageSetViewController.m in Sources */,
 				A9F917D71B39091A0007A3AC /* NSDate+Category.m in Sources */,
 				A971EDB71B32B5740023740E /* EMCDDeviceManagerBase.m in Sources */,

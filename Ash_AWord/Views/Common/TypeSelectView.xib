@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TypeSelectView">
+            <rect key="frame" x="0.0" y="0.0" width="231" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usu-3N-m0A">
+                    <rect key="frame" x="94" y="22" width="34" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvM-uJ-INl">
+                    <rect key="frame" x="130" y="22" width="15" height="22"/>
+                    <state key="normal" image="Profile_filter_down.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIe-2E-sqT">
+                    <rect key="frame" x="94" y="22" width="51" height="30"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="typeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="1vK-WI-Kr6"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="IvM-uJ-INl" secondAttribute="centerY" id="05s-jX-fzx"/>
+                <constraint firstItem="Usu-3N-m0A" firstAttribute="top" secondItem="oIe-2E-sqT" secondAttribute="top" id="1KA-b1-s1K"/>
+                <constraint firstItem="Usu-3N-m0A" firstAttribute="leading" secondItem="oIe-2E-sqT" secondAttribute="leading" id="5Iv-fU-llZ"/>
+                <constraint firstAttribute="centerX" secondItem="Usu-3N-m0A" secondAttribute="centerX" constant="5" id="F2h-gs-Gge"/>
+                <constraint firstAttribute="centerY" secondItem="Usu-3N-m0A" secondAttribute="centerY" id="d6u-cg-81R"/>
+                <constraint firstItem="oIe-2E-sqT" firstAttribute="trailing" secondItem="IvM-uJ-INl" secondAttribute="trailing" id="kIg-11-7xt"/>
+                <constraint firstAttribute="centerX" secondItem="IvM-uJ-INl" secondAttribute="centerX" id="lIa-Jq-rN1"/>
+                <constraint firstItem="IvM-uJ-INl" firstAttribute="leading" secondItem="Usu-3N-m0A" secondAttribute="trailing" constant="2" id="mT5-8B-PE5"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="lIa-Jq-rN1"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="imageTypeBtn" destination="IvM-uJ-INl" id="N3Z-lE-JCy"/>
+                <outlet property="titleLabel" destination="Usu-3N-m0A" id="g6N-3C-JH7"/>
+                <outlet property="typeBtn" destination="oIe-2E-sqT" id="fAr-z2-Flj"/>
+            </connections>
+            <point key="canvasLocation" x="26.5" y="331.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Profile_filter_down.png" width="15" height="11"/>
+    </resources>
+</document>

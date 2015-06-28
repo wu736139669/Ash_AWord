@@ -12,12 +12,17 @@
 #import "MessageTableViewCell.h"
 #import "AudioPlayer.h"
 #import "ReportViewController.h"
+#import "TypeSelectView.h"
+#import "TypeSelectBgView.h"
 @interface MessageViewController ()<MessageTableViewCellDelegate>
 {
     NSInteger _page;
     NSMutableArray* _text_voiceArr;
     NSInteger _playIndex;
     NSInteger _reportIndex;
+    TypeSelectView* _typeSelectView;
+    TypeSelectBgView* _typeSelectBgView;
+    NSInteger _type;   //_type＝0 代表全部,1代表关注.
 }
 @end
 
@@ -32,6 +37,7 @@
         _text_voiceArr = [[NSMutableArray alloc] init];
         _playIndex = -1;
         _reportIndex = -1;
+        _type = 0;
     }
     return self;
 }
@@ -42,6 +48,20 @@
     // Do any additional setup after loading the view from its nib.
     [self customViewDidLoad];
 
+    
+    _typeSelectBgView = [Ash_UIUtil instanceXibView:@"TypeSelectBgView"];
+    _typeSelectBgView.frame = self.view.frame;
+    [self.view addSubview:_typeSelectBgView];
+    _typeSelectBgView.typeIndex = _type;
+    [_typeSelectBgView.allBtn addTarget:self action:@selector(selectTypeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_typeSelectBgView.attentionBtn addTarget:self action:@selector(selectTypeBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_typeSelectBgView hide];
+    
+    _typeSelectView = [Ash_UIUtil instanceXibView:@"TypeSelectView"];
+    [_typeSelectView.typeBtn addTarget:self action:@selector(showTypeSelect:) forControlEvents:UIControlEventTouchUpInside];
+    _typeSelectView.frame = CGRectMake(0, 0, 60, 40);
+    self.navigationItem.titleView = _typeSelectView;
+    
     
     self.navigationItem.title = @"听你说";
     self.navigationItem.leftBarButtonItem = [Ash_UIUtil leftBarButtonItemWithTarget:self action:@selector(publish) image:[UIImage imageNamed:@"navigationButtonPublish"] highlightedImage:[UIImage imageNamed:@"navigationButtonPublishClick"]];
@@ -61,6 +81,30 @@
     [menuItems addObject:messageRepItem];
     UIMenuController *menu = [UIMenuController sharedMenuController];
     [menu setMenuItems:menuItems];
+}
+
+-(void)selectTypeBtn:(UIButton*)button
+{
+    [_typeSelectBgView hide];
+    if (_type == button.tag) {
+        return;
+    }else{
+        _type = button.tag;
+        if (_type == 0) {
+            _typeSelectView.titleLabel.text = @"全部";
+        }else{
+            _typeSelectView.titleLabel.text = @"关注";
+        }
+        _typeSelectBgView.typeIndex = _type;
+        [self headerBeginRefreshing];
+        
+    }
+}
+-(void)showTypeSelect:(id)sender
+{
+    if (_typeSelectBgView.hidden) {
+        [_typeSelectBgView show];
+    }
 }
 
 
@@ -142,7 +186,7 @@
 {
     [MobClick event:kUmen_message];
     
-    PropertyEntity* pro = [MessageViewModel requireWithOrder_by:Order_by_Time withPage:_page withPage_size:20];
+    PropertyEntity* pro = [MessageViewModel requireWithOrder_by:Order_by_Time withPage:_page withPage_size:DefaultPageSize withType:_type];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         
         MessageViewModel* noteViewModel = (MessageViewModel*)viewModel;

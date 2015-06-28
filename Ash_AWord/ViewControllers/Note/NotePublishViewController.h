@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet UIPlaceHolderTextView *contentTextView;
+- (IBAction)imageBtnClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *lengthLabel;
 @property (nonatomic,strong)UIImage* publishImage;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotePublishViewController">
@@ -45,18 +45,31 @@
                             <rect key="frame" x="274" y="8" width="36" height="36"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="36" id="6mz-DH-ZMu"/>
                                 <constraint firstAttribute="height" constant="36" id="klF-JR-XTO"/>
                                 <constraint firstAttribute="width" constant="36" id="ovV-xy-wqj"/>
                             </constraints>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0m-Hq-zac">
+                            <rect key="frame" x="266" y="0.0" width="46" height="42"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="imageBtnClick:" destination="-1" eventType="touchUpInside" id="uYp-wD-6lq"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="cLV-hQ-H4S" secondAttribute="trailing" constant="10" id="14N-20-VO8"/>
                         <constraint firstAttribute="height" constant="50" id="L7h-P1-z4e"/>
+                        <constraint firstItem="cLV-hQ-H4S" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qUF-OC-qqu" secondAttribute="top" constant="8" id="Tb3-rX-z33"/>
+                        <constraint firstAttribute="bottom" secondItem="cLV-hQ-H4S" secondAttribute="bottom" constant="6" id="W8m-Fs-P9p"/>
                         <constraint firstAttribute="bottom" secondItem="zdj-cC-ut8" secondAttribute="bottom" id="abE-oe-o2u"/>
                         <constraint firstItem="zdj-cC-ut8" firstAttribute="leading" secondItem="qUF-OC-qqu" secondAttribute="leading" constant="8" id="e0C-Dy-0sl"/>
                         <constraint firstItem="cLV-hQ-H4S" firstAttribute="top" secondItem="qUF-OC-qqu" secondAttribute="top" constant="8" id="mrN-0P-CRx"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cLV-hQ-H4S" secondAttribute="trailing" constant="10" id="uB6-cb-omM"/>
                         <constraint firstItem="zdj-cC-ut8" firstAttribute="top" secondItem="qUF-OC-qqu" secondAttribute="top" constant="29" id="uVa-gV-hXj"/>
                     </constraints>
                 </view>

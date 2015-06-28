@@ -8,7 +8,7 @@
 
 #import "NotePublishViewController.h"
 #import "NotePublishViewModel.h"
-@interface NotePublishViewController ()<UIAlertViewDelegate,UITextViewDelegate>
+@interface NotePublishViewController ()<UIAlertViewDelegate,UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     NSInteger _textLeft;
 }
@@ -110,5 +110,57 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)imageBtnClick:(id)sender {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从手机相册选择", nil];
+        actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        [actionSheet showFromTabBar:self.tabBarController.tabBar];
+    }else{
+        [self actionSheet:nil clickedButtonAtIndex:1];
+    }
+}
+#pragma mark UIActonSheetDelegate
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UIImagePickerController* picker = [[UIImagePickerController alloc] init];
+    //    picker.allowsEditing = YES;
+    picker.delegate = self;
+    if (buttonIndex == 0) {
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    if (buttonIndex == 1) {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        
+    }
+    if(buttonIndex == 2)
+    {
+        return;
+    }
+    [self presentViewController:picker animated:YES completion:nil];
+    
+}
+
+#pragma mark UIImagePickerControllerDelegate
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated: YES completion: ^(void){}];
+    
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage* image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    // resize image
+    image = [Ash_UIUtil fixOrientation:image];
+    image = [Ash_UIUtil compressImageDownToPhoneScreenSize:image];
+    [picker dismissViewControllerAnimated:NO completion:nil];
+    
+    _publishImage = image;
+    [_imageView setImage:_publishImage];
+}
 
 @end

@@ -9,6 +9,11 @@
 "Saving" = "保存中";
 "SaveFailed" = "保存失败";
 "Saved" = "保存成功";
+"save" = "保存";
+"ok" = "确定";
+"yes" = "是";
+"cancel" = "取消";
+"no" = "否";
 
 //message
 "message.image" = "图片";
@@ -60,6 +65,34 @@
 "location.fail" = "定位失败";
 "location.ongoning" = "正在定位...";
 
+//setting
+"setting.autoLogin" = "自动登录";
+"setting.loginUser" = "退出登录(%@)";
+"setting.logoutOngoing" = "正在退出...";
+
+"setting.notDisturb" = "功能消息免打扰";
+"setting.showDetail" = "通知显示消息详情";
+"setting.open" = "开启";
+"setting.nightOpen" = "只在夜间开启 (22:00 - 7:00)";
+"setting.close" = "关闭";
+"setting.sureNotDisturb" = "此设置会导致全天都处于免打扰模式, 不会再收到推送消息. 是否继续?";
+
+"setting.uploadLog" = "上传运行日志";
+"setting.sdkVersion" = "SDK 版本";
+"setting.uploading" = "正在上传...";
+"setting.uploadSuccess" = "上传成功";
+"setting.editName" = "更改昵称";
+"setting.inputName" = "请输入新昵称";
+"setting.saveName" = "保存更改昵称";
+"setting.namenotempty" = "昵称不能为空";
+"setting.edittips" = "设置此昵称以后,在与iOS客户端demo聊天工程中,iOS一侧会显示此昵称而不是环信ID,如果对方使用安卓客户端则此设置不生效";
+"setting.iospushname" = "iOS离线推送昵称";
+"setting.useIp" = "使用IP";
+"setting.deleteConWhenLeave" = "退群时删除会话";
+"setting.microphoneNoAuthority" = "未获得授权使用麦克风";
+"setting.microphoneAuthority" = "请在iOS\"设置中\"-\"隐私\"-\"麦克风\"中打开";
+"setting.cameraNoAuthority" = "未获得授权使用相机";
+"setting.cameraAuthority" = "请在iOS\"设置中\"-\"隐私\"-\"相机\"中打开";
 
 //NSDateCategory
 "NSDateCategory.text1" = "1分钟内";

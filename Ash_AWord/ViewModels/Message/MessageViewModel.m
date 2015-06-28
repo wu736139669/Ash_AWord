@@ -62,7 +62,7 @@
 + (NSValueTransformer *)text_voiceJSONTransformer{
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:Text_Voice.class];
 }
-+(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
++(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size withType:(NSInteger)type
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOSTDATA;
@@ -72,8 +72,12 @@
                           @"pageSize": [NSString stringWithFormat:@"%ld",(long)page_size],
                           };
     
+    NSString* command = @"30004";
+    if (type == 1) {
+        command = @"30009";
+    }
     pro.pro = @{@"root": dic,
-                @"command": @"30004",
+                @"command": command,
                 };
     
     return pro;

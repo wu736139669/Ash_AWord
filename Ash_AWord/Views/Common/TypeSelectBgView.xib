@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TypeSelectBgView">
+            <rect key="frame" x="0.0" y="2" width="272" height="134"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8C-U8-dGr">
+                    <rect key="frame" x="0.0" y="0.0" width="272" height="90"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c21-LQ-hB0">
+                            <rect key="frame" x="0.0" y="5" width="272" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Pju-Cg-FTB"/>
+                            </constraints>
+                            <state key="normal" title="全部">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSX-ZZ-dGo">
+                            <rect key="frame" x="0.0" y="45" width="272" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="dWu-Za-PZy"/>
+                            </constraints>
+                            <state key="normal" title="关注">
+                                <color key="titleColor" red="0.3803921569" green="0.74901960779999999" blue="0.66274509800000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCa-uF-ySP">
+                            <rect key="frame" x="0.0" y="41" width="272" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="iry-7Q-Fvq"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="qCa-uF-ySP" firstAttribute="leading" secondItem="b8C-U8-dGr" secondAttribute="leading" id="1ou-EF-yf6"/>
+                        <constraint firstAttribute="trailing" secondItem="MSX-ZZ-dGo" secondAttribute="trailing" id="3By-5y-Ca9"/>
+                        <constraint firstItem="MSX-ZZ-dGo" firstAttribute="leading" secondItem="b8C-U8-dGr" secondAttribute="leading" id="BX5-58-HE8"/>
+                        <constraint firstAttribute="trailing" secondItem="qCa-uF-ySP" secondAttribute="trailing" id="DLj-L3-M0Y"/>
+                        <constraint firstAttribute="height" constant="90" id="HHp-kc-KEg"/>
+                        <constraint firstItem="MSX-ZZ-dGo" firstAttribute="top" secondItem="c21-LQ-hB0" secondAttribute="bottom" id="IDn-08-1ao"/>
+                        <constraint firstItem="c21-LQ-hB0" firstAttribute="top" secondItem="b8C-U8-dGr" secondAttribute="top" constant="5" id="RPQ-US-6WM"/>
+                        <constraint firstAttribute="trailing" secondItem="c21-LQ-hB0" secondAttribute="trailing" id="Rnx-Er-brd"/>
+                        <constraint firstItem="qCa-uF-ySP" firstAttribute="top" secondItem="b8C-U8-dGr" secondAttribute="top" constant="41" id="bDd-LN-wui"/>
+                        <constraint firstItem="c21-LQ-hB0" firstAttribute="leading" secondItem="b8C-U8-dGr" secondAttribute="leading" id="zio-mF-4GT"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yc-Dx-b6C">
+                    <rect key="frame" x="0.0" y="90" width="272" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="bgBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Axd-O0-6DN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.14999999999999999" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="b8C-U8-dGr" secondAttribute="trailing" id="4qZ-Wa-dVz"/>
+                <constraint firstAttribute="trailing" secondItem="7yc-Dx-b6C" secondAttribute="trailing" id="9c2-P1-rPY"/>
+                <constraint firstItem="b8C-U8-dGr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9ea-FG-kuv"/>
+                <constraint firstItem="7yc-Dx-b6C" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="KO1-HU-u2v"/>
+                <constraint firstAttribute="bottom" secondItem="7yc-Dx-b6C" secondAttribute="bottom" id="R5G-dy-uUA"/>
+                <constraint firstItem="7yc-Dx-b6C" firstAttribute="top" secondItem="b8C-U8-dGr" secondAttribute="bottom" id="U7L-e4-99D"/>
+                <constraint firstItem="b8C-U8-dGr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a0k-tS-hL7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="allBtn" destination="c21-LQ-hB0" id="bRP-8d-sRB"/>
+                <outlet property="attentionBtn" destination="MSX-ZZ-dGo" id="w9W-cB-R8I"/>
+                <outlet property="bgView" destination="b8C-U8-dGr" id="thA-3l-srf"/>
+                <outlet property="lineHeight" destination="iry-7Q-Fvq" id="DA2-gf-r9j"/>
+                <outlet property="lineView" destination="qCa-uF-ySP" id="qKo-sn-Ytj"/>
+            </connections>
+            <point key="canvasLocation" x="172" y="132"/>
+        </view>
+    </objects>
+</document>

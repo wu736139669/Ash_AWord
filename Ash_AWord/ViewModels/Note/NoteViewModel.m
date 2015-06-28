@@ -64,7 +64,7 @@
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:Text_Image.class];
 }
 
-+(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
++(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size withType:(NSInteger)type
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
     pro.requireType = HTTPRequestTypeWithPOSTDATA;
@@ -74,9 +74,12 @@
                           @"page": [NSString stringWithFormat:@"%ld",(long)page],
                           @"pageSize": [NSString stringWithFormat:@"%ld",(long)page_size],
                           };
-    
+    NSString* command = @"20004";
+    if (type == 1) {
+        command = @"20009";
+    }
     pro.pro = @{@"root": dic,
-                @"command": @"20004",
+                @"command": command,
                 };
     
     
