@@ -14,8 +14,11 @@
 #import "MobClick.h"
 #import "MainViewController.h"
 #import "EaseMob.h"
-@interface AppDelegate ()
-
+#import "PersonalInfoViewController.h"
+@interface AppDelegate ()<UIAlertViewDelegate>
+{
+    NSString* _otherUserId;
+}
 @end
 
 @implementation AppDelegate
@@ -24,11 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-
-    
-
-    
-    
+    _otherUserId = nil;
     application.applicationIconBadgeNumber = 0;
     
     if([application respondsToSelector:@selector(registerUserNotificationSettings:)])
@@ -127,6 +126,8 @@
 // 打印收到的apns信息
 -(void)didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
+    [MBProgressHUD errorHudWithView:nil label:@"hha" hidesAfter:1.0];
+
     NSError *parseError = nil;
     NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
                                                         options:NSJSONWritingPrettyPrinted error:&parseError];
@@ -139,6 +140,33 @@
                                           otherButtonTitles:nil];
     [alert show];
     
+}
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    NSError *parseError = nil;
+    NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
+                                                        options:NSJSONWritingPrettyPrinted error:&parseError];
+    NSString *str =  [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    NSString* info = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+    _otherUserId = [userInfo objectForKey:@"f"];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"收到消息"
+                                                    message:info
+                                                   delegate:self
+                                          cancelButtonTitle:NSLocalizedString(@"ok", @"OK")
+                                          otherButtonTitles:@"点击查看",nil];
+    [alert show];
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1 && _otherUserId && ![_otherUserId isEqualToString:@""]) {
+        
+        PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] initWithNibName:@"PersonalInfoViewController" bundle:nil];
+        personalInfoViewController.hidesBottomBarWhenPushed = YES;
+        personalInfoViewController.otherUserId = _otherUserId;
+        [[AppDelegate visibleViewController].navigationController pushViewController:personalInfoViewController animated:YES];
+    }
 }
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
