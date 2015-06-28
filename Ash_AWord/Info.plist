@@ -38,6 +38,14 @@
 		</dict>
 		<dict>
 			<key>CFBundleURLName</key>
+			<string>yujianni</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.yujianni</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
 			<string>tencent</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
