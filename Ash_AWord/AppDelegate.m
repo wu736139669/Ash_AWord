@@ -126,18 +126,17 @@
 // 打印收到的apns信息
 -(void)didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    [MBProgressHUD errorHudWithView:nil label:@"hha" hidesAfter:1.0];
-
     NSError *parseError = nil;
     NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
                                                         options:NSJSONWritingPrettyPrinted error:&parseError];
-    NSString *str =  [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"推送内容"
-                                                    message:str
-                                                   delegate:nil
+    NSString* info = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
+    _otherUserId = [userInfo objectForKey:@"f"];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"收到消息"
+                                                    message:info
+                                                   delegate:self
                                           cancelButtonTitle:NSLocalizedString(@"ok", @"OK")
-                                          otherButtonTitles:nil];
+                                          otherButtonTitles:@"点击查看",nil];
     [alert show];
     
 }
@@ -146,7 +145,6 @@
     NSError *parseError = nil;
     NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
                                                         options:NSJSONWritingPrettyPrinted error:&parseError];
-    NSString *str =  [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     NSString* info = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
     _otherUserId = [userInfo objectForKey:@"f"];
