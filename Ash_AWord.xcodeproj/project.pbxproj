@@ -366,6 +366,7 @@
 		A9CF212A1B1C65A2007490EF /* praise-wall-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF21291B1C65A2007490EF /* praise-wall-white@2x.png */; };
 		A9DAB9A21B3FC1240008E30B /* MessageSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */; };
 		A9DAB9A31B3FC1240008E30B /* MessageSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */; };
+		A9DABA301B3FCF800008E30B /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9DABA2B1B3FCE870008E30B /* libEaseMobClientSDK.a */; };
 		A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E271191ADB97ED000B1542 /* Default-568h.png */; };
 		A9E2711C1ADB97ED000B1542 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2711A1ADB97ED000B1542 /* Default.png */; };
 		A9E2711E1ADBB25C000B1542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */; };
@@ -1003,6 +1004,7 @@
 		A9DAB99F1B3FC1240008E30B /* MessageSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSetTableViewCell.h; sourceTree = "<group>"; };
 		A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSetTableViewCell.m; sourceTree = "<group>"; };
 		A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageSetTableViewCell.xib; sourceTree = "<group>"; };
+		A9DABA2B1B3FCE870008E30B /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		A9E271191ADB97ED000B1542 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		A9E2711A1ADB97ED000B1542 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1098,6 +1100,7 @@
 				A98F98601ACA2A86007C4594 /* libsqlite3.dylib in Frameworks */,
 				A98F985E1ACA2A77007C4594 /* CoreGraphics.framework in Frameworks */,
 				A98F985C1ACA2A6F007C4594 /* SystemConfiguration.framework in Frameworks */,
+				A9DABA301B3FCF800008E30B /* libEaseMobClientSDK.a in Frameworks */,
 				A98F985A1ACA2A65007C4594 /* libiconv.dylib in Frameworks */,
 				A98F98581ACA2A5A007C4594 /* Security.framework in Frameworks */,
 				A98F98561ACA29B5007C4594 /* libWeChatSDK.a in Frameworks */,
@@ -1717,6 +1720,7 @@
 		A9744F481B3155160082301D /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				A9DABA2B1B3FCE870008E30B /* libEaseMobClientSDK.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
