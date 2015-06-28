@@ -111,4 +111,16 @@
                 };
     return pro;
 }
++(PropertyEntity*)requireReadAllComment
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    NSDictionary* dic = @{
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10207",
+                };
+    return pro;
+}
 @end

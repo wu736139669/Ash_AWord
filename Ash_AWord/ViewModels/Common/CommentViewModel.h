@@ -32,4 +32,5 @@
 
 +(PropertyEntity*)requireLoadMyCommentWithPage:(NSInteger)page withPage_size:(NSInteger)page_size;
 +(PropertyEntity*)requireReadCommentWithCommentId:(NSInteger)commentId;
++(PropertyEntity*)requireReadAllComment;
 @end
