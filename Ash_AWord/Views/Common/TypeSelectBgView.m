@@ -20,7 +20,7 @@
     _allBtn.tag = 0;
     _attentionBtn.tag = 1;
     CGRect frame = _bgView.frame;
-    frame.origin.y-=_bgView.frame.size.height;
+    frame.origin.y=-90;
     _bgView.frame = frame;
     
     _lineHeight.constant = 0.5;
@@ -41,7 +41,7 @@
     self.hidden = NO;
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frame = _bgView.frame;
-        frame.origin.y+=_bgView.frame.size.height;
+        frame.origin.y = 0;
         _bgView.frame = frame;
     } completion:^(BOOL finished) {
         
@@ -51,7 +51,7 @@
 
     [UIView animateWithDuration:0.3 animations:^{
         CGRect frame = _bgView.frame;
-        frame.origin.y-=_bgView.frame.size.height;
+        frame.origin.y = -90;
         _bgView.frame = frame;
     } completion:^(BOOL finished) {
         self.hidden = YES;
