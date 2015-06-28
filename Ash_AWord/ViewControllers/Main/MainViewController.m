@@ -81,8 +81,8 @@ static NSString *kMessageType = @"MessageType";
     [UIBarButtonItem.appearance setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     
-    
     [[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES];
+    
     
     //聊天用的
     //获取未读消息数，此时并没有把self注册为SDK的delegate，读取出的未读数是上次退出程序时的

@@ -18,13 +18,15 @@
 @interface MessageCommentViewController ()
 {
     MessageTableViewCell* _headView;
-    CommentTextView* _commentTextView;
     CommentGoodListCellTableViewCell* _commentGoodListCellTableViewCell;
     NSInteger _page;
     NSMutableArray* _commentInfoArr;
-    BOOL _isFirstLoad;
 
 }
+@property (nonatomic, assign)    NSInteger page;
+@property (nonatomic, assign)    BOOL isFirstLoad;
+@property (nonatomic, weak)    CommentTextView* commentTextView;
+
 @end
 
 @implementation MessageCommentViewController
@@ -47,6 +49,20 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
+
+    
+    
+    if (_text_Voice) {
+        [self initView];
+        [self loadData];
+        [self requirePraiseUser];
+    }else{
+        [self loadRecordInfo];
+    }
+
+}
+-(void)initView
+{
     _headView = [Ash_UIUtil instanceXibView:@"MessageTableViewCell"];
     [_headView setText_Voice:_text_Voice];
     CGFloat height = [MessageTableViewCell heightWith:_text_Voice];
@@ -90,21 +106,38 @@
     _commentTextView = [Ash_UIUtil instanceXibView:@"CommentTextView"];
     _commentTextView.frame = self.view.frame;
     _commentTextView.commentType = Voice_Type;
-
+    
     [_commentTextView setComentComplete:^(){
-        _isFirstLoad = NO;
-        _page = 1;
+        weakSelf.isFirstLoad = NO;
+        weakSelf.page = 1;
         [weakSelf loadData];
     }];
     [self.view addSubview:_commentTextView];
     _commentTextView.recordId = _text_Voice.messageId;
     _commentTextView.aothourId = _text_Voice.ownerId;
     [_commentTextView setHidden:YES];
-    
-    
-    [self loadData];
-    [self requirePraiseUser];
-
+}
+-(void)loadRecordInfo
+{
+    PropertyEntity* pro = [MessageViewModel requireMessageWithRecordId:_recordId];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        if ([viewModel success]) {
+            if (_text_Voice) {
+                _text_Voice = [(MessageViewModel*)viewModel text_voice];
+                if (_headView) {
+                    [_headView setText_Voice:_text_Voice];
+                }
+                return ;
+            }
+            [self initView];
+            [self loadData];
+            [self requirePraiseUser];
+        }
+    } failedBlock:^(NSError *error){
+        [self initView];
+        [self loadData];
+        [self requirePraiseUser];
+    }];
 }
 -(void)requirePraiseUser
 {
@@ -221,13 +254,15 @@
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     commentInfoViewModel.status = 1;
     cell.ownerId = _text_Voice.ownerId;
+    __weak MessageCommentViewController* weakself = self;
+
     [cell setCommentWithUid:^(NSString* ownerId){
-        [_commentTextView showWithUid:ownerId];
+        [weakself.commentTextView showWithUid:ownerId];
     }];
     [cell setDelCommentSuccess:^(void){
-        _isFirstLoad = NO;
-        _page = 1;
-        [self loadData];
+        weakself.isFirstLoad = NO;
+        weakself.page = 1;
+        [weakself loadData];
     }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
@@ -245,7 +280,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc
+{
+}
 /*
 #pragma mark - Navigation
 

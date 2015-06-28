@@ -24,7 +24,7 @@
         NSString *tmpErrCode = func(tweet, selector);
         DLog(@"%@", tmpErrCode);
         
-        if ([tmpErrCode isKindOfClass:[NSString class]] && [tmpErrCode isEqualToString:@"0"]) {
+        if (([tmpErrCode isKindOfClass:[NSString class]] && [tmpErrCode isEqualToString:@"0"] ) || ([tmpErrCode isKindOfClass:[NSNumber class]] && [tmpErrCode integerValue]==0)) {
             [[EGOCache globalCache] setObject:tweet forKey:apiKey];
             
         }
@@ -39,7 +39,7 @@
 
 + (AFHTTPRequestOperation *)requireWithProperty:(PropertyEntity *)proper completionBlock:(CompletionBlock)completionBlock failedBlock:(FailedBlock)failedBlock{
     proper.reqURL = @"";
-    NSString *apiKey = proper.url;
+    NSString *apiKey = proper.cacheKey;
     if (proper.pro && proper.pro[@"page"])
     {
         apiKey = [apiKey stringByAppendingFormat:@"%@",proper.pro[@"page"]];
@@ -114,6 +114,8 @@
         return [[XiaoYuAPIClient sharedClient] POST:[proper reqURL]
                                          parameters:[proper encodePro]
                           constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                              
+                              [self responseFromCacheWithAPIKey:apiKey property:proper completionBlock:completionBlock];
                               if (proper.pFile) {
                                   if ([proper.pFile.name isEqualToString:@"img"]) {
                                       for (int i = 0; i < proper.pFile.img.count; i++) {

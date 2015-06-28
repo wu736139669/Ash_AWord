@@ -47,6 +47,7 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithDictionary:[super JSONKeyPathsByPropertyKey]];
     [dic setObject:@"text_images" forKey:@"text_imagesArr"];
+    [dic setObject:@"text_image" forKey:@"text_image"];
     return dic;
 }
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
@@ -57,6 +58,10 @@
 }
 + (NSValueTransformer *)text_imagesArrJSONTransformer{
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Text_Image.class];
+}
+
++ (NSValueTransformer *)text_imageJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:Text_Image.class];
 }
 
 +(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
@@ -106,6 +111,8 @@
                 };
     return pro;
 }
+
+
 +(PropertyEntity*)requirePraiseWithRecordId:(NSInteger)recordId
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
@@ -152,5 +159,21 @@
     return pro;
 }
 
++(PropertyEntity*)requireNoteWithRecordId:(NSInteger)recordId
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    pro.isCache = YES;
+    pro.cacheKey = [NSString stringWithFormat:@"20010-%ld",recordId];
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"20010",
+                };
+    return pro;
+}
 
 @end

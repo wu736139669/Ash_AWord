@@ -16,5 +16,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;
 @property (weak, nonatomic) IBOutlet UIView *lineView;
 @property (strong, nonatomic)Text_Voice* text_Voice;
+@property (assign, nonatomic)NSInteger recordId;
+
 
 @end

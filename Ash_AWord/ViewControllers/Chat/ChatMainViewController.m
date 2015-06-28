@@ -111,15 +111,16 @@
     [self.view addSubview:_chatToolBar];
     
     
+    __weak ChatMainViewController* weakSelf = self;
 #warning 以下三行代码必须写，注册为SDK的ChatManager的delegate
-    [EMCDDeviceManager sharedInstance].delegate = self;
+    [EMCDDeviceManager sharedInstance].delegate = weakSelf;
     [[EaseMob sharedInstance].chatManager removeDelegate:self];
     //注册为SDK的ChatManager的delegate
-    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    [[EaseMob sharedInstance].chatManager addDelegate:weakSelf delegateQueue:nil];
     
     [[EaseMob sharedInstance].callManager removeDelegate:self];
     // 注册为Call的Delegate
-    [[EaseMob sharedInstance].callManager addDelegate:self delegateQueue:nil];
+    [[EaseMob sharedInstance].callManager addDelegate:weakSelf delegateQueue:nil];
     
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyBoardHidden)];
@@ -461,8 +462,9 @@
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             cell.messageModel = model;
+            __weak ChatMainViewController* weakself = self;
             [cell setDelMessage:^(NSInteger index){
-                [self deleteMsgWithIndex:index];
+                [weakself deleteMsgWithIndex:index];
             }];
             cell.tag = indexPath.row;
             return cell;
@@ -1225,6 +1227,8 @@
 {
     _slimeView.delegate = nil;
     _slimeView = nil;
+//    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+//    [[EaseMob sharedInstance].callManager removeDelegate:self];
 }
 /*
 #pragma mark - Navigation

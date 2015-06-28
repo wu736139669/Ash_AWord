@@ -28,11 +28,13 @@
 @interface NoteViewModel : BaseViewModel
 
 @property (nonatomic, strong)NSArray* text_imagesArr;
+@property (nonatomic, strong)Text_Image* text_image;
 
 +(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size;
 +(PropertyEntity*)requireMyWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size;
 +(PropertyEntity*)requireOhterWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size withOtherId:(NSString*)otherid;
 
++(PropertyEntity*)requireNoteWithRecordId:(NSInteger)recordId;
 
 +(PropertyEntity*)requirePraiseWithRecordId:(NSInteger)recordId;
 +(PropertyEntity*)requireShareWithRecordId:(NSInteger)recordId;

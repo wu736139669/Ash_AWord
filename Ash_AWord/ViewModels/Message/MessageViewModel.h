@@ -30,6 +30,8 @@
 
 @property (nonatomic, strong)NSArray* text_voicesArr;
 
+@property (nonatomic, strong)Text_Voice *text_voice;
+
 
 +(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size;
 +(PropertyEntity*)requireMyWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size;
@@ -40,5 +42,7 @@
 +(PropertyEntity*)requireShareWithRecordId:(NSInteger)recordId;
 
 +(PropertyEntity*)requireDelWithRecordId:(NSInteger)recordId;
+
++(PropertyEntity*)requireMessageWithRecordId:(NSInteger)recordId;
 
 @end

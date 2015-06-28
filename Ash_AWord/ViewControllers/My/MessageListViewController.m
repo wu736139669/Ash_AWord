@@ -16,6 +16,7 @@
     NSMutableArray* _dataArr;
     NSMutableArray* _userArr;
 
+    BOOL _ifRefresh;
 }
 @end
 
@@ -31,10 +32,10 @@
     self.navigationItem.title = @"消息列表";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空列表" style:UIBarButtonItemStyleDone target:self action:@selector(clearList)];
     
+    _ifRefresh = YES;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView reloadData];
-    [self.tableView removeFooter];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,7 +46,11 @@
 {
     [super viewWillAppear:animated];
     
-    [self headerBeginRefreshing];
+    if (_ifRefresh) {
+        [self.tableView.header beginRefreshing];
+    }else{
+        [self loadData];
+    }
     
 }
 
@@ -70,6 +75,7 @@
 -(void)headerRereshing
 {
     _page=1;
+    _ifRefresh = YES;
     [self loadData];
 }
 -(void)footerRereshing
@@ -93,6 +99,10 @@
     
     _dataArr = [[NSMutableArray alloc] initWithArray:sorte];
     
+    if (!_ifRefresh) {
+        [self.tableView reloadData];
+        return;
+    }
     NSMutableArray* uidArr = [NSMutableArray array];
     for (EMConversation* conversation  in _dataArr) {
         [uidArr addObject:conversation.chatter];
@@ -102,19 +112,20 @@
         
         if ([viewModel success]) {
             _userArr = [NSMutableArray arrayWithArray:[(UserViewModel*)viewModel userBaseInfoArr]];
+            _ifRefresh = NO;
         }else{
             [_dataArr removeAllObjects];
 //            [MBProgressHUD errorHudWithView:self.view label:[viewModel errMessage] hidesAfter:1.0];
         }
 
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self headerEndRefreshing];
     } failedBlock:^(NSError *error) {
         [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
 
         [_dataArr removeAllObjects];
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self headerEndRefreshing];
     }];
 
 }
@@ -203,7 +214,6 @@
             break;
         }
     }
-
 
     [self.navigationController pushViewController:chatMainViewController animated:YES];
 }

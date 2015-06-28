@@ -40,13 +40,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acitvity_center_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="eMG-PA-nNU">
-                        <rect key="frame" x="297" y="0.0" width="23" height="24"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="24" id="Dmm-9C-oWb"/>
-                            <constraint firstAttribute="width" constant="23" id="u0I-Ba-FY2"/>
-                        </constraints>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-B6-eAd" customClass="DTAttributedTextView">
                         <rect key="frame" x="49" y="16" width="266" height="82"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -60,6 +53,13 @@
                             <action selector="avatarBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Kxn-pK-HiZ"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="acitvity_center_new.png" translatesAutoresizingMaskIntoConstraints="NO" id="eMG-PA-nNU">
+                        <rect key="frame" x="306" y="5" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="Dmm-9C-oWb"/>
+                            <constraint firstAttribute="width" constant="10" id="u0I-Ba-FY2"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="centerX" secondItem="eYx-r1-Tw5" secondAttribute="centerX" id="4sT-FS-HI3"/>
@@ -76,11 +76,14 @@
                     <constraint firstItem="HNF-FY-BJ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Vtb-ph-9tQ"/>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Xim-WS-hus"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="HNF-FY-BJ4" secondAttribute="trailing" constant="30" id="ZkL-SX-vgZ"/>
+                    <constraint firstItem="qab-Nl-rao" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="bo3-Zv-AKj"/>
                     <constraint firstAttribute="trailing" secondItem="ZiP-RG-jgh" secondAttribute="trailing" constant="10" id="cGm-cZ-Vir"/>
                     <constraint firstItem="ZiP-RG-jgh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="cwd-an-AyP"/>
                     <constraint firstItem="aio-xk-LSD" firstAttribute="top" secondItem="HNF-FY-BJ4" secondAttribute="bottom" constant="3" id="gYF-ag-8gr"/>
                     <constraint firstItem="Biq-B6-eAd" firstAttribute="top" secondItem="ZiP-RG-jgh" secondAttribute="bottom" id="jTT-zl-ij6"/>
                     <constraint firstItem="aio-xk-LSD" firstAttribute="leading" secondItem="qab-Nl-rao" secondAttribute="trailing" constant="8" id="oIw-sV-8qp"/>
+                    <constraint firstAttribute="trailing" secondItem="eMG-PA-nNU" secondAttribute="trailing" constant="4" id="oUg-5g-dmt"/>
+                    <constraint firstItem="eMG-PA-nNU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tqR-7I-r7h"/>
                     <constraint firstItem="Biq-B6-eAd" firstAttribute="top" secondItem="aio-xk-LSD" secondAttribute="bottom" constant="5" id="u9J-u2-rUq"/>
                     <constraint firstItem="HNF-FY-BJ4" firstAttribute="leading" secondItem="qab-Nl-rao" secondAttribute="trailing" constant="8" id="vHk-Qa-UVw"/>
                     <constraint firstItem="qab-Nl-rao" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="vo4-6n-JGW"/>
@@ -89,11 +92,14 @@
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
+                        <exclude reference="Xim-WS-hus"/>
                         <exclude reference="UO4-Ry-Jbt"/>
                         <exclude reference="jTT-zl-ij6"/>
                         <exclude reference="xea-GT-ROG"/>
                         <exclude reference="QDZ-IA-030"/>
                         <exclude reference="cGm-cZ-Vir"/>
+                        <exclude reference="GmY-ys-4Bc"/>
+                        <exclude reference="yb4-9K-sCj"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>

@@ -119,7 +119,24 @@
                 };
     return pro;
 }
++(PropertyEntity*)requireNewUserList
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    
+    
+    NSDictionary* dic = @{
+                          @"page": [NSString stringWithFormat:@"%d",1],
+                          @"pageSize": [NSString stringWithFormat:@"%d",100],
+                          };
+    NSString* command = @"10106";
 
+    pro.pro = @{@"root": dic,
+                @"command": command,
+                };
+    return pro;
+}
 +(PropertyEntity*)requireUserListWithUid:(NSArray *)uidArr
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];

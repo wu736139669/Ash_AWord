@@ -32,7 +32,7 @@ typedef void (^SRRefreshBlock)(SRRefreshView* sender);
 @property (nonatomic, strong, readonly) UIImageView *refleshView;
 //select one to receive the refreshing message.
 @property (nonatomic, copy)     SRRefreshBlock      block;
-@property (nonatomic, assign)   id<SRRefreshDelegate>   delegate;
+@property (nonatomic, weak)   id<SRRefreshDelegate>   delegate;
 @property (nonatomic, readonly) UIActivityIndicatorView *activityIndicationView;
 
 //default is false, if true when slime go back it will have a alpha effect 

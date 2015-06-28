@@ -46,6 +46,8 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     NSMutableDictionary* dic = [NSMutableDictionary dictionaryWithDictionary:[super JSONKeyPathsByPropertyKey]];
     [dic setObject:@"text_voices" forKey:@"text_voicesArr"];
+    [dic setObject:@"text_voice" forKey:@"text_voice"];
+
     return dic;
 }
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
@@ -57,7 +59,9 @@
 + (NSValueTransformer *)text_voicesArrJSONTransformer{
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:Text_Voice.class];
 }
-
++ (NSValueTransformer *)text_voiceJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:Text_Voice.class];
+}
 +(PropertyEntity*)requireWithOrder_by:(Order_by)order_by withPage:(NSInteger)page withPage_size:(NSInteger)page_size
 {
     PropertyEntity *pro = [[PropertyEntity alloc] init];
@@ -147,6 +151,23 @@
                           };
     pro.pro = @{@"root": dic,
                 @"command": @"30006",
+                };
+    
+    return pro;
+}
++(PropertyEntity*)requireMessageWithRecordId:(NSInteger)recordId
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    pro.isCache = YES;
+    pro.cacheKey = [NSString stringWithFormat:@"30010-%ld",recordId];
+    NSDictionary* dic = @{
+                          @"recordId": [NSString stringWithFormat:@"%ld",recordId],
+                          
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"30010",
                 };
     
     return pro;

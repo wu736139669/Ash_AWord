@@ -21,14 +21,16 @@
     CExpandHeader *_header;
     PersonalTopView* _personalTopView;
     UserViewModel* _userViewModel;
-    NSMutableArray* _imageArr;
-    NSMutableArray* _voiceArr;
-    BOOL _isSelectImage;
+    
     NSInteger _imagePage;
     NSInteger _voicePage;
     NSInteger _playIndex;
 
 }
+@property(nonatomic, strong) NSMutableArray* imageArr;
+@property(nonatomic, strong) NSMutableArray* voiceArr;
+@property(nonatomic, assign)BOOL isSelectImage;
+
 @end
 
 @implementation PersonalInfoViewController
@@ -77,15 +79,15 @@
         [_personalTopView.headBtn addTarget:self action:@selector(selectHeadImage:) forControlEvents:UIControlEventTouchUpInside];
     }
     [_personalTopView setIsSelectImg:^(BOOL isSelectImg){
-        _isSelectImage = isSelectImg;
+        weakself.isSelectImage = isSelectImg;
         if (isSelectImg) {
-            if (_imageArr.count <= 0) {
+            if (weakself.imageArr.count <= 0) {
                 [weakself loadData];
             }else{
                 [weakself.tableView reloadData];
             }
         }else{
-            if (_voiceArr.count <= 0) {
+            if (weakself.voiceArr.count <= 0) {
                 [weakself loadData];
             }else{
                 [weakself.tableView reloadData];
@@ -388,7 +390,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc
+{
+    
+}
 /*
 #pragma mark - Navigation
 

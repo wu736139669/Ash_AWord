@@ -131,8 +131,10 @@
     }
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     cell.isAllowReport = NO;
+    
+    __weak MyRelateViewController* weakself = self;
     [cell setCommentWithUid:^(NSString* uid){
-        [self tableView:tableView didSelectRowAtIndexPath:indexPath];
+        [weakself tableView:tableView didSelectRowAtIndexPath:indexPath];
     }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
@@ -142,14 +144,47 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
+    
+    [RequireEngine requireWithProperty:[CommentViewModel requireReadCommentWithCommentId:commentInfoViewModel.commentId.integerValue] completionBlock:^(id viewModel) {
+        commentInfoViewModel.status = 1;
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } failedBlock:nil];
     if (commentInfoViewModel.commentType == Image_Type) {
         NoteCommentViewController* noteCommentViewController = [[NoteCommentViewController alloc] init];
         noteCommentViewController.hidesBottomBarWhenPushed = YES;
-//        noteCommentViewController.text_image = _text_image;
+        noteCommentViewController.recordId = commentInfoViewModel.recordId;
         [self.navigationController pushViewController:noteCommentViewController animated:YES];
     }else{
+        MessageCommentViewController* messageCommentViewController = [[MessageCommentViewController alloc] init];
+        messageCommentViewController.hidesBottomBarWhenPushed = YES;
+        messageCommentViewController.recordId = commentInfoViewModel.recordId;
+        [self.navigationController pushViewController:messageCommentViewController animated:YES];
+    }
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
+    if ([commentInfoViewModel.ownerId isEqualToString:[AWordUser sharedInstance].uid]) {
+        return YES;
+    }
+    return NO;
+}
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
+        [RequireEngine requireWithProperty:[CommentViewModel requireDelCommentWithCommentId:commentInfoViewModel.commentId.integerValue] completionBlock:^(id viewModel) {
+            commentInfoViewModel.status = 1;
+            [_commentInfoArr removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        } failedBlock:nil];
         
     }
+}
+
+-(void)dealloc
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {

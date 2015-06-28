@@ -210,6 +210,8 @@
 		A978CB441B3A3D8800028C4A /* chatListCellHead@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A978CB431B3A3D8800028C4A /* chatListCellHead@2x.png */; };
 		A97938751B20A63D00180C08 /* UserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97938741B20A63D00180C08 /* UserViewModel.m */; };
 		A97938781B20BB0900180C08 /* CommentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97938771B20BB0900180C08 /* CommentViewModel.m */; };
+		A97B1A3C1B3FA80E00D538F9 /* MessageSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B1A3A1B3FA80E00D538F9 /* MessageSetViewController.m */; };
+		A97B1A3D1B3FA80E00D538F9 /* MessageSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97B1A3B1B3FA80E00D538F9 /* MessageSetViewController.xib */; };
 		A97C54CD1AC8F10F0038818A /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54BD1AC8F10F0038818A /* BaseViewModel.m */; };
 		A97C54CF1AC8F10F0038818A /* NSString+HXAddtions.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C11AC8F10F0038818A /* NSString+HXAddtions.m */; };
 		A97C54D01AC8F10F0038818A /* PropertyEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = A97C54C31AC8F10F0038818A /* PropertyEntity.m */; };
@@ -787,6 +789,9 @@
 		A97938741B20A63D00180C08 /* UserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewModel.m; sourceTree = "<group>"; };
 		A97938761B20BB0900180C08 /* CommentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewModel.h; sourceTree = "<group>"; };
 		A97938771B20BB0900180C08 /* CommentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewModel.m; sourceTree = "<group>"; };
+		A97B1A391B3FA80E00D538F9 /* MessageSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSetViewController.h; sourceTree = "<group>"; };
+		A97B1A3A1B3FA80E00D538F9 /* MessageSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSetViewController.m; sourceTree = "<group>"; };
+		A97B1A3B1B3FA80E00D538F9 /* MessageSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageSetViewController.xib; sourceTree = "<group>"; };
 		A97C54BC1AC8F10F0038818A /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		A97C54BD1AC8F10F0038818A /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
 		A97C54C01AC8F10F0038818A /* NSString+HXAddtions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HXAddtions.h"; sourceTree = "<group>"; };
@@ -1230,6 +1235,9 @@
 				A97D70F31B3E40520070BE84 /* MyRelateViewController.h */,
 				A97D70F41B3E40520070BE84 /* MyRelateViewController.m */,
 				A97D70F51B3E40520070BE84 /* MyRelateViewController.xib */,
+				A97B1A391B3FA80E00D538F9 /* MessageSetViewController.h */,
+				A97B1A3A1B3FA80E00D538F9 /* MessageSetViewController.m */,
+				A97B1A3B1B3FA80E00D538F9 /* MessageSetViewController.xib */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -2567,6 +2575,7 @@
 				A9B6DFE21B202E7D0003C1BC /* comment_support_plus@2x.png in Resources */,
 				A971EDE61B32B7A00023740E /* chatBar_record@2x.png in Resources */,
 				A971EDE71B32B7A00023740E /* chatBar_recordBg@2x.png in Resources */,
+				A97B1A3D1B3FA80E00D538F9 /* MessageSetViewController.xib in Resources */,
 				A97559D01ACBF0BC004ADA42 /* btn_share_clicked@2x.png in Resources */,
 				A90BA01F1AD606AE00728393 /* voice-record-icon@2x.png in Resources */,
 				A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */,
@@ -2906,6 +2915,7 @@
 				A94DF6351AD4D94E00DCDCB0 /* MyNoteViewController.m in Sources */,
 				A9754A211ADC080E0018BAAD /* HttpDataSource.m in Sources */,
 				A9754A201ADC080E0018BAAD /* DataSourceWrapper.m in Sources */,
+				A97B1A3C1B3FA80E00D538F9 /* MessageSetViewController.m in Sources */,
 				A9F917D71B39091A0007A3AC /* NSDate+Category.m in Sources */,
 				A971EDB71B32B5740023740E /* EMCDDeviceManagerBase.m in Sources */,
 				A96862741ACCF13300DDAA6B /* PSTCollectionViewItemKey.m in Sources */,

@@ -29,6 +29,11 @@
     _isNewLabel.layer.cornerRadius = 5.0;
     
     _isNewView.hidden = YES;
+    _isNewView.layer.cornerRadius = 5.0;
+    _isNewView.backgroundColor = [UIColor appMainColor];
+    _isNewView.layer.masksToBounds = YES;
+    _isNewView.image = nil;
+    
     _isAllowReport = YES;
     _contentTextView.textDelegate = self;
     
@@ -72,7 +77,11 @@
     }else{
         [self setIsAuthor:NO];
     }
-    _isNewView.hidden = !commentInfoViewModel.status;
+    if (commentInfoViewModel.status == 0) {
+        _isNewView.hidden = NO;
+    }else{
+        _isNewView.hidden = YES;
+    }
     NSString* content = commentInfoViewModel.content;
     if (![commentInfoViewModel.toUserId isEqualToString:_ownerId]){
         content = [CommentTableViewCell getContentWithCommentInfoViewModel:commentInfoViewModel];

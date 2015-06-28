@@ -14,6 +14,8 @@
 {
     NSInteger _page;
     NSMutableArray* _dataArr;
+    NSMutableArray* _newArr; //新关注的用户
+    BOOL _isShowNewFans;   //代表是否有显示新粉丝
 }
 @end
 
@@ -22,11 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    _isShowNewFans = NO;
     self.navigationItem.title = @"最近点赞";
     if (_userListType == UserList_Attention_Type) {
         self.navigationItem.title = @"关注";
     }else if(_userListType == UserList_Fans_Type){
+        if ([_targetId isEqualToString:[AWordUser sharedInstance].uid] && [AWordUser sharedInstance].myNewFollowerCount>0) {
+            _isShowNewFans = YES;
+        }
         self.navigationItem.title = @"粉丝";
     }
     self.tableView.delegate = self;
@@ -34,6 +39,7 @@
     
     _page = 1;
     _dataArr = [[NSMutableArray alloc] init];
+    _newArr = [[NSMutableArray alloc] init];
     if (_firstPraiseUserArr.count > 0) {
         [_dataArr addObjectsFromArray:_firstPraiseUserArr];
         if (_dataArr.count >= DefaultPageSize) {
@@ -41,7 +47,7 @@
         }
     }else
     {
-        [self headerBeginRefreshing];
+        [self loadNewUserList];
     }
     
 }
@@ -52,7 +58,31 @@
 }
 
 
+-(void)loadNewUserList
+{
+    if (!_isShowNewFans) {
+        [self headerBeginRefreshing];
+        return;
+    }
+    [self.tableView.header beginRefreshing];
+    PropertyEntity* pro = [UserViewModel requireNewUserList];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        if ([viewModel success]) {
+            UserViewModel* userViewModel = (UserViewModel*)viewModel;
+            
+            if (userViewModel.userInfoArr) {
+                [_newArr addObjectsFromArray:userViewModel.userInfoArr];
+            }
+            
+        }
+        [self headerRereshing];
+        
+    } failedBlock:^(NSError *error) {
+        [self headerRereshing];
+    }];
 
+    
+}
 #pragma mark MJRefreshDelegate
 -(void)headerRereshing
 {
@@ -110,11 +140,17 @@
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (_newArr.count>0) {
+        return 2;
+    }
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
+    if (_newArr.count>0 && section==0) {
+        return _newArr.count;
+    }
     return _dataArr.count;
     
 }
@@ -127,7 +163,19 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     
+    if (_newArr.count>0) {
+        return 30.0;
+    }
     return 10.0;
+}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section==0 && _newArr.count>0) {
+        return @"新粉丝";
+    }else if(section==1){
+        return @"全部粉丝";
+    }
+    return @"";
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -144,7 +192,13 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
     
-    UserInfoViewModel* userInfoViewModel = [_dataArr objectAtIndex:indexPath.row];
+    UserInfoViewModel* userInfoViewModel;
+    if (indexPath.section==0 && _newArr.count>0) {
+        userInfoViewModel = [_newArr objectAtIndex:indexPath.row];
+    }else{
+        userInfoViewModel = [_dataArr objectAtIndex:indexPath.row];
+
+    }
 
     [cell setUserInfoViewModel:userInfoViewModel];
     return cell;
@@ -153,7 +207,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UserInfoViewModel* userInfoViewModel = [_dataArr objectAtIndex:indexPath.row];
+    UserInfoViewModel* userInfoViewModel;
+    if (indexPath.section==0 && _newArr.count>0) {
+        userInfoViewModel = [_newArr objectAtIndex:indexPath.row];
+    }else{
+        userInfoViewModel = [_dataArr objectAtIndex:indexPath.row];
+        
+    }
     PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
     personalInfoViewController.hidesBottomBarWhenPushed = YES;
     personalInfoViewController.otherUserId = userInfoViewModel.uid;

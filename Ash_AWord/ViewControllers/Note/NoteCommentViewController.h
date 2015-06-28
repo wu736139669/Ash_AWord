@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lineHeight;
 @property (weak, nonatomic) IBOutlet UIButton *commentBtn;
 @property (strong, nonatomic)Text_Image* text_image;
+@property (assign, nonatomic)NSInteger recordId;
 
 @end

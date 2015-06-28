@@ -38,4 +38,6 @@
 +(PropertyEntity*)requireAttentionWithTargetUid:(NSString*)targetUid withIsAttention:(BOOL)isAttention;
 
 +(PropertyEntity*)requireUserListWithUid:(NSArray*)uidArr;
+
++(PropertyEntity*)requireNewUserList;
 @end

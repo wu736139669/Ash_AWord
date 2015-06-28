@@ -21,6 +21,7 @@
              @"toUserId":@"toUserId",
              @"toUserName":@"toUserName",
              @"status" : @"status",
+             @"recordId":@"recordId",
              };
 }
 @end
@@ -94,6 +95,19 @@
                           };
     pro.pro = @{@"root": dic,
                 @"command": @"10204",
+                };
+    return pro;
+}
++(PropertyEntity*)requireReadCommentWithCommentId:(NSInteger)commentId
+{
+    PropertyEntity *pro = [[PropertyEntity alloc] init];
+    pro.requireType = HTTPRequestTypeWithPOSTDATA;
+    pro.responesOBJ = self.class;
+    NSDictionary* dic = @{
+                          @"commentId": [NSString stringWithFormat:@"%ld",commentId],
+                          };
+    pro.pro = @{@"root": dic,
+                @"command": @"10205",
                 };
     return pro;
 }

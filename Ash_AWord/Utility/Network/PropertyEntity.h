@@ -33,6 +33,7 @@ typedef NS_ENUM(NSUInteger, HTTPRequestType) {
 @property (nonatomic, assign) HTTPRequestType requireType;
 @property (nonatomic, copy) NSString *reqURL;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, strong)NSString* cacheKey;
 @property (nonatomic, strong) id pro;
 @property (nonatomic, assign) Class responesOBJ;
 @property (nonatomic, strong)DCParserConfiguration* config;

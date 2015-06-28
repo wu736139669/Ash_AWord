@@ -19,13 +19,13 @@
 @interface NoteCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     NoteTableViewCell* _headView;
-    CommentTextView* _commentTextView;
     CommentGoodListCellTableViewCell* _commentGoodListCellTableViewCell;
-    NSInteger _page;
     NSMutableArray* _commentInfoArr;
-    BOOL _isFirstLoad;
     NSInteger _reportIndex;
 }
+@property (nonatomic, assign)    NSInteger page;
+@property (nonatomic, assign)    BOOL isFirstLoad;
+@property (nonatomic, weak)    CommentTextView* commentTextView;
 @end
 
 @implementation NoteCommentViewController
@@ -44,6 +44,21 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
+    
+    if (_text_image) {
+        [self initView];
+        [self loadData];
+        [self requirePraiseUser];
+    }else{
+        [self loadRecordInfo];
+    }
+    
+
+
+}
+
+-(void)initView
+{
     _headView = [Ash_UIUtil instanceXibView:@"NoteTableViewCell"];
     [_headView setText_Image:_text_image];
     CGFloat height = [NoteTableViewCell heightWith:_text_image];
@@ -63,7 +78,7 @@
         praiseUserListViewController.userListType = UserList_Praise_Type;
         praiseUserListViewController.commentType = Image_Type;
         [weakSelf.navigationController pushViewController:praiseUserListViewController animated:YES];
-     }
+    }
      ];
     [tableHeadView addSubview:_commentGoodListCellTableViewCell];
     
@@ -87,25 +102,39 @@
     _commentTextView.frame = self.view.frame;
     _commentTextView.commentType = Image_Type;
     [_commentTextView setComentComplete:^(){
-        _isFirstLoad = NO;
-        _page = 1;
+        weakSelf.isFirstLoad = NO;
+        weakSelf.page = 1;
         [weakSelf loadData];
-     }];
+    }];
     [self.view addSubview:_commentTextView];
     _commentTextView.recordId = _text_image.messageId;
     _commentTextView.aothourId = _text_image.ownerId;
     [_commentTextView setHidden:YES];
-    
-    
-
-    
-    [self loadData];
-    [self requirePraiseUser];
 
 }
-
-
-
+-(void)loadRecordInfo
+{
+    PropertyEntity* pro = [NoteViewModel requireNoteWithRecordId:_recordId];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        if ([viewModel success]) {
+            if (_text_image) {
+                _text_image = [(NoteViewModel*)viewModel text_image];
+                if (_headView) {
+                    [_headView setText_Image:_text_image];
+                }
+                return ;
+            }
+            _text_image = [(NoteViewModel*)viewModel text_image];
+            [self initView];
+            [self loadData];
+            [self requirePraiseUser];
+        }
+    } failedBlock:^(NSError *error){
+        [self initView];
+        [self loadData];
+        [self requirePraiseUser];
+    }];
+}
 -(void)requirePraiseUser
 {
     PropertyEntity* pro = [UserViewModel requireLoadPraiseUserWithRecordId:_text_image.messageId withPage:1 withPage_size:10 withType:Image_Type];
@@ -220,13 +249,16 @@
     cell.commentType = Image_Type;
     CommentInfoViewModel* commentInfoViewModel = [_commentInfoArr objectAtIndex:indexPath.row];
     cell.ownerId = _text_image.ownerId;
+    commentInfoViewModel.status = 1;
+    __weak NoteCommentViewController* weakself = self;
+
     [cell setCommentWithUid:^(NSString* ownerId){
-        [_commentTextView showWithUid:ownerId];
+        [weakself.commentTextView showWithUid:ownerId];
     }];
     [cell setDelCommentSuccess:^(void){
-        _isFirstLoad = NO;
-        _page = 1;
-        [self loadData];
+        weakself.isFirstLoad = NO;
+        weakself.page = 1;
+        [weakself loadData];
     }];
     [cell setCommentInfoViewModel:commentInfoViewModel];
     return cell;
@@ -243,7 +275,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc
+{
+    
+}
 /*
 #pragma mark - Navigation
 
