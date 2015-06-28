@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "FeedbackViewController.h"
 #import "LoginViewModel.h"
+#import "MessageSetViewController.h"
 @interface SetUpViewController ()<UIAlertViewDelegate>
 
 @end
@@ -155,6 +156,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        [self goMessageSet];
+        return;
+    }
     switch (indexPath.row) {
         case 0:
             [self cleanCache];
@@ -188,7 +194,12 @@
     }
 }
 #pragma mark 跳到App Store评价
-
+-(void)goMessageSet
+{
+    MessageSetViewController* messageSetViewController = [[MessageSetViewController alloc] init];
+    messageSetViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:messageSetViewController animated:YES];
+}
 -(void)goFeedback
 {
     FeedbackViewController* feedbackViewController = [[FeedbackViewController alloc] init];
