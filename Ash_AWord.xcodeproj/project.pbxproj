@@ -154,7 +154,6 @@
 		A971EE0D1B32B7C40023740E /* chatBar_colorMore_videoSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A971EE011B32B7C40023740E /* chatBar_colorMore_videoSelected@2x.png */; };
 		A9744EDD1B311DBA0082301D /* MessageCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9744EDB1B311DBA0082301D /* MessageCommentViewController.m */; };
 		A9744EDE1B311DBA0082301D /* MessageCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9744EDC1B311DBA0082301D /* MessageCommentViewController.xib */; };
-		A9744F4D1B3155160082301D /* libEaseMobClientSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9744F491B3155160082301D /* libEaseMobClientSDK.a */; };
 		A9744F4F1B3155160082301D /* EaseMob.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A9744F4C1B3155160082301D /* EaseMob.bundle */; };
 		A9744F511B3155690082301D /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9744F501B3155690082301D /* libstdc++.6.dylib */; };
 		A9744F531B31557A0082301D /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9744F521B31557A0082301D /* libxml2.dylib */; };
@@ -365,6 +364,8 @@
 		A9CF21271B1C53E3007490EF /* CommentGoodListCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CF21251B1C53E3007490EF /* CommentGoodListCellTableViewCell.m */; };
 		A9CF21281B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CF21261B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib */; };
 		A9CF212A1B1C65A2007490EF /* praise-wall-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CF21291B1C65A2007490EF /* praise-wall-white@2x.png */; };
+		A9DAB9A21B3FC1240008E30B /* MessageSetTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */; };
+		A9DAB9A31B3FC1240008E30B /* MessageSetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */; };
 		A9E2711B1ADB97ED000B1542 /* Default-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E271191ADB97ED000B1542 /* Default-568h.png */; };
 		A9E2711C1ADB97ED000B1542 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A9E2711A1ADB97ED000B1542 /* Default.png */; };
 		A9E2711E1ADBB25C000B1542 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */; };
@@ -717,7 +718,6 @@
 		A9744F441B3155160082301D /* EMNetworkMonitorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMNetworkMonitorDefs.h; sourceTree = "<group>"; };
 		A9744F461B3155160082301D /* EMError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMError.h; sourceTree = "<group>"; };
 		A9744F471B3155160082301D /* EMErrorDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMErrorDefs.h; sourceTree = "<group>"; };
-		A9744F491B3155160082301D /* libEaseMobClientSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDK.a; sourceTree = "<group>"; };
 		A9744F4C1B3155160082301D /* EaseMob.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EaseMob.bundle; sourceTree = "<group>"; };
 		A9744F501B3155690082301D /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		A9744F521B31557A0082301D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -932,7 +932,6 @@
 		A9B7BD761B3C083E00C0B1D7 /* MyMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMessageTableViewCell.h; sourceTree = "<group>"; };
 		A9B7BD771B3C083E00C0B1D7 /* MyMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMessageTableViewCell.m; sourceTree = "<group>"; };
 		A9B7BD781B3C083E00C0B1D7 /* MyMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyMessageTableViewCell.xib; sourceTree = "<group>"; };
-		A9B8FEBB1B32930100619C7D /* libEaseMobClientSDKLite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEaseMobClientSDKLite.a; sourceTree = "<group>"; };
 		A9B8FEC21B32A4CF00619C7D /* ChatMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMainViewController.h; sourceTree = "<group>"; };
 		A9B8FEC31B32A4CF00619C7D /* ChatMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMainViewController.m; sourceTree = "<group>"; };
 		A9B8FEC41B32A4CF00619C7D /* ChatMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatMainViewController.xib; sourceTree = "<group>"; };
@@ -1001,6 +1000,9 @@
 		A9CF21251B1C53E3007490EF /* CommentGoodListCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentGoodListCellTableViewCell.m; sourceTree = "<group>"; };
 		A9CF21261B1C53E3007490EF /* CommentGoodListCellTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentGoodListCellTableViewCell.xib; sourceTree = "<group>"; };
 		A9CF21291B1C65A2007490EF /* praise-wall-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "praise-wall-white@2x.png"; sourceTree = "<group>"; };
+		A9DAB99F1B3FC1240008E30B /* MessageSetTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSetTableViewCell.h; sourceTree = "<group>"; };
+		A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageSetTableViewCell.m; sourceTree = "<group>"; };
+		A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageSetTableViewCell.xib; sourceTree = "<group>"; };
 		A9E271191ADB97ED000B1542 /* Default-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h.png"; sourceTree = "<group>"; };
 		A9E2711A1ADB97ED000B1542 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A9E2711D1ADBB25C000B1542 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -1089,7 +1091,6 @@
 				A98F98661ACA2A9F007C4594 /* libz.dylib in Frameworks */,
 				A9744F531B31557A0082301D /* libxml2.dylib in Frameworks */,
 				A9744F511B3155690082301D /* libstdc++.6.dylib in Frameworks */,
-				A9744F4D1B3155160082301D /* libEaseMobClientSDK.a in Frameworks */,
 				A9E2711E1ADBB25C000B1542 /* AVFoundation.framework in Frameworks */,
 				A98F98641ACA2A95007C4594 /* libstdc++.dylib in Frameworks */,
 				A98F98621ACA2A8E007C4594 /* CoreTelephony.framework in Frameworks */,
@@ -1716,8 +1717,6 @@
 		A9744F481B3155160082301D /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				A9744F491B3155160082301D /* libEaseMobClientSDK.a */,
-				A9B8FEBB1B32930100619C7D /* libEaseMobClientSDKLite.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -2373,6 +2372,9 @@
 				A9B7BD761B3C083E00C0B1D7 /* MyMessageTableViewCell.h */,
 				A9B7BD771B3C083E00C0B1D7 /* MyMessageTableViewCell.m */,
 				A9B7BD781B3C083E00C0B1D7 /* MyMessageTableViewCell.xib */,
+				A9DAB99F1B3FC1240008E30B /* MessageSetTableViewCell.h */,
+				A9DAB9A01B3FC1240008E30B /* MessageSetTableViewCell.m */,
+				A9DAB9A11B3FC1240008E30B /* MessageSetTableViewCell.xib */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -2586,6 +2588,7 @@
 				A971EE021B32B7C40023740E /* chatBar_colorMore_audioCall@2x.png in Resources */,
 				A9C58DE51B3AA8EC0007FCDC /* chatFire_audioPlaying3.png in Resources */,
 				A97559A51ACB9748004ADA42 /* setup-head-default@2x.png in Resources */,
+				A9DAB9A31B3FC1240008E30B /* MessageSetTableViewCell.xib in Resources */,
 				A97DBE3F1ACAE29E00705682 /* Icon.png in Resources */,
 				A98536871AEBDA1E000312BF /* OurLoginViewController.xib in Resources */,
 				A9C58DF51B3AA8EC0007FCDC /* VoiceSearchFeedback008.png in Resources */,
@@ -2913,6 +2916,7 @@
 				A9F917C41B39055A0007A3AC /* EMChatBaseBubbleView.m in Sources */,
 				A96862441ACCF0B400DDAA6B /* MWGridCell.m in Sources */,
 				A94DF6351AD4D94E00DCDCB0 /* MyNoteViewController.m in Sources */,
+				A9DAB9A21B3FC1240008E30B /* MessageSetTableViewCell.m in Sources */,
 				A9754A211ADC080E0018BAAD /* HttpDataSource.m in Sources */,
 				A9754A201ADC080E0018BAAD /* DataSourceWrapper.m in Sources */,
 				A97B1A3C1B3FA80E00D538F9 /* MessageSetViewController.m in Sources */,
