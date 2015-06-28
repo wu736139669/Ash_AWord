@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "457195872.725068"
+            timestampString = "457196521.385258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1012"
-            endingLineNumber = "1012"
+            startingLineNumber = "1017"
+            endingLineNumber = "1017"
             landmarkName = "-routerEventWithName:userInfo:"
             landmarkType = "5">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Chat/ChatMainViewController.m"
-            timestampString = "457195903.27565"
+            timestampString = "457196521.385258"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "982"
-            endingLineNumber = "982"
+            startingLineNumber = "987"
+            endingLineNumber = "987"
             landmarkName = "-routerEventWithName:userInfo:"
             landmarkType = "5">
          </BreakpointContent>
