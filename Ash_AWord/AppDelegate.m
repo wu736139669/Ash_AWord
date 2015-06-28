@@ -126,9 +126,6 @@
 // 打印收到的apns信息
 -(void)didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSError *parseError = nil;
-    NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
-                                                        options:NSJSONWritingPrettyPrinted error:&parseError];
     
     NSString* info = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
     _otherUserId = [userInfo objectForKey:@"f"];
@@ -142,9 +139,6 @@
 }
 - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    NSError *parseError = nil;
-    NSData  *jsonData = [NSJSONSerialization dataWithJSONObject:userInfo
-                                                        options:NSJSONWritingPrettyPrinted error:&parseError];
     
     NSString* info = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
     _otherUserId = [userInfo objectForKey:@"f"];
