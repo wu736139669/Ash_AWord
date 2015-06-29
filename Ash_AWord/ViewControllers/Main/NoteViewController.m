@@ -13,7 +13,9 @@
 #import "UpdateViewModel.h"
 #import "ReportViewController.h"
 #import "TypeSelectView.h"
+#import "AppDelegate.h"
 #import "TypeSelectBgView.h"
+#import "MainViewController.h"
 @interface NoteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,NoteTableViewCellDelegate>
 {
     NSInteger _page;
@@ -81,6 +83,8 @@
     [menuItems addObject:messageRepItem];
     UIMenuController *menu = [UIMenuController sharedMenuController];
     [menu setMenuItems:menuItems];
+    
+    
 }
 
 -(void)selectTypeBtn:(UIButton*)button
@@ -214,6 +218,8 @@
         NoteViewModel* noteViewModel = (NoteViewModel*)viewModel;
 
         if (_page <= 1) {
+            //设置未读消息数.
+            [((AppDelegate*)[UIApplication sharedApplication].delegate).mainViewController setupUnreadMessageCount];
             [_text_imageArr removeAllObjects];
         }
         if (noteViewModel.text_imagesArr) {

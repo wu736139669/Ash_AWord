@@ -81,6 +81,7 @@
                 <constraint firstItem="tLB-Tb-fTR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xci-vh-SFB"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="13" y="187"/>
         </view>
     </objects>
     <resources>

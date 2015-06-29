@@ -157,8 +157,9 @@
         case 4:
         {
             cell.textLabel.text = @"消息";
+            
             NSInteger count = [((AppDelegate*)[UIApplication sharedApplication].delegate).mainViewController setupUnreadMessageCount];
-            [(MyMessageTableViewCell*)cell setUnReadColor:[UIColor redColor]];
+            [(MyMessageTableViewCell*)cell setUnReadColor:[UIColor appMainColor]];
             [(MyMessageTableViewCell*)cell setUnReadCount:count];
             
         }

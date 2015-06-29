@@ -101,7 +101,7 @@ static NSString *kMessageType = @"MessageType";
     [super viewWillAppear:animated];
     //获取未读消息数，此时并没有把self注册为SDK的delegate，读取出的未读数是上次退出程序时的
 
-    [self didUnreadMessagesCountChanged];
+//    [self didUnreadMessagesCountChanged];
 
 }
 #pragma mark - UIAlertViewDelegate
@@ -151,15 +151,19 @@ static NSString *kMessageType = @"MessageType";
     for (EMConversation *conversation in conversations) {
         unreadCount += conversation.unreadMessagesCount;
     }
+    NSInteger allunReadCount = unreadCount;
+    allunReadCount += [AWordUser sharedInstance].notReadCommentNum;
+    allunReadCount += [AWordUser sharedInstance].myNewFollowerCount;
     if (_myNav) {
-        if (unreadCount > 0) {
-            _myNav.tabBarItem.badgeValue = [NSString stringWithFormat:@"%i",(int)unreadCount];
+        if (allunReadCount > 0) {
+            
+            _myNav.tabBarItem.badgeValue = [NSString stringWithFormat:@"%i",(int)allunReadCount];
         }else{
             _myNav.tabBarItem.badgeValue = nil;
         }
     }
     UIApplication *application = [UIApplication sharedApplication];
-    [application setApplicationIconBadgeNumber:unreadCount];
+    [application setApplicationIconBadgeNumber:allunReadCount];
     return unreadCount;
 
 }
@@ -399,21 +403,11 @@ static NSString *kMessageType = @"MessageType";
 #pragma mark - 自动登录回调
 
 - (void)willAutoReconnect{
-//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//    [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.ongoing", @"reconnecting...") hidesAfter:1.0];
-//    [self hideHud];
-//    [self showHint:NSLocalizedString(@"reconnection.ongoing", @"reconnecting...")];
+    [self setupUnreadMessageCount];
 }
 
 - (void)didAutoReconnectFinishedWithError:(NSError *)error{
-//    [self hideHud];
-//    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//
-//    if (error) {
-//        [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.fail", @"reconnection failure, later will continue to reconnection") hidesAfter:1.0];
-//    }else{
-//        [MBProgressHUD checkHudWithView:self.view label:NSLocalizedString(@"reconnection.success", @"reconnection successful！") hidesAfter:1.0];
-//    }
+
 }
 
 #pragma mark - ICallManagerDelegate
@@ -504,18 +498,6 @@ static NSString *kMessageType = @"MessageType";
 }
 #pragma mark - public
 
-- (void)jumpToChatList
-{
-    if ([self.navigationController.topViewController isKindOfClass:[ChatMainViewController class]]) {
-//        ChatMainViewController *chatController = (ChatMainViewController *)self.navigationController.topViewController;
-//        [chatController hideImagePicker];
-    }
-    else if(_myNav)
-    {
-        [self.navigationController popToViewController:self animated:NO];
-        [self setSelectedViewController:_myNav];
-    }
-}
 
 - (EMConversationType)conversationTypeFromMessageType:(EMMessageType)type
 {
@@ -538,83 +520,7 @@ static NSString *kMessageType = @"MessageType";
 
 - (void)didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    NSDictionary *userInfo = notification.userInfo;
-    if (userInfo)
-    {
-        if ([self.navigationController.topViewController isKindOfClass:[ChatMainViewController class]]) {
-//            ChatMainViewController *chatController = (ChatMainViewController *)self.navigationController.topViewController;
-//            [chatController hideImagePicker];
-        }
-        
-        NSArray *viewControllers = self.navigationController.viewControllers;
-        [viewControllers enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id obj, NSUInteger idx, BOOL *stop){
-            if (obj != self)
-            {
-                if (![obj isKindOfClass:[ChatMainViewController class]])
-                {
-                    [self.navigationController popViewControllerAnimated:NO];
-                }
-                else
-                {
-//                    NSString *conversationChatter = userInfo[kConversationChatter];
-//                    ChatMainViewController *chatViewController = (ChatMainViewController *)obj;
-//                    if (![chatViewController.chatter isEqualToString:conversationChatter])
-//                    {
-//                        [self.navigationController popViewControllerAnimated:NO];
-//                        EMMessageType messageType = [userInfo[kMessageType] intValue];
-//                        chatViewController = [[ChatViewController alloc] initWithChatter:conversationChatter conversationType:[self conversationTypeFromMessageType:messageType]];
-//                        switch (messageType) {
-//                            case eMessageTypeGroupChat:
-//                            {
-//                                NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
-//                                for (EMGroup *group in groupArray) {
-//                                    if ([group.groupId isEqualToString:conversationChatter]) {
-//                                        chatViewController.title = group.groupSubject;
-//                                        break;
-//                                    }
-//                                }
-//                            }
-//                                break;
-//                            default:
-//                                chatViewController.title = conversationChatter;
-//                                break;
-//                        }
-//                        [self.navigationController pushViewController:chatViewController animated:NO];
-//                    }
-//                    *stop= YES;
-                }
-            }
-            else
-            {
-//                ChatViewController *chatViewController = (ChatViewController *)obj;
-//                NSString *conversationChatter = userInfo[kConversationChatter];
-//                EMMessageType messageType = [userInfo[kMessageType] intValue];
-//                chatViewController = [[ChatViewController alloc] initWithChatter:conversationChatter conversationType:[self conversationTypeFromMessageType:messageType]];
-//                switch (messageType) {
-//                    case eMessageTypeGroupChat:
-//                    {
-//                        NSArray *groupArray = [[EaseMob sharedInstance].chatManager groupList];
-//                        for (EMGroup *group in groupArray) {
-//                            if ([group.groupId isEqualToString:conversationChatter]) {
-//                                chatViewController.title = group.groupSubject;
-//                                break;
-//                            }
-//                        }
-//                    }
-//                        break;
-//                    default:
-//                        chatViewController.title = conversationChatter;
-//                        break;
-//                }
-//                [self.navigationController pushViewController:chatViewController animated:NO];
-            }
-        }];
-    }
-    else if (_myNav)
-    {
-        [self.navigationController popToViewController:self animated:NO];
-        [self setSelectedViewController:_myNav];
-    }
+    
 }
 
 - (void)dealloc

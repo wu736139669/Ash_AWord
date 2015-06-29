@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ash_AWord/ViewControllers/Main/NoteViewController.m"
-            timestampString = "457181872.052846"
+            timestampString = "457251250.000903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-selectTypeBtn:"
             landmarkType = "5">
          </BreakpointContent>
@@ -576,6 +576,22 @@
             startingLineNumber = "112"
             endingLineNumber = "112"
             landmarkName = "-photoBrowser:photoAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Ash_AWord/ViewControllers/Main/MainViewController.m"
+            timestampString = "457251081.335297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-setupUnreadMessageCount"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
