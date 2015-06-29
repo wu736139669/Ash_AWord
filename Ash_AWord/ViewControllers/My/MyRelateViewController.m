@@ -41,6 +41,7 @@
 #pragma mark 标记已读
 -(void)readAll
 {
+    [self.tableView.header beginRefreshing];
     [RequireEngine requireWithProperty:[CommentViewModel requireReadAllComment] completionBlock:^(id viewModel) {
         if ([viewModel success]) {
             [self headerBeginRefreshing];

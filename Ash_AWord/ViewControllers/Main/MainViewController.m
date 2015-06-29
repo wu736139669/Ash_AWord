@@ -507,7 +507,7 @@ static NSString *kMessageType = @"MessageType";
 - (void)jumpToChatList
 {
     if ([self.navigationController.topViewController isKindOfClass:[ChatMainViewController class]]) {
-        ChatMainViewController *chatController = (ChatMainViewController *)self.navigationController.topViewController;
+//        ChatMainViewController *chatController = (ChatMainViewController *)self.navigationController.topViewController;
 //        [chatController hideImagePicker];
     }
     else if(_myNav)
@@ -542,7 +542,7 @@ static NSString *kMessageType = @"MessageType";
     if (userInfo)
     {
         if ([self.navigationController.topViewController isKindOfClass:[ChatMainViewController class]]) {
-            ChatMainViewController *chatController = (ChatMainViewController *)self.navigationController.topViewController;
+//            ChatMainViewController *chatController = (ChatMainViewController *)self.navigationController.topViewController;
 //            [chatController hideImagePicker];
         }
         

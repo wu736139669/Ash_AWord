@@ -205,9 +205,15 @@
 #pragma mark 跳到App Store评价
 -(void)goBlackList
 {
-    BlackListViewController* blackListViewController = [[BlackListViewController alloc] init];
-    blackListViewController.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:blackListViewController animated:YES];
+    if (![AWordUser sharedInstance].isLogin)
+    {
+        [LoginViewController presentLoginViewControllerInView:self success:nil];
+    }else{
+        BlackListViewController* blackListViewController = [[BlackListViewController alloc] init];
+        blackListViewController.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:blackListViewController animated:YES];
+    }
+    
 }
 -(void)goMessageSet
 {

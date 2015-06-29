@@ -56,22 +56,28 @@
             for (NSString* userid  in dataArr) {
                 [uidArr addObject:userid];
             }
-            PropertyEntity* pro = [UserViewModel requireUserListWithUid:uidArr];
-            [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
-                
-                if ([viewModel success]) {
-                    _userArr = [NSMutableArray arrayWithArray:[(UserViewModel*)viewModel userBaseInfoArr]];
-                }
-                
+            if(uidArr.count > 0){
+                PropertyEntity* pro = [UserViewModel requireUserListWithUid:uidArr];
+                [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+                    
+                    if ([viewModel success]) {
+                        _userArr = [NSMutableArray arrayWithArray:[(UserViewModel*)viewModel userBaseInfoArr]];
+                    }
+                    
+                    [self.tableView reloadData];
+                    [self headerEndRefreshing];
+                } failedBlock:^(NSError *error) {
+                    [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
+                    
+                    [self.tableView reloadData];
+                    [self headerEndRefreshing];
+                }];
+  
+            }else{
                 [self.tableView reloadData];
                 [self headerEndRefreshing];
-            } failedBlock:^(NSError *error) {
-                [MBProgressHUD errorHudWithView:self.view label:kNetworkErrorTips hidesAfter:1.0];
-                
-                [self.tableView reloadData];
-                [self headerEndRefreshing];
-            }];
-
+            }
+          
 
         }
     } onQueue:nil];
