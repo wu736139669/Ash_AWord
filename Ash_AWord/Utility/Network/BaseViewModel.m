@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewModel.h"
-
+#import "AppDelegate.h"
+#import "MainViewController.h"
 @implementation BaseViewModel
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
@@ -23,8 +24,15 @@
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self != nil)
     {
-        [AWordUser sharedInstance].notReadCommentNum = _notReadCommentNum;
-        [AWordUser sharedInstance].myNewFollowerCount = _myNewFollowerCount;
+        if (_notReadCommentNum!=[AWordUser sharedInstance].notReadCommentNum || _myNewFollowerCount!=[AWordUser sharedInstance].myNewFollowerCount) {
+            [AWordUser sharedInstance].notReadCommentNum = _notReadCommentNum;
+            [AWordUser sharedInstance].myNewFollowerCount = _myNewFollowerCount;
+            [((AppDelegate*)[UIApplication sharedApplication].delegate).mainViewController setupUnreadMessageCount];
+        }else{
+            [AWordUser sharedInstance].notReadCommentNum = _notReadCommentNum;
+            [AWordUser sharedInstance].myNewFollowerCount = _myNewFollowerCount;
+        }
+
     }
     return self;
 }

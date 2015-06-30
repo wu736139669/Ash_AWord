@@ -129,6 +129,8 @@
                 }
                 return ;
             }
+            _text_Voice = [(MessageViewModel*)viewModel text_voice];
+
             [self initView];
             [self loadData];
             [self requirePraiseUser];

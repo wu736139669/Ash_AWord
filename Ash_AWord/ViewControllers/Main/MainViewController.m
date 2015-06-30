@@ -15,6 +15,7 @@
 #import "CallViewController.h"
 #import "EMCDDeviceManager.h"
 #import "AppDelegate.h"
+#import "UserViewModel.h"
 @interface MainViewController ()<UIAlertViewDelegate, IChatManagerDelegate, EMCallManagerDelegate>
 {
     UINavigationController* _noteNav;
@@ -436,10 +437,21 @@ static NSString *kMessageType = @"MessageType";
             }
             
             if (!isShowPicker){
-                [[EaseMob sharedInstance].callManager removeDelegate:self];
-                CallViewController *callController = [[CallViewController alloc] initWithSession:callSession isIncoming:YES withName:@"" withAvatar:@""];
-                callController.modalPresentationStyle = UIModalPresentationOverFullScreen;
-                [self presentViewController:callController animated:NO completion:nil];
+                
+                PropertyEntity* pro = [UserViewModel requireUserInfoWithTargetUid:callSession.sessionChatter];
+                [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+                    UserViewModel* userViewModel = (UserViewModel*)viewModel;
+                    if ([userViewModel success]) {
+
+                        [[EaseMob sharedInstance].callManager removeDelegate:self];
+                        CallViewController *callController = [[CallViewController alloc] initWithSession:callSession isIncoming:YES withName:userViewModel.userInfo.name withAvatar:userViewModel.userInfo.figureurl];
+                        callController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+                        [[AppDelegate visibleViewController].navigationController presentViewController:callController animated:NO completion:nil];
+                    }
+                } failedBlock:nil];
+
+                
+               
             }
         } while (0);
         
