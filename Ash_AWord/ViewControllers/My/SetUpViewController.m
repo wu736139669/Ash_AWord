@@ -123,6 +123,7 @@
     switch (indexPath.row) {
         case 0:
         {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.text = @"清除缓存";
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 SDImageCache *cache = [SDImageCache sharedImageCache];
@@ -145,8 +146,8 @@
             cell.textLabel.text = @"当前版本";
             NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
             NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-            NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
-            NSString *version = [NSString stringWithFormat:@"v%@(%@)",app_Version, buildVersion];
+//            NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+            NSString *version = [NSString stringWithFormat:@"v%@",app_Version];
             cell.detailTextLabel.text = version;
 
             if (!_isNewVersion) {
