@@ -24,8 +24,8 @@
 {
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
-    NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
-    NSString *version = [NSString stringWithFormat:@"%@.%@",app_Version, buildVersion];
+//    NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
+    NSString *version = [NSString stringWithFormat:@"%@",app_Version];
     return version;
 }
 + (NetworkType)networkType

@@ -15,8 +15,11 @@
 #import "LoginViewModel.h"
 #import "MessageSetViewController.h"
 #import "BlackListViewController.h"
+#import "UpdateViewModel.h"
 @interface SetUpViewController ()<UIAlertViewDelegate>
-
+{
+    BOOL _isNewVersion;
+}
 @end
 
 @implementation SetUpViewController
@@ -28,8 +31,29 @@
     self.navigationItem.title = @"设置";
     _tableView.dataSource = self;
     _tableView.delegate = self;
+    _isNewVersion = NO;
+    
+    [self checkUpdate];
 }
 
+-(void)checkUpdate
+{
+    PropertyEntity* pro = [UpdateViewModel requireUpdate];
+    [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
+        DLog(@"%@",viewModel);
+        UpdateViewModel* updateViewModel = (UpdateViewModel*)viewModel;
+        if ([updateViewModel success]) {
+            if (updateViewModel.needUpdate==1) {
+                _isNewVersion = YES;
+            }else{
+                _isNewVersion = NO;
+            }
+        }
+    } failedBlock:^(NSError *error) {
+        
+    }];
+
+}
 #pragma mark UITableViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -117,12 +141,17 @@
             break;
         case 2:
         {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.textLabel.text = @"当前版本";
             NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
             NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
             NSString *buildVersion = [infoDictionary objectForKey:@"CFBundleVersion"];
-            NSString *version = [NSString stringWithFormat:@"v%@.%@",app_Version, buildVersion];
+            NSString *version = [NSString stringWithFormat:@"v%@(%@)",app_Version, buildVersion];
             cell.detailTextLabel.text = version;
+
+            if (!_isNewVersion) {
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"当前已经是最新版%@",version];
+            }
         }
             break;
         case 3:
