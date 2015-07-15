@@ -71,8 +71,8 @@
 
 #define Ash_AWord_API_URL @"http://121.43.150.13/QuestionServer/rs/yjn/post"
 #define Ash_AWord_First_URL @"http://www.yujianni520.com"
-#define Ash_AWord_Share_URL @"http://www.yujianni520.com/QuestionServer/web"
-#define Ash_Aword_Base_URL @"http://www.yujianni520.com/QuestionServer"
+#define Ash_AWord_Share_URL @"http://admin.yujianni520.com/QuestionServer/web"
+#define Ash_Aword_Base_URL @"http://admin.yujianni520.com/QuestionServer"
 //#define Ash_AWord_API_URL @"http://192.168.1.3:8080/QuestionServer"
 #define Sign_Key @"yjn@jjyy123"
 
