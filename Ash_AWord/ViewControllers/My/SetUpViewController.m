@@ -356,7 +356,8 @@
         content = @"最真的表白，是我欲言又止的沉默";
     }
     if (url.length <= 0) {
-        NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+//        NSString *str = [NSString stringWithFormat:@"http://itunes.apple.com/us/app/id%d", kAppleID];
+        NSString* str = Ash_AWord_First_URL;
         url = str;
     }
 //    url = Ash_AWord_First_URL;
