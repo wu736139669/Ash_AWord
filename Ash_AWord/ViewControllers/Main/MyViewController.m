@@ -179,14 +179,14 @@
             {
                 [LoginViewController presentLoginViewControllerInView:self success:nil];
             }else{
-                if([AWordUser sharedInstance].loginType == 1)
-                {
-                    
+//                if([AWordUser sharedInstance].loginType == 1)
+//                {
+//                    
                     PersonalInfoViewController* personalInfoViewController = [[PersonalInfoViewController alloc] init];
                     personalInfoViewController.hidesBottomBarWhenPushed = YES;
                     personalInfoViewController.otherUserId = [AWordUser sharedInstance].uid;
                     [self.navigationController pushViewController:personalInfoViewController animated:YES];
-                }
+//                }
 
             }
 
