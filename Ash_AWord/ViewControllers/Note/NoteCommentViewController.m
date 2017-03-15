@@ -117,9 +117,11 @@
     PropertyEntity* pro = [NoteViewModel requireNoteWithRecordId:_recordId];
     [RequireEngine requireWithProperty:pro completionBlock:^(id viewModel) {
         if ([viewModel success]) {
-            if (_text_image) {
+            if (_text_image)
+            {
                 _text_image = [(NoteViewModel*)viewModel text_image];
-                if (_headView) {
+                if (_headView)
+                {
                     [_headView setText_Image:_text_image];
                 }
                 return ;

@@ -2559,7 +2559,7 @@
 		A95510841AC39E6A0006D16F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = ash;
 				TargetAttributes = {
 					A955108B1AC39E6A0006D16F = {
@@ -3080,6 +3080,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -3163,6 +3164,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/ViewControllers/Chat/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Ash_AWord/ViewControllers/Chat/VoiceConvert/opencore-amrwb",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ash.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b33bbace-362f-4f05-be3d-6af1812b44e0";
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
@@ -3195,6 +3197,7 @@
 					"$(PROJECT_DIR)/Ash_AWord/ViewControllers/Chat/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/Ash_AWord/ViewControllers/Chat/VoiceConvert/opencore-amrwb",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "ash.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "b33bbace-362f-4f05-be3d-6af1812b44e0";
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64";
